@@ -8,6 +8,8 @@ namespace Foradev
 {
     public class Forum
     {
+
+
         #region Champs et Propriétés
         private List<Rubrique> _ListDesRubriques {get; set; }
         private Utilisateur _Utilisateur { get; set; }
