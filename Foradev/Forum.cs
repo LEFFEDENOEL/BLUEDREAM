@@ -8,7 +8,7 @@ namespace Foradev
 {
     public class Forum
     {
-        //TODO
+       
         #region Champs et Propriétés
         private List<Rubrique> _ListDesRubriques {get; set; }
         private Utilisateur _Utilisateur { get; set; }

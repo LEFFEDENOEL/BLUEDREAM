@@ -14,7 +14,6 @@ namespace WinFormForadev
         [STAThread]
         static void Main()
         {
-            //TODO
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AccueilForum());
