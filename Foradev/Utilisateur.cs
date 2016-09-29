@@ -81,10 +81,7 @@ namespace Foradev
         #endregion
 
         #region Methodes
-
-        abstract public bool PosterReponse(Reponse reponse);
-        abstract public bool PosterSujet(Sujet sujet);
-
+        
         public static bool Identification(string login, string motdepasse)
         {
             //TODO
@@ -95,7 +92,6 @@ namespace Foradev
             //TODO
             return true;
         }
-
 
         #endregion
 

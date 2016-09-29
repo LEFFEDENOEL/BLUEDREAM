@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
-    public sealed class Moderateur : Utilisateur
+    public sealed class Moderateur : UtilisateurConnecte
     {
 
         #region Champs et Propriétés
@@ -35,22 +35,14 @@ namespace Foradev
 
         #region Methodes héritées et substituées
 
-
-        public override bool PosterReponse(Reponse reponse)
-        {
-            return true;
-        }
-
-        public override bool PosterSujet(Sujet sujet)
-        {
-            return true;
-        }
-
         public override string ToString()
         {
             return base.ToString();// TODO par rapport a ToString de Utilisateur mais pas obligé
         }
-
+        public override bool PosterMessage(Message Message)
+        {
+            return true;
+        }
 
         #endregion
 
