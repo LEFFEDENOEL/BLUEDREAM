@@ -14,7 +14,6 @@ namespace WinFormForadev
     {
         public AccueilForum()
         {
-            //TODO
             InitializeComponent();
         }
     }
