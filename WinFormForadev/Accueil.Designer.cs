@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -48,7 +47,7 @@
             this.dgvNewsletterSup = new System.Windows.Forms.DataGridView();
             this.gbxRubriquesMessagesInf = new System.Windows.Forms.GroupBox();
             this.btnSupprimerReponse = new System.Windows.Forms.Button();
-            this.btnEnvoyerReponse = new System.Windows.Forms.Button();
+            this.btnQuitter = new System.Windows.Forms.Button();
             this.txtbTexteReponse = new System.Windows.Forms.TextBox();
             this.lblTexteReponse = new System.Windows.Forms.Label();
             this.dgvNewsletterInf = new System.Windows.Forms.DataGridView();
@@ -63,7 +62,8 @@
             this.btnConnexion = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.tpInscription = new System.Windows.Forms.TabPage();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.lblInfoNouveauPasse = new System.Windows.Forms.Label();
+            this.lblInfoPasseInscription = new System.Windows.Forms.Label();
             this.flpInscription = new System.Windows.Forms.FlowLayoutPanel();
             this.lblNom = new System.Windows.Forms.Label();
             this.txtbNom = new System.Windows.Forms.TextBox();
@@ -76,14 +76,13 @@
             this.lblInscriptionPasse = new System.Windows.Forms.Label();
             this.txtbInscriptionPasse = new System.Windows.Forms.TextBox();
             this.btnValidInscription = new System.Windows.Forms.Button();
-            this.lblInfoPasseInscription = new System.Windows.Forms.Label();
             this.btnChangePass = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbNouveauPasse = new System.Windows.Forms.TextBox();
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
             this.btValidNouveauPasse = new System.Windows.Forms.Button();
-            this.lblInfoNouveauPasse = new System.Windows.Forms.Label();
+            this.btnPosterReponse = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -100,7 +99,6 @@
             this.tpConnexion.SuspendLayout();
             this.flpIdentification.SuspendLayout();
             this.tpInscription.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.flpInscription.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -256,7 +254,7 @@
             // lblTexteSujet
             // 
             this.lblTexteSujet.AutoSize = true;
-            this.lblTexteSujet.Location = new System.Drawing.Point(631, 187);
+            this.lblTexteSujet.Location = new System.Drawing.Point(631, 128);
             this.lblTexteSujet.Name = "lblTexteSujet";
             this.lblTexteSujet.Size = new System.Drawing.Size(222, 20);
             this.lblTexteSujet.TabIndex = 6;
@@ -264,7 +262,7 @@
             // 
             // txtbTitreSujet
             // 
-            this.txtbTitreSujet.Location = new System.Drawing.Point(631, 146);
+            this.txtbTitreSujet.Location = new System.Drawing.Point(634, 99);
             this.txtbTitreSujet.Name = "txtbTitreSujet";
             this.txtbTitreSujet.Size = new System.Drawing.Size(650, 26);
             this.txtbTitreSujet.TabIndex = 5;
@@ -273,7 +271,7 @@
             // 
             this.lblTitreSujetRubriquesMessages.AutoEllipsis = true;
             this.lblTitreSujetRubriquesMessages.AutoSize = true;
-            this.lblTitreSujetRubriquesMessages.Location = new System.Drawing.Point(631, 123);
+            this.lblTitreSujetRubriquesMessages.Location = new System.Drawing.Point(631, 76);
             this.lblTitreSujetRubriquesMessages.Name = "lblTitreSujetRubriquesMessages";
             this.lblTitreSujetRubriquesMessages.Size = new System.Drawing.Size(274, 20);
             this.lblTitreSujetRubriquesMessages.TabIndex = 3;
@@ -281,9 +279,10 @@
             // 
             // txtbTexteSujet
             // 
-            this.txtbTexteSujet.Location = new System.Drawing.Point(631, 210);
+            this.txtbTexteSujet.Location = new System.Drawing.Point(631, 151);
+            this.txtbTexteSujet.Multiline = true;
             this.txtbTexteSujet.Name = "txtbTexteSujet";
-            this.txtbTexteSujet.Size = new System.Drawing.Size(650, 26);
+            this.txtbTexteSujet.Size = new System.Drawing.Size(650, 85);
             this.txtbTexteSujet.TabIndex = 2;
             // 
             // btnAjoutSujet
@@ -311,8 +310,9 @@
             // gbxRubriquesMessagesInf
             // 
             this.gbxRubriquesMessagesInf.AutoSize = true;
+            this.gbxRubriquesMessagesInf.Controls.Add(this.btnPosterReponse);
             this.gbxRubriquesMessagesInf.Controls.Add(this.btnSupprimerReponse);
-            this.gbxRubriquesMessagesInf.Controls.Add(this.btnEnvoyerReponse);
+            this.gbxRubriquesMessagesInf.Controls.Add(this.btnQuitter);
             this.gbxRubriquesMessagesInf.Controls.Add(this.txtbTexteReponse);
             this.gbxRubriquesMessagesInf.Controls.Add(this.lblTexteReponse);
             this.gbxRubriquesMessagesInf.Controls.Add(this.dgvNewsletterInf);
@@ -337,24 +337,25 @@
             this.btnSupprimerReponse.Text = "Cliquez ici pour SUPPRIMER la réponse sélectionnée";
             this.btnSupprimerReponse.UseVisualStyleBackColor = true;
             // 
-            // btnEnvoyerReponse
+            // btnQuitter
             // 
-            this.btnEnvoyerReponse.AutoSize = true;
-            this.btnEnvoyerReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnEnvoyerReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnvoyerReponse.Location = new System.Drawing.Point(631, 296);
-            this.btnEnvoyerReponse.Name = "btnEnvoyerReponse";
-            this.btnEnvoyerReponse.Size = new System.Drawing.Size(650, 37);
-            this.btnEnvoyerReponse.TabIndex = 9;
-            this.btnEnvoyerReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
-            this.btnEnvoyerReponse.UseVisualStyleBackColor = true;
+            this.btnQuitter.AutoSize = true;
+            this.btnQuitter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitter.Location = new System.Drawing.Point(631, 296);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(650, 37);
+            this.btnQuitter.TabIndex = 9;
+            this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
+            this.btnQuitter.UseVisualStyleBackColor = true;
             // 
             // txtbTexteReponse
             // 
             this.txtbTexteReponse.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtbTexteReponse.Location = new System.Drawing.Point(631, 42);
+            this.txtbTexteReponse.Multiline = true;
             this.txtbTexteReponse.Name = "txtbTexteReponse";
-            this.txtbTexteReponse.Size = new System.Drawing.Size(650, 26);
+            this.txtbTexteReponse.Size = new System.Drawing.Size(650, 85);
             this.txtbTexteReponse.TabIndex = 8;
             // 
             // lblTexteReponse
@@ -504,6 +505,28 @@
             this.tpInscription.TabIndex = 7;
             this.tpInscription.Text = "Inscription";
             // 
+            // lblInfoNouveauPasse
+            // 
+            this.lblInfoNouveauPasse.AutoSize = true;
+            this.lblInfoNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(386, 412);
+            this.lblInfoNouveauPasse.Name = "lblInfoNouveauPasse";
+            this.lblInfoNouveauPasse.Size = new System.Drawing.Size(888, 18);
+            this.lblInfoNouveauPasse.TabIndex = 6;
+            this.lblInfoNouveauPasse.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
+    "1 chiffre minimum, 1 caractère spécial minimum";
+            // 
+            // lblInfoPasseInscription
+            // 
+            this.lblInfoPasseInscription.AutoSize = true;
+            this.lblInfoPasseInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoPasseInscription.Location = new System.Drawing.Point(386, 259);
+            this.lblInfoPasseInscription.Name = "lblInfoPasseInscription";
+            this.lblInfoPasseInscription.Size = new System.Drawing.Size(888, 18);
+            this.lblInfoPasseInscription.TabIndex = 5;
+            this.lblInfoPasseInscription.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
+    "1 chiffre minimum, 1 caractère spécial minimum";
+            // 
             // flpInscription
             // 
             this.flpInscription.BackColor = System.Drawing.Color.DarkGray;
@@ -628,17 +651,6 @@
             this.btnValidInscription.Text = "Cliquez ici pour valider";
             this.btnValidInscription.UseVisualStyleBackColor = true;
             // 
-            // lblInfoPasseInscription
-            // 
-            this.lblInfoPasseInscription.AutoSize = true;
-            this.lblInfoPasseInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoPasseInscription.Location = new System.Drawing.Point(386, 259);
-            this.lblInfoPasseInscription.Name = "lblInfoPasseInscription";
-            this.lblInfoPasseInscription.Size = new System.Drawing.Size(888, 18);
-            this.lblInfoPasseInscription.TabIndex = 5;
-            this.lblInfoPasseInscription.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
-    "1 chiffre minimum, 1 caractère spécial minimum";
-            // 
             // btnChangePass
             // 
             this.btnChangePass.AutoSize = true;
@@ -695,16 +707,17 @@
             this.btValidNouveauPasse.Text = "Cliquez ici pour valider le nouveau mot de passe";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
             // 
-            // lblInfoNouveauPasse
+            // btnPosterReponse
             // 
-            this.lblInfoNouveauPasse.AutoSize = true;
-            this.lblInfoNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(386, 412);
-            this.lblInfoNouveauPasse.Name = "lblInfoNouveauPasse";
-            this.lblInfoNouveauPasse.Size = new System.Drawing.Size(888, 18);
-            this.lblInfoNouveauPasse.TabIndex = 6;
-            this.lblInfoNouveauPasse.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
-    "1 chiffre minimum, 1 caractère spécial minimum";
+            this.btnPosterReponse.AutoSize = true;
+            this.btnPosterReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPosterReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosterReponse.Location = new System.Drawing.Point(631, 222);
+            this.btnPosterReponse.Name = "btnPosterReponse";
+            this.btnPosterReponse.Size = new System.Drawing.Size(650, 37);
+            this.btnPosterReponse.TabIndex = 11;
+            this.btnPosterReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
+            this.btnPosterReponse.UseVisualStyleBackColor = true;
             // 
             // AccueilForum
             // 
@@ -743,7 +756,6 @@
             this.flpIdentification.PerformLayout();
             this.tpInscription.ResumeLayout(false);
             this.tpInscription.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.flpInscription.ResumeLayout(false);
             this.flpInscription.PerformLayout();
             this.ResumeLayout(false);
@@ -779,7 +791,7 @@
         private System.Windows.Forms.Label lblTitreSujetRubriquesMessages;
         private System.Windows.Forms.TextBox txtbTexteSujet;
         private System.Windows.Forms.Button btnAjoutSujet;
-        private System.Windows.Forms.Button btnEnvoyerReponse;
+        private System.Windows.Forms.Button btnQuitter;
         private System.Windows.Forms.TextBox txtbTexteReponse;
         private System.Windows.Forms.Label lblTexteReponse;
         private System.Windows.Forms.Label lblListeRubriques;
@@ -787,7 +799,6 @@
         private System.Windows.Forms.Button btnModifierSujet;
         private System.Windows.Forms.Button btnSupprimerSujet;
         private System.Windows.Forms.Button btnSupprimerReponse;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label lblInfoPasseInscription;
         private System.Windows.Forms.FlowLayoutPanel flpInscription;
         private System.Windows.Forms.Label lblNom;
@@ -808,6 +819,7 @@
         private System.Windows.Forms.Label lblConfirmPass;
         private System.Windows.Forms.TextBox txtbConfirmNouveauPasse;
         private System.Windows.Forms.Button btValidNouveauPasse;
+        private System.Windows.Forms.Button btnPosterReponse;
     }
 }
 
