@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -50,8 +51,6 @@
             this.btnEnvoyerReponse = new System.Windows.Forms.Button();
             this.txtbTexteReponse = new System.Windows.Forms.TextBox();
             this.lblTexteReponse = new System.Windows.Forms.Label();
-            this.txtbSujetReponse = new System.Windows.Forms.TextBox();
-            this.lblTitreSujet = new System.Windows.Forms.Label();
             this.dgvNewsletterInf = new System.Windows.Forms.DataGridView();
             this.tpConnexion = new System.Windows.Forms.TabPage();
             this.lblInfoMdp = new System.Windows.Forms.Label();
@@ -64,6 +63,20 @@
             this.btnConnexion = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.tpInscription = new System.Windows.Forms.TabPage();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.flpInscription = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.txtbNom = new System.Windows.Forms.TextBox();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.txtbPrenom = new System.Windows.Forms.TextBox();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.txtbMail = new System.Windows.Forms.TextBox();
+            this.lblPseuso = new System.Windows.Forms.Label();
+            this.txtbPseudo = new System.Windows.Forms.TextBox();
+            this.lblInscriptionPasse = new System.Windows.Forms.Label();
+            this.txtbInscriptionPasse = new System.Windows.Forms.TextBox();
+            this.btnValidInscription = new System.Windows.Forms.Button();
+            this.lblInfoPasseInscription = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -79,6 +92,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewsletterInf)).BeginInit();
             this.tpConnexion.SuspendLayout();
             this.flpIdentification.SuspendLayout();
+            this.tpInscription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.flpInscription.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -93,7 +109,7 @@
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 1;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMain.Size = new System.Drawing.Size(1294, 803);
+            this.tlpMain.Size = new System.Drawing.Size(1310, 782);
             this.tlpMain.TabIndex = 0;
             // 
             // panelMain
@@ -104,7 +120,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(3, 3);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1288, 797);
+            this.panelMain.Size = new System.Drawing.Size(1304, 776);
             this.panelMain.TabIndex = 0;
             // 
             // gbxMain
@@ -116,7 +132,7 @@
             this.gbxMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxMain.Location = new System.Drawing.Point(0, 0);
             this.gbxMain.Name = "gbxMain";
-            this.gbxMain.Size = new System.Drawing.Size(1288, 797);
+            this.gbxMain.Size = new System.Drawing.Size(1304, 776);
             this.gbxMain.TabIndex = 0;
             this.gbxMain.TabStop = false;
             this.gbxMain.Text = "Navigation  FORADEV";
@@ -131,7 +147,7 @@
             this.tbcMain.Location = new System.Drawing.Point(3, 40);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(1282, 754);
+            this.tbcMain.Size = new System.Drawing.Size(1298, 733);
             this.tbcMain.TabIndex = 0;
             // 
             // tpAccesRubriquesMessages
@@ -142,7 +158,7 @@
             this.tpAccesRubriquesMessages.Location = new System.Drawing.Point(4, 33);
             this.tpAccesRubriquesMessages.Name = "tpAccesRubriquesMessages";
             this.tpAccesRubriquesMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccesRubriquesMessages.Size = new System.Drawing.Size(1274, 717);
+            this.tpAccesRubriquesMessages.Size = new System.Drawing.Size(1290, 696);
             this.tpAccesRubriquesMessages.TabIndex = 0;
             this.tpAccesRubriquesMessages.Text = "Rubriques et messages";
             // 
@@ -162,8 +178,8 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.gbxRubriquesMessagesInf);
-            this.splitContainer1.Size = new System.Drawing.Size(1268, 711);
-            this.splitContainer1.SplitterDistance = 391;
+            this.splitContainer1.Size = new System.Drawing.Size(1284, 690);
+            this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 0;
             // 
             // gbxRubriquesMessagesSup
@@ -183,7 +199,7 @@
             this.gbxRubriquesMessagesSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesSup.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesSup.Name = "gbxRubriquesMessagesSup";
-            this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1268, 391);
+            this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1284, 350);
             this.gbxRubriquesMessagesSup.TabIndex = 0;
             this.gbxRubriquesMessagesSup.TabStop = false;
             this.gbxRubriquesMessagesSup.Text = "Derniers sujets postés";
@@ -193,9 +209,9 @@
             this.btnModifierSujet.AutoSize = true;
             this.btnModifierSujet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnModifierSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierSujet.Location = new System.Drawing.Point(631, 277);
+            this.btnModifierSujet.Location = new System.Drawing.Point(631, 236);
             this.btnModifierSujet.Name = "btnModifierSujet";
-            this.btnModifierSujet.Size = new System.Drawing.Size(634, 37);
+            this.btnModifierSujet.Size = new System.Drawing.Size(650, 37);
             this.btnModifierSujet.TabIndex = 10;
             this.btnModifierSujet.Text = "Cliquez ici pour MODIFIER le sujet selectionné";
             this.btnModifierSujet.UseVisualStyleBackColor = true;
@@ -205,9 +221,9 @@
             this.btnSupprimerSujet.AutoSize = true;
             this.btnSupprimerSujet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSupprimerSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerSujet.Location = new System.Drawing.Point(631, 314);
+            this.btnSupprimerSujet.Location = new System.Drawing.Point(631, 273);
             this.btnSupprimerSujet.Name = "btnSupprimerSujet";
-            this.btnSupprimerSujet.Size = new System.Drawing.Size(634, 37);
+            this.btnSupprimerSujet.Size = new System.Drawing.Size(650, 37);
             this.btnSupprimerSujet.TabIndex = 9;
             this.btnSupprimerSujet.Text = "Cliquez ici pour SUPPRIMER le sujet sélectionné";
             this.btnSupprimerSujet.UseVisualStyleBackColor = true;
@@ -227,7 +243,7 @@
             this.cbxListeRubriques.FormattingEnabled = true;
             this.cbxListeRubriques.Location = new System.Drawing.Point(631, 45);
             this.cbxListeRubriques.Name = "cbxListeRubriques";
-            this.cbxListeRubriques.Size = new System.Drawing.Size(641, 28);
+            this.cbxListeRubriques.Size = new System.Drawing.Size(650, 28);
             this.cbxListeRubriques.TabIndex = 7;
             // 
             // lblTexteSujet
@@ -243,7 +259,7 @@
             // 
             this.txtbTitreSujet.Location = new System.Drawing.Point(631, 146);
             this.txtbTitreSujet.Name = "txtbTitreSujet";
-            this.txtbTitreSujet.Size = new System.Drawing.Size(641, 26);
+            this.txtbTitreSujet.Size = new System.Drawing.Size(650, 26);
             this.txtbTitreSujet.TabIndex = 5;
             // 
             // lblTitreSujetRubriquesMessages
@@ -260,7 +276,7 @@
             // 
             this.txtbTexteSujet.Location = new System.Drawing.Point(631, 210);
             this.txtbTexteSujet.Name = "txtbTexteSujet";
-            this.txtbTexteSujet.Size = new System.Drawing.Size(641, 26);
+            this.txtbTexteSujet.Size = new System.Drawing.Size(650, 26);
             this.txtbTexteSujet.TabIndex = 2;
             // 
             // btnAjoutSujet
@@ -268,9 +284,9 @@
             this.btnAjoutSujet.AutoSize = true;
             this.btnAjoutSujet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAjoutSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjoutSujet.Location = new System.Drawing.Point(631, 351);
+            this.btnAjoutSujet.Location = new System.Drawing.Point(631, 310);
             this.btnAjoutSujet.Name = "btnAjoutSujet";
-            this.btnAjoutSujet.Size = new System.Drawing.Size(634, 37);
+            this.btnAjoutSujet.Size = new System.Drawing.Size(650, 37);
             this.btnAjoutSujet.TabIndex = 1;
             this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
             this.btnAjoutSujet.UseVisualStyleBackColor = true;
@@ -282,7 +298,7 @@
             this.dgvNewsletterSup.Location = new System.Drawing.Point(3, 22);
             this.dgvNewsletterSup.Name = "dgvNewsletterSup";
             this.dgvNewsletterSup.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvNewsletterSup.Size = new System.Drawing.Size(628, 366);
+            this.dgvNewsletterSup.Size = new System.Drawing.Size(628, 325);
             this.dgvNewsletterSup.TabIndex = 0;
             // 
             // gbxRubriquesMessagesInf
@@ -292,14 +308,12 @@
             this.gbxRubriquesMessagesInf.Controls.Add(this.btnEnvoyerReponse);
             this.gbxRubriquesMessagesInf.Controls.Add(this.txtbTexteReponse);
             this.gbxRubriquesMessagesInf.Controls.Add(this.lblTexteReponse);
-            this.gbxRubriquesMessagesInf.Controls.Add(this.txtbSujetReponse);
-            this.gbxRubriquesMessagesInf.Controls.Add(this.lblTitreSujet);
             this.gbxRubriquesMessagesInf.Controls.Add(this.dgvNewsletterInf);
             this.gbxRubriquesMessagesInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxRubriquesMessagesInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesInf.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesInf.Name = "gbxRubriquesMessagesInf";
-            this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1268, 316);
+            this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1284, 336);
             this.gbxRubriquesMessagesInf.TabIndex = 0;
             this.gbxRubriquesMessagesInf.TabStop = false;
             this.gbxRubriquesMessagesInf.Text = "Réponses correspondantes au sujet sélectionné";
@@ -309,9 +323,9 @@
             this.btnSupprimerReponse.AutoSize = true;
             this.btnSupprimerReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSupprimerReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerReponse.Location = new System.Drawing.Point(631, 239);
+            this.btnSupprimerReponse.Location = new System.Drawing.Point(631, 259);
             this.btnSupprimerReponse.Name = "btnSupprimerReponse";
-            this.btnSupprimerReponse.Size = new System.Drawing.Size(634, 37);
+            this.btnSupprimerReponse.Size = new System.Drawing.Size(650, 37);
             this.btnSupprimerReponse.TabIndex = 10;
             this.btnSupprimerReponse.Text = "Cliquez ici pour SUPPRIMER la réponse sélectionnée";
             this.btnSupprimerReponse.UseVisualStyleBackColor = true;
@@ -321,47 +335,30 @@
             this.btnEnvoyerReponse.AutoSize = true;
             this.btnEnvoyerReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnEnvoyerReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnvoyerReponse.Location = new System.Drawing.Point(631, 276);
+            this.btnEnvoyerReponse.Location = new System.Drawing.Point(631, 296);
             this.btnEnvoyerReponse.Name = "btnEnvoyerReponse";
-            this.btnEnvoyerReponse.Size = new System.Drawing.Size(634, 37);
+            this.btnEnvoyerReponse.Size = new System.Drawing.Size(650, 37);
             this.btnEnvoyerReponse.TabIndex = 9;
             this.btnEnvoyerReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
             this.btnEnvoyerReponse.UseVisualStyleBackColor = true;
             // 
             // txtbTexteReponse
             // 
-            this.txtbTexteReponse.Location = new System.Drawing.Point(631, 107);
+            this.txtbTexteReponse.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtbTexteReponse.Location = new System.Drawing.Point(631, 42);
             this.txtbTexteReponse.Name = "txtbTexteReponse";
-            this.txtbTexteReponse.Size = new System.Drawing.Size(641, 26);
+            this.txtbTexteReponse.Size = new System.Drawing.Size(650, 26);
             this.txtbTexteReponse.TabIndex = 8;
             // 
             // lblTexteReponse
             // 
             this.lblTexteReponse.AutoSize = true;
-            this.lblTexteReponse.Location = new System.Drawing.Point(631, 84);
+            this.lblTexteReponse.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTexteReponse.Location = new System.Drawing.Point(631, 22);
             this.lblTexteReponse.Name = "lblTexteReponse";
             this.lblTexteReponse.Size = new System.Drawing.Size(322, 20);
             this.lblTexteReponse.TabIndex = 7;
             this.lblTexteReponse.Text = "Entrez ci-dessous le texte de votre réponse :";
-            // 
-            // txtbSujetReponse
-            // 
-            this.txtbSujetReponse.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtbSujetReponse.Location = new System.Drawing.Point(631, 42);
-            this.txtbSujetReponse.Name = "txtbSujetReponse";
-            this.txtbSujetReponse.Size = new System.Drawing.Size(634, 26);
-            this.txtbSujetReponse.TabIndex = 6;
-            // 
-            // lblTitreSujet
-            // 
-            this.lblTitreSujet.AutoEllipsis = true;
-            this.lblTitreSujet.AutoSize = true;
-            this.lblTitreSujet.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitreSujet.Location = new System.Drawing.Point(631, 22);
-            this.lblTitreSujet.Name = "lblTitreSujet";
-            this.lblTitreSujet.Size = new System.Drawing.Size(420, 20);
-            this.lblTitreSujet.TabIndex = 4;
-            this.lblTitreSujet.Text = "Entrez ci-dessous le titre du sujet auquel voulez répondre :";
             // 
             // dgvNewsletterInf
             // 
@@ -369,7 +366,7 @@
             this.dgvNewsletterInf.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvNewsletterInf.Location = new System.Drawing.Point(3, 22);
             this.dgvNewsletterInf.Name = "dgvNewsletterInf";
-            this.dgvNewsletterInf.Size = new System.Drawing.Size(628, 291);
+            this.dgvNewsletterInf.Size = new System.Drawing.Size(628, 311);
             this.dgvNewsletterInf.TabIndex = 0;
             // 
             // tpConnexion
@@ -383,7 +380,7 @@
             this.tpConnexion.Location = new System.Drawing.Point(4, 33);
             this.tpConnexion.Name = "tpConnexion";
             this.tpConnexion.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConnexion.Size = new System.Drawing.Size(1274, 717);
+            this.tpConnexion.Size = new System.Drawing.Size(1290, 696);
             this.tpConnexion.TabIndex = 6;
             this.tpConnexion.Text = "Connexion";
             // 
@@ -391,7 +388,7 @@
             // 
             this.lblInfoMdp.AutoSize = true;
             this.lblInfoMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoMdp.Location = new System.Drawing.Point(386, 98);
+            this.lblInfoMdp.Location = new System.Drawing.Point(386, 90);
             this.lblInfoMdp.Name = "lblInfoMdp";
             this.lblInfoMdp.Size = new System.Drawing.Size(872, 18);
             this.lblInfoMdp.TabIndex = 4;
@@ -402,7 +399,7 @@
             // 
             this.lblInfosLogin.AutoSize = true;
             this.lblInfosLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfosLogin.Location = new System.Drawing.Point(386, 43);
+            this.lblInfosLogin.Location = new System.Drawing.Point(386, 35);
             this.lblInfosLogin.Name = "lblInfosLogin";
             this.lblInfosLogin.Size = new System.Drawing.Size(846, 18);
             this.lblInfosLogin.TabIndex = 3;
@@ -425,7 +422,7 @@
             this.flpIdentification.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpIdentification.Location = new System.Drawing.Point(3, 3);
             this.flpIdentification.Name = "flpIdentification";
-            this.flpIdentification.Size = new System.Drawing.Size(377, 711);
+            this.flpIdentification.Size = new System.Drawing.Size(377, 690);
             this.flpIdentification.TabIndex = 1;
             // 
             // lblLogin
@@ -461,8 +458,10 @@
             this.txtbMdp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbMdp.Location = new System.Drawing.Point(3, 78);
             this.txtbMdp.Name = "txtbMdp";
+            this.txtbMdp.PasswordChar = '*';
             this.txtbMdp.Size = new System.Drawing.Size(367, 29);
             this.txtbMdp.TabIndex = 2;
+            this.txtbMdp.UseSystemPasswordChar = true;
             // 
             // btnConnexion
             // 
@@ -471,7 +470,7 @@
             this.btnConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnexion.Location = new System.Drawing.Point(3, 113);
             this.btnConnexion.Name = "btnConnexion";
-            this.btnConnexion.Size = new System.Drawing.Size(367, 34);
+            this.btnConnexion.Size = new System.Drawing.Size(367, 45);
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "GO !";
             this.btnConnexion.UseVisualStyleBackColor = true;
@@ -479,7 +478,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 159);
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 170);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 2;
             // 
@@ -487,13 +486,144 @@
             // 
             this.tpInscription.AutoScroll = true;
             this.tpInscription.BackColor = System.Drawing.Color.LightGray;
+            this.tpInscription.Controls.Add(this.lblInfoPasseInscription);
+            this.tpInscription.Controls.Add(this.flpInscription);
             this.tpInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpInscription.Location = new System.Drawing.Point(4, 33);
             this.tpInscription.Name = "tpInscription";
             this.tpInscription.Padding = new System.Windows.Forms.Padding(3);
-            this.tpInscription.Size = new System.Drawing.Size(1274, 717);
+            this.tpInscription.Size = new System.Drawing.Size(1290, 696);
             this.tpInscription.TabIndex = 7;
             this.tpInscription.Text = "Inscription";
+            // 
+            // flpInscription
+            // 
+            this.flpInscription.BackColor = System.Drawing.Color.DarkGray;
+            this.flpInscription.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpInscription.Controls.Add(this.lblNom);
+            this.flpInscription.Controls.Add(this.txtbNom);
+            this.flpInscription.Controls.Add(this.lblPrenom);
+            this.flpInscription.Controls.Add(this.txtbPrenom);
+            this.flpInscription.Controls.Add(this.lblMail);
+            this.flpInscription.Controls.Add(this.txtbMail);
+            this.flpInscription.Controls.Add(this.lblPseuso);
+            this.flpInscription.Controls.Add(this.txtbPseudo);
+            this.flpInscription.Controls.Add(this.lblInscriptionPasse);
+            this.flpInscription.Controls.Add(this.txtbInscriptionPasse);
+            this.flpInscription.Controls.Add(this.btnValidInscription);
+            this.flpInscription.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpInscription.Location = new System.Drawing.Point(3, 3);
+            this.flpInscription.Name = "flpInscription";
+            this.flpInscription.Size = new System.Drawing.Size(377, 690);
+            this.flpInscription.TabIndex = 0;
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Location = new System.Drawing.Point(3, 0);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(192, 20);
+            this.lblNom.TabIndex = 0;
+            this.lblNom.Text = "Veuillez entrer votre nom :";
+            // 
+            // txtbNom
+            // 
+            this.txtbNom.Location = new System.Drawing.Point(3, 23);
+            this.txtbNom.Name = "txtbNom";
+            this.txtbNom.Size = new System.Drawing.Size(361, 29);
+            this.txtbNom.TabIndex = 1;
+            // 
+            // lblPrenom
+            // 
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenom.Location = new System.Drawing.Point(3, 55);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(215, 20);
+            this.lblPrenom.TabIndex = 2;
+            this.lblPrenom.Text = "Veuillez entrer votre prénom :";
+            // 
+            // txtbPrenom
+            // 
+            this.txtbPrenom.Location = new System.Drawing.Point(3, 78);
+            this.txtbPrenom.Name = "txtbPrenom";
+            this.txtbPrenom.Size = new System.Drawing.Size(361, 29);
+            this.txtbPrenom.TabIndex = 3;
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMail.Location = new System.Drawing.Point(3, 110);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(250, 20);
+            this.lblMail.TabIndex = 4;
+            this.lblMail.Text = "Veuillez entrer votre adresse mail :";
+            // 
+            // txtbMail
+            // 
+            this.txtbMail.Location = new System.Drawing.Point(3, 133);
+            this.txtbMail.Name = "txtbMail";
+            this.txtbMail.Size = new System.Drawing.Size(361, 29);
+            this.txtbMail.TabIndex = 5;
+            // 
+            // lblPseuso
+            // 
+            this.lblPseuso.AutoSize = true;
+            this.lblPseuso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPseuso.Location = new System.Drawing.Point(3, 165);
+            this.lblPseuso.Name = "lblPseuso";
+            this.lblPseuso.Size = new System.Drawing.Size(214, 20);
+            this.lblPseuso.TabIndex = 6;
+            this.lblPseuso.Text = "Veuillez entrer votre pseudo :";
+            // 
+            // txtbPseudo
+            // 
+            this.txtbPseudo.Location = new System.Drawing.Point(3, 188);
+            this.txtbPseudo.Name = "txtbPseudo";
+            this.txtbPseudo.Size = new System.Drawing.Size(361, 29);
+            this.txtbPseudo.TabIndex = 7;
+            // 
+            // lblInscriptionPasse
+            // 
+            this.lblInscriptionPasse.AutoSize = true;
+            this.lblInscriptionPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInscriptionPasse.Location = new System.Drawing.Point(3, 220);
+            this.lblInscriptionPasse.Name = "lblInscriptionPasse";
+            this.lblInscriptionPasse.Size = new System.Drawing.Size(257, 20);
+            this.lblInscriptionPasse.TabIndex = 8;
+            this.lblInscriptionPasse.Text = "Veuillez entrer votre mot de passe :";
+            // 
+            // txtbInscriptionPasse
+            // 
+            this.txtbInscriptionPasse.Location = new System.Drawing.Point(3, 243);
+            this.txtbInscriptionPasse.Name = "txtbInscriptionPasse";
+            this.txtbInscriptionPasse.Size = new System.Drawing.Size(361, 29);
+            this.txtbInscriptionPasse.TabIndex = 9;
+            // 
+            // btnValidInscription
+            // 
+            this.btnValidInscription.AutoSize = true;
+            this.btnValidInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnValidInscription.Location = new System.Drawing.Point(3, 278);
+            this.btnValidInscription.Name = "btnValidInscription";
+            this.btnValidInscription.Size = new System.Drawing.Size(361, 45);
+            this.btnValidInscription.TabIndex = 10;
+            this.btnValidInscription.Text = "Cliquez ici pour valider";
+            this.btnValidInscription.UseVisualStyleBackColor = true;
+            // 
+            // lblInfoPasseInscription
+            // 
+            this.lblInfoPasseInscription.AutoSize = true;
+            this.lblInfoPasseInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoPasseInscription.Location = new System.Drawing.Point(386, 259);
+            this.lblInfoPasseInscription.Name = "lblInfoPasseInscription";
+            this.lblInfoPasseInscription.Size = new System.Drawing.Size(888, 18);
+            this.lblInfoPasseInscription.TabIndex = 5;
+            this.lblInfoPasseInscription.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
+    "1 chiffre minimum, 1 caractère spécial minimum";
             // 
             // AccueilForum
             // 
@@ -501,7 +631,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1294, 803);
+            this.ClientSize = new System.Drawing.Size(1310, 782);
             this.Controls.Add(this.tlpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AccueilForum";
@@ -530,6 +660,11 @@
             this.tpConnexion.PerformLayout();
             this.flpIdentification.ResumeLayout(false);
             this.flpIdentification.PerformLayout();
+            this.tpInscription.ResumeLayout(false);
+            this.tpInscription.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.flpInscription.ResumeLayout(false);
+            this.flpInscription.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,13 +701,25 @@
         private System.Windows.Forms.Button btnEnvoyerReponse;
         private System.Windows.Forms.TextBox txtbTexteReponse;
         private System.Windows.Forms.Label lblTexteReponse;
-        private System.Windows.Forms.TextBox txtbSujetReponse;
-        private System.Windows.Forms.Label lblTitreSujet;
         private System.Windows.Forms.Label lblListeRubriques;
         private System.Windows.Forms.ComboBox cbxListeRubriques;
         private System.Windows.Forms.Button btnModifierSujet;
         private System.Windows.Forms.Button btnSupprimerSujet;
         private System.Windows.Forms.Button btnSupprimerReponse;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Label lblInfoPasseInscription;
+        private System.Windows.Forms.FlowLayoutPanel flpInscription;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.TextBox txtbNom;
+        private System.Windows.Forms.Label lblPrenom;
+        private System.Windows.Forms.TextBox txtbPrenom;
+        private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.TextBox txtbMail;
+        private System.Windows.Forms.Label lblPseuso;
+        private System.Windows.Forms.TextBox txtbPseudo;
+        private System.Windows.Forms.Label lblInscriptionPasse;
+        private System.Windows.Forms.TextBox txtbInscriptionPasse;
+        private System.Windows.Forms.Button btnValidInscription;
     }
 }
 
