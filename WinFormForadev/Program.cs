@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foradev;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +20,13 @@ namespace WinFormForadev
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AccueilForum());
+
+            List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
+            foreach (Rubrique r in listeRubriques)
+            {
+                
+            }
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAOForadev;
+using Foradev;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,12 @@ namespace ConsoleForadev
     {
         static void Main(string[] args)
         {
+            List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
+            foreach (Rubrique r in listeRubriques)
+            {
+                Console.WriteLine(r);
+            }
+            Console.ReadKey();
         }
     }
 }
