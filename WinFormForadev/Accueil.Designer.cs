@@ -77,6 +77,13 @@
             this.txtbInscriptionPasse = new System.Windows.Forms.TextBox();
             this.btnValidInscription = new System.Windows.Forms.Button();
             this.lblInfoPasseInscription = new System.Windows.Forms.Label();
+            this.btnChangePass = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtbNouveauPasse = new System.Windows.Forms.TextBox();
+            this.lblConfirmPass = new System.Windows.Forms.Label();
+            this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
+            this.btValidNouveauPasse = new System.Windows.Forms.Button();
+            this.lblInfoNouveauPasse = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -486,6 +493,7 @@
             // 
             this.tpInscription.AutoScroll = true;
             this.tpInscription.BackColor = System.Drawing.Color.LightGray;
+            this.tpInscription.Controls.Add(this.lblInfoNouveauPasse);
             this.tpInscription.Controls.Add(this.lblInfoPasseInscription);
             this.tpInscription.Controls.Add(this.flpInscription);
             this.tpInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -511,6 +519,12 @@
             this.flpInscription.Controls.Add(this.lblInscriptionPasse);
             this.flpInscription.Controls.Add(this.txtbInscriptionPasse);
             this.flpInscription.Controls.Add(this.btnValidInscription);
+            this.flpInscription.Controls.Add(this.btnChangePass);
+            this.flpInscription.Controls.Add(this.label1);
+            this.flpInscription.Controls.Add(this.txtbNouveauPasse);
+            this.flpInscription.Controls.Add(this.lblConfirmPass);
+            this.flpInscription.Controls.Add(this.txtbConfirmNouveauPasse);
+            this.flpInscription.Controls.Add(this.btValidNouveauPasse);
             this.flpInscription.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpInscription.Location = new System.Drawing.Point(3, 3);
@@ -625,6 +639,73 @@
             this.lblInfoPasseInscription.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
     "1 chiffre minimum, 1 caractère spécial minimum";
             // 
+            // btnChangePass
+            // 
+            this.btnChangePass.AutoSize = true;
+            this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.Location = new System.Drawing.Point(3, 329);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(361, 45);
+            this.btnChangePass.TabIndex = 11;
+            this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
+            this.btnChangePass.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 377);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(299, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Veuillez entrer le nouveau mot de passe :";
+            // 
+            // txtbNouveauPasse
+            // 
+            this.txtbNouveauPasse.Location = new System.Drawing.Point(3, 400);
+            this.txtbNouveauPasse.Name = "txtbNouveauPasse";
+            this.txtbNouveauPasse.Size = new System.Drawing.Size(361, 29);
+            this.txtbNouveauPasse.TabIndex = 13;
+            // 
+            // lblConfirmPass
+            // 
+            this.lblConfirmPass.AutoSize = true;
+            this.lblConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPass.Location = new System.Drawing.Point(3, 432);
+            this.lblConfirmPass.Name = "lblConfirmPass";
+            this.lblConfirmPass.Size = new System.Drawing.Size(323, 20);
+            this.lblConfirmPass.TabIndex = 14;
+            this.lblConfirmPass.Text = "Veuillez confirmer le nouveau mot de passe :";
+            // 
+            // txtbConfirmNouveauPasse
+            // 
+            this.txtbConfirmNouveauPasse.Location = new System.Drawing.Point(3, 455);
+            this.txtbConfirmNouveauPasse.Name = "txtbConfirmNouveauPasse";
+            this.txtbConfirmNouveauPasse.Size = new System.Drawing.Size(361, 29);
+            this.txtbConfirmNouveauPasse.TabIndex = 15;
+            // 
+            // btValidNouveauPasse
+            // 
+            this.btValidNouveauPasse.AutoSize = true;
+            this.btValidNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btValidNouveauPasse.Location = new System.Drawing.Point(3, 490);
+            this.btValidNouveauPasse.Name = "btValidNouveauPasse";
+            this.btValidNouveauPasse.Size = new System.Drawing.Size(361, 45);
+            this.btValidNouveauPasse.TabIndex = 16;
+            this.btValidNouveauPasse.Text = "Cliquez ici pour valider le nouveau mot de passe";
+            this.btValidNouveauPasse.UseVisualStyleBackColor = true;
+            // 
+            // lblInfoNouveauPasse
+            // 
+            this.lblInfoNouveauPasse.AutoSize = true;
+            this.lblInfoNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(386, 412);
+            this.lblInfoNouveauPasse.Name = "lblInfoNouveauPasse";
+            this.lblInfoNouveauPasse.Size = new System.Drawing.Size(888, 18);
+            this.lblInfoNouveauPasse.TabIndex = 6;
+            this.lblInfoNouveauPasse.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
+    "1 chiffre minimum, 1 caractère spécial minimum";
+            // 
             // AccueilForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,6 +801,13 @@
         private System.Windows.Forms.Label lblInscriptionPasse;
         private System.Windows.Forms.TextBox txtbInscriptionPasse;
         private System.Windows.Forms.Button btnValidInscription;
+        private System.Windows.Forms.Label lblInfoNouveauPasse;
+        private System.Windows.Forms.Button btnChangePass;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtbNouveauPasse;
+        private System.Windows.Forms.Label lblConfirmPass;
+        private System.Windows.Forms.TextBox txtbConfirmNouveauPasse;
+        private System.Windows.Forms.Button btValidNouveauPasse;
     }
 }
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foradev", "Foradev\Foradev.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormForadev", "WinFormForadev\WinFormForadev.csproj", "{839FB37B-0D99-42D8-A1B0-0071CE16606F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOForadev", "DAOForadev\DAOForadev.csproj", "{8D011C59-AFA4-4158-B6DA-D1820DD332D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{839FB37B-0D99-42D8-A1B0-0071CE16606F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839FB37B-0D99-42D8-A1B0-0071CE16606F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839FB37B-0D99-42D8-A1B0-0071CE16606F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D011C59-AFA4-4158-B6DA-D1820DD332D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D011C59-AFA4-4158-B6DA-D1820DD332D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D011C59-AFA4-4158-B6DA-D1820DD332D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D011C59-AFA4-4158-B6DA-D1820DD332D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
