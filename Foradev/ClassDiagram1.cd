@@ -62,15 +62,15 @@
   <Class Name="Foradev.Rubrique">
     <Position X="6" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEACAAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Rubrique.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Foradev.Constantes">
+  <Class Name="Foradev.Constante">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Constantes.cs</FileName>
+      <HashCode>AAACAACAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Constante.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

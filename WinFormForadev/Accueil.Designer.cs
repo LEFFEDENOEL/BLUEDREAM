@@ -46,6 +46,8 @@
             this.btnAjoutSujet = new System.Windows.Forms.Button();
             this.dgvNewsletterSup = new System.Windows.Forms.DataGridView();
             this.gbxRubriquesMessagesInf = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnPosterReponse = new System.Windows.Forms.Button();
             this.btnSupprimerReponse = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.txtbTexteReponse = new System.Windows.Forms.TextBox();
@@ -82,8 +84,6 @@
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
             this.btValidNouveauPasse = new System.Windows.Forms.Button();
-            this.btnPosterReponse = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -115,7 +115,7 @@
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 1;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMain.Size = new System.Drawing.Size(1310, 782);
+            this.tlpMain.Size = new System.Drawing.Size(1227, 750);
             this.tlpMain.TabIndex = 0;
             // 
             // panelMain
@@ -126,7 +126,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(3, 3);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1304, 776);
+            this.panelMain.Size = new System.Drawing.Size(1221, 744);
             this.panelMain.TabIndex = 0;
             // 
             // gbxMain
@@ -138,7 +138,7 @@
             this.gbxMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxMain.Location = new System.Drawing.Point(0, 0);
             this.gbxMain.Name = "gbxMain";
-            this.gbxMain.Size = new System.Drawing.Size(1304, 776);
+            this.gbxMain.Size = new System.Drawing.Size(1221, 744);
             this.gbxMain.TabIndex = 0;
             this.gbxMain.TabStop = false;
             this.gbxMain.Text = "Navigation  FORADEV";
@@ -153,7 +153,7 @@
             this.tbcMain.Location = new System.Drawing.Point(3, 40);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(1298, 733);
+            this.tbcMain.Size = new System.Drawing.Size(1215, 701);
             this.tbcMain.TabIndex = 0;
             // 
             // tpAccesRubriquesMessages
@@ -164,7 +164,7 @@
             this.tpAccesRubriquesMessages.Location = new System.Drawing.Point(4, 33);
             this.tpAccesRubriquesMessages.Name = "tpAccesRubriquesMessages";
             this.tpAccesRubriquesMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccesRubriquesMessages.Size = new System.Drawing.Size(1290, 696);
+            this.tpAccesRubriquesMessages.Size = new System.Drawing.Size(1207, 664);
             this.tpAccesRubriquesMessages.TabIndex = 0;
             this.tpAccesRubriquesMessages.Text = "Rubriques et messages";
             // 
@@ -184,8 +184,8 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.gbxRubriquesMessagesInf);
-            this.splitContainer1.Size = new System.Drawing.Size(1284, 690);
-            this.splitContainer1.SplitterDistance = 330;
+            this.splitContainer1.Size = new System.Drawing.Size(1201, 658);
+            this.splitContainer1.SplitterDistance = 315;
             this.splitContainer1.TabIndex = 0;
             // 
             // gbxRubriquesMessagesSup
@@ -205,7 +205,7 @@
             this.gbxRubriquesMessagesSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesSup.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesSup.Name = "gbxRubriquesMessagesSup";
-            this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1284, 330);
+            this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1201, 315);
             this.gbxRubriquesMessagesSup.TabIndex = 0;
             this.gbxRubriquesMessagesSup.TabStop = false;
             this.gbxRubriquesMessagesSup.Text = "Derniers sujets postés";
@@ -215,9 +215,9 @@
             this.btnModifierSujet.AutoSize = true;
             this.btnModifierSujet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnModifierSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierSujet.Location = new System.Drawing.Point(631, 216);
+            this.btnModifierSujet.Location = new System.Drawing.Point(631, 201);
             this.btnModifierSujet.Name = "btnModifierSujet";
-            this.btnModifierSujet.Size = new System.Drawing.Size(650, 37);
+            this.btnModifierSujet.Size = new System.Drawing.Size(567, 37);
             this.btnModifierSujet.TabIndex = 10;
             this.btnModifierSujet.Text = "Cliquez ici pour MODIFIER le sujet selectionné";
             this.btnModifierSujet.UseVisualStyleBackColor = true;
@@ -227,9 +227,9 @@
             this.btnSupprimerSujet.AutoSize = true;
             this.btnSupprimerSujet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSupprimerSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerSujet.Location = new System.Drawing.Point(631, 253);
+            this.btnSupprimerSujet.Location = new System.Drawing.Point(631, 238);
             this.btnSupprimerSujet.Name = "btnSupprimerSujet";
-            this.btnSupprimerSujet.Size = new System.Drawing.Size(650, 37);
+            this.btnSupprimerSujet.Size = new System.Drawing.Size(567, 37);
             this.btnSupprimerSujet.TabIndex = 9;
             this.btnSupprimerSujet.Text = "Cliquez ici pour SUPPRIMER le sujet sélectionné";
             this.btnSupprimerSujet.UseVisualStyleBackColor = true;
@@ -291,9 +291,9 @@
             this.btnAjoutSujet.AutoSize = true;
             this.btnAjoutSujet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAjoutSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjoutSujet.Location = new System.Drawing.Point(631, 290);
+            this.btnAjoutSujet.Location = new System.Drawing.Point(631, 275);
             this.btnAjoutSujet.Name = "btnAjoutSujet";
-            this.btnAjoutSujet.Size = new System.Drawing.Size(650, 37);
+            this.btnAjoutSujet.Size = new System.Drawing.Size(567, 37);
             this.btnAjoutSujet.TabIndex = 1;
             this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
             this.btnAjoutSujet.UseVisualStyleBackColor = true;
@@ -305,7 +305,7 @@
             this.dgvNewsletterSup.Location = new System.Drawing.Point(3, 22);
             this.dgvNewsletterSup.Name = "dgvNewsletterSup";
             this.dgvNewsletterSup.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvNewsletterSup.Size = new System.Drawing.Size(628, 305);
+            this.dgvNewsletterSup.Size = new System.Drawing.Size(628, 290);
             this.dgvNewsletterSup.TabIndex = 0;
             // 
             // gbxRubriquesMessagesInf
@@ -322,19 +322,44 @@
             this.gbxRubriquesMessagesInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesInf.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesInf.Name = "gbxRubriquesMessagesInf";
-            this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1284, 356);
+            this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1201, 339);
             this.gbxRubriquesMessagesInf.TabIndex = 0;
             this.gbxRubriquesMessagesInf.TabStop = false;
             this.gbxRubriquesMessagesInf.Text = "Réponses correspondantes au sujet sélectionné";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.AutoSize = true;
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(631, 188);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(567, 37);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.Text = "Rafraîchir les réponses";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+
+            // 
+            // btnPosterReponse
+            // 
+            this.btnPosterReponse.AutoSize = true;
+            this.btnPosterReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPosterReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosterReponse.Location = new System.Drawing.Point(631, 225);
+            this.btnPosterReponse.Name = "btnPosterReponse";
+            this.btnPosterReponse.Size = new System.Drawing.Size(567, 37);
+            this.btnPosterReponse.TabIndex = 11;
+            this.btnPosterReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
+            this.btnPosterReponse.UseVisualStyleBackColor = true;
             // 
             // btnSupprimerReponse
             // 
             this.btnSupprimerReponse.AutoSize = true;
             this.btnSupprimerReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSupprimerReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerReponse.Location = new System.Drawing.Point(631, 279);
+            this.btnSupprimerReponse.Location = new System.Drawing.Point(631, 262);
             this.btnSupprimerReponse.Name = "btnSupprimerReponse";
-            this.btnSupprimerReponse.Size = new System.Drawing.Size(650, 37);
+            this.btnSupprimerReponse.Size = new System.Drawing.Size(567, 37);
             this.btnSupprimerReponse.TabIndex = 10;
             this.btnSupprimerReponse.Text = "Cliquez ici pour SUPPRIMER la réponse sélectionnée";
             this.btnSupprimerReponse.UseVisualStyleBackColor = true;
@@ -344,9 +369,9 @@
             this.btnQuitter.AutoSize = true;
             this.btnQuitter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitter.Location = new System.Drawing.Point(631, 316);
+            this.btnQuitter.Location = new System.Drawing.Point(631, 299);
             this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(650, 37);
+            this.btnQuitter.Size = new System.Drawing.Size(567, 37);
             this.btnQuitter.TabIndex = 9;
             this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitter.UseVisualStyleBackColor = true;
@@ -357,7 +382,7 @@
             this.txtbTexteReponse.Location = new System.Drawing.Point(631, 42);
             this.txtbTexteReponse.Multiline = true;
             this.txtbTexteReponse.Name = "txtbTexteReponse";
-            this.txtbTexteReponse.Size = new System.Drawing.Size(650, 85);
+            this.txtbTexteReponse.Size = new System.Drawing.Size(567, 85);
             this.txtbTexteReponse.TabIndex = 8;
             // 
             // lblTexteReponse
@@ -376,7 +401,7 @@
             this.dgvNewsletterInf.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvNewsletterInf.Location = new System.Drawing.Point(3, 22);
             this.dgvNewsletterInf.Name = "dgvNewsletterInf";
-            this.dgvNewsletterInf.Size = new System.Drawing.Size(628, 331);
+            this.dgvNewsletterInf.Size = new System.Drawing.Size(628, 314);
             this.dgvNewsletterInf.TabIndex = 0;
             // 
             // tpConnexion
@@ -390,7 +415,7 @@
             this.tpConnexion.Location = new System.Drawing.Point(4, 33);
             this.tpConnexion.Name = "tpConnexion";
             this.tpConnexion.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConnexion.Size = new System.Drawing.Size(1290, 696);
+            this.tpConnexion.Size = new System.Drawing.Size(1207, 664);
             this.tpConnexion.TabIndex = 6;
             this.tpConnexion.Text = "Connexion";
             // 
@@ -432,7 +457,7 @@
             this.flpIdentification.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpIdentification.Location = new System.Drawing.Point(3, 3);
             this.flpIdentification.Name = "flpIdentification";
-            this.flpIdentification.Size = new System.Drawing.Size(377, 690);
+            this.flpIdentification.Size = new System.Drawing.Size(377, 641);
             this.flpIdentification.TabIndex = 1;
             // 
             // lblLogin
@@ -503,7 +528,7 @@
             this.tpInscription.Location = new System.Drawing.Point(4, 33);
             this.tpInscription.Name = "tpInscription";
             this.tpInscription.Padding = new System.Windows.Forms.Padding(3);
-            this.tpInscription.Size = new System.Drawing.Size(1290, 696);
+            this.tpInscription.Size = new System.Drawing.Size(1207, 664);
             this.tpInscription.TabIndex = 7;
             this.tpInscription.Text = "Inscription";
             // 
@@ -554,7 +579,7 @@
             this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpInscription.Location = new System.Drawing.Point(3, 3);
             this.flpInscription.Name = "flpInscription";
-            this.flpInscription.Size = new System.Drawing.Size(377, 690);
+            this.flpInscription.Size = new System.Drawing.Size(377, 641);
             this.flpInscription.TabIndex = 0;
             // 
             // lblNom
@@ -709,37 +734,13 @@
             this.btValidNouveauPasse.Text = "Cliquez ici pour valider le nouveau mot de passe";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
             // 
-            // btnPosterReponse
-            // 
-            this.btnPosterReponse.AutoSize = true;
-            this.btnPosterReponse.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPosterReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPosterReponse.Location = new System.Drawing.Point(631, 242);
-            this.btnPosterReponse.Name = "btnPosterReponse";
-            this.btnPosterReponse.Size = new System.Drawing.Size(650, 37);
-            this.btnPosterReponse.TabIndex = 11;
-            this.btnPosterReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
-            this.btnPosterReponse.UseVisualStyleBackColor = true;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.AutoSize = true;
-            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(631, 205);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(650, 37);
-            this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.Text = "Rafraîchir les réponses";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            // 
             // AccueilForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1310, 782);
+            this.ClientSize = new System.Drawing.Size(1227, 750);
             this.Controls.Add(this.tlpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AccueilForum";

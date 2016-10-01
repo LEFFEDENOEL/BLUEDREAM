@@ -59,5 +59,22 @@ namespace DAOForadev
                 return listeRubriques;
             }
         }
+
+        //TODO
+
+        //public static List<Rubrique> GetConstantes()
+        //{
+        //    using (DataSet dSet = RecupereDataSet("GETCONSTANTE", new List<SqlParameter>()))
+        //    {
+        //        List<Rubrique> listeConstantes = new List<Constante>();
+
+        //        foreach (DataRow dRow in dSet.Tables[0].Rows)
+        //        {
+        //            listeConstantes.Add(new Rubrique(Int32.Parse(dRow["ID_REFERENCE"].ToString()), dRow["REFERENCE"].ToString()), dRow["VALEUR"].ToString()));
+        //        }
+        //        return listeConstantes;
+        //    }
+        //}
+
     }
 }

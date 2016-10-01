@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAOForadev\DAOForadev.csproj">
+      <Project>{8d011c59-afa4-4158-b6da-d1820dd332d6}</Project>
+      <Name>DAOForadev</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Foradev\Foradev.csproj">
       <Project>{9d3b5967-da56-4381-a1a3-9a4d97cad44b}</Project>
       <Name>Foradev</Name>

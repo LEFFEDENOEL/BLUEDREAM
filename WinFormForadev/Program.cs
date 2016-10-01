@@ -21,11 +21,7 @@ namespace WinFormForadev
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AccueilForum());
 
-            List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
-            foreach (Rubrique r in listeRubriques)
-            {
-                
-            }
+
 
         }
     }

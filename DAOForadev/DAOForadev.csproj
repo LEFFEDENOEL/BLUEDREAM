@@ -48,10 +48,6 @@
       <Project>{9d3b5967-da56-4381-a1a3-9a4d97cad44b}</Project>
       <Name>Foradev</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WinFormForadev\WinFormForadev.csproj">
-      <Project>{839fb37b-0d99-42d8-a1b0-0071ce16606f}</Project>
-      <Name>WinFormForadev</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
