@@ -21,14 +21,29 @@ namespace WinFormForadev
 
             // TODO Methode
 
+            //Appel de la liste créé dans la classe d'accés aux données
             List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
 
+            //Alimentation du bindingsource avec la liste créé par la méthode GetRubriques()
             BindingSource bsRubriques = new BindingSource();
             bsRubriques.DataSource = listeRubriques;
+            //Affectation de la combobox
             cbxListeRubriques.DataSource = bsRubriques.DataSource;
             cbxListeRubriques.DataSource = listeRubriques;
             cbxListeRubriques.DisplayMember = "NOM_RUBRIQUE";
 
         }
+
+        //private void cbxListeRubriques_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    string rubriqueChoisie = (string)cbxListeRubriques.SelectedItem;
+
+        //    List<Sujet> listeSujets = DAOPrincipale.GetSujets();
+        //    BindingSource bsSujets = new BindingSource();
+        //    bsSujets.DataSource = listeSujets;
+        //    dgvSujets.DataSource = bsSujets.DataSource;
+        //    dgvSujets.DataSource = listeSujets;
+
+        //}
     }
 }

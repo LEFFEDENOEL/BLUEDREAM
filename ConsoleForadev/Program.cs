@@ -12,10 +12,17 @@ namespace ConsoleForadev
     {
         static void Main(string[] args)
         {
-            List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
-            foreach (Rubrique r in listeRubriques)
+            //List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
+            //foreach (Rubrique r in listeRubriques)
+            //{
+            //    Console.WriteLine(r);
+            //}
+            //Console.ReadKey();
+
+            List<Sujet> listeSujets = DAOPrincipale.GetSujets();
+            foreach (Sujet s in listeSujets)
             {
-                Console.WriteLine(r);
+                Console.WriteLine(s);
             }
             Console.ReadKey();
         }

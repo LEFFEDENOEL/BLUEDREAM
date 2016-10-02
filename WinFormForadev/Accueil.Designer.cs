@@ -44,7 +44,7 @@
             this.lblTitreSujetRubriquesMessages = new System.Windows.Forms.Label();
             this.txtbTexteSujet = new System.Windows.Forms.TextBox();
             this.btnAjoutSujet = new System.Windows.Forms.Button();
-            this.dgvNewsletterSup = new System.Windows.Forms.DataGridView();
+            this.dgvSujets = new System.Windows.Forms.DataGridView();
             this.gbxRubriquesMessagesInf = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPosterReponse = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.btnQuitter = new System.Windows.Forms.Button();
             this.txtbTexteReponse = new System.Windows.Forms.TextBox();
             this.lblTexteReponse = new System.Windows.Forms.Label();
-            this.dgvNewsletterInf = new System.Windows.Forms.DataGridView();
+            this.dgvReponses = new System.Windows.Forms.DataGridView();
             this.tpConnexion = new System.Windows.Forms.TabPage();
             this.lblInfoMdp = new System.Windows.Forms.Label();
             this.lblInfosLogin = new System.Windows.Forms.Label();
@@ -94,9 +94,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.gbxRubriquesMessagesSup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNewsletterSup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSujets)).BeginInit();
             this.gbxRubriquesMessagesInf.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNewsletterInf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).BeginInit();
             this.tpConnexion.SuspendLayout();
             this.flpIdentification.SuspendLayout();
             this.tpInscription.SuspendLayout();
@@ -200,7 +200,7 @@
             this.gbxRubriquesMessagesSup.Controls.Add(this.lblTitreSujetRubriquesMessages);
             this.gbxRubriquesMessagesSup.Controls.Add(this.txtbTexteSujet);
             this.gbxRubriquesMessagesSup.Controls.Add(this.btnAjoutSujet);
-            this.gbxRubriquesMessagesSup.Controls.Add(this.dgvNewsletterSup);
+            this.gbxRubriquesMessagesSup.Controls.Add(this.dgvSujets);
             this.gbxRubriquesMessagesSup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxRubriquesMessagesSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesSup.Location = new System.Drawing.Point(0, 0);
@@ -246,6 +246,7 @@
             // 
             // cbxListeRubriques
             // 
+            this.cbxListeRubriques.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxListeRubriques.FormattingEnabled = true;
             this.cbxListeRubriques.Location = new System.Drawing.Point(631, 45);
             this.cbxListeRubriques.Name = "cbxListeRubriques";
@@ -298,15 +299,15 @@
             this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
             this.btnAjoutSujet.UseVisualStyleBackColor = true;
             // 
-            // dgvNewsletterSup
+            // dgvSujets
             // 
-            this.dgvNewsletterSup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNewsletterSup.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvNewsletterSup.Location = new System.Drawing.Point(3, 22);
-            this.dgvNewsletterSup.Name = "dgvNewsletterSup";
-            this.dgvNewsletterSup.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvNewsletterSup.Size = new System.Drawing.Size(628, 290);
-            this.dgvNewsletterSup.TabIndex = 0;
+            this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvSujets.Location = new System.Drawing.Point(3, 22);
+            this.dgvSujets.Name = "dgvSujets";
+            this.dgvSujets.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvSujets.Size = new System.Drawing.Size(628, 290);
+            this.dgvSujets.TabIndex = 0;
             // 
             // gbxRubriquesMessagesInf
             // 
@@ -317,7 +318,7 @@
             this.gbxRubriquesMessagesInf.Controls.Add(this.btnQuitter);
             this.gbxRubriquesMessagesInf.Controls.Add(this.txtbTexteReponse);
             this.gbxRubriquesMessagesInf.Controls.Add(this.lblTexteReponse);
-            this.gbxRubriquesMessagesInf.Controls.Add(this.dgvNewsletterInf);
+            this.gbxRubriquesMessagesInf.Controls.Add(this.dgvReponses);
             this.gbxRubriquesMessagesInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxRubriquesMessagesInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesInf.Location = new System.Drawing.Point(0, 0);
@@ -338,7 +339,6 @@
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Rafraîchir les réponses";
             this.btnRefresh.UseVisualStyleBackColor = true;
-
             // 
             // btnPosterReponse
             // 
@@ -395,14 +395,14 @@
             this.lblTexteReponse.TabIndex = 7;
             this.lblTexteReponse.Text = "Entrez ci-dessous le texte de votre réponse :";
             // 
-            // dgvNewsletterInf
+            // dgvReponses
             // 
-            this.dgvNewsletterInf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNewsletterInf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvNewsletterInf.Location = new System.Drawing.Point(3, 22);
-            this.dgvNewsletterInf.Name = "dgvNewsletterInf";
-            this.dgvNewsletterInf.Size = new System.Drawing.Size(628, 314);
-            this.dgvNewsletterInf.TabIndex = 0;
+            this.dgvReponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReponses.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvReponses.Location = new System.Drawing.Point(3, 22);
+            this.dgvReponses.Name = "dgvReponses";
+            this.dgvReponses.Size = new System.Drawing.Size(628, 314);
+            this.dgvReponses.TabIndex = 0;
             // 
             // tpConnexion
             // 
@@ -761,10 +761,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.gbxRubriquesMessagesSup.ResumeLayout(false);
             this.gbxRubriquesMessagesSup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNewsletterSup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSujets)).EndInit();
             this.gbxRubriquesMessagesInf.ResumeLayout(false);
             this.gbxRubriquesMessagesInf.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNewsletterInf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).EndInit();
             this.tpConnexion.ResumeLayout(false);
             this.tpConnexion.PerformLayout();
             this.flpIdentification.ResumeLayout(false);
@@ -787,9 +787,9 @@
         private System.Windows.Forms.TabPage tpAccesRubriquesMessages;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox gbxRubriquesMessagesSup;
-        private System.Windows.Forms.DataGridView dgvNewsletterSup;
+        private System.Windows.Forms.DataGridView dgvSujets;
         private System.Windows.Forms.GroupBox gbxRubriquesMessagesInf;
-        private System.Windows.Forms.DataGridView dgvNewsletterInf;
+        private System.Windows.Forms.DataGridView dgvReponses;
         private System.Windows.Forms.TabPage tpConnexion;
         private System.Windows.Forms.Label lblInfoMdp;
         private System.Windows.Forms.Label lblInfosLogin;

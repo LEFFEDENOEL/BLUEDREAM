@@ -60,6 +60,26 @@ namespace DAOForadev
             }
         }
 
+        public static List<Sujet> GetSujets()
+        {
+            using (DataSet dSet = RecupereDataSet("GETSUJET", new List<SqlParameter>()))
+            {
+                List<Sujet> listeSujets = new List<Sujet>();
+
+                foreach (DataRow dRow in dSet.Tables[0].Rows)
+                {
+                    //listeSujets.Add(new Sujet(dRow["NOMUTILISATEUR"].ToString()), dRow["DTESUJET"].ToString(), dRow["NOMRUBRIQUE"].ToString(),
+                    //               (Int32.Parse(dRow["ID_SUJET"].ToString())), dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString());
+
+                    //listeSujets.Add(new Sujet(Int32.Parse(dRow["ID_SUJET"].ToString()), dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
+                    listeSujets.Add(new Sujet(dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
+                }
+                return listeSujets;
+            }
+        }
+
+
+
         //TODO
 
         //public static List<Rubrique> GetConstantes()

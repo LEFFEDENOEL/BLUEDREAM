@@ -28,7 +28,6 @@ namespace Foradev
             set { _TextMessage = value; }
         }
 
-
         #endregion
 
         #region Constructeurs
@@ -49,10 +48,15 @@ namespace Foradev
 
         #region Methodes héritées et substituées
 
-        public override string ToString()
-        {
-            return "Utilisateur : " + Utilisateur.Nom + "Date du message : " + DateMessage + "Texte du message : " + TextMessage;
-        }
+        //public override string ToString()
+        //{
+        //    return "Utilisateur : " + Utilisateur.Nom + "Date du message : " + DateMessage + "Texte du message : " + TextMessage;
+        //}
+        //public override string ToString()
+        //{
+        //    return  TextMessage;
+        //}
+
         #endregion
 
         #region Methodes à implementer pour les interfaces
