@@ -19,7 +19,7 @@ namespace Foradev
             set { _IdSujet = value; }
         }
 
-        private Rubrique _Rubrique { get; set; }
+        public Rubrique _Rubrique { get; set; }
 
         private List<Reponse> _Reponse { get; set; }
 

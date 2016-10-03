@@ -21,7 +21,7 @@ namespace DAOForadev
         //System.Data.SqlClient.SqlConnection connex = new System.Data.SqlClient.SqlConnection();
         //string connex = "Data Source=176.31.114.215;Initial Catalog=user05;Persist Security Info=True;User ID=user04;Password=456user04";
 
-        public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSQLParam)
+        public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
             using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
             {
@@ -34,7 +34,7 @@ namespace DAOForadev
                         cmd.CommandText = nomProcedureStockee;
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        foreach (SqlParameter sqlParam in listeSQLParam)
+                        foreach (SqlParameter sqlParam in listeSqlParam)
                         {
                             cmd.Parameters.Add(sqlParam);
                         }
@@ -74,9 +74,9 @@ namespace DAOForadev
 
         public static Rubrique BuildRubriqueByNomRubrique(string nomRubrique)
         {
-            List<SqlParameter> lSP = new List<SqlParameter>();
-            lSP.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
-            using (DataSet dSet = GetDataSet("FINDRUBRIQUEBYNOMRUBRIQUE", lSP))
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
+            using (DataSet dSet = GetDataSet("BUILDRUBRIQUEBYNOMRUBRIQUE", listeSqlParam))
             {
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
@@ -85,39 +85,39 @@ namespace DAOForadev
                 return new Rubrique((int)dR["ID_RUBRIQUE"], dR["NOM_RUBRIQUE"].ToString());
             }
         }
-        public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomRubrique)
+
+        public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
-            List<SqlParameter> lSP = new List<SqlParameter>();
-            lSP.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
-            using (DataSet dSet = GetDataSet("FINDRUBRIQUEBYNOMRUBRIQUE", lSP))
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("NOMUTILISATEUR", nomUtilisateur));
+            using (DataSet dSet = GetDataSet("BUILDUTILISATEURBYNOMUTILISATEUR", listeSqlParam))
             {
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
                 DataRow dR = dSet.Tables[0].Rows[0];
 
-                return new UtilisateurNonConnecte(dR["NOM"].ToString(), dR["PRENOM"].ToString(), dR["MAIL"].ToString());
+                return new UtilisateurNonConnecte(dR["NOM"].ToString(), dR["PRENOM"].ToString(), dR["PSEUDO"].ToString(), (DateTime)dR["DATE"]);
             }
         }
 
 
 
-        public static List<Sujet> GetSujets(string nomRubrique)
+        public static List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
-            using (DataSet dSet = GetDataSet("GETSUJETBYRUBRIQUE", new List<SqlParameter>()))
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
+            using (DataSet dSet = GetDataSet("GETSUJETSBYRUBRIQUE", listeSqlParam))
             {
                 List<Sujet> listeSujets = new List<Sujet>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
-                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
+                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["PSEUDO"].ToString()),
                                                 (DateTime)dRow["DTESUJET"],
                                                 BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
                                                 (int)dRow["IDSUJET"],
                                                 dRow["TITRESUJET"].ToString(),
                                                 dRow["DESCSUJET"].ToString()));
-
-                    //listeSujets.Add(new Sujet(Int32.Parse(dRow["ID_SUJET"].ToString()), dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
-                    //listeSujets.Add(new Sujet(dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
                 }
                 return listeSujets;
             }

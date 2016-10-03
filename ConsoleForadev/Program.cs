@@ -19,12 +19,12 @@ namespace ConsoleForadev
             //}
             //Console.ReadKey();
 
-            //List<Sujet> listeSujets = DAOPrincipale.GetSujets(string developpement);
-            //foreach (Sujet s in listeSujets)
-            //{
-            //    Console.WriteLine(s);
-            //}
-            //Console.ReadKey();
+            List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique("développement");
+            foreach (Sujet s in listeSujets)
+            {
+                Console.WriteLine(s);
+            }
+            Console.ReadKey();
         }
     }
 }
