@@ -70,13 +70,13 @@ namespace Foradev
 
         protected Utilisateur(string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
         {
-            Nom = nom; Prenom = prenom; Mail = mail; Role = role; Pseudo = pseudo;
+            Nom = nom; Prenom = prenom; Mail = mail; Role = role; Pseudo = pseudo; DateInscription = dtinscription;
         }
 
         //Constructeur remarquable
-        protected Utilisateur(string nom, string prenom, bool role, string pseudo)
+        protected Utilisateur(string nom, string prenom, string pseudo, DateTime dtinscription)
         {
-            Nom = nom; Prenom = prenom; Role = role; Pseudo = pseudo; 
+            Nom = nom; Prenom = prenom; Pseudo = pseudo; DateInscription = dtinscription;
         }
         #endregion
 

@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DAOForadev.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="connex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=176.31.114.215;Initial Catalog=user04;Persist Security Info=True;User ID=user04;Password=456user04</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

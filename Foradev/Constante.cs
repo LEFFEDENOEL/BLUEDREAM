@@ -25,7 +25,6 @@ namespace Foradev
             get { return _Reference; }
             set { _Reference = value; }
         }
-
         #endregion
 
         #region Constructeurs

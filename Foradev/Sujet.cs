@@ -11,7 +11,16 @@ namespace Foradev
 
         #region Champs et Propriétés
 
+        private int _IdSujet;
+        public int IdSujet
+        {
+            get { return _IdSujet; }
+
+            set { _IdSujet = value; }
+        }
+
         private Rubrique _Rubrique { get; set; }
+
         private List<Reponse> _Reponse { get; set; }
 
         private string _TitreSujet;
@@ -27,16 +36,21 @@ namespace Foradev
         #region Constructeurs
 
         //Constructeur complet
-        //public Sujet(Utilisateur utilisateur, DateTime dateCreation, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage) 
-        //             : base(utilisateur, dateCreation, texteMessage) { }
+        public Sujet(Utilisateur utilisateur, DateTime dateCreation, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
+                     : base(utilisateur, dateCreation, texteMessage) {
+            TitreSujet = titreSujet;
+            _Rubrique = rubrique;
+            IdSujet = idSujet;
+
+        }
 
         //ESSAI AUTRES CONSTRUCTEURS
 
-        public Sujet(Utilisateur utilisateur, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage) { }
+        //public Sujet(Utilisateur utilisateur, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage) { }
 
-        public Sujet(int idSujet, string titreSujet, string texteMessage) { }
+        //public Sujet(int idSujet, string titreSujet, string texteMessage) { }
 
-        public Sujet(string titreSujet, string texteMessage) { }
+        //public Sujet(string titreSujet, string texteMessage) { }
 
         #endregion
 

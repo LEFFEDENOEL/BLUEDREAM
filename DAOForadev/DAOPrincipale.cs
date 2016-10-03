@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,35 +21,46 @@ namespace DAOForadev
         //System.Data.SqlClient.SqlConnection connex = new System.Data.SqlClient.SqlConnection();
         //string connex = "Data Source=176.31.114.215;Initial Catalog=user05;Persist Security Info=True;User ID=user04;Password=456user04";
 
-        public static DataSet RecupereDataSet(string nomProcedureStockee, List<SqlParameter> listeSQLParam)
+        public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSQLParam)
         {
-            string connex = "Data Source=176.31.114.215;Initial Catalog=user04;Persist Security Info=True;User ID=user04;Password=456user04";
-            using (SqlConnection sqlConnex = new SqlConnection(connex))
+            using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Connection = sqlConnex;
-                    cmd.CommandText = nomProcedureStockee;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    foreach (SqlParameter sqlParam in listeSQLParam)
+                    try
                     {
-                        cmd.Parameters.Add(sqlParam);
-                    }
+                        sqlConnex.Open();
+                        cmd.Connection = sqlConnex;
+                        cmd.CommandText = nomProcedureStockee;
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    using (SqlDataAdapter dAdapter = new SqlDataAdapter(cmd))
-                    {
-                        DataSet dSet = new DataSet();
-                        dAdapter.Fill(dSet);
-                        return dSet;
+                        foreach (SqlParameter sqlParam in listeSQLParam)
+                        {
+                            cmd.Parameters.Add(sqlParam);
+                        }
+
+                        using (SqlDataAdapter dAdapter = new SqlDataAdapter(cmd))
+                        {
+                            DataSet dSet = new DataSet();
+                            dAdapter.Fill(dSet);
+                            sqlConnex.Close();
+                            return dSet;
+                        }
                     }
+                    catch (Exception)
+                    {
+                        //TODO
+                         throw;
+                        //return MessageBox.Show(ERRORCONNEXBASE, "Connexion base de données");
+                    }
+                    
                 }
             }
         }
 
         public static List<Rubrique> GetRubriques()
         {
-            using (DataSet dSet = RecupereDataSet("GETRUBRIQUE", new List<SqlParameter>()))
+            using (DataSet dSet = GetDataSet("GETRUBRIQUE", new List<SqlParameter>()))
             {
                 List<Rubrique> listeRubriques = new List<Rubrique>();
 
@@ -60,19 +72,52 @@ namespace DAOForadev
             }
         }
 
-        public static List<Sujet> GetSujets()
+        public static Rubrique BuildRubriqueByNomRubrique(string nomRubrique)
         {
-            using (DataSet dSet = RecupereDataSet("GETSUJET", new List<SqlParameter>()))
+            List<SqlParameter> lSP = new List<SqlParameter>();
+            lSP.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
+            using (DataSet dSet = GetDataSet("FINDRUBRIQUEBYNOMRUBRIQUE", lSP))
+            {
+                if (dSet.Tables[0].Rows.Count == 0) return null;
+
+                DataRow dR = dSet.Tables[0].Rows[0];
+
+                return new Rubrique((int)dR["ID_RUBRIQUE"], dR["NOM_RUBRIQUE"].ToString());
+            }
+        }
+        public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomRubrique)
+        {
+            List<SqlParameter> lSP = new List<SqlParameter>();
+            lSP.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
+            using (DataSet dSet = GetDataSet("FINDRUBRIQUEBYNOMRUBRIQUE", lSP))
+            {
+                if (dSet.Tables[0].Rows.Count == 0) return null;
+
+                DataRow dR = dSet.Tables[0].Rows[0];
+
+                return new UtilisateurNonConnecte(dR["NOM"].ToString(), dR["PRENOM"].ToString(), dR["MAIL"].ToString());
+            }
+        }
+
+
+
+        public static List<Sujet> GetSujets(string nomRubrique)
+        {
+            using (DataSet dSet = GetDataSet("GETSUJETBYRUBRIQUE", new List<SqlParameter>()))
             {
                 List<Sujet> listeSujets = new List<Sujet>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
-                    //listeSujets.Add(new Sujet(dRow["NOMUTILISATEUR"].ToString()), dRow["DTESUJET"].ToString(), dRow["NOMRUBRIQUE"].ToString(),
-                    //               (Int32.Parse(dRow["ID_SUJET"].ToString())), dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString());
+                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
+                                                (DateTime)dRow["DTESUJET"],
+                                                BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
+                                                (int)dRow["IDSUJET"],
+                                                dRow["TITRESUJET"].ToString(),
+                                                dRow["DESCSUJET"].ToString()));
 
                     //listeSujets.Add(new Sujet(Int32.Parse(dRow["ID_SUJET"].ToString()), dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
-                    listeSujets.Add(new Sujet(dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
+                    //listeSujets.Add(new Sujet(dRow["TITRESUJET"].ToString(), dRow["DESCSUJET"].ToString()));
                 }
                 return listeSujets;
             }

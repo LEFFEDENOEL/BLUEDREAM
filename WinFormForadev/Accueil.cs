@@ -19,7 +19,7 @@ namespace WinFormForadev
         {
             InitializeComponent();
 
-            // TODO Methode
+            // TODO Methode bas de page
 
             //Appel de la liste créé dans la classe d'accés aux données
             List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
