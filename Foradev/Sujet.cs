@@ -18,7 +18,7 @@ namespace Foradev
             set { _IdSujet = value; }
         }
 
-        public Rubrique _Rubrique { get; set; }
+        private Rubrique _Rubrique { get; set; }
 
         private List<Reponse> _Reponse { get; set; }
 
@@ -59,7 +59,8 @@ namespace Foradev
 
         public override string ToString()
         {
-            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " + _Rubrique + " : " + TitreSujet + base.TexteMessage;
+            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " 
+                   + _Rubrique + " : " + TitreSujet + base.TexteMessage;
         }
         #endregion
 

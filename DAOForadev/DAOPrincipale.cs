@@ -87,9 +87,9 @@ namespace DAOForadev
             {
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
-                DataRow dR = dSet.Tables[0].Rows[0];
+                DataRow dRow = dSet.Tables[0].Rows[0];
 
-                return new Rubrique((int)dR["ID_RUBRIQUE"], dR["NOM_RUBRIQUE"].ToString());
+                return new Rubrique((int)dRow["ID_RUBRIQUE"], dRow["NOM_RUBRIQUE"].ToString());
             }
         }
 
@@ -106,10 +106,31 @@ namespace DAOForadev
             {
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
-                DataRow dR = dSet.Tables[0].Rows[0];
+                DataRow dRow = dSet.Tables[0].Rows[0];
 
-                return new UtilisateurNonConnecte(dR["NOM_UTILISATEUR"].ToString(), dR["PRENOM_UTILISATEUR"].ToString(), 
-                                                  dR["PSEUDO_UTILISATEUR"].ToString(), (DateTime)dR["DATE_INSCRIPTION"]);
+                return new UtilisateurNonConnecte(dRow["NOM_UTILISATEUR"].ToString(), dRow["PRENOM_UTILISATEUR"].ToString(), 
+                                                  dRow["PSEUDO_UTILISATEUR"].ToString(), (DateTime)dRow["DATE_INSCRIPTION"]);
+            }
+        }
+
+        public static Sujet BuildSujetByIdSujet(int idSujet)
+        {
+            
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+            using (DataSet dSet = GetDataSet("BUILDSUJETBYIDSUJET", listeSqlParam))
+            {
+                if (dSet.Tables[0].Rows.Count == 0) return null;
+
+                DataRow dRow = dSet.Tables[0].Rows[0];
+
+                return new Sujet (BuildUtilisateurByNomUtilisateur(dRow["ID_UTILISATEUR"].ToString()),
+                                 (DateTime)dRow["DATE_CREATION"],
+                                 BuildRubriqueByNomRubrique(dRow["ID_RUBRIQUE"].ToString()),
+                                 (int)dRow["ID_SUJET"],
+                                 dRow["TITRE_SUJET"].ToString(), 
+                                 dRow["DESCRIPTION_SUJET"].ToString()
+                                 );
             }
         }
 
@@ -129,36 +150,46 @@ namespace DAOForadev
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
-                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
-                                             (DateTime)dRow["DTESUJET"],
+                    listeSujets.Add(new Sujet (BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
+                                              (DateTime)dRow["DTESUJET"],
                                               BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
                                               (int)dRow["IDSUJET"],
                                               dRow["TITRESUJET"].ToString(),
-                                              dRow["DESCSUJET"].ToString()));
+                                              dRow["DESCSUJET"].ToString())
+                                              );
                 }
                 return listeSujets;
             }
         }
 
-        //public static List<Sujet> GetReponsesBySujet(string titreSujet)
+        //public Reponse(Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
+        //               : base(utilisateur, dateCreation, texteMessage)
         //{
-        //    List<SqlParameter> listeSqlParam = new List<SqlParameter>();
-        //    listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
-        //    using (DataSet dSet = GetDataSet("GETREPONSESBYSUJET", listeSqlParam))
-        //    {
-        //        List<Sujet> listeSujets = new List<Sujet>();
-
-        //        foreach (DataRow dRow in dSet.Tables[0].Rows)
-        //        {
-        //            listeSujets.Add(new Reponse(BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString()),
-        //                                       (BuildUtilisateurByNomUtilisateur(dRow["PSEUDO_UTILISATEUR"].ToString())),
-        //                                       (DateTime)dRow["DATE_REPONSE"],
-        //                                        dRow["TEXTE_REPONSE"].ToString()));
-                                          
-        //        }
-        //        return listeSujets;
-        //    }
+        //    Id = idReponse;
+        //    Sujet = sujet;
         //}
+
+        public static List<Reponse> GetReponsesBySujet(string titreSujet)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
+            using (DataSet dSet = GetDataSet("GETREPONSESBYSUJET", listeSqlParam))
+            {
+                List<Reponse> listeReponses = new List<Reponse>();
+
+                foreach (DataRow dRow in dSet.Tables[0].Rows)
+                {
+                    listeReponses.Add(new Reponse (BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString()),
+                                                  (DateTime)dRow["DATE_REPONSE"],
+                                                  dRow["TEXTE_REPONSE"].ToString(),
+                                                  (int)dRow["ID_REPONSE"],
+                                                  BuildSujetByIdSujet((int)dRow["ID_SUJET"])
+                                                  ));
+
+                }
+                return listeReponses;
+            }
+        }
 
 
         //TODO

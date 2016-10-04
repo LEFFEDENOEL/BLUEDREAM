@@ -30,7 +30,8 @@ namespace Foradev
         #endregion
 
         #region Constructeurs
-        public Reponse(Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) : base(utilisateur, dateCreation, texteMessage)
+        public Reponse(Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
+                       : base(utilisateur, dateCreation, texteMessage)
         {
             Id = idReponse;
             Sujet = sujet;
@@ -45,7 +46,9 @@ namespace Foradev
 
         public override string ToString()
         {
-            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " + base.TexteMessage + base.Utilisateur.Pseudo + " : ";
+            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : "
+                 + base.Utilisateur.Pseudo + " : " + base.TexteMessage;
+
         }
         #endregion
 

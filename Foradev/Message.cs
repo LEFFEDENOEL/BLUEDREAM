@@ -36,7 +36,7 @@ namespace Foradev
         public Message() { }
         
         //Constructeur complet
-        public Message(Utilisateur utilisateur, DateTime dateMessage, string texteMessage)
+        protected Message(Utilisateur utilisateur, DateTime dateMessage, string texteMessage)
         {
             DateMessage = dateMessage;
             TexteMessage = texteMessage;
@@ -50,10 +50,6 @@ namespace Foradev
 
         #region Methodes héritées et substituées
 
-        //public override string ToString()
-        //{
-        //    return "Utilisateur : " + Utilisateur.Nom + "Date du message : " + DateMessage + "Texte du message : " + TextMessage;
-        //}
         public override string ToString()
         {
             return TexteMessage;
