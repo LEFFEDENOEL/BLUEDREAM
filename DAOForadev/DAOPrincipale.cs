@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace DAOForadev
 {
+    /// <summary>
+    /// Classe d'accés aux données
+    /// </summary>
     public static class DAOPrincipale
     {
-        //static public void ConnectToSql()
-        //{
-        //    System.Data.SqlClient.SqlConnection connex = new System.Data.SqlClient.SqlConnection();
-        //    connex.ConnectionString = "Data Source=176.31.114.215;Initial Catalog=user05;Persist Security Info=True;User ID=user04;Password=456user04";
-        //}
-
-        //System.Data.SqlClient.SqlConnection connex = new System.Data.SqlClient.SqlConnection();
-        //string connex = "Data Source=176.31.114.215;Initial Catalog=user05;Persist Security Info=True;User ID=user04;Password=456user04";
-
+        /// <summary>
+        /// Renvoit un dataset selon une procédure stockée en paramètre d'entrée
+        /// </summary>
+        /// <param name="nomProcedureStockee"></param>
+        /// <param name="listeSqlParam"></param>
+        /// <returns></returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
             using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
@@ -52,12 +52,15 @@ namespace DAOForadev
                         //TODO
                          throw;
                         //return MessageBox.Show(ERRORCONNEXBASE, "Connexion base de données");
-                    }
-                    
+                    }                   
                 }
             }
         }
 
+        /// <summary>
+        /// Renvoit la liste intégrale des rubriques
+        /// </summary>
+        /// <returns></returns>
         public static List<Rubrique> GetRubriques()
         {
             using (DataSet dSet = GetDataSet("GETRUBRIQUE", new List<SqlParameter>()))
@@ -71,7 +74,11 @@ namespace DAOForadev
                 return listeRubriques;
             }
         }
-
+        /// <summary>
+        /// Renvoit le type complet "Rubrique"
+        /// </summary>
+        /// <param name="nomRubrique"></param>
+        /// <returns></returns>
         public static Rubrique BuildRubriqueByNomRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -86,6 +93,11 @@ namespace DAOForadev
             }
         }
 
+        /// <summary>
+        /// Renvoit le type complet "Utilisateur"
+        /// </summary>
+        /// <param name="nomUtilisateur"></param>
+        /// <returns></returns>
         public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -96,12 +108,16 @@ namespace DAOForadev
 
                 DataRow dR = dSet.Tables[0].Rows[0];
 
-                return new UtilisateurNonConnecte(dR["NOM"].ToString(), dR["PRENOM"].ToString(), dR["PSEUDO"].ToString(), (DateTime)dR["DATE"]);
+                return new UtilisateurNonConnecte(dR["NOM_UTILISATEUR"].ToString(), dR["PRENOM_UTILISATEUR"].ToString(), dR["PSEUDO_UTILISATEUR"].ToString(), (DateTime)dR["DATE_INSCRIPTION"]);
             }
         }
 
-
-
+        /// <summary>
+        /// Renvoit tous les sujets postés par rubrique.
+        /// Appel des 2 sous méthodes BuildRubriqueByNomRubrique et BuildUtilisateurByNomUtilisateur
+        /// </summary>
+        /// <param name="nomRubrique"></param>
+        /// <returns></returns>
         public static List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -112,7 +128,7 @@ namespace DAOForadev
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
-                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["PSEUDO"].ToString()),
+                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
                                                 (DateTime)dRow["DTESUJET"],
                                                 BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
                                                 (int)dRow["IDSUJET"],

@@ -45,7 +45,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return "Rubrique : " + Nom;
+            return Nom;
         }
 
         #endregion

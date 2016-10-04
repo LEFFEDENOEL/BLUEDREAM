@@ -38,8 +38,10 @@ namespace Foradev
         //Constructeur complet
         public Message(Utilisateur utilisateur, DateTime datemessage, string textmessage)
         {
-            _DateMessage = datemessage;
-            _TextMessage = textmessage;
+            DateMessage = datemessage;
+            TextMessage = textmessage;
+            Utilisateur = utilisateur;
+
         }
         #endregion
 
@@ -52,10 +54,10 @@ namespace Foradev
         //{
         //    return "Utilisateur : " + Utilisateur.Nom + "Date du message : " + DateMessage + "Texte du message : " + TextMessage;
         //}
-        //public override string ToString()
-        //{
-        //    return  TextMessage;
-        //}
+        public override string ToString()
+        {
+            return TextMessage;
+        }
 
         #endregion
 

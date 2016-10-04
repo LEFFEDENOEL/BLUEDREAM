@@ -61,7 +61,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return TitreSujet + base.TextMessage;
+            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " + _Rubrique + " : " + TitreSujet + base.TextMessage;
         }
         #endregion
 
