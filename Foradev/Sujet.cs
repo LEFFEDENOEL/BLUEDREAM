@@ -8,7 +8,6 @@ namespace Foradev
 {
     public sealed class Sujet : Message
     {
-
         #region Champs et Propriétés
 
         private int _IdSujet;
@@ -36,12 +35,11 @@ namespace Foradev
         #region Constructeurs
 
         //Constructeur complet
-        public Sujet(Utilisateur utilisateur, DateTime dateCreation, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
-                     : base(utilisateur, dateCreation, texteMessage) {
+        public Sujet(Utilisateur utilisateur, DateTime dateMessage, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
+                     : base(utilisateur, dateMessage, texteMessage) {
             TitreSujet = titreSujet;
             _Rubrique = rubrique;
             IdSujet = idSujet;
-
         }
 
         //ESSAI AUTRES CONSTRUCTEURS
@@ -61,7 +59,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " + _Rubrique + " : " + TitreSujet + base.TextMessage;
+            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " + _Rubrique + " : " + TitreSujet + base.TexteMessage;
         }
         #endregion
 

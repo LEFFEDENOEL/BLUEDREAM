@@ -108,7 +108,8 @@ namespace DAOForadev
 
                 DataRow dR = dSet.Tables[0].Rows[0];
 
-                return new UtilisateurNonConnecte(dR["NOM_UTILISATEUR"].ToString(), dR["PRENOM_UTILISATEUR"].ToString(), dR["PSEUDO_UTILISATEUR"].ToString(), (DateTime)dR["DATE_INSCRIPTION"]);
+                return new UtilisateurNonConnecte(dR["NOM_UTILISATEUR"].ToString(), dR["PRENOM_UTILISATEUR"].ToString(), 
+                                                  dR["PSEUDO_UTILISATEUR"].ToString(), (DateTime)dR["DATE_INSCRIPTION"]);
             }
         }
 
@@ -129,16 +130,35 @@ namespace DAOForadev
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
                     listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
-                                                (DateTime)dRow["DTESUJET"],
-                                                BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
-                                                (int)dRow["IDSUJET"],
-                                                dRow["TITRESUJET"].ToString(),
-                                                dRow["DESCSUJET"].ToString()));
+                                             (DateTime)dRow["DTESUJET"],
+                                              BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
+                                              (int)dRow["IDSUJET"],
+                                              dRow["TITRESUJET"].ToString(),
+                                              dRow["DESCSUJET"].ToString()));
                 }
                 return listeSujets;
             }
         }
 
+        //public static List<Sujet> GetReponsesBySujet(string titreSujet)
+        //{
+        //    List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+        //    listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
+        //    using (DataSet dSet = GetDataSet("GETREPONSESBYSUJET", listeSqlParam))
+        //    {
+        //        List<Sujet> listeSujets = new List<Sujet>();
+
+        //        foreach (DataRow dRow in dSet.Tables[0].Rows)
+        //        {
+        //            listeSujets.Add(new Reponse(BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString()),
+        //                                       (BuildUtilisateurByNomUtilisateur(dRow["PSEUDO_UTILISATEUR"].ToString())),
+        //                                       (DateTime)dRow["DATE_REPONSE"],
+        //                                        dRow["TEXTE_REPONSE"].ToString()));
+                                          
+        //        }
+        //        return listeSujets;
+        //    }
+        //}
 
 
         //TODO

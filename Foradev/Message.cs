@@ -20,12 +20,12 @@ namespace Foradev
             set { _DateMessage = value; }
         }
 
-        private string _TextMessage;
-        public string TextMessage
+        private string _TexteMessage;
+        public string TexteMessage
         {
-            get { return _TextMessage; }
+            get { return _TexteMessage; }
 
-            set { _TextMessage = value; }
+            set { _TexteMessage = value; }
         }
 
         #endregion
@@ -36,10 +36,10 @@ namespace Foradev
         public Message() { }
         
         //Constructeur complet
-        public Message(Utilisateur utilisateur, DateTime datemessage, string textmessage)
+        public Message(Utilisateur utilisateur, DateTime dateMessage, string texteMessage)
         {
-            DateMessage = datemessage;
-            TextMessage = textmessage;
+            DateMessage = dateMessage;
+            TexteMessage = texteMessage;
             Utilisateur = utilisateur;
 
         }
@@ -56,7 +56,7 @@ namespace Foradev
         //}
         public override string ToString()
         {
-            return TextMessage;
+            return TexteMessage;
         }
 
         #endregion
