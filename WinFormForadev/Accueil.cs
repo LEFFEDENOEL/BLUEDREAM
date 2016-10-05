@@ -19,46 +19,47 @@ namespace WinFormForadev
         {
             InitializeComponent();
 
-            // TODO Methode bas de page
-
             //Appel de la liste créé dans la classe d'accés aux données
             List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
 
             //Alimentation du bindingsource avec la liste créé par la méthode GetRubriques()
             BindingSource bsRubriques = new BindingSource();
             bsRubriques.DataSource = listeRubriques;
-            //Affectation de la combobox
+
+            //Affectation de la combobox Rubriques
             cbxListeRubriques.DataSource = bsRubriques.DataSource;
             cbxListeRubriques.DataSource = listeRubriques;
             cbxListeRubriques.DisplayMember = "NOM_RUBRIQUE";
+        }
 
-            List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique("développement");
+        /// <summary>
+        /// Méthode qui charge le datagridview Sujets sur sélection combobox Rubriques
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbxListeRubriques_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //Appel de la liste créé dans dans la classe d'accés aux données            
+            List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique(cbxListeRubriques.SelectedValue.ToString());
+            //Alimentation du bindingsource avec la liste créé
             BindingSource bsSujets = new BindingSource();
+            //Affectation et paramétrage du datagridview         
             bsSujets.DataSource = listeSujets;
-
-            //dgvSujets.AutoGenerateColumns = false;
             dgvSujets.DataSource = bsSujets.DataSource;
-        
-            //DataGridViewColumn column = new DataGridViewTextBoxColumn();
+            dgvSujets.Columns[0].Visible = false;
 
-            //column.DataPropertyName = "TITRESUJET";
+            dgvSujets.Columns[1].HeaderText = "Pseudo";
+            dgvSujets.Columns[1].Width = 125;
+            dgvSujets.Columns[2].HeaderText = "Titre";
+            dgvSujets.Columns[2].Width = 125;
+            dgvSujets.Columns[3].HeaderText = "Date";
+            dgvSujets.Columns[3].Width = 100;
+            dgvSujets.Columns[4].HeaderText = "Texte";
 
-            //column.Name = "Nom auteur";
-            //dgvSujets.Columns.Add(column);
-
+            string idSujet = dgvSujets.CurrentRow.Cells[0].Value.ToString();
 
         }
 
-        //private void cbxListeRubriques_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    string rubriqueChoisie = (string)cbxListeRubriques.SelectedItem;
 
-        //    List<Sujet> listeSujets = DAOPrincipale.GetSujets();
-        //    BindingSource bsSujets = new BindingSource();
-        //    bsSujets.DataSource = listeSujets;
-        //    dgvSujets.DataSource = bsSujets.DataSource;
-        //    dgvSujets.DataSource = listeSujets;
-
-        //}
     }
 }
