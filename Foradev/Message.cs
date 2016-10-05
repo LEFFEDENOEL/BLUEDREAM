@@ -8,7 +8,6 @@ namespace Foradev
 {
     public abstract class Message
     {
-
         #region Champs et Propriétés
         protected Utilisateur Utilisateur { get; set; }
 
@@ -41,7 +40,6 @@ namespace Foradev
             DateMessage = dateMessage;
             TexteMessage = texteMessage;
             Utilisateur = utilisateur;
-
         }
         #endregion
 

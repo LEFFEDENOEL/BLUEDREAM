@@ -32,6 +32,21 @@ namespace WinFormForadev
             cbxListeRubriques.DataSource = listeRubriques;
             cbxListeRubriques.DisplayMember = "NOM_RUBRIQUE";
 
+            List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique("développement");
+            BindingSource bsSujets = new BindingSource();
+            bsSujets.DataSource = listeSujets;
+
+            //dgvSujets.AutoGenerateColumns = false;
+            dgvSujets.DataSource = bsSujets.DataSource;
+        
+            //DataGridViewColumn column = new DataGridViewTextBoxColumn();
+
+            //column.DataPropertyName = "TITRESUJET";
+
+            //column.Name = "Nom auteur";
+            //dgvSujets.Columns.Add(column);
+
+
         }
 
         //private void cbxListeRubriques_SelectedValueChanged(object sender, EventArgs e)

@@ -74,6 +74,7 @@ namespace DAOForadev
                 return listeRubriques;
             }
         }
+
         /// <summary>
         /// Renvoit le type complet "Rubrique"
         /// </summary>
@@ -113,9 +114,13 @@ namespace DAOForadev
             }
         }
 
+        /// <summary>
+        /// Renvoit le type complet "Sujet"
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns></returns>
         public static Sujet BuildSujetByIdSujet(int idSujet)
-        {
-            
+        {            
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
             listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
             using (DataSet dSet = GetDataSet("BUILDSUJETBYIDSUJET", listeSqlParam))
@@ -135,8 +140,8 @@ namespace DAOForadev
         }
 
         /// <summary>
-        /// Renvoit tous les sujets postés par rubrique.
-        /// Appel des 2 sous méthodes BuildRubriqueByNomRubrique et BuildUtilisateurByNomUtilisateur
+        /// Renvoit une liste de tous les sujets postés par rubrique
+        /// Appel des sous méthodes de renvoi de types BuildRubriqueByNomRubrique et BuildUtilisateurByNomUtilisateur
         /// </summary>
         /// <param name="nomRubrique"></param>
         /// <returns></returns>
@@ -162,13 +167,12 @@ namespace DAOForadev
             }
         }
 
-        //public Reponse(Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
-        //               : base(utilisateur, dateCreation, texteMessage)
-        //{
-        //    Id = idReponse;
-        //    Sujet = sujet;
-        //}
-
+        /// <summary>
+        /// Renvoit une liste de toutes les réponses postées par titre de sujet
+        /// Appel des sous methodes de renvoi de types BuildUtilisateurByNom et BuildSujetByIdSujet
+        /// </summary>
+        /// <param name="titreSujet"></param>
+        /// <returns></returns>
         public static List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -185,7 +189,6 @@ namespace DAOForadev
                                                   (int)dRow["ID_REPONSE"],
                                                   BuildSujetByIdSujet((int)dRow["ID_SUJET"])
                                                   ));
-
                 }
                 return listeReponses;
             }

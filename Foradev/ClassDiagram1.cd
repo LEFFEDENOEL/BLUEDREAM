@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Foradev.Message">
-    <Position X="9" Y="2" Width="1.5" />
+    <Position X="10.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAEAAACAEIAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAEAAACAEBAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Message.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Utilisateur" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Foradev.Moderateur">
-    <Position X="4" Y="6" Width="1.5" />
+    <Position X="4.25" Y="6.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAABABAAAAAAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Moderateur.cs</FileName>
@@ -22,23 +25,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Foradev.UtilisateurConnecte">
-    <Position X="4" Y="3.75" Width="1.5" />
+    <Position X="3.75" Y="3.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UtilisateurConnecte.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Foradev.UtilisateurNonConnecte">
-    <Position X="4" Y="1.25" Width="2" />
+    <Position X="4" Y="1.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UtilisateurNonConnecte.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Foradev.Sujet">
-    <Position X="6.25" Y="5.75" Width="1.5" />
+    <Position X="9.5" Y="4.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAEBAAAAAAAAAAAAAgAQABCEAAAAAA=</HashCode>
       <FileName>Sujet.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -46,28 +49,28 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Foradev.Reponse">
-    <Position X="9" Y="6.25" Width="1.5" />
+    <Position X="12" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAEAAACAgAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Reponse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Foradev.Ordinaire">
-    <Position X="1" Y="6.25" Width="1.5" />
+    <Position X="1.25" Y="6.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Ordinaire.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Foradev.Rubrique">
-    <Position X="6" Y="2.5" Width="1.5" />
+    <Position X="7" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEACAAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Rubrique.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Foradev.Constante">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="8.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAACAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Constante.cs</FileName>

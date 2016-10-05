@@ -18,6 +18,11 @@ namespace Foradev
             set { _IdSujet = value; }
         }
 
+        public string PseudoUtilisateur
+        {
+            get { return Utilisateur.Pseudo; }       
+        }
+
         private Rubrique _Rubrique { get; set; }
 
         private List<Reponse> _Reponse { get; set; }
