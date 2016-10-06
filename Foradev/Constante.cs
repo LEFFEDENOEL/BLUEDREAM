@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe de traitement des constantes d'erreurs chargées depuis la base de données
+    /// </summary>
     public class Constante
     {
         #region Champs et Propriétés

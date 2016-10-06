@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe abstraite UtilisateurConnecte dérivée en classes filles NonModerateur et Moderateur, hérite de Utilisateur
+    /// </summary>
     public abstract class UtilisateurConnecte : Utilisateur
     {
-
         #region Champs et Propriétés
         #endregion
 
@@ -30,9 +32,6 @@ namespace Foradev
         #endregion
 
         #region Methodes héritées et substituées
-
-
-
 
         public override string ToString()
         {

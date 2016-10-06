@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe non dérivable qui hérite de la classe Message
+    /// </summary>
     public sealed class Sujet : Message
     {
         #region Champs et Propriétés
+
+        //Association à la classe Rubrique
+        public Rubrique _Rubrique { get; set; }
+
+        //Association à la classe Reponse
+        private List<Reponse> _Reponse { get; set; }
 
         private int _IdSujet;
         public int IdSujet
@@ -21,10 +30,6 @@ namespace Foradev
         {
             get { return Utilisateur.Pseudo; }
         }
-
-        public Rubrique _Rubrique { get; set; }
-
-        private List<Reponse> _Reponse { get; set; }
 
         private string _TitreSujet;
         public string TitreSujet
@@ -45,13 +50,12 @@ namespace Foradev
             IdSujet = idSujet;
         }
 
-        //ESSAI AUTRES CONSTRUCTEURS
+        //Constructeurs remarquables
+        public Sujet(Utilisateur utilisateur, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage) { }
 
-        //public Sujet(Utilisateur utilisateur, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage) { }
+        public Sujet(int idSujet, string titreSujet, string texteMessage) { }
 
-        //public Sujet(int idSujet, string titreSujet, string texteMessage) { }
-
-        //public Sujet(string titreSujet, string texteMessage) { }
+        public Sujet(string titreSujet, string texteMessage) { }
 
         #endregion
 

@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe abstraite Utilisateur dérivée en classes filles UtilisateurNonConnecte et UtilisateurConnecte
+    /// </summary>
     public abstract class Utilisateur
     {
-
         #region Champs et Propriétés
 
         protected string _Nom;
         public string Nom
         {
             get { return _Nom; }
-
             set { _Nom = value;}
         }
 

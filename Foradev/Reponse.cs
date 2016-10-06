@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe Reponse non dérivable, hérite de Message
+    /// </summary>
     public sealed class Reponse : Message
     {
         #region Champs et Propriétés
@@ -29,17 +32,17 @@ namespace Foradev
         {
             get { return Utilisateur.Pseudo; }
         }
-
         #endregion
 
         #region Constructeurs
+
+        //Constructeur complet
         public Reponse(Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
                        : base(utilisateur, dateCreation, texteMessage)
         {
             Id = idReponse;
             Sujet = sujet;
         }
-
         #endregion
 
         #region Methodes

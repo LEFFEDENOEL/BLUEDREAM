@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe Rubrique en association avec la classe Sujet
+    /// </summary>
     public class Rubrique
     {
-
         #region Champs et Propriétés
 
         private int _Id;
@@ -26,11 +28,11 @@ namespace Foradev
             get { return _Nom; }
             set { _Nom = value; }
         }
-
         #endregion
 
         #region Constructeurs
 
+        //Constructeur complet
         public Rubrique(int idRubrique, string nom)
         {
             Id = idRubrique;
@@ -47,7 +49,6 @@ namespace Foradev
         {
             return Nom;
         }
-
         #endregion
 
         #region Methodes à implementer pour les interfaces

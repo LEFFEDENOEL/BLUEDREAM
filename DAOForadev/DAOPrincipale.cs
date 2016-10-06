@@ -182,14 +182,13 @@ namespace DAOForadev
                 List<Reponse> listeReponses = new List<Reponse>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
-                {
-                    Utilisateur u = BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString());
+                {                   
                     Sujet s = BuildSujetByIdSujet((int)dRow["ID_SUJET"]);
-                    listeReponses.Add(new Reponse (u,
+                    listeReponses.Add(new Reponse (BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString()),
                                                   (DateTime)dRow["DATE_REPONSE"],
                                                   dRow["TEXTE_REPONSE"].ToString(),
                                                   (int)dRow["ID_REPONSE"],
-                                                  s)
+                                                  BuildSujetByIdSujet((int)dRow["ID_SUJET"]))
                                                   );
                 }
                 return listeReponses;

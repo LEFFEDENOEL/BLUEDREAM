@@ -18,6 +18,7 @@ namespace WinFormForadev
         public AccueilForum()
         {
             InitializeComponent();
+            VisibiliteComposantsUtilisateurNonConnecte();
 
             //Appel de la liste créé dans la classe statique d'accés aux données
             List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
@@ -31,6 +32,44 @@ namespace WinFormForadev
             cbxListeRubriques.DataSource = listeRubriques;
             cbxListeRubriques.DisplayMember = "NOM_RUBRIQUE";
         }
+
+        #region Methodes
+
+        /// <summary>
+        /// Methode de gestion de visibilité des composants pour un utilisateur non connecté
+        /// </summary>
+        public void VisibiliteComposantsUtilisateurNonConnecte()
+        {
+            flpSujetsInf.Visible = false;
+            flpReponses.Visible = false;
+            btnSupprimerReponse.Visible = false;
+        }
+
+        /// <summary>
+        /// Methode de gestion de visibilité des composants pour un utilisateur non modérateur connecté
+        /// </summary>
+        public void VisibiliteComposantsUtilisateurNonModerateurConnecte()
+        {
+            flpSujetsInf.Visible = true;
+            flpReponses.Visible = true;
+            btnModifierSujet.Visible = false;
+            btnSupprimerSujet.Visible = false;
+        }
+
+        /// <summary>
+        /// Méthode de gestion de visibilité des composants pour un utilisateur modérateur connecté
+        /// </summary>
+        public void VisibiliteComposantsUtilisateurModerateurConnecte()
+        {
+            flpSujetsInf.Visible = true;
+            flpReponses.Visible = true;
+            btnModifierSujet.Visible = true;
+            btnSupprimerSujet.Visible = true;
+            btnSupprimerSujet.Visible = true;
+        }
+        #endregion
+
+        #region Evènements
 
         /// <summary>
         /// Méthode qui charge le datagridview Sujets sur sélection combobox Rubriques
@@ -59,13 +98,16 @@ namespace WinFormForadev
             dgvSujets.Columns[4].HeaderText = "Date";
             dgvSujets.Columns[4].Width = 100;
             dgvSujets.Columns[5].HeaderText = "Texte sujet";
-
         }
 
-
+        /// <summary>
+        /// Méthode qui charge le datagridview dgvReponses sur double click row dans datagridview dgvSujets
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvSujets_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagrid
+            //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagridview dvgSujets
             string titreSujet = dgvSujets.CurrentRow.Cells[3].Value.ToString();
 
             //Appel de la liste créé dans dans la classe statique d'accés aux données 
@@ -86,9 +128,7 @@ namespace WinFormForadev
             dgvReponses.Columns[3].HeaderText = "Date";
             dgvReponses.Columns[3].Width = 100;
             dgvReponses.Columns[4].HeaderText = "Texte réponse";
-
-
         }
-        
+        #endregion
     }
 }

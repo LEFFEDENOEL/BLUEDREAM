@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe Moderateur non dérivable, hérite de UtilisateurConnecte
+    /// </summary>
     public sealed class Moderateur : UtilisateurConnecte
     {
-
         #region Champs et Propriétés
         #endregion
 

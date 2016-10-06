@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Foradev
 {
+    /// <summary>
+    /// Classe abstraite Message dérivée en classes filles Sujet et Reponse
+    /// </summary>
     public abstract class Message
     {
         #region Champs et Propriétés
+
+        //Association vers classe Utilisateur
         protected Utilisateur Utilisateur { get; set; }
 
         //public string PseudoUtilisateur
@@ -29,7 +34,6 @@ namespace Foradev
             get { return _TexteMessage; }
             set { _TexteMessage = value; }
         }
-
         #endregion
 
         #region Constructeurs
@@ -37,7 +41,7 @@ namespace Foradev
         //Constructeur par défaut
         public Message() { }
         
-        //Constructeur complet
+        //Constructeur complet 
         protected Message(Utilisateur utilisateur, DateTime dateMessage, string texteMessage)
         {
             DateMessage = dateMessage;
