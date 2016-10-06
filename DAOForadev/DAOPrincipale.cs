@@ -183,12 +183,14 @@ namespace DAOForadev
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
-                    listeReponses.Add(new Reponse (BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString()),
+                    Utilisateur u = BuildUtilisateurByNomUtilisateur(dRow["NOM_UTILISATEUR"].ToString());
+                    Sujet s = BuildSujetByIdSujet((int)dRow["ID_SUJET"]);
+                    listeReponses.Add(new Reponse (u,
                                                   (DateTime)dRow["DATE_REPONSE"],
                                                   dRow["TEXTE_REPONSE"].ToString(),
                                                   (int)dRow["ID_REPONSE"],
-                                                  BuildSujetByIdSujet((int)dRow["ID_SUJET"])
-                                                  ));
+                                                  s)
+                                                  );
                 }
                 return listeReponses;
             }

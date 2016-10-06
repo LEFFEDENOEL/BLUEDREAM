@@ -11,11 +11,15 @@ namespace Foradev
         #region Champs et Propriétés
         protected Utilisateur Utilisateur { get; set; }
 
+        //public string PseudoUtilisateur
+        //{
+        //    get { return Utilisateur.Pseudo; }
+        //}
+
         private DateTime _DateMessage;
         public DateTime DateMessage
         {
             get { return _DateMessage; }
-
             set { _DateMessage = value; }
         }
 
@@ -23,7 +27,6 @@ namespace Foradev
         public string TexteMessage
         {
             get { return _TexteMessage; }
-
             set { _TexteMessage = value; }
         }
 
@@ -50,7 +53,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return TexteMessage;
+            return DateMessage + TexteMessage;
         }
 
         #endregion

@@ -8,7 +8,6 @@ namespace Foradev
 {
     public sealed class Reponse : Message
     {
-
         #region Champs et Propriétés
 
         private int _Id;
@@ -25,6 +24,10 @@ namespace Foradev
         {
             get { return _Sujet; }
             set { _Sujet = value; }
+        }
+        public string PseudoUtilisateur
+        {
+            get { return base.Utilisateur.Pseudo; }
         }
 
         #endregion
@@ -46,9 +49,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : "
-                 + base.Utilisateur.Pseudo + " : " + base.TexteMessage;
-
+            return base.DateMessage.ToString() + base.Utilisateur.Pseudo + base.TexteMessage;
         }
         #endregion
 

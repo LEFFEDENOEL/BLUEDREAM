@@ -14,16 +14,15 @@ namespace Foradev
         public int IdSujet
         {
             get { return _IdSujet; }
-
             set { _IdSujet = value; }
         }
 
         public string PseudoUtilisateur
         {
-            get { return Utilisateur.Pseudo; }       
+            get { return base.Utilisateur.Pseudo; }
         }
 
-        private Rubrique _Rubrique { get; set; }
+        public Rubrique _Rubrique { get; set; }
 
         private List<Reponse> _Reponse { get; set; }
 
@@ -31,7 +30,6 @@ namespace Foradev
         public string TitreSujet
         {
             get { return _TitreSujet; }
-
             set { _TitreSujet = value; }
         }
 
@@ -64,8 +62,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return base.DateMessage.ToString() + " : " + base.Utilisateur.Nom + " : " 
-                   + _Rubrique + " : " + TitreSujet + base.TexteMessage;
+            return base.DateMessage.ToString() + TitreSujet + TexteMessage;
         }
         #endregion
 

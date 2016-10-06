@@ -19,7 +19,7 @@ namespace WinFormForadev
         {
             InitializeComponent();
 
-            //Appel de la liste créé dans la classe d'accés aux données
+            //Appel de la liste créé dans la classe statique d'accés aux données
             List<Rubrique> listeRubriques = DAOPrincipale.GetRubriques();
 
             //Alimentation du bindingsource avec la liste créé par la méthode GetRubriques()
@@ -39,27 +39,48 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void cbxListeRubriques_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //Appel de la liste créé dans dans la classe d'accés aux données            
+            //Appel de la liste créé dans dans la classe statique d'accés aux données            
             List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique(cbxListeRubriques.SelectedValue.ToString());
+
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsSujets = new BindingSource();
+
             //Affectation et paramétrage du datagridview         
             bsSujets.DataSource = listeSujets;
             dgvSujets.DataSource = bsSujets.DataSource;
+
             dgvSujets.Columns[0].Visible = false;
-
             dgvSujets.Columns[1].HeaderText = "Pseudo";
-            dgvSujets.Columns[1].Width = 125;
-            dgvSujets.Columns[2].HeaderText = "Titre";
-            dgvSujets.Columns[2].Width = 125;
-            dgvSujets.Columns[3].HeaderText = "Date";
-            dgvSujets.Columns[3].Width = 100;
-            dgvSujets.Columns[4].HeaderText = "Texte";
-
-            string idSujet = dgvSujets.CurrentRow.Cells[0].Value.ToString();
+            dgvSujets.Columns[1].Width = 100;
+            dgvSujets.Columns[2].HeaderText = "Rubrique";
+            dgvSujets.Columns[2].Width = 100;
+            dgvSujets.Columns[3].HeaderText = "Titre";
+            dgvSujets.Columns[3].Width = 125;
+            dgvSujets.Columns[4].HeaderText = "Date";
+            dgvSujets.Columns[4].Width = 100;
+            dgvSujets.Columns[5].HeaderText = "Texte";
 
         }
 
 
+        private void dgvSujets_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagrid
+            string titreSujet = dgvSujets.CurrentRow.Cells[3].Value.ToString();
+
+            //Appel de la liste créé dans dans la classe statique d'accés aux données 
+            List<Reponse> listeReponses = DAOPrincipale.GetReponsesBySujet(titreSujet);
+
+            //Alimentation du bindingsource avec la liste créé
+            BindingSource bsReponses = new BindingSource();
+
+            //Affectation et paramétrage du datagridview         
+            bsReponses.DataSource = listeReponses;
+            dgvReponses.DataSource = bsReponses.DataSource;
+
+            //dgvReponses.Columns[0].Visible = false;
+
+        }
+        
     }
 }
