@@ -58,7 +58,7 @@ namespace WinFormForadev
             dgvSujets.Columns[3].Width = 125;
             dgvSujets.Columns[4].HeaderText = "Date";
             dgvSujets.Columns[4].Width = 100;
-            dgvSujets.Columns[5].HeaderText = "Texte";
+            dgvSujets.Columns[5].HeaderText = "Texte sujet";
 
         }
 
@@ -78,7 +78,15 @@ namespace WinFormForadev
             bsReponses.DataSource = listeReponses;
             dgvReponses.DataSource = bsReponses.DataSource;
 
-            //dgvReponses.Columns[0].Visible = false;
+            dgvReponses.Columns[0].Visible = false;
+            dgvReponses.Columns[1].HeaderText = "Titre";
+            dgvReponses.Columns[1].Width = 125;
+            dgvReponses.Columns[2].HeaderText = "Pseudo";
+            dgvReponses.Columns[2].Width = 100;
+            dgvReponses.Columns[3].HeaderText = "Date";
+            dgvReponses.Columns[3].Width = 100;
+            dgvReponses.Columns[4].HeaderText = "Texte réponse";
+
 
         }
         

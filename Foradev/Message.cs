@@ -51,10 +51,11 @@ namespace Foradev
 
         #region Methodes héritées et substituées
 
-        public override string ToString()
-        {
-            return DateMessage + TexteMessage;
-        }
+        // A ENLEVER ??
+        //public override string ToString()
+        //{
+        //    return DateMessage + TexteMessage;
+        //}
 
         #endregion
 

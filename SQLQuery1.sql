@@ -1,19 +1,17 @@
-﻿execute dbo.GETSUJETSBYRUBRIQUE "développement"
-
-
-if object_id('GETSUJETSBYRUBRIQUE', 'p') is not null
-drop procedure GETSUJETSBYRUBRIQUE
+﻿if object_id('BUILDUTILISATEURBYNOMUTILISATEUR', 'p') is not null
+drop procedure BUILDUTILISATEURBYNOMUTILISATEUR
 go
 
-create procedure GETSUJETSBYRUBRIQUE
+create procedure BUILDUTILISATEURBYNOMUTILISATEUR
 
-@nomrubrique varchar(50)
+@nomutilisateur varchar(50)
 
 as
 
 begin
 
-select NOMUTILISATEUR, PSEUDO, DTESUJET, NOMRUBRIQUE, IDSUJET, TITRESUJET, DESCSUJET from GESTION_MESSAGES_VUE where NOMRUBRIQUE = @nomrubrique
+select ID_UTILISATEUR, NOM_UTILISATEUR, PRENOM_UTILISATEUR, PSEUDO_UTILISATEUR, DATE_INSCRIPTION 
+from UTILISATEURS where NOM_UTILISATEUR = @nomutilisateur
 
 end
 go

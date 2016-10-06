@@ -99,8 +99,9 @@ namespace Foradev
 
         public override string ToString()
         {
-            return "Nom : " + Nom + "Prénom : " + Prenom + "Adresse mail : " + Mail + "Role : " + Role
-                    + "Pseudo : " + Pseudo + "Date d'inscription : " + DateInscription;
+            //return "Nom : " + Nom + "Prénom : " + Prenom + "Adresse mail : " + Mail + "Role : " + Role
+            //      + "Pseudo : " + Pseudo + "Date d'inscription : " + DateInscription;
+            return Pseudo;
         }
         #endregion
 

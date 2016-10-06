@@ -19,7 +19,7 @@ namespace Foradev
 
         public string PseudoUtilisateur
         {
-            get { return base.Utilisateur.Pseudo; }
+            get { return Utilisateur.Pseudo; }
         }
 
         public Rubrique _Rubrique { get; set; }
@@ -62,7 +62,7 @@ namespace Foradev
 
         public override string ToString()
         {
-            return base.DateMessage.ToString() + TitreSujet + TexteMessage;
+            return TitreSujet;
         }
         #endregion
 
