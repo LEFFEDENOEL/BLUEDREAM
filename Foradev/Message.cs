@@ -16,10 +16,10 @@ namespace Foradev
         //Association vers classe Utilisateur
         protected Utilisateur Utilisateur { get; set; }
 
-        //public string PseudoUtilisateur
-        //{
-        //    get { return Utilisateur.Pseudo; }
-        //}
+        public string PseudoUtilisateur
+        {
+            get { return Utilisateur.Pseudo; }
+        }
 
         private DateTime _DateMessage;
         public DateTime DateMessage

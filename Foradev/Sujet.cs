@@ -14,6 +14,7 @@ namespace Foradev
         #region Champs et Propriétés
 
         //Association à la classe Rubrique
+
         public Rubrique _Rubrique { get; set; }
 
         //Association à la classe Reponse
@@ -26,10 +27,10 @@ namespace Foradev
             set { _IdSujet = value; }
         }
 
-        public string PseudoUtilisateur
-        {
-            get { return Utilisateur.Pseudo; }
-        }
+        //public string PseudoUtilisateur
+        //{
+        //    get { return Utilisateur.Pseudo; }
+        //}
 
         private string _TitreSujet;
         public string TitreSujet

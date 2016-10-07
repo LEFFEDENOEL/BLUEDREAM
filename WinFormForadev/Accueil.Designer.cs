@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -89,6 +90,7 @@
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
             this.btValidNouveauPasse = new System.Windows.Forms.Button();
+            this.flpChangePass = new System.Windows.Forms.FlowLayoutPanel();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -109,6 +111,7 @@
             this.flpIdentification.SuspendLayout();
             this.tpInscription.SuspendLayout();
             this.flpInscription.SuspendLayout();
+            this.flpChangePass.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -327,15 +330,15 @@
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSujets.Location = new System.Drawing.Point(3, 22);
@@ -448,14 +451,22 @@
             // dgvReponses
             // 
             this.dgvReponses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvReponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponses.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvReponses.Location = new System.Drawing.Point(3, 22);
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 343);
             this.dgvReponses.TabIndex = 0;
@@ -529,16 +540,17 @@
             // txtbLogin
             // 
             this.txtbLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbLogin.Location = new System.Drawing.Point(3, 23);
             this.txtbLogin.Name = "txtbLogin";
-            this.txtbLogin.Size = new System.Drawing.Size(367, 29);
+            this.txtbLogin.Size = new System.Drawing.Size(367, 26);
             this.txtbLogin.TabIndex = 0;
             // 
             // lblMdp
             // 
             this.lblMdp.AutoSize = true;
             this.lblMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMdp.Location = new System.Drawing.Point(3, 55);
+            this.lblMdp.Location = new System.Drawing.Point(3, 52);
             this.lblMdp.Name = "lblMdp";
             this.lblMdp.Size = new System.Drawing.Size(114, 20);
             this.lblMdp.TabIndex = 3;
@@ -547,10 +559,11 @@
             // txtbMdp
             // 
             this.txtbMdp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbMdp.Location = new System.Drawing.Point(3, 78);
+            this.txtbMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbMdp.Location = new System.Drawing.Point(3, 75);
             this.txtbMdp.Name = "txtbMdp";
             this.txtbMdp.PasswordChar = '*';
-            this.txtbMdp.Size = new System.Drawing.Size(367, 29);
+            this.txtbMdp.Size = new System.Drawing.Size(367, 26);
             this.txtbMdp.TabIndex = 2;
             this.txtbMdp.UseSystemPasswordChar = true;
             // 
@@ -559,7 +572,7 @@
             this.btnConnexion.AutoSize = true;
             this.btnConnexion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnexion.Location = new System.Drawing.Point(3, 113);
+            this.btnConnexion.Location = new System.Drawing.Point(3, 107);
             this.btnConnexion.Name = "btnConnexion";
             this.btnConnexion.Size = new System.Drawing.Size(367, 45);
             this.btnConnexion.TabIndex = 4;
@@ -570,7 +583,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 170);
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 164);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 2;
             // 
@@ -578,6 +591,8 @@
             // 
             this.tpInscription.AutoScroll = true;
             this.tpInscription.BackColor = System.Drawing.Color.LightGray;
+            this.tpInscription.Controls.Add(this.flpChangePass);
+            this.tpInscription.Controls.Add(this.btnChangePass);
             this.tpInscription.Controls.Add(this.lblInfoNouveauPasse);
             this.tpInscription.Controls.Add(this.lblInfoPasseInscription);
             this.tpInscription.Controls.Add(this.flpInscription);
@@ -593,7 +608,7 @@
             // 
             this.lblInfoNouveauPasse.AutoSize = true;
             this.lblInfoNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(386, 412);
+            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(386, 386);
             this.lblInfoNouveauPasse.Name = "lblInfoNouveauPasse";
             this.lblInfoNouveauPasse.Size = new System.Drawing.Size(888, 18);
             this.lblInfoNouveauPasse.TabIndex = 6;
@@ -626,17 +641,10 @@
             this.flpInscription.Controls.Add(this.lblInscriptionPasse);
             this.flpInscription.Controls.Add(this.txtbInscriptionPasse);
             this.flpInscription.Controls.Add(this.btnValidInscription);
-            this.flpInscription.Controls.Add(this.btnChangePass);
-            this.flpInscription.Controls.Add(this.label1);
-            this.flpInscription.Controls.Add(this.txtbNouveauPasse);
-            this.flpInscription.Controls.Add(this.lblConfirmPass);
-            this.flpInscription.Controls.Add(this.txtbConfirmNouveauPasse);
-            this.flpInscription.Controls.Add(this.btValidNouveauPasse);
-            this.flpInscription.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpInscription.Location = new System.Drawing.Point(3, 3);
             this.flpInscription.Name = "flpInscription";
-            this.flpInscription.Size = new System.Drawing.Size(377, 695);
+            this.flpInscription.Size = new System.Drawing.Size(377, 341);
             this.flpInscription.TabIndex = 0;
             // 
             // lblNom
@@ -739,7 +747,7 @@
             // 
             this.btnChangePass.AutoSize = true;
             this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePass.Location = new System.Drawing.Point(3, 329);
+            this.btnChangePass.Location = new System.Drawing.Point(389, 491);
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(361, 45);
             this.btnChangePass.TabIndex = 11;
@@ -750,7 +758,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 377);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(299, 20);
             this.label1.TabIndex = 12;
@@ -758,7 +766,7 @@
             // 
             // txtbNouveauPasse
             // 
-            this.txtbNouveauPasse.Location = new System.Drawing.Point(3, 400);
+            this.txtbNouveauPasse.Location = new System.Drawing.Point(3, 23);
             this.txtbNouveauPasse.Name = "txtbNouveauPasse";
             this.txtbNouveauPasse.Size = new System.Drawing.Size(361, 29);
             this.txtbNouveauPasse.TabIndex = 13;
@@ -767,7 +775,7 @@
             // 
             this.lblConfirmPass.AutoSize = true;
             this.lblConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPass.Location = new System.Drawing.Point(3, 432);
+            this.lblConfirmPass.Location = new System.Drawing.Point(3, 55);
             this.lblConfirmPass.Name = "lblConfirmPass";
             this.lblConfirmPass.Size = new System.Drawing.Size(323, 20);
             this.lblConfirmPass.TabIndex = 14;
@@ -775,7 +783,7 @@
             // 
             // txtbConfirmNouveauPasse
             // 
-            this.txtbConfirmNouveauPasse.Location = new System.Drawing.Point(3, 455);
+            this.txtbConfirmNouveauPasse.Location = new System.Drawing.Point(3, 78);
             this.txtbConfirmNouveauPasse.Name = "txtbConfirmNouveauPasse";
             this.txtbConfirmNouveauPasse.Size = new System.Drawing.Size(361, 29);
             this.txtbConfirmNouveauPasse.TabIndex = 15;
@@ -784,12 +792,27 @@
             // 
             this.btValidNouveauPasse.AutoSize = true;
             this.btValidNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btValidNouveauPasse.Location = new System.Drawing.Point(3, 490);
+            this.btValidNouveauPasse.Location = new System.Drawing.Point(3, 113);
             this.btValidNouveauPasse.Name = "btValidNouveauPasse";
             this.btValidNouveauPasse.Size = new System.Drawing.Size(361, 45);
             this.btValidNouveauPasse.TabIndex = 16;
             this.btValidNouveauPasse.Text = "Cliquez ici pour valider le nouveau mot de passe";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
+            // 
+            // flpChangePass
+            // 
+            this.flpChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.flpChangePass.BackColor = System.Drawing.Color.DarkGray;
+            this.flpChangePass.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpChangePass.Controls.Add(this.label1);
+            this.flpChangePass.Controls.Add(this.txtbNouveauPasse);
+            this.flpChangePass.Controls.Add(this.lblConfirmPass);
+            this.flpChangePass.Controls.Add(this.txtbConfirmNouveauPasse);
+            this.flpChangePass.Controls.Add(this.btValidNouveauPasse);
+            this.flpChangePass.Location = new System.Drawing.Point(3, 350);
+            this.flpChangePass.Name = "flpChangePass";
+            this.flpChangePass.Size = new System.Drawing.Size(377, 345);
+            this.flpChangePass.TabIndex = 17;
             // 
             // AccueilForum
             // 
@@ -837,6 +860,8 @@
             this.tpInscription.PerformLayout();
             this.flpInscription.ResumeLayout(false);
             this.flpInscription.PerformLayout();
+            this.flpChangePass.ResumeLayout(false);
+            this.flpChangePass.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -903,6 +928,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpSujetsInf;
         private System.Windows.Forms.FlowLayoutPanel flpSujets;
         private System.Windows.Forms.FlowLayoutPanel flpReponses;
+        private System.Windows.Forms.FlowLayoutPanel flpChangePass;
     }
 }
 

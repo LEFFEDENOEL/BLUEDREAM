@@ -42,6 +42,7 @@ namespace WinFormForadev
         {
             flpSujetsInf.Visible = false;
             flpReponses.Visible = false;
+            flpChangePass.Visible = false;
             btnSupprimerReponse.Visible = false;
         }
 
@@ -89,15 +90,16 @@ namespace WinFormForadev
             dgvSujets.DataSource = bsSujets.DataSource;
 
             dgvSujets.Columns[0].Visible = false;
-            dgvSujets.Columns[1].HeaderText = "Pseudo";
-            dgvSujets.Columns[1].Width = 100;
-            dgvSujets.Columns[2].HeaderText = "Rubrique";
-            dgvSujets.Columns[2].Width = 100;
-            dgvSujets.Columns[3].HeaderText = "Titre";
-            dgvSujets.Columns[3].Width = 125;
+            dgvSujets.Columns[1].Visible = false;
+            dgvSujets.Columns[2].HeaderText = "Titre";
+            dgvSujets.Columns[2].Width = 125;
+            dgvSujets.Columns[3].HeaderText = "Pseuso";
+            dgvSujets.Columns[3].Width = 100;
             dgvSujets.Columns[4].HeaderText = "Date";
             dgvSujets.Columns[4].Width = 100;
-            dgvSujets.Columns[5].HeaderText = "Texte sujet";
+            dgvSujets.Columns[5].HeaderText = "Texte";
+            //dgvSujets.Columns[5].Width = 100;
+            //dgvSujets.Columns[5].HeaderText = "Texte sujet";
         }
 
         /// <summary>
@@ -108,7 +110,7 @@ namespace WinFormForadev
         private void dgvSujets_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagridview dvgSujets
-            string titreSujet = dgvSujets.CurrentRow.Cells[3].Value.ToString();
+            string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
 
             //Appel de la liste créé dans dans la classe statique d'accés aux données 
             List<Reponse> listeReponses = DAOPrincipale.GetReponsesBySujet(titreSujet);
@@ -129,13 +131,28 @@ namespace WinFormForadev
             dgvReponses.Columns[3].Width = 100;
             dgvReponses.Columns[4].HeaderText = "Texte réponse";
         }
-        #endregion
-
+       
+        /// <summary>
+        /// Auhentifie l'utilisateur (déchiffrement du mot de passe), et renvoit son rôle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            string mdpClient = txtbMdp.Text;
+            string mdpfromclient = txtbMdp.Text;
             string login = txtbLogin.Text;
 
+            UtilisateurConnecte u = DAOPrincipale.GetUtilisateur(mdpfromclient, login);
+
+            if (u.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
+            else
+            {
+                VisibiliteComposantsUtilisateurNonModerateurConnecte();
+            }
+
+            flpIdentification.Visible = false;
         }
+        #endregion
+
     }
 }

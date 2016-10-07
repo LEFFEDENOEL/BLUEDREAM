@@ -87,27 +87,30 @@ namespace DAOForadev
         /// Renvoit le rôle de l'utilisateur après son authentification ou null si echec de l'authentification
         /// </summary>
         /// <returns></returns>
-        public static UtilisateurConnecte GetUtilisateur(string mdpClient, string login)
+        public static UtilisateurConnecte GetUtilisateur(string mdpfromclient, string login)
         {
-            using (DataSet dSet = GetDataSet("DECHIFFREMENTGETUTILISATEUR", new List<SqlParameter>()))
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("MDPFROMCLIENT", mdpfromclient));
+            listeSqlParam.Add(new SqlParameter("LOGIN", login));
+
+            using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEUR", listeSqlParam))
             {
-
-
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
+                bool role = ((bool)dRow["EST_MODERATEUR"] == true);
 
-                if ((int)dRow["EST_MODERATEUR"] == 1) return new Moderateur(dRow["NOM_UTILISATEUR"].ToString(),
-                                                                             dRow["PRENOM_UTILISATEUR"].ToString(),
-                                                                             dRow["MAIL_UTILISATEUR"].ToString(),
-                                                                             (int)dRow["EST_MODERATEUR"].ToString(),
-                                                                             dRow["PSEUDO_UTILISATEUR"].ToString(),
-                                                                             (DateTime)dRow["DATE_INSCRIPTION"]);
+                if (role) return new Moderateur (dRow["NOM_UTILISATEUR"].ToString(),
+                                                 dRow["PRENOM_UTILISATEUR"].ToString(),
+                                                 dRow["MAIL_UTILISATEUR"].ToString(),
+                                                 role,
+                                                 dRow["PSEUDO_UTILISATEUR"].ToString(),
+                                                (DateTime)dRow["DATE_INSCRIPTION"]);
 
-                return new NonModerateur(dRow["NOM_UTILISATEUR"].ToString(),
+                return new NonModerateur (dRow["NOM_UTILISATEUR"].ToString(),
                                           dRow["PRENOM_UTILISATEUR"].ToString(),
                                           dRow["MAIL_UTILISATEUR"].ToString(),
-                                          (int)dRow["EST_MODERATEUR"].ToString(),
+                                          !role,
                                           dRow["PSEUDO_UTILISATEUR"].ToString(),
                                          (DateTime)dRow["DATE_INSCRIPTION"]);
             }
