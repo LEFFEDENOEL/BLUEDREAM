@@ -57,6 +57,63 @@ namespace DAOForadev
             }
         }
 
+        //static private T? RecupereScalaire<T>(string nomProcedureStockee, List<SqlParameter> lSP, string nomParametreEnSortie) where T : struct
+        //{
+        //    using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
+        //    {
+
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = sC;
+        //            cmd.CommandText = nomProcedureStockee;
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            foreach (SqlParameter sP in lSP)
+        //            {
+        //                cmd.Parameters.Add(sP);
+        //            }
+
+        //            T? resultat;
+        //            sC.Open();
+        //            cmd.ExecuteNonQuery();
+        //            object o = cmd.Parameters[nomParametreEnSortie].Value;
+        //            resultat = (T?)o;
+        //            sC.Close();
+        //            return resultat;
+        //        }
+        //    }
+        //}
+
+        /// <summary>
+        /// Renvoit le rôle de l'utilisateur après son authentification ou null si echec de l'authentification
+        /// </summary>
+        /// <returns></returns>
+        public static UtilisateurConnecte GetUtilisateur(string mdpClient, string login)
+        {
+            using (DataSet dSet = GetDataSet("DECHIFFREMENTGETUTILISATEUR", new List<SqlParameter>()))
+            {
+
+
+                if (dSet.Tables[0].Rows.Count == 0) return null;
+
+                DataRow dRow = dSet.Tables[0].Rows[0];
+
+                if ((int)dRow["EST_MODERATEUR"] == 1) return new Moderateur(dRow["NOM_UTILISATEUR"].ToString(),
+                                                                             dRow["PRENOM_UTILISATEUR"].ToString(),
+                                                                             dRow["MAIL_UTILISATEUR"].ToString(),
+                                                                             (int)dRow["EST_MODERATEUR"].ToString(),
+                                                                             dRow["PSEUDO_UTILISATEUR"].ToString(),
+                                                                             (DateTime)dRow["DATE_INSCRIPTION"]);
+
+                return new NonModerateur(dRow["NOM_UTILISATEUR"].ToString(),
+                                          dRow["PRENOM_UTILISATEUR"].ToString(),
+                                          dRow["MAIL_UTILISATEUR"].ToString(),
+                                          (int)dRow["EST_MODERATEUR"].ToString(),
+                                          dRow["PSEUDO_UTILISATEUR"].ToString(),
+                                         (DateTime)dRow["DATE_INSCRIPTION"]);
+            }
+        }
+
+
         /// <summary>
         /// Renvoit la liste intégrale des rubriques
         /// </summary>

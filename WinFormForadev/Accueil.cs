@@ -130,5 +130,12 @@ namespace WinFormForadev
             dgvReponses.Columns[4].HeaderText = "Texte réponse";
         }
         #endregion
+
+        private void btnConnexion_Click(object sender, EventArgs e)
+        {
+            string mdpClient = txtbMdp.Text;
+            string login = txtbLogin.Text;
+
+        }
     }
 }

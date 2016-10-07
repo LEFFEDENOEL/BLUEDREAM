@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -38,23 +37,26 @@
             this.tpAccesRubriquesMessages = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbxRubriquesMessagesSup = new System.Windows.Forms.GroupBox();
+            this.flpSujetsInf = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTitreSujetRubriquesMessages = new System.Windows.Forms.Label();
+            this.txtbTitreSujet = new System.Windows.Forms.TextBox();
+            this.lblTexteSujet = new System.Windows.Forms.Label();
+            this.txtbTexteSujet = new System.Windows.Forms.TextBox();
             this.btnModifierSujet = new System.Windows.Forms.Button();
             this.btnSupprimerSujet = new System.Windows.Forms.Button();
+            this.btnAjoutSujet = new System.Windows.Forms.Button();
+            this.flpSujets = new System.Windows.Forms.FlowLayoutPanel();
             this.lblListeRubriques = new System.Windows.Forms.Label();
             this.cbxListeRubriques = new System.Windows.Forms.ComboBox();
-            this.lblTexteSujet = new System.Windows.Forms.Label();
-            this.txtbTitreSujet = new System.Windows.Forms.TextBox();
-            this.lblTitreSujetRubriquesMessages = new System.Windows.Forms.Label();
-            this.txtbTexteSujet = new System.Windows.Forms.TextBox();
-            this.btnAjoutSujet = new System.Windows.Forms.Button();
             this.dgvSujets = new System.Windows.Forms.DataGridView();
             this.gbxRubriquesMessagesInf = new System.Windows.Forms.GroupBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.flpReponses = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTexteReponse = new System.Windows.Forms.Label();
+            this.txtbTexteReponse = new System.Windows.Forms.TextBox();
             this.btnPosterReponse = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnSupprimerReponse = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
-            this.txtbTexteReponse = new System.Windows.Forms.TextBox();
-            this.lblTexteReponse = new System.Windows.Forms.Label();
             this.dgvReponses = new System.Windows.Forms.DataGridView();
             this.tpConnexion = new System.Windows.Forms.TabPage();
             this.lblInfoMdp = new System.Windows.Forms.Label();
@@ -87,9 +89,6 @@
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
             this.btValidNouveauPasse = new System.Windows.Forms.Button();
-            this.flpSujets = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpSujetsInf = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpReponses = new System.Windows.Forms.FlowLayoutPanel();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -100,16 +99,16 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.gbxRubriquesMessagesSup.SuspendLayout();
+            this.flpSujetsInf.SuspendLayout();
+            this.flpSujets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSujets)).BeginInit();
             this.gbxRubriquesMessagesInf.SuspendLayout();
+            this.flpReponses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).BeginInit();
             this.tpConnexion.SuspendLayout();
             this.flpIdentification.SuspendLayout();
             this.tpInscription.SuspendLayout();
             this.flpInscription.SuspendLayout();
-            this.flpSujets.SuspendLayout();
-            this.flpSujetsInf.SuspendLayout();
-            this.flpReponses.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -212,6 +211,56 @@
             this.gbxRubriquesMessagesSup.TabStop = false;
             this.gbxRubriquesMessagesSup.Text = "Derniers sujets postés";
             // 
+            // flpSujetsInf
+            // 
+            this.flpSujetsInf.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpSujetsInf.Controls.Add(this.lblTitreSujetRubriquesMessages);
+            this.flpSujetsInf.Controls.Add(this.txtbTitreSujet);
+            this.flpSujetsInf.Controls.Add(this.lblTexteSujet);
+            this.flpSujetsInf.Controls.Add(this.txtbTexteSujet);
+            this.flpSujetsInf.Controls.Add(this.btnModifierSujet);
+            this.flpSujetsInf.Controls.Add(this.btnSupprimerSujet);
+            this.flpSujetsInf.Controls.Add(this.btnAjoutSujet);
+            this.flpSujetsInf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpSujetsInf.Location = new System.Drawing.Point(838, 80);
+            this.flpSujetsInf.Name = "flpSujetsInf";
+            this.flpSujetsInf.Size = new System.Drawing.Size(405, 257);
+            this.flpSujetsInf.TabIndex = 12;
+            // 
+            // lblTitreSujetRubriquesMessages
+            // 
+            this.lblTitreSujetRubriquesMessages.AutoEllipsis = true;
+            this.lblTitreSujetRubriquesMessages.AutoSize = true;
+            this.lblTitreSujetRubriquesMessages.Location = new System.Drawing.Point(3, 0);
+            this.lblTitreSujetRubriquesMessages.Name = "lblTitreSujetRubriquesMessages";
+            this.lblTitreSujetRubriquesMessages.Size = new System.Drawing.Size(274, 20);
+            this.lblTitreSujetRubriquesMessages.TabIndex = 3;
+            this.lblTitreSujetRubriquesMessages.Text = "Entrez ci-dessous votre titre de sujet :";
+            // 
+            // txtbTitreSujet
+            // 
+            this.txtbTitreSujet.Location = new System.Drawing.Point(3, 23);
+            this.txtbTitreSujet.Name = "txtbTitreSujet";
+            this.txtbTitreSujet.Size = new System.Drawing.Size(395, 26);
+            this.txtbTitreSujet.TabIndex = 5;
+            // 
+            // lblTexteSujet
+            // 
+            this.lblTexteSujet.AutoSize = true;
+            this.lblTexteSujet.Location = new System.Drawing.Point(3, 52);
+            this.lblTexteSujet.Name = "lblTexteSujet";
+            this.lblTexteSujet.Size = new System.Drawing.Size(222, 20);
+            this.lblTexteSujet.TabIndex = 6;
+            this.lblTexteSujet.Text = "Entrez ci-dessous votre texte :";
+            // 
+            // txtbTexteSujet
+            // 
+            this.txtbTexteSujet.Location = new System.Drawing.Point(3, 75);
+            this.txtbTexteSujet.Multiline = true;
+            this.txtbTexteSujet.Name = "txtbTexteSujet";
+            this.txtbTexteSujet.Size = new System.Drawing.Size(395, 65);
+            this.txtbTexteSujet.TabIndex = 2;
+            // 
             // btnModifierSujet
             // 
             this.btnModifierSujet.AutoSize = true;
@@ -234,6 +283,28 @@
             this.btnSupprimerSujet.Text = "Cliquez ici pour SUPPRIMER le sujet sélectionné";
             this.btnSupprimerSujet.UseVisualStyleBackColor = true;
             // 
+            // btnAjoutSujet
+            // 
+            this.btnAjoutSujet.AutoSize = true;
+            this.btnAjoutSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjoutSujet.Location = new System.Drawing.Point(3, 222);
+            this.btnAjoutSujet.Name = "btnAjoutSujet";
+            this.btnAjoutSujet.Size = new System.Drawing.Size(395, 32);
+            this.btnAjoutSujet.TabIndex = 1;
+            this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
+            this.btnAjoutSujet.UseVisualStyleBackColor = true;
+            // 
+            // flpSujets
+            // 
+            this.flpSujets.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpSujets.Controls.Add(this.lblListeRubriques);
+            this.flpSujets.Controls.Add(this.cbxListeRubriques);
+            this.flpSujets.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flpSujets.Location = new System.Drawing.Point(838, 22);
+            this.flpSujets.Name = "flpSujets";
+            this.flpSujets.Size = new System.Drawing.Size(405, 58);
+            this.flpSujets.TabIndex = 11;
+            // 
             // lblListeRubriques
             // 
             this.lblListeRubriques.AutoSize = true;
@@ -253,57 +324,12 @@
             this.cbxListeRubriques.TabIndex = 7;
             this.cbxListeRubriques.SelectionChangeCommitted += new System.EventHandler(this.cbxListeRubriques_SelectionChangeCommitted);
             // 
-            // lblTexteSujet
-            // 
-            this.lblTexteSujet.AutoSize = true;
-            this.lblTexteSujet.Location = new System.Drawing.Point(3, 52);
-            this.lblTexteSujet.Name = "lblTexteSujet";
-            this.lblTexteSujet.Size = new System.Drawing.Size(222, 20);
-            this.lblTexteSujet.TabIndex = 6;
-            this.lblTexteSujet.Text = "Entrez ci-dessous votre texte :";
-            // 
-            // txtbTitreSujet
-            // 
-            this.txtbTitreSujet.Location = new System.Drawing.Point(3, 23);
-            this.txtbTitreSujet.Name = "txtbTitreSujet";
-            this.txtbTitreSujet.Size = new System.Drawing.Size(395, 26);
-            this.txtbTitreSujet.TabIndex = 5;
-            // 
-            // lblTitreSujetRubriquesMessages
-            // 
-            this.lblTitreSujetRubriquesMessages.AutoEllipsis = true;
-            this.lblTitreSujetRubriquesMessages.AutoSize = true;
-            this.lblTitreSujetRubriquesMessages.Location = new System.Drawing.Point(3, 0);
-            this.lblTitreSujetRubriquesMessages.Name = "lblTitreSujetRubriquesMessages";
-            this.lblTitreSujetRubriquesMessages.Size = new System.Drawing.Size(274, 20);
-            this.lblTitreSujetRubriquesMessages.TabIndex = 3;
-            this.lblTitreSujetRubriquesMessages.Text = "Entrez ci-dessous votre titre de sujet :";
-            // 
-            // txtbTexteSujet
-            // 
-            this.txtbTexteSujet.Location = new System.Drawing.Point(3, 75);
-            this.txtbTexteSujet.Multiline = true;
-            this.txtbTexteSujet.Name = "txtbTexteSujet";
-            this.txtbTexteSujet.Size = new System.Drawing.Size(395, 65);
-            this.txtbTexteSujet.TabIndex = 2;
-            // 
-            // btnAjoutSujet
-            // 
-            this.btnAjoutSujet.AutoSize = true;
-            this.btnAjoutSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjoutSujet.Location = new System.Drawing.Point(3, 222);
-            this.btnAjoutSujet.Name = "btnAjoutSujet";
-            this.btnAjoutSujet.Size = new System.Drawing.Size(395, 32);
-            this.btnAjoutSujet.TabIndex = 1;
-            this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
-            this.btnAjoutSujet.UseVisualStyleBackColor = true;
-            // 
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.NullValue = null;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -343,17 +369,34 @@
             this.gbxRubriquesMessagesInf.TabStop = false;
             this.gbxRubriquesMessagesInf.Text = "Réponses correspondantes au sujet sélectionné";
             // 
-            // btnRefresh
+            // flpReponses
             // 
-            this.btnRefresh.AutoSize = true;
-            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(838, 22);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(405, 32);
-            this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.Text = "Rafraîchir les réponses";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.flpReponses.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpReponses.Controls.Add(this.lblTexteReponse);
+            this.flpReponses.Controls.Add(this.txtbTexteReponse);
+            this.flpReponses.Controls.Add(this.btnPosterReponse);
+            this.flpReponses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpReponses.Location = new System.Drawing.Point(838, 54);
+            this.flpReponses.Name = "flpReponses";
+            this.flpReponses.Size = new System.Drawing.Size(405, 247);
+            this.flpReponses.TabIndex = 13;
+            // 
+            // lblTexteReponse
+            // 
+            this.lblTexteReponse.AutoSize = true;
+            this.lblTexteReponse.Location = new System.Drawing.Point(3, 0);
+            this.lblTexteReponse.Name = "lblTexteReponse";
+            this.lblTexteReponse.Size = new System.Drawing.Size(322, 20);
+            this.lblTexteReponse.TabIndex = 7;
+            this.lblTexteReponse.Text = "Entrez ci-dessous le texte de votre réponse :";
+            // 
+            // txtbTexteReponse
+            // 
+            this.txtbTexteReponse.Location = new System.Drawing.Point(3, 23);
+            this.txtbTexteReponse.Multiline = true;
+            this.txtbTexteReponse.Name = "txtbTexteReponse";
+            this.txtbTexteReponse.Size = new System.Drawing.Size(395, 85);
+            this.txtbTexteReponse.TabIndex = 8;
             // 
             // btnPosterReponse
             // 
@@ -365,6 +408,18 @@
             this.btnPosterReponse.TabIndex = 11;
             this.btnPosterReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
             this.btnPosterReponse.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.AutoSize = true;
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(838, 22);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(405, 32);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.Text = "Rafraîchir les réponses";
+            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // btnSupprimerReponse
             // 
@@ -390,42 +445,17 @@
             this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitter.UseVisualStyleBackColor = true;
             // 
-            // txtbTexteReponse
-            // 
-            this.txtbTexteReponse.Location = new System.Drawing.Point(3, 23);
-            this.txtbTexteReponse.Multiline = true;
-            this.txtbTexteReponse.Name = "txtbTexteReponse";
-            this.txtbTexteReponse.Size = new System.Drawing.Size(395, 85);
-            this.txtbTexteReponse.TabIndex = 8;
-            // 
-            // lblTexteReponse
-            // 
-            this.lblTexteReponse.AutoSize = true;
-            this.lblTexteReponse.Location = new System.Drawing.Point(3, 0);
-            this.lblTexteReponse.Name = "lblTexteReponse";
-            this.lblTexteReponse.Size = new System.Drawing.Size(322, 20);
-            this.lblTexteReponse.TabIndex = 7;
-            this.lblTexteReponse.Text = "Entrez ci-dessous le texte de votre réponse :";
-            // 
             // dgvReponses
             // 
             this.dgvReponses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponses.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvReponses.Location = new System.Drawing.Point(3, 22);
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 343);
             this.dgvReponses.TabIndex = 0;
@@ -535,6 +565,7 @@
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "GO !";
             this.btnConnexion.UseVisualStyleBackColor = true;
+            this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
             // monthCalendar1
             // 
@@ -760,45 +791,6 @@
             this.btValidNouveauPasse.Text = "Cliquez ici pour valider le nouveau mot de passe";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
             // 
-            // flpSujets
-            // 
-            this.flpSujets.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpSujets.Controls.Add(this.lblListeRubriques);
-            this.flpSujets.Controls.Add(this.cbxListeRubriques);
-            this.flpSujets.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpSujets.Location = new System.Drawing.Point(838, 22);
-            this.flpSujets.Name = "flpSujets";
-            this.flpSujets.Size = new System.Drawing.Size(405, 58);
-            this.flpSujets.TabIndex = 11;
-            // 
-            // flpSujetsInf
-            // 
-            this.flpSujetsInf.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpSujetsInf.Controls.Add(this.lblTitreSujetRubriquesMessages);
-            this.flpSujetsInf.Controls.Add(this.txtbTitreSujet);
-            this.flpSujetsInf.Controls.Add(this.lblTexteSujet);
-            this.flpSujetsInf.Controls.Add(this.txtbTexteSujet);
-            this.flpSujetsInf.Controls.Add(this.btnModifierSujet);
-            this.flpSujetsInf.Controls.Add(this.btnSupprimerSujet);
-            this.flpSujetsInf.Controls.Add(this.btnAjoutSujet);
-            this.flpSujetsInf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpSujetsInf.Location = new System.Drawing.Point(838, 80);
-            this.flpSujetsInf.Name = "flpSujetsInf";
-            this.flpSujetsInf.Size = new System.Drawing.Size(405, 257);
-            this.flpSujetsInf.TabIndex = 12;
-            // 
-            // flpReponses
-            // 
-            this.flpReponses.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpReponses.Controls.Add(this.lblTexteReponse);
-            this.flpReponses.Controls.Add(this.txtbTexteReponse);
-            this.flpReponses.Controls.Add(this.btnPosterReponse);
-            this.flpReponses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpReponses.Location = new System.Drawing.Point(838, 54);
-            this.flpReponses.Name = "flpReponses";
-            this.flpReponses.Size = new System.Drawing.Size(405, 247);
-            this.flpReponses.TabIndex = 13;
-            // 
             // AccueilForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -827,9 +819,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.gbxRubriquesMessagesSup.ResumeLayout(false);
+            this.flpSujetsInf.ResumeLayout(false);
+            this.flpSujetsInf.PerformLayout();
+            this.flpSujets.ResumeLayout(false);
+            this.flpSujets.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSujets)).EndInit();
             this.gbxRubriquesMessagesInf.ResumeLayout(false);
             this.gbxRubriquesMessagesInf.PerformLayout();
+            this.flpReponses.ResumeLayout(false);
+            this.flpReponses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).EndInit();
             this.tpConnexion.ResumeLayout(false);
             this.tpConnexion.PerformLayout();
@@ -839,12 +837,6 @@
             this.tpInscription.PerformLayout();
             this.flpInscription.ResumeLayout(false);
             this.flpInscription.PerformLayout();
-            this.flpSujets.ResumeLayout(false);
-            this.flpSujets.PerformLayout();
-            this.flpSujetsInf.ResumeLayout(false);
-            this.flpSujetsInf.PerformLayout();
-            this.flpReponses.ResumeLayout(false);
-            this.flpReponses.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
