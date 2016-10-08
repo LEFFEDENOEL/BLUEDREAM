@@ -1,17 +1,7 @@
-﻿if object_id('BUILDUTILISATEURBYNOMUTILISATEUR', 'p') is not null
-drop procedure BUILDUTILISATEURBYNOMUTILISATEUR
-go
-
-create procedure BUILDUTILISATEURBYNOMUTILISATEUR
-
-@nomutilisateur varchar(50)
-
-as
-
-begin
-
-select ID_UTILISATEUR, NOM_UTILISATEUR, PRENOM_UTILISATEUR, PSEUDO_UTILISATEUR, DATE_INSCRIPTION 
-from UTILISATEURS where NOM_UTILISATEUR = @nomutilisateur
-
-end
+﻿declare 
+@compteur as int = 0,
+@nombreAleatoire as varchar(4),
+@loginCalcule as varchar(50)
+execute dbo.CREATEUTILISATEUR 'ESSAI2', 'LAURENT', 'false', 'essai2@2isa.org', '1A8F80D', 'loloessai2', '03/07/2016 15:15:30'
+print @logincalcule
 go

@@ -28,10 +28,10 @@ namespace Foradev
             get { return _Sujet; }
             set { _Sujet = value; }
         }
-        public string PseudoUtilisateur
-        {
-            get { return Utilisateur.Pseudo; }
-        }
+        //public string PseudoUtilisateur
+        //{
+        //    get { return Utilisateur.Pseudo; }
+        //}
         #endregion
 
         #region Constructeurs

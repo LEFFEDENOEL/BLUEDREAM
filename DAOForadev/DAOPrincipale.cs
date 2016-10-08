@@ -13,6 +13,8 @@ namespace DAOForadev
     /// <summary>
     /// Classe d'accés aux données
     /// </summary>
+
+    // SECTION RETRIEVE *************************************************************************************************
     public static class DAOPrincipale
     {
         /// <summary>
@@ -85,12 +87,14 @@ namespace DAOForadev
 
         /// <summary>
         /// Renvoit le rôle de l'utilisateur après son authentification ou null si echec de l'authentification
+        /// <param name="empreinteSha"></param>
+        /// <param name="login"></param>
         /// </summary>
         /// <returns></returns>
-        public static UtilisateurConnecte GetUtilisateur(string mdpfromclient, string login)
+        public static UtilisateurConnecte GetUtilisateur(string empreinteSha, string login)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
-            listeSqlParam.Add(new SqlParameter("MDPFROMCLIENT", mdpfromclient));
+            listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
             listeSqlParam.Add(new SqlParameter("LOGIN", login));
 
             using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEUR", listeSqlParam))
@@ -254,6 +258,17 @@ namespace DAOForadev
                 return listeReponses;
             }
         }
+
+        // SECTION CREATE ***********************************************************************************************
+
+        public static void AjoutUtilisateur() { }
+
+
+
+
+
+
+
 
 
         //TODO

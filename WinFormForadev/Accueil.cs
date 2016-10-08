@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,6 +71,38 @@ namespace WinFormForadev
         }
         #endregion
 
+        //public string ConvertSHA1(string mdpFromClient)
+        //{
+        //    SHA1 sha = SHA1.Create();
+        //    byte[] data = sha.ComputeHash(Encoding.Default.GetBytes(mdpFromClient));
+        //    StringBuilder sb = new StringBuilder();
+        //    for (int i = 0; i < data.Length; i++)
+        //    {
+        //        sb.Append(data[i].ToString("x2"));
+        //    }
+        //    return sb.ToString();
+        //}
+
+        /// <summary>
+        /// Fontion de hashage en SHA1 du mot de passe saisi par l'utilisateur lors de la connexion
+        /// </summary>
+        /// <param name="mdpFromClient"></param>
+        /// <returns></returns>
+        static string HashShaMdp(string mdpFromClient)
+        {
+            using (SHA1Managed sha1 = new SHA1Managed())
+            {
+                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(mdpFromClient));
+                var sb = new StringBuilder(hash.Length * 2);
+
+                foreach (byte b in hash)
+                {
+                    // can be "x2" if you want lowercase
+                    sb.Append(b.ToString("X2"));
+                }
+                return sb.ToString();
+            }
+        }
         #region Evènements
 
         /// <summary>
@@ -98,8 +131,6 @@ namespace WinFormForadev
             dgvSujets.Columns[4].HeaderText = "Date";
             dgvSujets.Columns[4].Width = 100;
             dgvSujets.Columns[5].HeaderText = "Texte";
-            //dgvSujets.Columns[5].Width = 100;
-            //dgvSujets.Columns[5].HeaderText = "Texte sujet";
         }
 
         /// <summary>
@@ -133,24 +164,27 @@ namespace WinFormForadev
         }
        
         /// <summary>
-        /// Auhentifie l'utilisateur (déchiffrement du mot de passe), et renvoit son rôle
+        /// Auhentifie l'utilisateur (déchiffrement du mot de passe en BDD), et renvoit son rôle
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            string mdpfromclient = txtbMdp.Text;
+            string mdpFromClient = txtbMdp.Text;           
+            string empreinteSha = HashShaMdp(mdpFromClient);
+
             string login = txtbLogin.Text;
 
-            UtilisateurConnecte u = DAOPrincipale.GetUtilisateur(mdpfromclient, login);
+            UtilisateurConnecte uConnect = DAOPrincipale.GetUtilisateur(empreinteSha, login);
 
-            if (u.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
+            if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
             else
             {
                 VisibiliteComposantsUtilisateurNonModerateurConnecte();
             }
 
             flpIdentification.Visible = false;
+            flpInscription.Visible = false;
         }
         #endregion
 
