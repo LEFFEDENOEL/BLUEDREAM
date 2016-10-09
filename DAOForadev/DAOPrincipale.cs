@@ -91,7 +91,7 @@ namespace DAOForadev
         /// <param name="login"></param>
         /// </summary>
         /// <returns></returns>
-        public static UtilisateurConnecte GetUtilisateur(string empreinteSha, string login)
+        public static UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
             listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
@@ -240,6 +240,7 @@ namespace DAOForadev
         public static List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
             listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
             using (DataSet dSet = GetDataSet("GETREPONSESBYSUJET", listeSqlParam))
             {
@@ -261,14 +262,53 @@ namespace DAOForadev
 
         // SECTION CREATE ***********************************************************************************************
 
-        public static void AjoutUtilisateur() { }
 
+        /// <summary>
+        /// Methode qui ajoute un utilisateur dans la BDD
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="estModerateur"></param>
+        /// <param name="mail"></param>
+        /// <param name="empreinteSha"></param>
+        /// <param name="pseudo"></param>
+        /// <param name="dateCreationCompte"></param>
+        /// <returns></returns>
+        public static string AjoutUtilisateur (string nom, string prenom, bool estModerateur, 
+                                               string mail, string empreinteSha, string pseudo, 
+                                               DateTime dateCreationCompte)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
+            listeSqlParam.Add(new SqlParameter("NOM", nom));
+            listeSqlParam.Add(new SqlParameter("PRENOM", prenom));
+            listeSqlParam.Add(new SqlParameter("ESTMODERATEUR", estModerateur));
+            listeSqlParam.Add(new SqlParameter("MAIL", mail));
+            listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
+            listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
+            listeSqlParam.Add(new SqlParameter("DATECREATIONCOMPTE", dateCreationCompte));
 
+            GetDataSet("CREATEUTILISATEUR", listeSqlParam);
+            return GetLogin(pseudo);        
+        }
 
+        /// <summary>
+        /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur
+        /// </summary>
+        /// <param name="pseudo"></param>
+        /// <returns></returns>
+        public static string GetLogin(string pseudo)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
+            listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
+            DataSet dSet = GetDataSet("GETLOGIN", listeSqlParam);
 
+            DataRow dRow = dSet.Tables[0].Rows[0];
+            string login = dRow["LOGIN_UTILISATEUR"].ToString();
 
+            return login;        
+        }
 
 
         //TODO

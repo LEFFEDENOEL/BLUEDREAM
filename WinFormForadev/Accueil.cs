@@ -71,38 +71,6 @@ namespace WinFormForadev
         }
         #endregion
 
-        //public string ConvertSHA1(string mdpFromClient)
-        //{
-        //    SHA1 sha = SHA1.Create();
-        //    byte[] data = sha.ComputeHash(Encoding.Default.GetBytes(mdpFromClient));
-        //    StringBuilder sb = new StringBuilder();
-        //    for (int i = 0; i < data.Length; i++)
-        //    {
-        //        sb.Append(data[i].ToString("x2"));
-        //    }
-        //    return sb.ToString();
-        //}
-
-        /// <summary>
-        /// Fontion de hashage en SHA1 du mot de passe saisi par l'utilisateur lors de la connexion
-        /// </summary>
-        /// <param name="mdpFromClient"></param>
-        /// <returns></returns>
-        static string HashShaMdp(string mdpFromClient)
-        {
-            using (SHA1Managed sha1 = new SHA1Managed())
-            {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(mdpFromClient));
-                var sb = new StringBuilder(hash.Length * 2);
-
-                foreach (byte b in hash)
-                {
-                    // can be "x2" if you want lowercase
-                    sb.Append(b.ToString("X2"));
-                }
-                return sb.ToString();
-            }
-        }
         #region Evènements
 
         /// <summary>
@@ -171,11 +139,11 @@ namespace WinFormForadev
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             string mdpFromClient = txtbMdp.Text;           
-            string empreinteSha = HashShaMdp(mdpFromClient);
+            string empreinteSha = Compute.HashShaMdp(mdpFromClient);
 
             string login = txtbLogin.Text;
 
-            UtilisateurConnecte uConnect = DAOPrincipale.GetUtilisateur(empreinteSha, login);
+            UtilisateurConnecte uConnect = DAOPrincipale.GetIdentificationUtilisateur(empreinteSha, login);
 
             if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
             else
@@ -185,8 +153,43 @@ namespace WinFormForadev
 
             flpIdentification.Visible = false;
             flpInscription.Visible = false;
+            lblInfoPasseInscription.Visible = false;
+            lblInfoNouveauPasse.Visible = false;
+            btnChangePass.Visible = true;           
+        }
+
+        /// <summary>
+        /// Methode qui envoit le formulaire d'inscription dans la BDD et renvoit le login calculé par la BDD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnValidInscription_Click(object sender, EventArgs e)
+        {
+            string nom = txtbNom.Text;
+            string prenom = txtbPrenom.Text;
+            bool estModerateur = false;
+            string mail = txtbMail.Text;
+            string empreinteSha = Compute.HashShaMdp(txtbInscriptionPasse.Text);
+            string pseudo = txtbPseudo.Text;
+            DateTime dateInscription = System.DateTime.Now;
+
+            string login = DAOPrincipale.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
+
+            flpIdentification.Visible = false;
+            flpInscription.Visible = false;
+            lblInfoPasseInscription.Visible = false;
+            lblInfoNouveauPasse.Visible = false;
+            btnChangePass.Visible = true;
+
+            lblInscriptionOk.Visible = true;
+            lblInscriptionOk.Text = lblInscriptionOk.Text + login;
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            flpChangePass.Visible = true;
+            lblInfoNouveauPasse.Visible = true;
         }
         #endregion
-
     }
 }
