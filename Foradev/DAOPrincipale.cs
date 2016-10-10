@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +10,12 @@ using System.Threading.Tasks;
 namespace DAOForadev
 {
     /// <summary>
-    /// Classe d'accés aux données
+    /// Classe d'accés aux données CRUD
     /// </summary>
-
-    // SECTION RETRIEVE *************************************************************************************************
     public static class DAOPrincipale
     {
+        #region CRUD : Retrieve
+
         /// <summary>
         /// Renvoit un dataset selon une procédure stockée en paramètre d'entrée
         /// </summary>
@@ -25,7 +24,7 @@ namespace DAOForadev
         /// <returns></returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
-            using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
+            using (SqlConnection sqlConnex = new SqlConnection(Foradev.Properties.Settings.Default.connex))
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -103,16 +102,17 @@ namespace DAOForadev
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
                 bool role = ((bool)dRow["EST_MODERATEUR"] == true);
-                //int IdUtilisateur = (int)dRow["ID_UTILISATEUR"];
-
-                if (role) return new Moderateur (dRow["NOM_UTILISATEUR"].ToString(),
+  
+                if (role) return new Moderateur ((int)dRow["ID_UTILISATEUR"],
+                                                 dRow["NOM_UTILISATEUR"].ToString(),
                                                  dRow["PRENOM_UTILISATEUR"].ToString(),
                                                  dRow["MAIL_UTILISATEUR"].ToString(),
                                                  role,
                                                  dRow["PSEUDO_UTILISATEUR"].ToString(),
                                                 (DateTime)dRow["DATE_INSCRIPTION"]);
 
-                return new NonModerateur (dRow["NOM_UTILISATEUR"].ToString(),
+                return new NonModerateur ((int)dRow["ID_UTILISATEUR"],
+                                          dRow["NOM_UTILISATEUR"].ToString(),
                                           dRow["PRENOM_UTILISATEUR"].ToString(),
                                           dRow["MAIL_UTILISATEUR"].ToString(),
                                           !role,
@@ -174,8 +174,10 @@ namespace DAOForadev
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
 
-                return new UtilisateurNonConnecte(dRow["NOM_UTILISATEUR"].ToString(), dRow["PRENOM_UTILISATEUR"].ToString(), 
-                                                  dRow["PSEUDO_UTILISATEUR"].ToString(), (DateTime)dRow["DATE_INSCRIPTION"]);
+                return new UtilisateurNonConnecte(dRow["NOM_UTILISATEUR"].ToString(), 
+                                                  dRow["PRENOM_UTILISATEUR"].ToString(), 
+                                                  dRow["PSEUDO_UTILISATEUR"].ToString(), 
+                                                  (DateTime)dRow["DATE_INSCRIPTION"]);
             }
         }
 
@@ -260,9 +262,9 @@ namespace DAOForadev
                 return listeReponses;
             }
         }
+        #endregion
 
-        // SECTION CREATE ***********************************************************************************************
-
+        #region CRUD : Create
 
         /// <summary>
         /// Methode qui ajoute un utilisateur dans la BDD
@@ -311,6 +313,14 @@ namespace DAOForadev
             return login;        
         }
 
+        /// <summary>
+        /// Méthode qui ajoute un sujet
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="idRubrique"></param>
+        /// <param name="titreSujet"></param>
+        /// <param name="descriptionSujet"></param>
+        /// <param name="dateCreationSujet"></param>
         public static void AjoutSujet (int idUtilisateur, int idRubrique, string titreSujet, 
                                        string descriptionSujet, DateTime dateCreationSujet)
         {
@@ -324,6 +334,33 @@ namespace DAOForadev
 
             GetDataSet("CREATESUJET", listeSqlParam);    
         }
+
+        /// <summary>
+        /// Méthode qui ajoute une réponse selon un sujet
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="texteReponse"></param>
+        /// <param name="dateReponse"></param>
+        public static void AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+            listeSqlParam.Add(new SqlParameter("IDUTILISATEUR", idUtilisateur));
+            listeSqlParam.Add(new SqlParameter("TEXTEREPONSE", texteReponse));
+            listeSqlParam.Add(new SqlParameter("DATEREPONSE", dateReponse));         
+
+            GetDataSet("CREATEREPONSE", listeSqlParam);
+        }
+        #endregion
+
+        #region CRUD : Update
+        #endregion
+
+        #region CRUD : Delete
+        #endregion
+
 
         //TODO
 

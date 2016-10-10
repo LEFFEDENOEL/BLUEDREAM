@@ -13,6 +13,13 @@ namespace Foradev
     {
         #region Champs et Propriétés
 
+        protected string _Id;
+        public string Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
         protected string _Nom;
         public string Nom
         {
@@ -69,7 +76,7 @@ namespace Foradev
 
         //Constructeur complet
 
-        protected Utilisateur(string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
+        protected Utilisateur(int id, string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
         {
             Nom = nom; Prenom = prenom; Mail = mail; Role = role; Pseudo = pseudo; DateInscription = dtinscription;
         }

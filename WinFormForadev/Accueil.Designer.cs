@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -69,13 +69,14 @@
             this.btnConnexion = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.tpInscription = new System.Windows.Forms.TabPage();
+            this.lblInscriptionOk = new System.Windows.Forms.Label();
+            this.btnChangePass = new System.Windows.Forms.Button();
             this.flpChangePass = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbNouveauPasse = new System.Windows.Forms.TextBox();
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
             this.btValidNouveauPasse = new System.Windows.Forms.Button();
-            this.btnChangePass = new System.Windows.Forms.Button();
             this.lblInfoNouveauPasse = new System.Windows.Forms.Label();
             this.lblInfoPasseInscription = new System.Windows.Forms.Label();
             this.flpInscription = new System.Windows.Forms.FlowLayoutPanel();
@@ -90,7 +91,6 @@
             this.lblInscriptionPasse = new System.Windows.Forms.Label();
             this.txtbInscriptionPasse = new System.Windows.Forms.TextBox();
             this.btnValidInscription = new System.Windows.Forms.Button();
-            this.lblInscriptionOk = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -175,7 +175,7 @@
             this.tpAccesRubriquesMessages.Location = new System.Drawing.Point(4, 33);
             this.tpAccesRubriquesMessages.Name = "tpAccesRubriquesMessages";
             this.tpAccesRubriquesMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccesRubriquesMessages.Size = new System.Drawing.Size(1252, 718);
+            this.tpAccesRubriquesMessages.Size = new System.Drawing.Size(1264, 718);
             this.tpAccesRubriquesMessages.TabIndex = 0;
             this.tpAccesRubriquesMessages.Text = "Rubriques et messages";
             // 
@@ -195,7 +195,7 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.gbxRubriquesMessagesInf);
-            this.splitContainer1.Size = new System.Drawing.Size(1246, 712);
+            this.splitContainer1.Size = new System.Drawing.Size(1258, 712);
             this.splitContainer1.SplitterDistance = 340;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -209,7 +209,7 @@
             this.gbxRubriquesMessagesSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesSup.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesSup.Name = "gbxRubriquesMessagesSup";
-            this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1246, 340);
+            this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1258, 340);
             this.gbxRubriquesMessagesSup.TabIndex = 0;
             this.gbxRubriquesMessagesSup.TabStop = false;
             this.gbxRubriquesMessagesSup.Text = "Derniers sujets postés";
@@ -227,7 +227,7 @@
             this.flpSujetsInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpSujetsInf.Location = new System.Drawing.Point(838, 80);
             this.flpSujetsInf.Name = "flpSujetsInf";
-            this.flpSujetsInf.Size = new System.Drawing.Size(405, 257);
+            this.flpSujetsInf.Size = new System.Drawing.Size(417, 257);
             this.flpSujetsInf.TabIndex = 12;
             // 
             // lblTitreSujetRubriquesMessages
@@ -296,6 +296,7 @@
             this.btnAjoutSujet.TabIndex = 1;
             this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
             this.btnAjoutSujet.UseVisualStyleBackColor = true;
+            this.btnAjoutSujet.Click += new System.EventHandler(this.btnAjoutSujet_Click);
             // 
             // flpSujets
             // 
@@ -305,7 +306,7 @@
             this.flpSujets.Dock = System.Windows.Forms.DockStyle.Top;
             this.flpSujets.Location = new System.Drawing.Point(838, 22);
             this.flpSujets.Name = "flpSujets";
-            this.flpSujets.Size = new System.Drawing.Size(405, 58);
+            this.flpSujets.Size = new System.Drawing.Size(417, 58);
             this.flpSujets.TabIndex = 11;
             // 
             // lblListeRubriques
@@ -330,15 +331,15 @@
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSujets.Location = new System.Drawing.Point(3, 22);
@@ -367,7 +368,7 @@
             this.gbxRubriquesMessagesInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesInf.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesInf.Name = "gbxRubriquesMessagesInf";
-            this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1246, 368);
+            this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1258, 368);
             this.gbxRubriquesMessagesInf.TabIndex = 0;
             this.gbxRubriquesMessagesInf.TabStop = false;
             this.gbxRubriquesMessagesInf.Text = "Réponses correspondantes au sujet sélectionné";
@@ -381,7 +382,7 @@
             this.flpReponses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpReponses.Location = new System.Drawing.Point(838, 54);
             this.flpReponses.Name = "flpReponses";
-            this.flpReponses.Size = new System.Drawing.Size(405, 247);
+            this.flpReponses.Size = new System.Drawing.Size(417, 247);
             this.flpReponses.TabIndex = 13;
             // 
             // lblTexteReponse
@@ -419,7 +420,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Location = new System.Drawing.Point(838, 22);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(405, 32);
+            this.btnRefresh.Size = new System.Drawing.Size(417, 32);
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Rafraîchir les réponses";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -431,7 +432,7 @@
             this.btnSupprimerReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimerReponse.Location = new System.Drawing.Point(838, 301);
             this.btnSupprimerReponse.Name = "btnSupprimerReponse";
-            this.btnSupprimerReponse.Size = new System.Drawing.Size(405, 32);
+            this.btnSupprimerReponse.Size = new System.Drawing.Size(417, 32);
             this.btnSupprimerReponse.TabIndex = 10;
             this.btnSupprimerReponse.Text = "Cliquez ici pour SUPPRIMER la réponse sélectionnée";
             this.btnSupprimerReponse.UseVisualStyleBackColor = true;
@@ -443,7 +444,7 @@
             this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitter.Location = new System.Drawing.Point(838, 333);
             this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(405, 32);
+            this.btnQuitter.Size = new System.Drawing.Size(417, 32);
             this.btnQuitter.TabIndex = 9;
             this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitter.UseVisualStyleBackColor = true;
@@ -457,8 +458,8 @@
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 343);
             this.dgvReponses.TabIndex = 0;
@@ -597,6 +598,30 @@
             this.tpInscription.TabIndex = 7;
             this.tpInscription.Text = "Inscription";
             // 
+            // lblInscriptionOk
+            // 
+            this.lblInscriptionOk.AutoSize = true;
+            this.lblInscriptionOk.Location = new System.Drawing.Point(386, 57);
+            this.lblInscriptionOk.Name = "lblInscriptionOk";
+            this.lblInscriptionOk.Size = new System.Drawing.Size(721, 24);
+            this.lblInscriptionOk.TabIndex = 18;
+            this.lblInscriptionOk.Text = "Votre inscription a bien été prise en compte, nous vous remercions ! Votre login " +
+    "est : ";
+            this.lblInscriptionOk.Visible = false;
+            // 
+            // btnChangePass
+            // 
+            this.btnChangePass.AutoSize = true;
+            this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.Location = new System.Drawing.Point(655, 310);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(361, 45);
+            this.btnChangePass.TabIndex = 11;
+            this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
+            this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Visible = false;
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
+            // 
             // flpChangePass
             // 
             this.flpChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -607,7 +632,7 @@
             this.flpChangePass.Controls.Add(this.lblConfirmPass);
             this.flpChangePass.Controls.Add(this.txtbConfirmNouveauPasse);
             this.flpChangePass.Controls.Add(this.btValidNouveauPasse);
-            this.flpChangePass.Location = new System.Drawing.Point(3, 333);
+            this.flpChangePass.Location = new System.Drawing.Point(3, 316);
             this.flpChangePass.Name = "flpChangePass";
             this.flpChangePass.Size = new System.Drawing.Size(377, 345);
             this.flpChangePass.TabIndex = 17;
@@ -658,19 +683,6 @@
             this.btValidNouveauPasse.TabIndex = 16;
             this.btValidNouveauPasse.Text = "Cliquez ici pour valider le nouveau mot de passe";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
-            // 
-            // btnChangePass
-            // 
-            this.btnChangePass.AutoSize = true;
-            this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePass.Location = new System.Drawing.Point(655, 310);
-            this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(361, 45);
-            this.btnChangePass.TabIndex = 11;
-            this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
-            this.btnChangePass.UseVisualStyleBackColor = true;
-            this.btnChangePass.Visible = false;
-            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // lblInfoNouveauPasse
             // 
@@ -817,17 +829,6 @@
             this.btnValidInscription.Text = "Cliquez ici pour valider";
             this.btnValidInscription.UseVisualStyleBackColor = true;
             this.btnValidInscription.Click += new System.EventHandler(this.btnValidInscription_Click);
-            // 
-            // lblInscriptionOk
-            // 
-            this.lblInscriptionOk.AutoSize = true;
-            this.lblInscriptionOk.Location = new System.Drawing.Point(386, 57);
-            this.lblInscriptionOk.Name = "lblInscriptionOk";
-            this.lblInscriptionOk.Size = new System.Drawing.Size(721, 24);
-            this.lblInscriptionOk.TabIndex = 18;
-            this.lblInscriptionOk.Text = "Votre inscription a bien été prise en compte, nous vous remercions ! Votre login " +
-    "est : ";
-            this.lblInscriptionOk.Visible = false;
             // 
             // AccueilForum
             // 

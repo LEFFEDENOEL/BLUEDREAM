@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DAOForadev;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Foradev
 {
@@ -61,6 +63,17 @@ namespace Foradev
         #endregion
 
         #region Methodes
+
+        public void PosterMessage()
+        {
+
+        }
+
+        public void GetSujetsByRubrique()
+        {
+            //List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique(cbxListeRubriques.SelectedValue.ToString());
+        }
+
         #endregion
 
         #region Methodes héritées et substituées

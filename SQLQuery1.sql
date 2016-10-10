@@ -1,7 +1,18 @@
-﻿declare 
-@compteur as int = 0,
-@nombreAleatoire as varchar(4),
-@loginCalcule as varchar(50)
-execute dbo.CREATEUTILISATEUR 'ESSAI2', 'LAURENT', 'false', 'essai2@2isa.org', '1A8F80D', 'loloessai2', '03/07/2016 15:15:30'
-print @logincalcule
+﻿if object_id('GETLOGIN', 'p') is not null
+drop procedure GETLOGIN
+go
+
+create procedure GETLOGIN
+
+@pseudo  varchar(30)
+
+as
+
+begin
+
+select LOGIN_UTILISATEUR
+from UTILISATEURS
+where PSEUDO_UTILISATEUR = @pseudo
+
+end
 go

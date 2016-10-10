@@ -16,8 +16,8 @@ namespace Foradev
 
         #region Constructeurs
 
-        public NonModerateur(string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
-                         : base(nom, prenom, mail, role, pseudo, dtinscription) { }
+        public NonModerateur(int id, string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
+                         : base(id, nom, prenom, mail, role, pseudo, dtinscription) { }
 
         public NonModerateur(string nom, string prenom, string pseudo, DateTime dtinscription)
                          : base(nom, prenom, pseudo, dtinscription) { }
