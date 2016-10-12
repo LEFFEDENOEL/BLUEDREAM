@@ -16,6 +16,8 @@ namespace Foradev
     {
         #region CRUD : Retrieve
 
+        static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
+
         /// <summary>
         /// Renvoit un dataset selon une procédure stockée en paramètre d'entrée
         /// </summary>
@@ -24,8 +26,8 @@ namespace Foradev
         /// <returns></returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
-            using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
-            {
+            //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
+            //{
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     try
@@ -54,7 +56,7 @@ namespace Foradev
                          throw;
                         //return MessageBox.Show(ERRORCONNEXBASE, "Connexion base de données");
                     }                   
-                }
+                //}
             }
         }
 

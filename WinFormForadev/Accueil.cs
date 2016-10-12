@@ -15,6 +15,8 @@ namespace WinFormForadev
 {
     public partial class AccueilForum : Form
     {
+        UtilisateurConnecte uConnect;
+
         public AccueilForum()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace WinFormForadev
             cbxListeRubriques.DataSource = bsRubriques.DataSource;
             cbxListeRubriques.DataSource = listeRubriques;
             cbxListeRubriques.DisplayMember = "NOM_RUBRIQUE";
+            cbxListeRubriques.ValueMember = "ID_RUBRIQUE";
         }
 
         #region Methodes
@@ -55,6 +58,18 @@ namespace WinFormForadev
             flpReponses.Visible = true;
             btnModifierSujet.Visible = false;
             btnSupprimerSujet.Visible = false;
+        }
+
+        /// <summary>
+        /// Méthode de gestion de visibilité des composants pour un utilisateur qui se logue ou s'inscrit
+        /// </summary>
+        public void VisibiliteComposantsLoginInscription()
+        {
+            flpIdentification.Visible = false;
+            flpInscription.Visible = false;
+            lblInfoPasseInscription.Visible = false;
+            lblInfoNouveauPasse.Visible = false;
+            btnChangePass.Visible = true;
         }
 
         /// <summary>
@@ -142,7 +157,7 @@ namespace WinFormForadev
 
             string login = txtbLogin.Text;
 
-            UtilisateurConnecte uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
+            uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
 
             if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
             else
@@ -150,11 +165,7 @@ namespace WinFormForadev
                 VisibiliteComposantsUtilisateurNonModerateurConnecte();
             }
 
-            flpIdentification.Visible = false;
-            flpInscription.Visible = false;
-            lblInfoPasseInscription.Visible = false;
-            lblInfoNouveauPasse.Visible = false;
-            btnChangePass.Visible = true;
+            VisibiliteComposantsLoginInscription();
         }
 
         /// <summary>
@@ -174,14 +185,10 @@ namespace WinFormForadev
 
             string login = BLL.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
 
-            //flpIdentification.Visible = false;
-            //flpInscription.Visible = false;
-            //lblInfoPasseInscription.Visible = false;
-            //lblInfoNouveauPasse.Visible = false;
-            //btnChangePass.Visible = true;
+            VisibiliteComposantsLoginInscription();
 
-            //lblInscriptionOk.Visible = true;
-            //lblInscriptionOk.Text = lblInscriptionOk.Text + login;
+            lblInscriptionOk.Visible = true;
+            lblInscriptionOk.Text = lblInscriptionOk.Text + login;
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
@@ -189,11 +196,18 @@ namespace WinFormForadev
             flpChangePass.Visible = true;
             lblInfoNouveauPasse.Visible = true;
         }
-        #endregion
 
         private void btnAjoutSujet_Click(object sender, EventArgs e)
-        {
-            //int idUtilisateur = uConnect.Id;
+        {           
+            int idUtilisateur = uConnect.Id;
+            int idRubrique = Int32.Parse(cbxListeRubriques.SelectedValue.ToString());
+            //string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
+            string titreSujet = txtbTitreSujet.Text;
+            string descriptionSujet = txtbTexteSujet.Text;
+            DateTime dateCreationSujet = System.DateTime.Now;
         }
+        #endregion
+
+
     }
 }

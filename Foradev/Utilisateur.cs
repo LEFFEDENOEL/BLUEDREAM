@@ -13,8 +13,8 @@ namespace Foradev
     {
         #region Champs et Propriétés
 
-        protected string _Id;
-        public string Id
+        protected int _Id;
+        public int Id
         {
             get { return _Id; }
             set { _Id = value; }
