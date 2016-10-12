@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAOForadev;
+
 
 namespace Foradev
 {
@@ -43,10 +43,10 @@ namespace Foradev
 
         #region Methodes
 
-        static public List<Rubrique> GetRubriques()
-        {
-           return DAOPrincipale.GetRubriques();
-        }
+        //static public List<Rubrique> GetRubriques()
+        //{
+        //   return DAOPrincipale.GetRubriques();
+        //}
 
         #endregion
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAOForadev
+namespace Foradev
 {
     /// <summary>
     /// Classe d'accés aux données CRUD
@@ -24,7 +24,7 @@ namespace DAOForadev
         /// <returns></returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
-            using (SqlConnection sqlConnex = new SqlConnection(Foradev.Properties.Settings.Default.connex))
+            using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -222,7 +222,7 @@ namespace DAOForadev
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
                 {
-                    listeSujets.Add(new Sujet (BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
+                    listeSujets.Add(new Sujet(BuildUtilisateurByNomUtilisateur(dRow["NOMUTILISATEUR"].ToString()),
                                               (DateTime)dRow["DTESUJET"],
                                               BuildRubriqueByNomRubrique(dRow["NOMRUBRIQUE"].ToString()),
                                               (int)dRow["IDSUJET"],
