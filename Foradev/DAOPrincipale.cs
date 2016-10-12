@@ -323,7 +323,7 @@ namespace Foradev
         /// <param name="titreSujet"></param>
         /// <param name="descriptionSujet"></param>
         /// <param name="dateCreationSujet"></param>
-        public static void AjoutSujet (int idUtilisateur, int idRubrique, string titreSujet, 
+        public static int? AjoutSujet (int idUtilisateur, int idRubrique, string titreSujet, 
                                        string descriptionSujet, DateTime dateCreationSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -334,7 +334,13 @@ namespace Foradev
             listeSqlParam.Add(new SqlParameter("DESCRIPTIONSUJET", descriptionSujet));
             listeSqlParam.Add(new SqlParameter("DATECREATIONSUJET", dateCreationSujet));
 
-            GetDataSet("CREATESUJET", listeSqlParam);    
+            DataSet dSet = GetDataSet("CREATESUJET", listeSqlParam);   
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return  (int.Parse(dRow["ID_SUJET"].ToString()));
+            }
+            return null;
         }
 
         /// <summary>
@@ -344,16 +350,23 @@ namespace Foradev
         /// <param name="idUtilisateur"></param>
         /// <param name="texteReponse"></param>
         /// <param name="dateReponse"></param>
-        public static void AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
+        public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
             listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
             listeSqlParam.Add(new SqlParameter("IDUTILISATEUR", idUtilisateur));
             listeSqlParam.Add(new SqlParameter("TEXTEREPONSE", texteReponse));
-            listeSqlParam.Add(new SqlParameter("DATEREPONSE", dateReponse));         
+            listeSqlParam.Add(new SqlParameter("DATEREPONSE", dateReponse));
 
-            GetDataSet("CREATEREPONSE", listeSqlParam);
+            DataSet dSet = GetDataSet("CREATEREPONSE", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return (int.Parse(dRow["ID_REPONSE"].ToString()));
+            }
+            return null;
         }
         #endregion
 

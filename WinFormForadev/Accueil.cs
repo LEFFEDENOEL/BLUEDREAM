@@ -205,9 +205,31 @@ namespace WinFormForadev
             string titreSujet = txtbTitreSujet.Text;
             string descriptionSujet = txtbTexteSujet.Text;
             DateTime dateCreationSujet = System.DateTime.Now;
+
+            BLL.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
+        }
+
+        private void btnPosterReponse_Click(object sender, EventArgs e)
+        {
+            int IdUtilisateur = uConnect.Id;
+            int IdSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[2].Value.ToString());
+            string texteReponse = txtbTexteReponse.Text;
+            DateTime dateReponse = System.DateTime.Now;
         }
         #endregion
 
+        public static void AjoutSujet(int idUtilisateur, int idRubrique, string titreSujet,
+                               string descriptionSujet, DateTime dateCreationSujet)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
+            listeSqlParam.Add(new SqlParameter("IDUTILISATEUR", idUtilisateur));
+            listeSqlParam.Add(new SqlParameter("IDRUBRIQUE", idRubrique));
+            listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
+            listeSqlParam.Add(new SqlParameter("DESCRIPTIONSUJET", descriptionSujet));
+            listeSqlParam.Add(new SqlParameter("DATECREATIONSUJET", dateCreationSujet));
+
+            GetDataSet("CREATESUJET", listeSqlParam);
+        }
     }
 }

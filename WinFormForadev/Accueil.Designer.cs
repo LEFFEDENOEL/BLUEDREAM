@@ -412,6 +412,7 @@
             this.btnPosterReponse.TabIndex = 11;
             this.btnPosterReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
             this.btnPosterReponse.UseVisualStyleBackColor = true;
+            this.btnPosterReponse.Click += new System.EventHandler(this.btnPosterReponse_Click);
             // 
             // btnRefresh
             // 
@@ -632,7 +633,7 @@
             this.flpChangePass.Controls.Add(this.lblConfirmPass);
             this.flpChangePass.Controls.Add(this.txtbConfirmNouveauPasse);
             this.flpChangePass.Controls.Add(this.btValidNouveauPasse);
-            this.flpChangePass.Location = new System.Drawing.Point(3, 316);
+            this.flpChangePass.Location = new System.Drawing.Point(3, 299);
             this.flpChangePass.Name = "flpChangePass";
             this.flpChangePass.Size = new System.Drawing.Size(377, 345);
             this.flpChangePass.TabIndex = 17;

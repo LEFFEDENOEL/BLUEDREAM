@@ -16,7 +16,7 @@ namespace Foradev
         /// Fonction qui permet le haschage en SHA1 des mots de passe
         /// </summary>
         /// <param name="mdpFromClient"></param>
-        /// <returns></returns>
+        /// <returns>String Builder</returns>
         public static string HashShaMdp(string mdpFromClient)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
@@ -40,7 +40,7 @@ namespace Foradev
         //    StringBuilder sb = new StringBuilder();
         //    for (int i = 0; i < data.Length; i++)
         //    {
-        //        sb.Append(data[i].ToString("x2"));
+        //        sb.Append(data[i].ToString("X2"));
         //    }
         //    return sb.ToString();
         //}
@@ -59,7 +59,7 @@ namespace Foradev
         /// <returns></returns>
 
         static public string AjoutUtilisateur(string nom, string prenom, bool estModerateur, string mail, 
-                                       string empreinteSha, string pseudo, DateTime dateInscription)
+                                              string empreinteSha, string pseudo, DateTime dateInscription)
         {
             return DAOPrincipale.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
         }
@@ -104,5 +104,32 @@ namespace Foradev
             return DAOPrincipale.GetReponsesBySujet(titreSujet);
         }
 
+        /// <summary>
+        /// Méthode d'appel de la méthode dans la classe DAO qui permet d'ajouter un sujet
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="idRubrique"></param>
+        /// <param name="titreSujet"></param>
+        /// <param name="descriptionSujet"></param>
+        /// <param name="dateCreationSujet"></param>
+        /// <returns>Renvoit l'identifiant du sujet en int ou null</returns>
+        public static int? AjoutSujet(int idUtilisateur, int idRubrique, string titreSujet,
+                                      string descriptionSujet, DateTime dateCreationSujet)
+        {
+            return DAOPrincipale.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
+        }
+
+        /// <summary>
+        /// Méthode d'appel de la méthode dans la classe DAO qui permet d'ajouter une réponse
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="idSujet"></param>
+        /// <param name="texteReponse"></param>
+        /// <param name="dateReponse"></param>
+        /// <returns>Renvoit l'identifiant de la réponse en int ou null</returns>
+        public static int? AjoutReponse(int idUtilisateur, int idSujet, string texteReponse, DateTime dateReponse)
+        {
+            return DAOPrincipale.AjoutReponse(idUtilisateur, idSujet, texteReponse, dateReponse);
+        }
     }
 }
