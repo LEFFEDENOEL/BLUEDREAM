@@ -43,8 +43,9 @@ namespace WinFormForadev
         /// </summary>
         public void VisibiliteComposantsUtilisateurNonConnecte()
         {
-            flpSujetsInf.Visible = false;
+            flpSujets.Visible = false;
             flpReponses.Visible = false;
+            flpModerateur.Visible = false;
             flpChangePass.Visible = false;
             btnSupprimerReponse.Visible = false;
         }
@@ -54,10 +55,13 @@ namespace WinFormForadev
         /// </summary>
         public void VisibiliteComposantsUtilisateurNonModerateurConnecte()
         {
-            flpSujetsInf.Visible = true;
+            flpSujets.Visible = true;
             flpReponses.Visible = true;
-            btnModifierSujet.Visible = false;
+            flpModerateur.Visible = false;
+            btnModifierDescriptionSujet.Visible = false;
             btnSupprimerSujet.Visible = false;
+            btnModifierTitreSujet.Visible = false;
+            btnSupprimerReponse.Visible = false;
         }
 
         /// <summary>
@@ -79,11 +83,12 @@ namespace WinFormForadev
         /// </summary>
         public void VisibiliteComposantsUtilisateurModerateurConnecte()
         {
-            flpSujetsInf.Visible = true;
+            flpSujets.Visible = true;
             flpReponses.Visible = true;
-            btnModifierSujet.Visible = true;
-            btnSupprimerSujet.Visible = true;
-            btnSupprimerSujet.Visible = true;
+            flpModerateur.Visible = true;
+            //btnModifierDescriptionSujet.Visible = true;
+            //btnSupprimerSujet.Visible = true;
+            //btnSupprimerSujet.Visible = true;
         }
         #endregion
 
@@ -253,6 +258,7 @@ namespace WinFormForadev
             int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[2].Value.ToString());
             BLL.SupprimerReponse(idReponse);
         }
+
 
 
 
