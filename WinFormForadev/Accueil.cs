@@ -16,7 +16,7 @@ namespace WinFormForadev
     public partial class AccueilForum : Form
     {
         UtilisateurConnecte uConnect;
-
+        
         public AccueilForum()
         {
             InitializeComponent();
@@ -32,8 +32,8 @@ namespace WinFormForadev
             //Affectation de la combobox Rubriques
             cbxListeRubriques.DataSource = bsRubriques.DataSource;
             cbxListeRubriques.DataSource = listeRubriques;
-            cbxListeRubriques.DisplayMember = "NOM_RUBRIQUE";
-            cbxListeRubriques.ValueMember = "ID_RUBRIQUE";
+            cbxListeRubriques.DisplayMember = "Nom";
+            cbxListeRubriques.ValueMember = "Id";          
         }
 
         #region Methodes
@@ -69,6 +69,8 @@ namespace WinFormForadev
             flpInscription.Visible = false;
             lblInfoPasseInscription.Visible = false;
             lblInfoNouveauPasse.Visible = false;
+            lblInfosLogin.Visible = false;
+            lblInfoMdp.Visible = false;
             btnChangePass.Visible = true;
         }
 
@@ -92,10 +94,10 @@ namespace WinFormForadev
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cbxListeRubriques_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cbxListeRubriques_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Appel de la liste dans la classe BLL récupérée par la classe DAO               
-            List<Sujet> listeSujets = BLL.GetSujetsByRubrique(cbxListeRubriques.SelectedValue.ToString());
+            List<Sujet> listeSujets = BLL.GetSujetsByRubrique(cbxListeRubriques.SelectedItem.ToString());
 
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsSujets = new BindingSource();
@@ -107,11 +109,11 @@ namespace WinFormForadev
             dgvSujets.Columns[0].Visible = false;
             dgvSujets.Columns[1].Visible = false;
             dgvSujets.Columns[2].HeaderText = "Titre";
-            dgvSujets.Columns[2].Width = 125;
+            dgvSujets.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSujets.Columns[3].HeaderText = "Pseuso";
-            dgvSujets.Columns[3].Width = 100;
+            dgvSujets.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSujets.Columns[4].HeaderText = "Date";
-            dgvSujets.Columns[4].Width = 100;
+            dgvSujets.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSujets.Columns[5].HeaderText = "Texte";
         }
 
@@ -137,12 +139,13 @@ namespace WinFormForadev
 
             dgvReponses.Columns[0].Visible = false;
             dgvReponses.Columns[1].HeaderText = "Titre";
-            dgvReponses.Columns[1].Width = 125;
+            dgvReponses.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;         
             dgvReponses.Columns[2].HeaderText = "Pseudo";
-            dgvReponses.Columns[2].Width = 100;
+            dgvReponses.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;      
             dgvReponses.Columns[3].HeaderText = "Date";
-            dgvReponses.Columns[3].Width = 100;
+            dgvReponses.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvReponses.Columns[4].HeaderText = "Texte réponse";
+            
         }
 
         /// <summary>
@@ -197,11 +200,15 @@ namespace WinFormForadev
             lblInfoNouveauPasse.Visible = true;
         }
 
+        /// <summary>
+        /// Méthode qui permet l'ajout d'un sujet par un utilisateur connecté
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutSujet_Click(object sender, EventArgs e)
         {           
             int idUtilisateur = uConnect.Id;
-            int idRubrique = Int32.Parse(cbxListeRubriques.SelectedValue.ToString());
-            //string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
+            int idRubrique = Int32.Parse(cbxListeRubriques.SelectedValue.ToString());           
             string titreSujet = txtbTitreSujet.Text;
             string descriptionSujet = txtbTexteSujet.Text;
             DateTime dateCreationSujet = System.DateTime.Now;
@@ -209,27 +216,48 @@ namespace WinFormForadev
             BLL.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
         }
 
+        /// <summary>
+        /// Méthode qui permet à l'utilisateur connecté de poster une réponse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPosterReponse_Click(object sender, EventArgs e)
         {
-            int IdUtilisateur = uConnect.Id;
-            int IdSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[2].Value.ToString());
+            int idUtilisateur = uConnect.Id;
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[2].Value.ToString());
             string texteReponse = txtbTexteReponse.Text;
             DateTime dateReponse = System.DateTime.Now;
+
+            BLL.AjoutReponse(idUtilisateur, idSujet, texteReponse, dateReponse);
         }
+
+        /// <summary>
+        /// Méthode qui permet à un modérateur connecté de supprimer un sujet et les réponses en cascade
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSupprimerSujet_Click(object sender, EventArgs e)
+        {
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[2].Value.ToString());
+            BLL.SupprimerSujet(idSujet);
+
+        }
+
+        /// <summary>
+        /// Méthode qui permet à un modérateur connecté de supprimer une réponse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSupprimerReponse_Click(object sender, EventArgs e)
+        {
+            int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[2].Value.ToString());
+            BLL.SupprimerReponse(idReponse);
+        }
+
+
+
         #endregion
 
-        public static void AjoutSujet(int idUtilisateur, int idRubrique, string titreSujet,
-                               string descriptionSujet, DateTime dateCreationSujet)
-        {
-            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
-            listeSqlParam.Add(new SqlParameter("IDUTILISATEUR", idUtilisateur));
-            listeSqlParam.Add(new SqlParameter("IDRUBRIQUE", idRubrique));
-            listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
-            listeSqlParam.Add(new SqlParameter("DESCRIPTIONSUJET", descriptionSujet));
-            listeSqlParam.Add(new SqlParameter("DATECREATIONSUJET", dateCreationSujet));
-
-            GetDataSet("CREATESUJET", listeSqlParam);
-        }
     }
 }

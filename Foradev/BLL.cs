@@ -131,5 +131,25 @@ namespace Foradev
         {
             return DAOPrincipale.AjoutReponse(idUtilisateur, idSujet, texteReponse, dateReponse);
         }
+
+        /// <summary>
+        /// Méthode d'appel de la méthode dans la classe DAO qui permet à un modérateur de supprimer un sujet
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns>La méthode présente dans la classe DAO</returns>
+        public static int? SupprimerSujet (int idSujet)
+        {
+            return DAOPrincipale.SupprimerSujet(idSujet);
+        }
+
+        /// <summary>
+        /// Méthode d'appel de la méthode dans la classe DAO qui permet à un modérateur de supprimer une réponse
+        /// </summary>
+        /// <param name="idReponse"></param>
+        /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
+        public static int? SupprimerReponse(int idReponse)
+        {
+            return DAOPrincipale.SupprimerReponse(idReponse);
+        }
     }
 }

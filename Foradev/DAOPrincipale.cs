@@ -294,6 +294,7 @@ namespace Foradev
             listeSqlParam.Add(new SqlParameter("DATECREATIONCOMPTE", dateCreationCompte));
 
             GetDataSet("CREATEUTILISATEUR", listeSqlParam);
+
             return GetLogin(pseudo);        
         }
 
@@ -301,7 +302,7 @@ namespace Foradev
         /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur
         /// </summary>
         /// <param name="pseudo"></param>
-        /// <returns></returns>
+        /// <returns>STRING Login</returns>
         public static string GetLogin(string pseudo)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -323,6 +324,7 @@ namespace Foradev
         /// <param name="titreSujet"></param>
         /// <param name="descriptionSujet"></param>
         /// <param name="dateCreationSujet"></param>
+        /// <returns>INT Identifiant Sujet ou NULL</returns>
         public static int? AjoutSujet (int idUtilisateur, int idRubrique, string titreSujet, 
                                        string descriptionSujet, DateTime dateCreationSujet)
         {
@@ -350,6 +352,7 @@ namespace Foradev
         /// <param name="idUtilisateur"></param>
         /// <param name="texteReponse"></param>
         /// <param name="dateReponse"></param>
+        /// <returns>INT Identifiant Réponse ou NULL</returns>
         public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -374,6 +377,48 @@ namespace Foradev
         #endregion
 
         #region CRUD : Delete
+
+        /// <summary>
+        /// Méthode de suppression d'un sujet et réponses correspondantes en cascade
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns>INT Identifiant Sujet ou NULL</returns>
+        public static int? SupprimerSujet (int idSujet)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+
+            DataSet dSet = GetDataSet("DELETESUJET", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return (int.Parse(dRow["ID_SUJET"].ToString()));
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Méthode de suppression d'une réponse
+        /// </summary>
+        /// <param name="idReponse"></param>
+        /// <returns>INT Identifiant réponse ou NULL</returns>
+        public static int? SupprimerReponse (int idReponse)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDREPONSE", idReponse));
+
+            DataSet dSet = GetDataSet("DELETEREPONSE", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return (int.Parse(dRow["ID_REPONSE"].ToString()));
+            }
+            return null;
+        }
         #endregion
 
 
