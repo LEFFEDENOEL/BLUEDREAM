@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -316,15 +316,15 @@
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSujets.Location = new System.Drawing.Point(3, 22);
@@ -420,8 +420,8 @@
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvReponses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 252);
@@ -590,10 +590,10 @@
             // lblConnecte
             // 
             this.lblConnecte.AutoSize = true;
-            this.lblConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConnecte.Location = new System.Drawing.Point(21, 24);
             this.lblConnecte.Name = "lblConnecte";
-            this.lblConnecte.Size = new System.Drawing.Size(72, 20);
+            this.lblConnecte.Size = new System.Drawing.Size(81, 20);
             this.lblConnecte.TabIndex = 5;
             this.lblConnecte.Text = "Bonjour, ";
             this.lblConnecte.Visible = false;
@@ -705,10 +705,10 @@
             // lblInscriptionOk
             // 
             this.lblInscriptionOk.AutoSize = true;
-            this.lblInscriptionOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInscriptionOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInscriptionOk.Location = new System.Drawing.Point(5, 13);
             this.lblInscriptionOk.Name = "lblInscriptionOk";
-            this.lblInscriptionOk.Size = new System.Drawing.Size(602, 20);
+            this.lblInscriptionOk.Size = new System.Drawing.Size(689, 20);
             this.lblInscriptionOk.TabIndex = 18;
             this.lblInscriptionOk.Text = "Votre inscription a bien été prise en compte, nous vous remercions ! Votre login " +
     "est : ";
@@ -739,7 +739,7 @@
             this.flpChangePass.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpChangePass.Location = new System.Drawing.Point(0, 0);
             this.flpChangePass.Name = "flpChangePass";
-            this.flpChangePass.Size = new System.Drawing.Size(337, 264);
+            this.flpChangePass.Size = new System.Drawing.Size(325, 264);
             this.flpChangePass.TabIndex = 17;
             // 
             // label1
@@ -766,9 +766,9 @@
             this.lblConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmPass.Location = new System.Drawing.Point(3, 52);
             this.lblConfirmPass.Name = "lblConfirmPass";
-            this.lblConfirmPass.Size = new System.Drawing.Size(323, 20);
+            this.lblConfirmPass.Size = new System.Drawing.Size(258, 20);
             this.lblConfirmPass.TabIndex = 14;
-            this.lblConfirmPass.Text = "Veuillez confirmer le nouveau mot de passe :";
+            this.lblConfirmPass.Text = "Veuillez confirmer le mot de passe :";
             // 
             // txtbConfirmNouveauPasse
             // 
@@ -792,7 +792,7 @@
             // 
             this.lblInfoNouveauPasse.AutoSize = true;
             this.lblInfoNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(343, 33);
+            this.lblInfoNouveauPasse.Location = new System.Drawing.Point(331, 35);
             this.lblInfoNouveauPasse.Name = "lblInfoNouveauPasse";
             this.lblInfoNouveauPasse.Size = new System.Drawing.Size(779, 16);
             this.lblInfoNouveauPasse.TabIndex = 6;
@@ -804,7 +804,7 @@
             // 
             this.lblInfoPasseInscription.AutoSize = true;
             this.lblInfoPasseInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoPasseInscription.Location = new System.Drawing.Point(343, 241);
+            this.lblInfoPasseInscription.Location = new System.Drawing.Point(331, 243);
             this.lblInfoPasseInscription.Name = "lblInfoPasseInscription";
             this.lblInfoPasseInscription.Size = new System.Drawing.Size(779, 16);
             this.lblInfoPasseInscription.TabIndex = 5;
@@ -830,7 +830,7 @@
             this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpInscription.Location = new System.Drawing.Point(0, 0);
             this.flpInscription.Name = "flpInscription";
-            this.flpInscription.Size = new System.Drawing.Size(337, 321);
+            this.flpInscription.Size = new System.Drawing.Size(325, 321);
             this.flpInscription.TabIndex = 0;
             // 
             // lblNom
@@ -938,10 +938,10 @@
             // lblConnecte2
             // 
             this.lblConnecte2.AutoSize = true;
-            this.lblConnecte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnecte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConnecte2.Location = new System.Drawing.Point(346, 24);
             this.lblConnecte2.Name = "lblConnecte2";
-            this.lblConnecte2.Size = new System.Drawing.Size(197, 20);
+            this.lblConnecte2.Size = new System.Drawing.Size(224, 20);
             this.lblConnecte2.TabIndex = 6;
             this.lblConnecte2.Text = ", vous êtes bien connecté !";
             this.lblConnecte2.Visible = false;
@@ -949,10 +949,10 @@
             // lblConnecte3
             // 
             this.lblConnecte3.AutoSize = true;
-            this.lblConnecte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnecte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConnecte3.Location = new System.Drawing.Point(21, 68);
             this.lblConnecte3.Name = "lblConnecte3";
-            this.lblConnecte3.Size = new System.Drawing.Size(649, 20);
+            this.lblConnecte3.Size = new System.Drawing.Size(735, 20);
             this.lblConnecte3.TabIndex = 7;
             this.lblConnecte3.Text = "Vous pouvez commencer à naviguer, rendez-vous dans l\'onglet \"Rubriques et message" +
     "s\"...";

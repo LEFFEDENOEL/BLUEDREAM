@@ -163,7 +163,6 @@ namespace WinFormForadev
         {
             string mdpFromClient = txtbMdp.Text;
             string empreinteSha = BLL.HashShaMdp(mdpFromClient);
-
             string login = txtbLogin.Text;
 
             uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
@@ -175,8 +174,7 @@ namespace WinFormForadev
             }
 
             VisibiliteComposantsLoginInscription();
-
-            lblConnecte.Text = lblConnecte.Text + login;
+          
             lblConnecte.Visible = true;
             lblConnecte2.Visible = true;
             lblConnecte3.Visible = true;

@@ -21,8 +21,8 @@ namespace Foradev
         public Moderateur(int id, string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
                          : base(id, nom, prenom, mail, role, pseudo, dtinscription) { }
 
-        public Moderateur(string nom, string prenom, string pseudo, DateTime dtinscription)
-                         : base(nom, prenom, pseudo, dtinscription) { }
+        public Moderateur(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
+                         : base(id, nom, prenom, pseudo, dtinscription) { }
         #endregion
 
         #region Methodes
