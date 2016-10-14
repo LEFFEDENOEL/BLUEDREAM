@@ -86,6 +86,7 @@ namespace WinFormForadev
             flpSujets.Visible = true;
             flpReponses.Visible = true;
             flpModerateur.Visible = true;
+            btnSupprimerReponse.Visible = true;
             //btnModifierDescriptionSujet.Visible = true;
             //btnSupprimerSujet.Visible = true;
             //btnSupprimerSujet.Visible = true;
@@ -166,7 +167,7 @@ namespace WinFormForadev
             string login = txtbLogin.Text;
 
             uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
-
+            //if (uConnect == null) Todo constante erreur authentification
             if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
             else
             {
@@ -174,6 +175,12 @@ namespace WinFormForadev
             }
 
             VisibiliteComposantsLoginInscription();
+
+            lblConnecte.Text = lblConnecte.Text + login;
+            lblConnecte.Visible = true;
+            lblConnecte2.Visible = true;
+            lblConnecte3.Visible = true;
+            lblConnecte.Text = lblConnecte.Text + login;
         }
 
         /// <summary>

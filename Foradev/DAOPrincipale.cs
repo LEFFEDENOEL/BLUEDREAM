@@ -117,7 +117,7 @@ namespace Foradev
                                           dRow["NOM_UTILISATEUR"].ToString(),
                                           dRow["PRENOM_UTILISATEUR"].ToString(),
                                           dRow["MAIL_UTILISATEUR"].ToString(),
-                                          !role,
+                                          role,
                                           dRow["PSEUDO_UTILISATEUR"].ToString(),
                                          (DateTime)dRow["DATE_INSCRIPTION"]);
             }
