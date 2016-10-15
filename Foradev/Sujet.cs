@@ -45,7 +45,7 @@ namespace Foradev
         #region Constructeurs
 
         //Constructeur complet
-        public Sujet(Utilisateur utilisateur, DateTime dateMessage, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
+        public Sujet (Utilisateur utilisateur, DateTime dateMessage, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
                      : base(utilisateur, dateMessage, texteMessage) {
             TitreSujet = titreSujet;
             _Rubrique = rubrique;

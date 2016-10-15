@@ -66,18 +66,38 @@
             this.btnSupprimerSujet = new System.Windows.Forms.Button();
             this.btnSupprimerReponse = new System.Windows.Forms.Button();
             this.tpConnexion = new System.Windows.Forms.TabPage();
-            this.lblConnecte = new System.Windows.Forms.Label();
-            this.lblInfoMdp = new System.Windows.Forms.Label();
-            this.lblInfosLogin = new System.Windows.Forms.Label();
+            this.tlpConnection = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlConnectionSup = new System.Windows.Forms.Panel();
             this.flpIdentification = new System.Windows.Forms.FlowLayoutPanel();
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtbLogin = new System.Windows.Forms.TextBox();
             this.lblMdp = new System.Windows.Forms.Label();
             this.txtbMdp = new System.Windows.Forms.TextBox();
             this.btnConnexion = new System.Windows.Forms.Button();
+            this.lblInfosLogin = new System.Windows.Forms.Label();
+            this.lblInfoMdp = new System.Windows.Forms.Label();
+            this.pnlConnectionInf = new System.Windows.Forms.Panel();
+            this.btnQuitterConnection = new System.Windows.Forms.Button();
+            this.lblConnecte = new System.Windows.Forms.Label();
+            this.lblConnecte2 = new System.Windows.Forms.Label();
+            this.lblConnecte3 = new System.Windows.Forms.Label();
             this.tpInscription = new System.Windows.Forms.TabPage();
-            this.lblInscriptionOk = new System.Windows.Forms.Label();
-            this.btnChangePass = new System.Windows.Forms.Button();
+            this.tlpInscription = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlInscriptionSup = new System.Windows.Forms.Panel();
+            this.lblInfoPasseInscription = new System.Windows.Forms.Label();
+            this.flpInscription = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.txtbNom = new System.Windows.Forms.TextBox();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.txtbPrenom = new System.Windows.Forms.TextBox();
+            this.lblPseuso = new System.Windows.Forms.Label();
+            this.txtbPseudo = new System.Windows.Forms.TextBox();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.txtbMail = new System.Windows.Forms.TextBox();
+            this.lblInscriptionPasse = new System.Windows.Forms.Label();
+            this.txtbInscriptionPasse = new System.Windows.Forms.TextBox();
+            this.btnValidInscription = new System.Windows.Forms.Button();
+            this.pnlInscriptionMiddle = new System.Windows.Forms.Panel();
             this.flpChangePass = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbNouveauPasse = new System.Windows.Forms.TextBox();
@@ -85,30 +105,10 @@
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
             this.btValidNouveauPasse = new System.Windows.Forms.Button();
             this.lblInfoNouveauPasse = new System.Windows.Forms.Label();
-            this.lblInfoPasseInscription = new System.Windows.Forms.Label();
-            this.flpInscription = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblNom = new System.Windows.Forms.Label();
-            this.txtbNom = new System.Windows.Forms.TextBox();
-            this.lblPrenom = new System.Windows.Forms.Label();
-            this.txtbPrenom = new System.Windows.Forms.TextBox();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.txtbMail = new System.Windows.Forms.TextBox();
-            this.lblPseuso = new System.Windows.Forms.Label();
-            this.txtbPseudo = new System.Windows.Forms.TextBox();
-            this.lblInscriptionPasse = new System.Windows.Forms.Label();
-            this.txtbInscriptionPasse = new System.Windows.Forms.TextBox();
-            this.btnValidInscription = new System.Windows.Forms.Button();
-            this.lblConnecte2 = new System.Windows.Forms.Label();
-            this.lblConnecte3 = new System.Windows.Forms.Label();
-            this.tlpConnection = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlConnectionSup = new System.Windows.Forms.Panel();
-            this.pnlConnectionInf = new System.Windows.Forms.Panel();
-            this.btnQuitterConnection = new System.Windows.Forms.Button();
-            this.tlpInscription = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlInscriptionSup = new System.Windows.Forms.Panel();
-            this.pnlInscriptionMiddle = new System.Windows.Forms.Panel();
             this.pnlInscriptionInf = new System.Windows.Forms.Panel();
             this.btnQuitterInscription = new System.Windows.Forms.Button();
+            this.lblInscriptionOk = new System.Windows.Forms.Label();
+            this.btnChangePass = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -128,16 +128,16 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.flpModerateur.SuspendLayout();
             this.tpConnexion.SuspendLayout();
-            this.flpIdentification.SuspendLayout();
-            this.tpInscription.SuspendLayout();
-            this.flpChangePass.SuspendLayout();
-            this.flpInscription.SuspendLayout();
             this.tlpConnection.SuspendLayout();
             this.pnlConnectionSup.SuspendLayout();
+            this.flpIdentification.SuspendLayout();
             this.pnlConnectionInf.SuspendLayout();
+            this.tpInscription.SuspendLayout();
             this.tlpInscription.SuspendLayout();
             this.pnlInscriptionSup.SuspendLayout();
+            this.flpInscription.SuspendLayout();
             this.pnlInscriptionMiddle.SuspendLayout();
+            this.flpChangePass.SuspendLayout();
             this.pnlInscriptionInf.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -538,6 +538,7 @@
             this.btnModifierTitreSujet.TabIndex = 11;
             this.btnModifierTitreSujet.Text = "Cliquez ici pour MODIFIER le titre du sujet selectionné";
             this.btnModifierTitreSujet.UseVisualStyleBackColor = true;
+            this.btnModifierTitreSujet.Click += new System.EventHandler(this.btnModifierTitreSujet_Click);
             // 
             // btnModifierDescriptionSujet
             // 
@@ -549,6 +550,7 @@
             this.btnModifierDescriptionSujet.TabIndex = 10;
             this.btnModifierDescriptionSujet.Text = "Cliquez ici pour MODIFIER la description du sujet selectionné";
             this.btnModifierDescriptionSujet.UseVisualStyleBackColor = true;
+            this.btnModifierDescriptionSujet.Click += new System.EventHandler(this.btnModifierDescriptionSujet_Click);
             // 
             // btnSupprimerSujet
             // 
@@ -587,38 +589,35 @@
             this.tpConnexion.TabIndex = 6;
             this.tpConnexion.Text = "Connexion";
             // 
-            // lblConnecte
+            // tlpConnection
             // 
-            this.lblConnecte.AutoSize = true;
-            this.lblConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecte.Location = new System.Drawing.Point(21, 24);
-            this.lblConnecte.Name = "lblConnecte";
-            this.lblConnecte.Size = new System.Drawing.Size(81, 20);
-            this.lblConnecte.TabIndex = 5;
-            this.lblConnecte.Text = "Bonjour, ";
-            this.lblConnecte.Visible = false;
+            this.tlpConnection.AutoScroll = true;
+            this.tlpConnection.AutoSize = true;
+            this.tlpConnection.ColumnCount = 1;
+            this.tlpConnection.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpConnection.Controls.Add(this.pnlConnectionSup, 0, 0);
+            this.tlpConnection.Controls.Add(this.pnlConnectionInf, 0, 1);
+            this.tlpConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpConnection.Location = new System.Drawing.Point(3, 3);
+            this.tlpConnection.Name = "tlpConnection";
+            this.tlpConnection.RowCount = 2;
+            this.tlpConnection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tlpConnection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpConnection.Size = new System.Drawing.Size(1258, 712);
+            this.tlpConnection.TabIndex = 0;
             // 
-            // lblInfoMdp
+            // pnlConnectionSup
             // 
-            this.lblInfoMdp.AutoSize = true;
-            this.lblInfoMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoMdp.Location = new System.Drawing.Point(247, 77);
-            this.lblInfoMdp.Name = "lblInfoMdp";
-            this.lblInfoMdp.Size = new System.Drawing.Size(769, 16);
-            this.lblInfoMdp.TabIndex = 4;
-            this.lblInfoMdp.Text = "Rappel : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, 1 c" +
-    "hiffre minimum, 1 caractère spécial minimum";
-            // 
-            // lblInfosLogin
-            // 
-            this.lblInfosLogin.AutoSize = true;
-            this.lblInfosLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfosLogin.Location = new System.Drawing.Point(247, 31);
-            this.lblInfosLogin.Name = "lblInfosLogin";
-            this.lblInfosLogin.Size = new System.Drawing.Size(748, 16);
-            this.lblInfosLogin.TabIndex = 3;
-            this.lblInfosLogin.Text = "Le login vous a été fourni lors de votre inscription. : votre nom  +  les 4 premi" +
-    "ères lettres de votre prénom  +  nombre à 4 chiffres";
+            this.pnlConnectionSup.AutoScroll = true;
+            this.pnlConnectionSup.AutoSize = true;
+            this.pnlConnectionSup.Controls.Add(this.flpIdentification);
+            this.pnlConnectionSup.Controls.Add(this.lblInfosLogin);
+            this.pnlConnectionSup.Controls.Add(this.lblInfoMdp);
+            this.pnlConnectionSup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlConnectionSup.Location = new System.Drawing.Point(3, 3);
+            this.pnlConnectionSup.Name = "pnlConnectionSup";
+            this.pnlConnectionSup.Size = new System.Drawing.Size(1252, 468);
+            this.pnlConnectionSup.TabIndex = 0;
             // 
             // flpIdentification
             // 
@@ -689,6 +688,87 @@
             this.btnConnexion.UseVisualStyleBackColor = true;
             this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
+            // lblInfosLogin
+            // 
+            this.lblInfosLogin.AutoSize = true;
+            this.lblInfosLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfosLogin.Location = new System.Drawing.Point(247, 31);
+            this.lblInfosLogin.Name = "lblInfosLogin";
+            this.lblInfosLogin.Size = new System.Drawing.Size(748, 16);
+            this.lblInfosLogin.TabIndex = 3;
+            this.lblInfosLogin.Text = "Le login vous a été fourni lors de votre inscription. : votre nom  +  les 4 premi" +
+    "ères lettres de votre prénom  +  nombre à 4 chiffres";
+            // 
+            // lblInfoMdp
+            // 
+            this.lblInfoMdp.AutoSize = true;
+            this.lblInfoMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoMdp.Location = new System.Drawing.Point(247, 77);
+            this.lblInfoMdp.Name = "lblInfoMdp";
+            this.lblInfoMdp.Size = new System.Drawing.Size(769, 16);
+            this.lblInfoMdp.TabIndex = 4;
+            this.lblInfoMdp.Text = "Rappel : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, 1 c" +
+    "hiffre minimum, 1 caractère spécial minimum";
+            // 
+            // pnlConnectionInf
+            // 
+            this.pnlConnectionInf.AutoScroll = true;
+            this.pnlConnectionInf.AutoSize = true;
+            this.pnlConnectionInf.Controls.Add(this.btnQuitterConnection);
+            this.pnlConnectionInf.Controls.Add(this.lblConnecte);
+            this.pnlConnectionInf.Controls.Add(this.lblConnecte2);
+            this.pnlConnectionInf.Controls.Add(this.lblConnecte3);
+            this.pnlConnectionInf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlConnectionInf.Location = new System.Drawing.Point(3, 477);
+            this.pnlConnectionInf.Name = "pnlConnectionInf";
+            this.pnlConnectionInf.Size = new System.Drawing.Size(1252, 232);
+            this.pnlConnectionInf.TabIndex = 1;
+            // 
+            // btnQuitterConnection
+            // 
+            this.btnQuitterConnection.AutoSize = true;
+            this.btnQuitterConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitterConnection.Location = new System.Drawing.Point(843, 194);
+            this.btnQuitterConnection.Name = "btnQuitterConnection";
+            this.btnQuitterConnection.Size = new System.Drawing.Size(395, 26);
+            this.btnQuitterConnection.TabIndex = 10;
+            this.btnQuitterConnection.Text = "Cliquez ici pour QUITTER l\'application";
+            this.btnQuitterConnection.UseVisualStyleBackColor = true;
+            // 
+            // lblConnecte
+            // 
+            this.lblConnecte.AutoSize = true;
+            this.lblConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnecte.Location = new System.Drawing.Point(21, 24);
+            this.lblConnecte.Name = "lblConnecte";
+            this.lblConnecte.Size = new System.Drawing.Size(81, 20);
+            this.lblConnecte.TabIndex = 5;
+            this.lblConnecte.Text = "Bonjour, ";
+            this.lblConnecte.Visible = false;
+            // 
+            // lblConnecte2
+            // 
+            this.lblConnecte2.AutoSize = true;
+            this.lblConnecte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnecte2.Location = new System.Drawing.Point(346, 24);
+            this.lblConnecte2.Name = "lblConnecte2";
+            this.lblConnecte2.Size = new System.Drawing.Size(224, 20);
+            this.lblConnecte2.TabIndex = 6;
+            this.lblConnecte2.Text = ", vous êtes bien connecté !";
+            this.lblConnecte2.Visible = false;
+            // 
+            // lblConnecte3
+            // 
+            this.lblConnecte3.AutoSize = true;
+            this.lblConnecte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnecte3.Location = new System.Drawing.Point(21, 68);
+            this.lblConnecte3.Name = "lblConnecte3";
+            this.lblConnecte3.Size = new System.Drawing.Size(735, 20);
+            this.lblConnecte3.TabIndex = 7;
+            this.lblConnecte3.Text = "Vous pouvez commencer à naviguer, rendez-vous dans l\'onglet \"Rubriques et message" +
+    "s\"...";
+            this.lblConnecte3.Visible = false;
+            // 
             // tpInscription
             // 
             this.tpInscription.AutoScroll = true;
@@ -702,30 +782,183 @@
             this.tpInscription.TabIndex = 7;
             this.tpInscription.Text = "Inscription";
             // 
-            // lblInscriptionOk
+            // tlpInscription
             // 
-            this.lblInscriptionOk.AutoSize = true;
-            this.lblInscriptionOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInscriptionOk.Location = new System.Drawing.Point(5, 13);
-            this.lblInscriptionOk.Name = "lblInscriptionOk";
-            this.lblInscriptionOk.Size = new System.Drawing.Size(689, 20);
-            this.lblInscriptionOk.TabIndex = 18;
-            this.lblInscriptionOk.Text = "Votre inscription a bien été prise en compte, nous vous remercions ! Votre login " +
-    "est : ";
-            this.lblInscriptionOk.Visible = false;
+            this.tlpInscription.AutoScroll = true;
+            this.tlpInscription.AutoSize = true;
+            this.tlpInscription.ColumnCount = 1;
+            this.tlpInscription.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpInscription.Controls.Add(this.pnlInscriptionSup, 0, 0);
+            this.tlpInscription.Controls.Add(this.pnlInscriptionMiddle, 0, 1);
+            this.tlpInscription.Controls.Add(this.pnlInscriptionInf, 0, 2);
+            this.tlpInscription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpInscription.Location = new System.Drawing.Point(3, 3);
+            this.tlpInscription.Name = "tlpInscription";
+            this.tlpInscription.RowCount = 3;
+            this.tlpInscription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
+            this.tlpInscription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38F));
+            this.tlpInscription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tlpInscription.Size = new System.Drawing.Size(1258, 712);
+            this.tlpInscription.TabIndex = 0;
             // 
-            // btnChangePass
+            // pnlInscriptionSup
             // 
-            this.btnChangePass.AutoSize = true;
-            this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePass.Location = new System.Drawing.Point(9, 50);
-            this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(328, 45);
-            this.btnChangePass.TabIndex = 11;
-            this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
-            this.btnChangePass.UseVisualStyleBackColor = true;
-            this.btnChangePass.Visible = false;
-            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
+            this.pnlInscriptionSup.AutoScroll = true;
+            this.pnlInscriptionSup.AutoSize = true;
+            this.pnlInscriptionSup.Controls.Add(this.lblInfoPasseInscription);
+            this.pnlInscriptionSup.Controls.Add(this.flpInscription);
+            this.pnlInscriptionSup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlInscriptionSup.Location = new System.Drawing.Point(3, 3);
+            this.pnlInscriptionSup.Name = "pnlInscriptionSup";
+            this.pnlInscriptionSup.Size = new System.Drawing.Size(1252, 321);
+            this.pnlInscriptionSup.TabIndex = 0;
+            // 
+            // lblInfoPasseInscription
+            // 
+            this.lblInfoPasseInscription.AutoSize = true;
+            this.lblInfoPasseInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoPasseInscription.Location = new System.Drawing.Point(331, 243);
+            this.lblInfoPasseInscription.Name = "lblInfoPasseInscription";
+            this.lblInfoPasseInscription.Size = new System.Drawing.Size(779, 16);
+            this.lblInfoPasseInscription.TabIndex = 5;
+            this.lblInfoPasseInscription.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
+    "1 chiffre minimum, 1 caractère spécial minimum";
+            // 
+            // flpInscription
+            // 
+            this.flpInscription.BackColor = System.Drawing.Color.DarkGray;
+            this.flpInscription.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpInscription.Controls.Add(this.lblNom);
+            this.flpInscription.Controls.Add(this.txtbNom);
+            this.flpInscription.Controls.Add(this.lblPrenom);
+            this.flpInscription.Controls.Add(this.txtbPrenom);
+            this.flpInscription.Controls.Add(this.lblPseuso);
+            this.flpInscription.Controls.Add(this.txtbPseudo);
+            this.flpInscription.Controls.Add(this.lblMail);
+            this.flpInscription.Controls.Add(this.txtbMail);
+            this.flpInscription.Controls.Add(this.lblInscriptionPasse);
+            this.flpInscription.Controls.Add(this.txtbInscriptionPasse);
+            this.flpInscription.Controls.Add(this.btnValidInscription);
+            this.flpInscription.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpInscription.Location = new System.Drawing.Point(0, 0);
+            this.flpInscription.Name = "flpInscription";
+            this.flpInscription.Size = new System.Drawing.Size(325, 321);
+            this.flpInscription.TabIndex = 0;
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Location = new System.Drawing.Point(3, 0);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(192, 20);
+            this.lblNom.TabIndex = 0;
+            this.lblNom.Text = "Veuillez entrer votre nom :";
+            // 
+            // txtbNom
+            // 
+            this.txtbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbNom.Location = new System.Drawing.Point(3, 23);
+            this.txtbNom.Name = "txtbNom";
+            this.txtbNom.Size = new System.Drawing.Size(311, 26);
+            this.txtbNom.TabIndex = 1;
+            // 
+            // lblPrenom
+            // 
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenom.Location = new System.Drawing.Point(3, 52);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(215, 20);
+            this.lblPrenom.TabIndex = 2;
+            this.lblPrenom.Text = "Veuillez entrer votre prénom :";
+            // 
+            // txtbPrenom
+            // 
+            this.txtbPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbPrenom.Location = new System.Drawing.Point(3, 75);
+            this.txtbPrenom.Name = "txtbPrenom";
+            this.txtbPrenom.Size = new System.Drawing.Size(311, 26);
+            this.txtbPrenom.TabIndex = 3;
+            // 
+            // lblPseuso
+            // 
+            this.lblPseuso.AutoSize = true;
+            this.lblPseuso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPseuso.Location = new System.Drawing.Point(3, 104);
+            this.lblPseuso.Name = "lblPseuso";
+            this.lblPseuso.Size = new System.Drawing.Size(214, 20);
+            this.lblPseuso.TabIndex = 6;
+            this.lblPseuso.Text = "Veuillez entrer votre pseudo :";
+            // 
+            // txtbPseudo
+            // 
+            this.txtbPseudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbPseudo.Location = new System.Drawing.Point(3, 127);
+            this.txtbPseudo.Name = "txtbPseudo";
+            this.txtbPseudo.Size = new System.Drawing.Size(311, 26);
+            this.txtbPseudo.TabIndex = 7;
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMail.Location = new System.Drawing.Point(3, 156);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(250, 20);
+            this.lblMail.TabIndex = 4;
+            this.lblMail.Text = "Veuillez entrer votre adresse mail :";
+            // 
+            // txtbMail
+            // 
+            this.txtbMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbMail.Location = new System.Drawing.Point(3, 179);
+            this.txtbMail.Name = "txtbMail";
+            this.txtbMail.Size = new System.Drawing.Size(311, 26);
+            this.txtbMail.TabIndex = 5;
+            // 
+            // lblInscriptionPasse
+            // 
+            this.lblInscriptionPasse.AutoSize = true;
+            this.lblInscriptionPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInscriptionPasse.Location = new System.Drawing.Point(3, 208);
+            this.lblInscriptionPasse.Name = "lblInscriptionPasse";
+            this.lblInscriptionPasse.Size = new System.Drawing.Size(257, 20);
+            this.lblInscriptionPasse.TabIndex = 8;
+            this.lblInscriptionPasse.Text = "Veuillez entrer votre mot de passe :";
+            // 
+            // txtbInscriptionPasse
+            // 
+            this.txtbInscriptionPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbInscriptionPasse.Location = new System.Drawing.Point(3, 231);
+            this.txtbInscriptionPasse.Name = "txtbInscriptionPasse";
+            this.txtbInscriptionPasse.Size = new System.Drawing.Size(311, 26);
+            this.txtbInscriptionPasse.TabIndex = 9;
+            // 
+            // btnValidInscription
+            // 
+            this.btnValidInscription.AutoSize = true;
+            this.btnValidInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnValidInscription.Location = new System.Drawing.Point(3, 263);
+            this.btnValidInscription.Name = "btnValidInscription";
+            this.btnValidInscription.Size = new System.Drawing.Size(311, 45);
+            this.btnValidInscription.TabIndex = 10;
+            this.btnValidInscription.Text = "Cliquez ici pour valider";
+            this.btnValidInscription.UseVisualStyleBackColor = true;
+            this.btnValidInscription.Click += new System.EventHandler(this.btnValidInscription_Click);
+            // 
+            // pnlInscriptionMiddle
+            // 
+            this.pnlInscriptionMiddle.AutoScroll = true;
+            this.pnlInscriptionMiddle.AutoSize = true;
+            this.pnlInscriptionMiddle.Controls.Add(this.flpChangePass);
+            this.pnlInscriptionMiddle.Controls.Add(this.lblInfoNouveauPasse);
+            this.pnlInscriptionMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlInscriptionMiddle.Location = new System.Drawing.Point(3, 330);
+            this.pnlInscriptionMiddle.Name = "pnlInscriptionMiddle";
+            this.pnlInscriptionMiddle.Size = new System.Drawing.Size(1252, 264);
+            this.pnlInscriptionMiddle.TabIndex = 1;
             // 
             // flpChangePass
             // 
@@ -800,262 +1033,6 @@
     "1 chiffre minimum, 1 caractère spécial minimum";
             this.lblInfoNouveauPasse.Visible = false;
             // 
-            // lblInfoPasseInscription
-            // 
-            this.lblInfoPasseInscription.AutoSize = true;
-            this.lblInfoPasseInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoPasseInscription.Location = new System.Drawing.Point(331, 243);
-            this.lblInfoPasseInscription.Name = "lblInfoPasseInscription";
-            this.lblInfoPasseInscription.Size = new System.Drawing.Size(779, 16);
-            this.lblInfoPasseInscription.TabIndex = 5;
-            this.lblInfoPasseInscription.Text = "Important : 12 caratères minimum, dont 1 majuscule minimum, 1 minuscule minimum, " +
-    "1 chiffre minimum, 1 caractère spécial minimum";
-            // 
-            // flpInscription
-            // 
-            this.flpInscription.BackColor = System.Drawing.Color.DarkGray;
-            this.flpInscription.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpInscription.Controls.Add(this.lblNom);
-            this.flpInscription.Controls.Add(this.txtbNom);
-            this.flpInscription.Controls.Add(this.lblPrenom);
-            this.flpInscription.Controls.Add(this.txtbPrenom);
-            this.flpInscription.Controls.Add(this.lblPseuso);
-            this.flpInscription.Controls.Add(this.txtbPseudo);
-            this.flpInscription.Controls.Add(this.lblMail);
-            this.flpInscription.Controls.Add(this.txtbMail);
-            this.flpInscription.Controls.Add(this.lblInscriptionPasse);
-            this.flpInscription.Controls.Add(this.txtbInscriptionPasse);
-            this.flpInscription.Controls.Add(this.btnValidInscription);
-            this.flpInscription.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flpInscription.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpInscription.Location = new System.Drawing.Point(0, 0);
-            this.flpInscription.Name = "flpInscription";
-            this.flpInscription.Size = new System.Drawing.Size(325, 321);
-            this.flpInscription.TabIndex = 0;
-            // 
-            // lblNom
-            // 
-            this.lblNom.AutoSize = true;
-            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(3, 0);
-            this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(192, 20);
-            this.lblNom.TabIndex = 0;
-            this.lblNom.Text = "Veuillez entrer votre nom :";
-            // 
-            // txtbNom
-            // 
-            this.txtbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbNom.Location = new System.Drawing.Point(3, 23);
-            this.txtbNom.Name = "txtbNom";
-            this.txtbNom.Size = new System.Drawing.Size(311, 26);
-            this.txtbNom.TabIndex = 1;
-            // 
-            // lblPrenom
-            // 
-            this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrenom.Location = new System.Drawing.Point(3, 52);
-            this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(215, 20);
-            this.lblPrenom.TabIndex = 2;
-            this.lblPrenom.Text = "Veuillez entrer votre prénom :";
-            // 
-            // txtbPrenom
-            // 
-            this.txtbPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbPrenom.Location = new System.Drawing.Point(3, 75);
-            this.txtbPrenom.Name = "txtbPrenom";
-            this.txtbPrenom.Size = new System.Drawing.Size(311, 26);
-            this.txtbPrenom.TabIndex = 3;
-            // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMail.Location = new System.Drawing.Point(3, 156);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(250, 20);
-            this.lblMail.TabIndex = 4;
-            this.lblMail.Text = "Veuillez entrer votre adresse mail :";
-            // 
-            // txtbMail
-            // 
-            this.txtbMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbMail.Location = new System.Drawing.Point(3, 179);
-            this.txtbMail.Name = "txtbMail";
-            this.txtbMail.Size = new System.Drawing.Size(311, 26);
-            this.txtbMail.TabIndex = 5;
-            // 
-            // lblPseuso
-            // 
-            this.lblPseuso.AutoSize = true;
-            this.lblPseuso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPseuso.Location = new System.Drawing.Point(3, 104);
-            this.lblPseuso.Name = "lblPseuso";
-            this.lblPseuso.Size = new System.Drawing.Size(214, 20);
-            this.lblPseuso.TabIndex = 6;
-            this.lblPseuso.Text = "Veuillez entrer votre pseudo :";
-            // 
-            // txtbPseudo
-            // 
-            this.txtbPseudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbPseudo.Location = new System.Drawing.Point(3, 127);
-            this.txtbPseudo.Name = "txtbPseudo";
-            this.txtbPseudo.Size = new System.Drawing.Size(311, 26);
-            this.txtbPseudo.TabIndex = 7;
-            // 
-            // lblInscriptionPasse
-            // 
-            this.lblInscriptionPasse.AutoSize = true;
-            this.lblInscriptionPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInscriptionPasse.Location = new System.Drawing.Point(3, 208);
-            this.lblInscriptionPasse.Name = "lblInscriptionPasse";
-            this.lblInscriptionPasse.Size = new System.Drawing.Size(257, 20);
-            this.lblInscriptionPasse.TabIndex = 8;
-            this.lblInscriptionPasse.Text = "Veuillez entrer votre mot de passe :";
-            // 
-            // txtbInscriptionPasse
-            // 
-            this.txtbInscriptionPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbInscriptionPasse.Location = new System.Drawing.Point(3, 231);
-            this.txtbInscriptionPasse.Name = "txtbInscriptionPasse";
-            this.txtbInscriptionPasse.Size = new System.Drawing.Size(311, 26);
-            this.txtbInscriptionPasse.TabIndex = 9;
-            // 
-            // btnValidInscription
-            // 
-            this.btnValidInscription.AutoSize = true;
-            this.btnValidInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValidInscription.Location = new System.Drawing.Point(3, 263);
-            this.btnValidInscription.Name = "btnValidInscription";
-            this.btnValidInscription.Size = new System.Drawing.Size(311, 45);
-            this.btnValidInscription.TabIndex = 10;
-            this.btnValidInscription.Text = "Cliquez ici pour valider";
-            this.btnValidInscription.UseVisualStyleBackColor = true;
-            this.btnValidInscription.Click += new System.EventHandler(this.btnValidInscription_Click);
-            // 
-            // lblConnecte2
-            // 
-            this.lblConnecte2.AutoSize = true;
-            this.lblConnecte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecte2.Location = new System.Drawing.Point(346, 24);
-            this.lblConnecte2.Name = "lblConnecte2";
-            this.lblConnecte2.Size = new System.Drawing.Size(224, 20);
-            this.lblConnecte2.TabIndex = 6;
-            this.lblConnecte2.Text = ", vous êtes bien connecté !";
-            this.lblConnecte2.Visible = false;
-            // 
-            // lblConnecte3
-            // 
-            this.lblConnecte3.AutoSize = true;
-            this.lblConnecte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecte3.Location = new System.Drawing.Point(21, 68);
-            this.lblConnecte3.Name = "lblConnecte3";
-            this.lblConnecte3.Size = new System.Drawing.Size(735, 20);
-            this.lblConnecte3.TabIndex = 7;
-            this.lblConnecte3.Text = "Vous pouvez commencer à naviguer, rendez-vous dans l\'onglet \"Rubriques et message" +
-    "s\"...";
-            this.lblConnecte3.Visible = false;
-            // 
-            // tlpConnection
-            // 
-            this.tlpConnection.AutoScroll = true;
-            this.tlpConnection.AutoSize = true;
-            this.tlpConnection.ColumnCount = 1;
-            this.tlpConnection.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpConnection.Controls.Add(this.pnlConnectionSup, 0, 0);
-            this.tlpConnection.Controls.Add(this.pnlConnectionInf, 0, 1);
-            this.tlpConnection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpConnection.Location = new System.Drawing.Point(3, 3);
-            this.tlpConnection.Name = "tlpConnection";
-            this.tlpConnection.RowCount = 2;
-            this.tlpConnection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tlpConnection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpConnection.Size = new System.Drawing.Size(1258, 712);
-            this.tlpConnection.TabIndex = 0;
-            // 
-            // pnlConnectionSup
-            // 
-            this.pnlConnectionSup.AutoScroll = true;
-            this.pnlConnectionSup.AutoSize = true;
-            this.pnlConnectionSup.Controls.Add(this.flpIdentification);
-            this.pnlConnectionSup.Controls.Add(this.lblInfosLogin);
-            this.pnlConnectionSup.Controls.Add(this.lblInfoMdp);
-            this.pnlConnectionSup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlConnectionSup.Location = new System.Drawing.Point(3, 3);
-            this.pnlConnectionSup.Name = "pnlConnectionSup";
-            this.pnlConnectionSup.Size = new System.Drawing.Size(1252, 468);
-            this.pnlConnectionSup.TabIndex = 0;
-            // 
-            // pnlConnectionInf
-            // 
-            this.pnlConnectionInf.AutoScroll = true;
-            this.pnlConnectionInf.AutoSize = true;
-            this.pnlConnectionInf.Controls.Add(this.btnQuitterConnection);
-            this.pnlConnectionInf.Controls.Add(this.lblConnecte);
-            this.pnlConnectionInf.Controls.Add(this.lblConnecte2);
-            this.pnlConnectionInf.Controls.Add(this.lblConnecte3);
-            this.pnlConnectionInf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlConnectionInf.Location = new System.Drawing.Point(3, 477);
-            this.pnlConnectionInf.Name = "pnlConnectionInf";
-            this.pnlConnectionInf.Size = new System.Drawing.Size(1252, 232);
-            this.pnlConnectionInf.TabIndex = 1;
-            // 
-            // btnQuitterConnection
-            // 
-            this.btnQuitterConnection.AutoSize = true;
-            this.btnQuitterConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitterConnection.Location = new System.Drawing.Point(843, 194);
-            this.btnQuitterConnection.Name = "btnQuitterConnection";
-            this.btnQuitterConnection.Size = new System.Drawing.Size(395, 26);
-            this.btnQuitterConnection.TabIndex = 10;
-            this.btnQuitterConnection.Text = "Cliquez ici pour QUITTER l\'application";
-            this.btnQuitterConnection.UseVisualStyleBackColor = true;
-            // 
-            // tlpInscription
-            // 
-            this.tlpInscription.AutoScroll = true;
-            this.tlpInscription.AutoSize = true;
-            this.tlpInscription.ColumnCount = 1;
-            this.tlpInscription.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpInscription.Controls.Add(this.pnlInscriptionSup, 0, 0);
-            this.tlpInscription.Controls.Add(this.pnlInscriptionMiddle, 0, 1);
-            this.tlpInscription.Controls.Add(this.pnlInscriptionInf, 0, 2);
-            this.tlpInscription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpInscription.Location = new System.Drawing.Point(3, 3);
-            this.tlpInscription.Name = "tlpInscription";
-            this.tlpInscription.RowCount = 3;
-            this.tlpInscription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
-            this.tlpInscription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38F));
-            this.tlpInscription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tlpInscription.Size = new System.Drawing.Size(1258, 712);
-            this.tlpInscription.TabIndex = 0;
-            // 
-            // pnlInscriptionSup
-            // 
-            this.pnlInscriptionSup.AutoScroll = true;
-            this.pnlInscriptionSup.AutoSize = true;
-            this.pnlInscriptionSup.Controls.Add(this.lblInfoPasseInscription);
-            this.pnlInscriptionSup.Controls.Add(this.flpInscription);
-            this.pnlInscriptionSup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlInscriptionSup.Location = new System.Drawing.Point(3, 3);
-            this.pnlInscriptionSup.Name = "pnlInscriptionSup";
-            this.pnlInscriptionSup.Size = new System.Drawing.Size(1252, 321);
-            this.pnlInscriptionSup.TabIndex = 0;
-            // 
-            // pnlInscriptionMiddle
-            // 
-            this.pnlInscriptionMiddle.AutoScroll = true;
-            this.pnlInscriptionMiddle.AutoSize = true;
-            this.pnlInscriptionMiddle.Controls.Add(this.flpChangePass);
-            this.pnlInscriptionMiddle.Controls.Add(this.lblInfoNouveauPasse);
-            this.pnlInscriptionMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlInscriptionMiddle.Location = new System.Drawing.Point(3, 330);
-            this.pnlInscriptionMiddle.Name = "pnlInscriptionMiddle";
-            this.pnlInscriptionMiddle.Size = new System.Drawing.Size(1252, 264);
-            this.pnlInscriptionMiddle.TabIndex = 1;
-            // 
             // pnlInscriptionInf
             // 
             this.pnlInscriptionInf.AutoScroll = true;
@@ -1079,6 +1056,31 @@
             this.btnQuitterInscription.TabIndex = 19;
             this.btnQuitterInscription.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitterInscription.UseVisualStyleBackColor = true;
+            // 
+            // lblInscriptionOk
+            // 
+            this.lblInscriptionOk.AutoSize = true;
+            this.lblInscriptionOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInscriptionOk.Location = new System.Drawing.Point(5, 13);
+            this.lblInscriptionOk.Name = "lblInscriptionOk";
+            this.lblInscriptionOk.Size = new System.Drawing.Size(689, 20);
+            this.lblInscriptionOk.TabIndex = 18;
+            this.lblInscriptionOk.Text = "Votre inscription a bien été prise en compte, nous vous remercions ! Votre login " +
+    "est : ";
+            this.lblInscriptionOk.Visible = false;
+            // 
+            // btnChangePass
+            // 
+            this.btnChangePass.AutoSize = true;
+            this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.Location = new System.Drawing.Point(9, 50);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(328, 45);
+            this.btnChangePass.TabIndex = 11;
+            this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
+            this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Visible = false;
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // AccueilForum
             // 
@@ -1125,26 +1127,26 @@
             this.flpModerateur.PerformLayout();
             this.tpConnexion.ResumeLayout(false);
             this.tpConnexion.PerformLayout();
-            this.flpIdentification.ResumeLayout(false);
-            this.flpIdentification.PerformLayout();
-            this.tpInscription.ResumeLayout(false);
-            this.tpInscription.PerformLayout();
-            this.flpChangePass.ResumeLayout(false);
-            this.flpChangePass.PerformLayout();
-            this.flpInscription.ResumeLayout(false);
-            this.flpInscription.PerformLayout();
             this.tlpConnection.ResumeLayout(false);
             this.tlpConnection.PerformLayout();
             this.pnlConnectionSup.ResumeLayout(false);
             this.pnlConnectionSup.PerformLayout();
+            this.flpIdentification.ResumeLayout(false);
+            this.flpIdentification.PerformLayout();
             this.pnlConnectionInf.ResumeLayout(false);
             this.pnlConnectionInf.PerformLayout();
+            this.tpInscription.ResumeLayout(false);
+            this.tpInscription.PerformLayout();
             this.tlpInscription.ResumeLayout(false);
             this.tlpInscription.PerformLayout();
             this.pnlInscriptionSup.ResumeLayout(false);
             this.pnlInscriptionSup.PerformLayout();
+            this.flpInscription.ResumeLayout(false);
+            this.flpInscription.PerformLayout();
             this.pnlInscriptionMiddle.ResumeLayout(false);
             this.pnlInscriptionMiddle.PerformLayout();
+            this.flpChangePass.ResumeLayout(false);
+            this.flpChangePass.PerformLayout();
             this.pnlInscriptionInf.ResumeLayout(false);
             this.pnlInscriptionInf.PerformLayout();
             this.ResumeLayout(false);

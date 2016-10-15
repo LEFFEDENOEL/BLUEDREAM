@@ -127,9 +127,9 @@ namespace Foradev
         /// <param name="texteReponse"></param>
         /// <param name="dateReponse"></param>
         /// <returns>Renvoit l'identifiant de la réponse en int ou null</returns>
-        public static int? AjoutReponse(int idUtilisateur, int idSujet, string texteReponse, DateTime dateReponse)
+        public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
-            return DAOPrincipale.AjoutReponse(idUtilisateur, idSujet, texteReponse, dateReponse);
+            return DAOPrincipale.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
         }
 
         /// <summary>
@@ -150,6 +150,16 @@ namespace Foradev
         public static int? SupprimerReponse(int idReponse)
         {
             return DAOPrincipale.SupprimerReponse(idReponse);
+        }
+
+        public static int? ModifierTitreSujet(int idSujet, string titreSujet)
+        {
+            return DAOPrincipale.ModifierTitreSujet(idSujet, titreSujet);
+        }
+
+        public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
+        {
+            return DAOPrincipale.ModifierDescriptionSujet(idSujet, descSujet);
         }
     }
 }

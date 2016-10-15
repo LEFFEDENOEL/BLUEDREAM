@@ -37,7 +37,7 @@ namespace Foradev
         #region Constructeurs
 
         //Constructeur complet
-        public Reponse(Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
+        public Reponse (Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
                        : base(utilisateur, dateCreation, texteMessage)
         {
             Id = idReponse;

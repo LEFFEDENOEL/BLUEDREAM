@@ -16,10 +16,10 @@ namespace Foradev
 
         //Constructeur complet
         public UtilisateurNonConnecte(int id, string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
-                                 : base(id, nom, prenom, mail, role, pseudo, dtinscription) { }
+                                      : base(id, nom, prenom, mail, role, pseudo, dtinscription) { }
 
-        public UtilisateurNonConnecte(string nom, string prenom, string pseudo, DateTime dtinscription)
-                         : base(nom, prenom, pseudo, dtinscription) { }
+        public UtilisateurNonConnecte(int id,string nom, string prenom, string pseudo, DateTime dtinscription)
+                                      : base(id,nom, prenom, pseudo, dtinscription) { }
         #endregion
 
         #region Methodes

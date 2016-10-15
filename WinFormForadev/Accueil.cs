@@ -234,11 +234,11 @@ namespace WinFormForadev
         private void btnPosterReponse_Click(object sender, EventArgs e)
         {
             int idUtilisateur = uConnect.Id;
-            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[2].Value.ToString());
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             string texteReponse = txtbTexteReponse.Text;
             DateTime dateReponse = System.DateTime.Now;
 
-            BLL.AjoutReponse(idUtilisateur, idSujet, texteReponse, dateReponse);
+            BLL.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
         }
 
         /// <summary>
@@ -248,7 +248,7 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btnSupprimerSujet_Click(object sender, EventArgs e)
         {
-            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[2].Value.ToString());
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             BLL.SupprimerSujet(idSujet);
 
         }
@@ -260,11 +260,23 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btnSupprimerReponse_Click(object sender, EventArgs e)
         {
-            int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[2].Value.ToString());
+            int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[0].Value.ToString());
             BLL.SupprimerReponse(idReponse);
         }
 
+        private void btnModifierTitreSujet_Click(object sender, EventArgs e)
+        {
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
+            string titreSujet = txtbTitreSujet.Text;
+            BLL.ModifierTitreSujet(idSujet, titreSujet);
+        }
 
+        private void btnModifierDescriptionSujet_Click(object sender, EventArgs e)
+        {
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[5].Value.ToString());
+            string descSujet = txtbTexteSujet.Text;
+            BLL.ModifierDescriptionSujet(idSujet, descSujet);
+        }
 
 
         #endregion

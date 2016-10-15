@@ -176,7 +176,8 @@ namespace Foradev
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
 
-                return new UtilisateurNonConnecte(dRow["NOM_UTILISATEUR"].ToString(), 
+                return new UtilisateurNonConnecte((int)dRow["ID_UTILISATEUR"],
+                                                  dRow["NOM_UTILISATEUR"].ToString(), 
                                                   dRow["PRENOM_UTILISATEUR"].ToString(), 
                                                   dRow["PSEUDO_UTILISATEUR"].ToString(), 
                                                   (DateTime)dRow["DATE_INSCRIPTION"]);
@@ -394,9 +395,11 @@ namespace Foradev
             if (dSet != null)
             {
                 DataRow dRow = dSet.Tables[0].Rows[0];
+                //TODO Possibilité de DELETE EN CASCADE SupprimerReponse(idSujet);
                 return (int.Parse(dRow["ID_SUJET"].ToString()));
             }
             return null;
+            
         }
 
         /// <summary>
@@ -416,6 +419,41 @@ namespace Foradev
             {
                 DataRow dRow = dSet.Tables[0].Rows[0];
                 return (int.Parse(dRow["ID_REPONSE"].ToString()));
+            }
+            return null;
+        }
+
+        public static int? ModifierTitreSujet(int idSujet, string titreSujet)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+            listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
+
+            DataSet dSet = GetDataSet("UPDATESUJETTITRE", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return (int.Parse(dRow["ID_SUJET"].ToString()));
+            }
+            return null;
+        }
+
+
+        public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+            listeSqlParam.Add(new SqlParameter("DESCRIPTIONSUJET", descSujet));
+
+            DataSet dSet = GetDataSet("UPDATESUJETDESCRIPTION", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return (int.Parse(dRow["ID_SUJET"].ToString()));
             }
             return null;
         }

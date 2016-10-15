@@ -1,22 +1,38 @@
-﻿
-if object_id('GETREPONSESBYSUJET', 'p') is not null
-drop procedure GETREPONSESBYSUJET
+﻿if object_id('DELETESUJET', 'p') is not null
+drop procedure DELETESUJET
 go
 
-create procedure GETREPONSESBYSUJET
+create procedure DELETESUJET
 
-@titresujet varchar(256)
+@idSujet 			    int
 
 as
 
 begin
 
-select u.NOM_UTILISATEUR, u.PSEUDO_UTILISATEUR, r.DATE_REPONSE, r.TEXTE_REPONSE 
-from REPONSES r 
-join UTILISATEURS u on u.ID_UTILISATEUR = r.ID_UTILISATEUR
-join SUJETS s on s.ID_SUJET = r.ID_SUJET
-where TITRE_SUJET = @titresujet
+	begin try
+	
+	begin transaction
 
+		delete from SUJETS 		
+		output DELETED.ID_SUJET
+		where ID_SUJET = @idSujet
+		
+		delete from REPONSES 
+		output DELETED.ID_REPONSE
+		where ID_SUJET = @idSujet
+		
+	end try
+	
+	begin catch
+	
+		rollback transaction		
+		/*RAISERROR ('Erreur lors de la suppression du sujet');*/
+		
+	end catch
+	
+	commit transaction
+	--execute dbo.DELETEREPONSESBYSUJET
+	
 end
 go
-
