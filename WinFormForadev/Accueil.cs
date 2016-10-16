@@ -39,6 +39,59 @@ namespace WinFormForadev
         #region Methodes
 
         /// <summary>
+        /// Methode VOID de chargement du datagridview Sujets
+        /// </summary>
+        private void LoadSujet()
+        {
+            //Appel de la liste dans la classe BLL récupérée par la classe DAO               
+            List<Sujet> listeSujets = BLL.GetSujetsByRubrique(cbxListeRubriques.SelectedItem.ToString());
+
+            //Alimentation du bindingsource avec la liste créé
+            BindingSource bsSujets = new BindingSource();
+
+            //Affectation et paramétrage du datagridview         
+            bsSujets.DataSource = listeSujets;
+            dgvSujets.DataSource = bsSujets.DataSource;
+
+            dgvSujets.Columns[0].Visible = false;
+            dgvSujets.Columns[1].Visible = false;
+            dgvSujets.Columns[2].HeaderText = "Titre";
+            dgvSujets.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSujets.Columns[3].HeaderText = "Pseuso";
+            dgvSujets.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSujets.Columns[4].HeaderText = "Date";
+            dgvSujets.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSujets.Columns[5].HeaderText = "Texte";
+        }
+
+        /// <summary>
+        /// Méthode VOID de chargement du datagridview Réponses
+        /// </summary>
+        private void LoadReponse()
+        {
+            //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagridview dvgSujets
+            string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
+            //Appel de la liste dans la classe BLL récupérée par la classe DAO 
+            List<Reponse> listeReponses = BLL.GetReponsesBySujet(titreSujet);
+
+            //Alimentation du bindingsource avec la liste créé
+            BindingSource bsReponses = new BindingSource();
+
+            //Affectation et paramétrage du datagridview         
+            bsReponses.DataSource = listeReponses;
+            dgvReponses.DataSource = bsReponses.DataSource;
+
+            dgvReponses.Columns[0].Visible = false;
+            dgvReponses.Columns[1].HeaderText = "Titre";
+            dgvReponses.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvReponses.Columns[2].HeaderText = "Pseudo";
+            dgvReponses.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvReponses.Columns[3].HeaderText = "Date";
+            dgvReponses.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvReponses.Columns[4].HeaderText = "Texte réponse";
+        }
+
+        /// <summary>
         /// Methode de gestion de visibilité des composants pour un utilisateur non connecté
         /// </summary>
         public void VisibiliteComposantsUtilisateurNonConnecte()
@@ -102,25 +155,7 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void cbxListeRubriques_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Appel de la liste dans la classe BLL récupérée par la classe DAO               
-            List<Sujet> listeSujets = BLL.GetSujetsByRubrique(cbxListeRubriques.SelectedItem.ToString());
-
-            //Alimentation du bindingsource avec la liste créé
-            BindingSource bsSujets = new BindingSource();
-
-            //Affectation et paramétrage du datagridview         
-            bsSujets.DataSource = listeSujets;
-            dgvSujets.DataSource = bsSujets.DataSource;
-
-            dgvSujets.Columns[0].Visible = false;
-            dgvSujets.Columns[1].Visible = false;
-            dgvSujets.Columns[2].HeaderText = "Titre";
-            dgvSujets.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSujets.Columns[3].HeaderText = "Pseuso";
-            dgvSujets.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSujets.Columns[4].HeaderText = "Date";
-            dgvSujets.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSujets.Columns[5].HeaderText = "Texte";
+            LoadSujet();
         }
 
         /// <summary>
@@ -130,28 +165,7 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void dgvSujets_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            ////Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagridview dvgSujets
-            string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
-
-            //Appel de la liste dans la classe BLL récupérée par la classe DAO 
-            List<Reponse> listeReponses = BLL.GetReponsesBySujet(titreSujet);
-
-            //Alimentation du bindingsource avec la liste créé
-            BindingSource bsReponses = new BindingSource();
-
-            //Affectation et paramétrage du datagridview         
-            bsReponses.DataSource = listeReponses;
-            dgvReponses.DataSource = bsReponses.DataSource;
-
-            dgvReponses.Columns[0].Visible = false;
-            dgvReponses.Columns[1].HeaderText = "Titre";
-            dgvReponses.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;         
-            dgvReponses.Columns[2].HeaderText = "Pseudo";
-            dgvReponses.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;      
-            dgvReponses.Columns[3].HeaderText = "Date";
-            dgvReponses.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvReponses.Columns[4].HeaderText = "Texte réponse";
-            
+            LoadReponse();          
         }
 
         /// <summary>
@@ -224,6 +238,8 @@ namespace WinFormForadev
             DateTime dateCreationSujet = System.DateTime.Now;
 
             BLL.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
+
+            LoadSujet();         
         }
 
         /// <summary>
@@ -239,6 +255,8 @@ namespace WinFormForadev
             DateTime dateReponse = System.DateTime.Now;
 
             BLL.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
+
+            LoadReponse();
         }
 
         /// <summary>
@@ -249,8 +267,11 @@ namespace WinFormForadev
         private void btnSupprimerSujet_Click(object sender, EventArgs e)
         {
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
+
             BLL.SupprimerSujet(idSujet);
 
+            LoadSujet();
+            LoadReponse();
         }
 
         /// <summary>
@@ -261,7 +282,10 @@ namespace WinFormForadev
         private void btnSupprimerReponse_Click(object sender, EventArgs e)
         {
             int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[0].Value.ToString());
+
             BLL.SupprimerReponse(idReponse);
+
+            LoadReponse();
         }
 
         /// <summary>
@@ -273,7 +297,10 @@ namespace WinFormForadev
         {
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             string titreSujet = txtbTitreSujet.Text;
+
             BLL.ModifierTitreSujet(idSujet, titreSujet);
+
+            LoadSujet();
         }
 
         /// <summary>
@@ -285,11 +312,27 @@ namespace WinFormForadev
         {
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             string descSujet = txtbTexteSujet.Text;
+
             BLL.ModifierDescriptionSujet(idSujet, descSujet);
+
+            LoadSujet();
+        }
+
+        /// <summary>
+        /// Méthode qui permet un rafraîchissement général des sujets et des réponses
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            lblRefreshDonnees.Text = "Dernier rafraîchissement : "; //TODO CONSTANTE
+            DateTime dateHeureRefresh = DateTime.Now;
+            LoadSujet();
+            LoadReponse();
+            lblRefreshDonnees.Text = lblRefreshDonnees.Text + dateHeureRefresh;           
         }
 
         #endregion
-
 
     }
 }

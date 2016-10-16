@@ -458,9 +458,8 @@
             this.lblRefreshDonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRefreshDonnees.Location = new System.Drawing.Point(3, 0);
             this.lblRefreshDonnees.Name = "lblRefreshDonnees";
-            this.lblRefreshDonnees.Size = new System.Drawing.Size(247, 15);
+            this.lblRefreshDonnees.Size = new System.Drawing.Size(0, 15);
             this.lblRefreshDonnees.TabIndex = 13;
-            this.lblRefreshDonnees.Text = "Dernière date et heure du rafraîchissement :";
             // 
             // btnRefresh
             // 
@@ -472,6 +471,7 @@
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Cliquez ici pour rafraîchir les données";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnQuitter
             // 
