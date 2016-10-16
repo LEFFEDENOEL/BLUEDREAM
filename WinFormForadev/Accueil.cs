@@ -218,6 +218,18 @@ namespace WinFormForadev
             lblInscriptionOk.Text = lblInscriptionOk.Text + login;
         }
 
+        /// <summary>
+        /// Méthode de changement de mot de passe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btValidNouveauPasse_Click(object sender, EventArgs e)
+        {
+            string empreinteSha = BLL.HashShaMdp(txtbConfirmNouveauPasse.Text);
+            int idUtilisateur = uConnect.Id;
+            string login = uConnect.Login;
+        }
+
         private void btnChangePass_Click(object sender, EventArgs e)
         {
             flpChangePass.Visible = true;

@@ -18,11 +18,11 @@ namespace Foradev
         // Constructeur par défaut : base
 
         // Constructeur complet
-        public Moderateur(int id, string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
-                         : base(id, nom, prenom, mail, role, pseudo, dtinscription) { }
+        public Moderateur(int id, string nom, string prenom, string mail, string login, bool role, string pseudo, DateTime dtinscription)
+                          : base(id, nom, prenom, mail, login, role, pseudo, dtinscription) { }
 
         public Moderateur(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
-                         : base(id, nom, prenom, pseudo, dtinscription) { }
+                          : base(id, nom, prenom, pseudo, dtinscription) { }
         #endregion
 
         #region Methodes

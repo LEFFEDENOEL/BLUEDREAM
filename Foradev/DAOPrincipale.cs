@@ -14,7 +14,7 @@ namespace Foradev
     /// </summary>
     public static class DAOPrincipale
     {
-        #region CRUD : Retrieve
+        #region CRUD : RETRIEVE / CONNEXION BDD SQL
 
         static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
 
@@ -109,6 +109,7 @@ namespace Foradev
                                                  dRow["NOM_UTILISATEUR"].ToString(),
                                                  dRow["PRENOM_UTILISATEUR"].ToString(),
                                                  dRow["MAIL_UTILISATEUR"].ToString(),
+                                                 dRow["LOGIN_UTILISATEUR"].ToString(),
                                                  role,
                                                  dRow["PSEUDO_UTILISATEUR"].ToString(),
                                                 (DateTime)dRow["DATE_INSCRIPTION"]);
@@ -117,6 +118,7 @@ namespace Foradev
                                           dRow["NOM_UTILISATEUR"].ToString(),
                                           dRow["PRENOM_UTILISATEUR"].ToString(),
                                           dRow["MAIL_UTILISATEUR"].ToString(),
+                                          dRow["LOGIN_UTILISATEUR"].ToString(),
                                           role,
                                           dRow["PSEUDO_UTILISATEUR"].ToString(),
                                          (DateTime)dRow["DATE_INSCRIPTION"]);
@@ -242,7 +244,7 @@ namespace Foradev
         /// Appel des sous methodes de renvoi de types BuildUtilisateurByNom et BuildSujetByIdSujet
         /// </summary>
         /// <param name="titreSujet"></param>
-        /// <returns></returns>
+        /// <returns>Liste des réponses</returns>
         public static List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -267,7 +269,7 @@ namespace Foradev
         }
         #endregion
 
-        #region CRUD : Create
+        #region CRUD : CREATE
 
         /// <summary>
         /// Methode qui ajoute un utilisateur dans la BDD
@@ -374,51 +376,29 @@ namespace Foradev
         }
         #endregion
 
-        #region CRUD : Update
-        #endregion
-
-        #region CRUD : Delete
+        #region CRUD : UPDATE
 
         /// <summary>
-        /// Méthode de suppression d'un sujet et réponses correspondantes en cascade
+        /// Méthode de changement du mot de passe pour n'importe quel utilisateur loggé
         /// </summary>
-        /// <param name="idSujet"></param>
-        /// <returns>INT Identifiant Sujet supprimé ou NULL</returns>
-        public static int? SupprimerSujet (int idSujet)
+        /// <param name="idUtilisateur"></param>
+        /// <param name="login"></param>
+        /// <param name="empreinteSha"></param>
+        /// <returns>Renvoit l'id utilisateur si ok ou NULL</returns>
+        static public int? ChangePass(int idUtilisateur, string login, string empreinteSha)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
-            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+            listeSqlParam.Add(new SqlParameter("IDUTILISATEUR", idUtilisateur));
+            listeSqlParam.Add(new SqlParameter("LOGIN", login));
+            listeSqlParam.Add(new SqlParameter("NOUVEAUMDPSHA", empreinteSha));
 
-            DataSet dSet = GetDataSet("DELETESUJET", listeSqlParam);
+            DataSet dSet = GetDataSet("CHANGEPASS", listeSqlParam);
 
             if (dSet != null)
             {
                 DataRow dRow = dSet.Tables[0].Rows[0];
-                //TODO Possibilité de DELETE EN CASCADE SupprimerReponse(idSujet);
-                return (int.Parse(dRow["ID_SUJET"].ToString()));
-            }
-            return null;
-            
-        }
-
-        /// <summary>
-        /// Méthode de suppression d'une réponse
-        /// </summary>
-        /// <param name="idReponse"></param>
-        /// <returns>INT Identifiant réponse supprimée ou NULL</returns>
-        public static int? SupprimerReponse (int idReponse)
-        {
-            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
-
-            listeSqlParam.Add(new SqlParameter("IDREPONSE", idReponse));
-
-            DataSet dSet = GetDataSet("DELETEREPONSE", listeSqlParam);
-
-            if (dSet != null)
-            {
-                DataRow dRow = dSet.Tables[0].Rows[0];
-                return (int.Parse(dRow["ID_REPONSE"].ToString()));
+                return (int.Parse(dRow["ID_UTILISATEUR"].ToString()));
             }
             return null;
         }
@@ -465,6 +445,53 @@ namespace Foradev
             {
                 DataRow dRow = dSet.Tables[0].Rows[0];
                 return (int.Parse(dRow["ID_SUJET"].ToString()));
+            }
+            return null;
+        }
+        #endregion
+
+        #region CRUD : DELETE
+
+        /// <summary>
+        /// Méthode de suppression d'un sujet et réponses correspondantes en cascade
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns>INT Identifiant Sujet supprimé ou NULL</returns>
+        public static int? SupprimerSujet (int idSujet)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+
+            DataSet dSet = GetDataSet("DELETESUJET", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                //TODO Possibilité de DELETE EN CASCADE SupprimerReponse(idSujet);
+                return (int.Parse(dRow["ID_SUJET"].ToString()));
+            }
+            return null;
+            
+        }
+
+        /// <summary>
+        /// Méthode de suppression d'une réponse
+        /// </summary>
+        /// <param name="idReponse"></param>
+        /// <returns>INT Identifiant réponse supprimée ou NULL</returns>
+        public static int? SupprimerReponse (int idReponse)
+        {
+            List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
+            listeSqlParam.Add(new SqlParameter("IDREPONSE", idReponse));
+
+            DataSet dSet = GetDataSet("DELETEREPONSE", listeSqlParam);
+
+            if (dSet != null)
+            {
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                return (int.Parse(dRow["ID_REPONSE"].ToString()));
             }
             return null;
         }

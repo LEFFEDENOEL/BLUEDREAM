@@ -45,6 +45,17 @@ namespace Foradev
         //    return sb.ToString();
         //}
 
+        /// <summary>
+        /// Méthode d'appel de la méthode qui permet le changement de mot de passe depuis la classe DAO
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="login"></param>
+        /// <param name="empreinteSha"></param>
+        /// <returns></returns>
+        static public int? ChangePass(int idUtilisateur, string login, string empreinteSha)
+        {
+            return DAOPrincipale.ChangePass(idUtilisateur, login, empreinteSha);
+        }
 
         /// <summary>
         /// Méthode d'appel de la méthode qui permet la création d'un utilisateur depuis la classe DAO
@@ -56,7 +67,7 @@ namespace Foradev
         /// <param name="empreinteSha"></param>
         /// <param name="pseudo"></param>
         /// <param name="dateInscription"></param>
-        /// <returns></returns>
+        /// <returns>Renvoit la méthode de la classe DAO</returns>
 
         static public string AjoutUtilisateur(string nom, string prenom, bool estModerateur, string mail, 
                                               string empreinteSha, string pseudo, DateTime dateInscription)
@@ -69,7 +80,7 @@ namespace Foradev
         /// </summary>
         /// <param name="empreinteSha"></param>
         /// <param name="login"></param>
-        /// <returns></returns>
+        /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             return DAOPrincipale.GetIdentificationUtilisateur(empreinteSha, login);
@@ -78,7 +89,7 @@ namespace Foradev
         /// <summary>
         /// Méthode d'appel de la liste récupérée par la méthode dans la classe DAO
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Rubrique> GetRubriques()
         {
             return DAOPrincipale.GetRubriques();
@@ -88,7 +99,7 @@ namespace Foradev
         /// Méthode d'appel de la liste récupérée par la méthode dans la classe DAO
         /// </summary>
         /// <param name="nomRubrique"></param>
-        /// <returns></returns>
+        /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
             return DAOPrincipale.GetSujetsByRubrique(nomRubrique);
@@ -98,7 +109,7 @@ namespace Foradev
         /// Méthode d'appel de la liste récupérée par la méthode dans la classe DAO
         /// </summary>
         /// <param name="titreSujet"></param>
-        /// <returns></returns>
+        /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             return DAOPrincipale.GetReponsesBySujet(titreSujet);
@@ -112,7 +123,7 @@ namespace Foradev
         /// <param name="titreSujet"></param>
         /// <param name="descriptionSujet"></param>
         /// <param name="dateCreationSujet"></param>
-        /// <returns>Renvoit l'identifiant du sujet en int ou null</returns>
+        /// <returns>Renvoit l'identifiant du sujet en INT ou NULL</returns>
         public static int? AjoutSujet(int idUtilisateur, int idRubrique, string titreSujet,
                                       string descriptionSujet, DateTime dateCreationSujet)
         {
@@ -126,7 +137,7 @@ namespace Foradev
         /// <param name="idSujet"></param>
         /// <param name="texteReponse"></param>
         /// <param name="dateReponse"></param>
-        /// <returns>Renvoit l'identifiant de la réponse en int ou null</returns>
+        /// <returns>Renvoit l'identifiant de la réponse en INT ou NULL</returns>
         public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
             return DAOPrincipale.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);

@@ -43,6 +43,12 @@ namespace Foradev
             set { _Mail = value; }
         }
 
+        protected string _Login;
+        public string Login
+        {
+            get { return _Login; }
+            set { _Login = value; }
+        }
         protected bool _Role;
         public bool Role
         {
@@ -76,15 +82,15 @@ namespace Foradev
 
         //Constructeur complet
 
-        protected Utilisateur(int id, string nom, string prenom, string mail, bool role, string pseudo, DateTime dtinscription)
+        protected Utilisateur(int id, string nom, string prenom, string mail, string login, bool role, string pseudo, DateTime dtinscription)
         {
-            Id = id;  Nom = nom; Prenom = prenom; Mail = mail; Role = role; Pseudo = pseudo; DateInscription = dtinscription;
+            Id = id;  Nom = nom; Prenom = prenom; Mail = mail; Login = login; Role = role; Pseudo = pseudo; DateInscription = dtinscription;
         }
 
         //Constructeur remarquable
         protected Utilisateur(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
         {
-            Id = id;  Nom = nom; Prenom = prenom; Pseudo = pseudo; DateInscription = dtinscription;
+            Id = id; Nom = nom; Prenom = prenom; Pseudo = pseudo; DateInscription = dtinscription;
         }
         #endregion
 
