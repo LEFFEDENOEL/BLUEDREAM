@@ -383,7 +383,7 @@ namespace Foradev
         /// Méthode de suppression d'un sujet et réponses correspondantes en cascade
         /// </summary>
         /// <param name="idSujet"></param>
-        /// <returns>INT Identifiant Sujet ou NULL</returns>
+        /// <returns>INT Identifiant Sujet supprimé ou NULL</returns>
         public static int? SupprimerSujet (int idSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -406,7 +406,7 @@ namespace Foradev
         /// Méthode de suppression d'une réponse
         /// </summary>
         /// <param name="idReponse"></param>
-        /// <returns>INT Identifiant réponse ou NULL</returns>
+        /// <returns>INT Identifiant réponse supprimée ou NULL</returns>
         public static int? SupprimerReponse (int idReponse)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -423,6 +423,12 @@ namespace Foradev
             return null;
         }
 
+        /// <summary>
+        /// Méthode de modification du titre d'un sujet
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="titreSujet"></param>
+        /// <returns>INT Identifiant sujet modifié ou NULL</returns>
         public static int? ModifierTitreSujet(int idSujet, string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -440,7 +446,12 @@ namespace Foradev
             return null;
         }
 
-
+        /// <summary>
+        /// Méthode de modification de la description d'un sujet
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="descSujet"></param>
+        /// <returns>INT Identifiant sujet modifié ou NULL</returns>
         public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();

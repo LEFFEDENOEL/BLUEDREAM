@@ -152,11 +152,23 @@ namespace Foradev
             return DAOPrincipale.SupprimerReponse(idReponse);
         }
 
+        /// <summary>
+        /// Méthode d'appel de la méthode dans la classe DAO qui permet à un modérateur de modifier le titre d'un sujet
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="titreSujet"></param>
+        /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? ModifierTitreSujet(int idSujet, string titreSujet)
         {
             return DAOPrincipale.ModifierTitreSujet(idSujet, titreSujet);
         }
 
+        /// <summary>
+        /// Méthode d'appel de la méthode dans la classe DAO qui permet à un modérateur de modifier la description d'un sujet
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="descSujet"></param>
+        /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
         {
             return DAOPrincipale.ModifierDescriptionSujet(idSujet, descSujet);

@@ -264,6 +264,11 @@ namespace WinFormForadev
             BLL.SupprimerReponse(idReponse);
         }
 
+        /// <summary>
+        /// Méthode qui permet à un modérateur connecté de modifier le titre d'un sujet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifierTitreSujet_Click(object sender, EventArgs e)
         {
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
@@ -271,13 +276,17 @@ namespace WinFormForadev
             BLL.ModifierTitreSujet(idSujet, titreSujet);
         }
 
+        /// <summary>
+        /// Méthode qui permet à un modérateur connecté de modifier la description d'un sujet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifierDescriptionSujet_Click(object sender, EventArgs e)
         {
-            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[5].Value.ToString());
+            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             string descSujet = txtbTexteSujet.Text;
             BLL.ModifierDescriptionSujet(idSujet, descSujet);
         }
-
 
         #endregion
 
