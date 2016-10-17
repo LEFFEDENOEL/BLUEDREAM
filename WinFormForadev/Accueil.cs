@@ -16,11 +16,13 @@ namespace WinFormForadev
     public partial class AccueilForum : Form
     {
         UtilisateurConnecte uConnect;
-        
+        Dictionary<string, Constante> dictionnaireConstantes;
+
         public AccueilForum()
         {
             InitializeComponent();
             VisibiliteComposantsUtilisateurNonConnecte();
+            dictionnaireConstantes = BLL.GetConstantes();
 
             //Appel de la liste dans la classe BLL récupérée par la classe DAO
             List<Rubrique> listeRubriques = BLL.GetRubriques();
@@ -181,7 +183,7 @@ namespace WinFormForadev
 
             // Appel méthode statique d'authentification dans la classe BLL
             uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
-            //if (uConnect == null) Todo constante erreur authentification
+            //if (uConnect == null) TODO CONSTANTES ERREUR MODIFICATION
             if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
             else
             {
@@ -239,13 +241,17 @@ namespace WinFormForadev
                 BLL.ChangePass(idUtilisateur, login, empreinteSha);
 
             } else {
-                    // TODO CONSTANTE ERREUR
+                    // TODO CONSTANTES
                    }
 
             flpChangePass.Visible = false;
             lblInfoNouveauPasse.Visible = false;
 
-            // TODO CONSTANTE CONFIRM CHANGEMENT MOT DE PASSE
+            Constante constante;
+            if (dictionnaireConstantes.TryGetValue("PASS_CHANGE", out constante))
+            {
+                MessageBox.Show(constante.Valeur2, constante.Valeur1, MessageBoxButtons.OK);
+            }          
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)

@@ -86,6 +86,12 @@ namespace Foradev
             return DAOPrincipale.GetIdentificationUtilisateur(empreinteSha, login);
         }
 
+
+        static public Dictionary<string, Constante> GetConstantes()
+        {
+                return DAOPrincipale.GetConstantes();
+        }
+        
         /// <summary>
         /// Méthode d'appel de la liste récupérée par la méthode dans la classe DAO
         /// </summary>
@@ -184,5 +190,6 @@ namespace Foradev
         {
             return DAOPrincipale.ModifierDescriptionSujet(idSujet, descSujet);
         }
+
     }
 }

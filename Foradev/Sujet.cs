@@ -15,7 +15,6 @@ namespace Foradev
         #region Champs et Propriétés
 
         //Association à la classe Rubrique
-
         public Rubrique _Rubrique { get; set; }
 
         //Association à la classe Reponse
