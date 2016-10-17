@@ -140,9 +140,6 @@ namespace WinFormForadev
             flpReponses.Visible = true;
             flpModerateur.Visible = true;
             btnSupprimerReponse.Visible = true;
-            //btnModifierDescriptionSujet.Visible = true;
-            //btnSupprimerSujet.Visible = true;
-            //btnSupprimerSujet.Visible = true;
         }
         #endregion
 
@@ -155,6 +152,7 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void cbxListeRubriques_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Appel méthode de chargement du datagridview "Sujets"
             LoadSujet();
         }
 
@@ -165,6 +163,7 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void dgvSujets_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            // Appel méthode de chargement du datagridview "Réponses"
             LoadReponse();          
         }
 
@@ -176,9 +175,11 @@ namespace WinFormForadev
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             string mdpFromClient = txtbMdp.Text;
+            // Appel méthode statique de haschage dans la classe statique BLL
             string empreinteSha = BLL.HashShaMdp(mdpFromClient);
             string login = txtbLogin.Text;
 
+            // Appel méthode statique d'authentification dans la classe BLL
             uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
             //if (uConnect == null) Todo constante erreur authentification
             if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
@@ -206,10 +207,12 @@ namespace WinFormForadev
             string prenom = txtbPrenom.Text;
             bool estModerateur = false;
             string mail = txtbMail.Text;
+            // Appel méthode statique de haschage dans la classe statique BLL
             string empreinteSha = BLL.HashShaMdp(txtbInscriptionPasse.Text);
             string pseudo = txtbPseudo.Text;
             DateTime dateInscription = System.DateTime.Now;
 
+            // Appel méthode statique dans classe statique BLL
             string login = BLL.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
 
             VisibiliteComposantsLoginInscription();
@@ -225,9 +228,24 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btValidNouveauPasse_Click(object sender, EventArgs e)
         {
-            string empreinteSha = BLL.HashShaMdp(txtbConfirmNouveauPasse.Text);
-            int idUtilisateur = uConnect.Id;
-            string login = uConnect.Login;
+            if (txtbNouveauPasse.Text == txtbConfirmNouveauPasse.Text) { 
+
+                // Appel méthode statique de haschage dans la classe statique BLL
+                string empreinteSha = BLL.HashShaMdp(txtbConfirmNouveauPasse.Text);
+                int idUtilisateur = uConnect.Id;
+                string login = uConnect.Login;
+
+                // Appel méthode statique de changement de mot de passe dans la classe statique BLL
+                BLL.ChangePass(idUtilisateur, login, empreinteSha);
+
+            } else {
+                    // TODO CONSTANTE ERREUR
+                   }
+
+            flpChangePass.Visible = false;
+            lblInfoNouveauPasse.Visible = false;
+
+            // TODO CONSTANTE CONFIRM CHANGEMENT MOT DE PASSE
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
@@ -249,8 +267,10 @@ namespace WinFormForadev
             string descriptionSujet = txtbTexteSujet.Text;
             DateTime dateCreationSujet = System.DateTime.Now;
 
+            // Appel méthode statique dans classe statique BLL
             BLL.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
 
+            // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();         
         }
 
@@ -266,8 +286,10 @@ namespace WinFormForadev
             string texteReponse = txtbTexteReponse.Text;
             DateTime dateReponse = System.DateTime.Now;
 
+            // Appel méthode statique dans classe statique BLL
             BLL.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
 
+            // Rechargement-rafraîchissement du datagridview "Réponses"
             LoadReponse();
         }
 
@@ -280,8 +302,10 @@ namespace WinFormForadev
         {
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
 
+            // Appel méthode statique dans classe statique BLL
             BLL.SupprimerSujet(idSujet);
 
+            // Rafraîchissement des datagridview "Sujets et Réponses"
             LoadSujet();
             LoadReponse();
         }
@@ -295,8 +319,10 @@ namespace WinFormForadev
         {
             int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[0].Value.ToString());
 
+            // Appel méthode statique dans classe statique BLL
             BLL.SupprimerReponse(idReponse);
 
+            // Rechargement-rafraîchissement du datagridview "Réponses"
             LoadReponse();
         }
 
@@ -310,8 +336,10 @@ namespace WinFormForadev
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             string titreSujet = txtbTitreSujet.Text;
 
+            // Appel méthode statique dans classe statique BLL
             BLL.ModifierTitreSujet(idSujet, titreSujet);
 
+            // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();
         }
 
@@ -325,8 +353,10 @@ namespace WinFormForadev
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
             string descSujet = txtbTexteSujet.Text;
 
+            // Appel méthode statique dans classe statique BLL
             BLL.ModifierDescriptionSujet(idSujet, descSujet);
 
+            // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();
         }
 
@@ -343,8 +373,8 @@ namespace WinFormForadev
             LoadReponse();
             lblRefreshDonnees.Text = lblRefreshDonnees.Text + dateHeureRefresh;           
         }
-
         #endregion
+
 
     }
 }

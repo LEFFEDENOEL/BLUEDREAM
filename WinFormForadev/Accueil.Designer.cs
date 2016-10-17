@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -316,15 +316,15 @@
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSujets.Location = new System.Drawing.Point(3, 22);
@@ -420,8 +420,8 @@
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvReponses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 252);
@@ -467,7 +467,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Location = new System.Drawing.Point(3, 18);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(395, 26);
+            this.btnRefresh.Size = new System.Drawing.Size(395, 43);
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Cliquez ici pour rafraîchir les données";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -477,9 +477,9 @@
             // 
             this.btnQuitter.AutoSize = true;
             this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitter.Location = new System.Drawing.Point(3, 50);
+            this.btnQuitter.Location = new System.Drawing.Point(3, 67);
             this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(395, 26);
+            this.btnQuitter.Size = new System.Drawing.Size(395, 43);
             this.btnQuitter.TabIndex = 9;
             this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitter.UseVisualStyleBackColor = true;
@@ -633,7 +633,7 @@
             this.flpIdentification.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpIdentification.Location = new System.Drawing.Point(0, 0);
             this.flpIdentification.Name = "flpIdentification";
-            this.flpIdentification.Size = new System.Drawing.Size(236, 468);
+            this.flpIdentification.Size = new System.Drawing.Size(321, 468);
             this.flpIdentification.TabIndex = 1;
             // 
             // lblLogin
@@ -648,11 +648,10 @@
             // 
             // txtbLogin
             // 
-            this.txtbLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbLogin.Location = new System.Drawing.Point(3, 19);
             this.txtbLogin.Name = "txtbLogin";
-            this.txtbLogin.Size = new System.Drawing.Size(226, 26);
+            this.txtbLogin.Size = new System.Drawing.Size(311, 26);
             this.txtbLogin.TabIndex = 0;
             // 
             // lblMdp
@@ -672,7 +671,7 @@
             this.txtbMdp.Location = new System.Drawing.Point(3, 67);
             this.txtbMdp.Name = "txtbMdp";
             this.txtbMdp.PasswordChar = '*';
-            this.txtbMdp.Size = new System.Drawing.Size(226, 26);
+            this.txtbMdp.Size = new System.Drawing.Size(311, 26);
             this.txtbMdp.TabIndex = 2;
             this.txtbMdp.UseSystemPasswordChar = true;
             // 
@@ -682,7 +681,7 @@
             this.btnConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnexion.Location = new System.Drawing.Point(3, 99);
             this.btnConnexion.Name = "btnConnexion";
-            this.btnConnexion.Size = new System.Drawing.Size(226, 45);
+            this.btnConnexion.Size = new System.Drawing.Size(311, 43);
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "GO !";
             this.btnConnexion.UseVisualStyleBackColor = true;
@@ -692,7 +691,7 @@
             // 
             this.lblInfosLogin.AutoSize = true;
             this.lblInfosLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfosLogin.Location = new System.Drawing.Point(247, 31);
+            this.lblInfosLogin.Location = new System.Drawing.Point(322, 31);
             this.lblInfosLogin.Name = "lblInfosLogin";
             this.lblInfosLogin.Size = new System.Drawing.Size(748, 16);
             this.lblInfosLogin.TabIndex = 3;
@@ -703,7 +702,7 @@
             // 
             this.lblInfoMdp.AutoSize = true;
             this.lblInfoMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoMdp.Location = new System.Drawing.Point(247, 77);
+            this.lblInfoMdp.Location = new System.Drawing.Point(322, 79);
             this.lblInfoMdp.Name = "lblInfoMdp";
             this.lblInfoMdp.Size = new System.Drawing.Size(769, 16);
             this.lblInfoMdp.TabIndex = 4;
@@ -728,9 +727,9 @@
             // 
             this.btnQuitterConnection.AutoSize = true;
             this.btnQuitterConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitterConnection.Location = new System.Drawing.Point(843, 194);
+            this.btnQuitterConnection.Location = new System.Drawing.Point(843, 175);
             this.btnQuitterConnection.Name = "btnQuitterConnection";
-            this.btnQuitterConnection.Size = new System.Drawing.Size(395, 26);
+            this.btnQuitterConnection.Size = new System.Drawing.Size(395, 43);
             this.btnQuitterConnection.TabIndex = 10;
             this.btnQuitterConnection.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitterConnection.UseVisualStyleBackColor = true;
@@ -942,7 +941,7 @@
             this.btnValidInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnValidInscription.Location = new System.Drawing.Point(3, 263);
             this.btnValidInscription.Name = "btnValidInscription";
-            this.btnValidInscription.Size = new System.Drawing.Size(311, 45);
+            this.btnValidInscription.Size = new System.Drawing.Size(311, 43);
             this.btnValidInscription.TabIndex = 10;
             this.btnValidInscription.Text = "Cliquez ici pour valider";
             this.btnValidInscription.UseVisualStyleBackColor = true;
@@ -992,6 +991,7 @@
             this.txtbNouveauPasse.Name = "txtbNouveauPasse";
             this.txtbNouveauPasse.Size = new System.Drawing.Size(311, 26);
             this.txtbNouveauPasse.TabIndex = 13;
+            this.txtbNouveauPasse.UseSystemPasswordChar = true;
             // 
             // lblConfirmPass
             // 
@@ -1010,13 +1010,14 @@
             this.txtbConfirmNouveauPasse.Name = "txtbConfirmNouveauPasse";
             this.txtbConfirmNouveauPasse.Size = new System.Drawing.Size(311, 26);
             this.txtbConfirmNouveauPasse.TabIndex = 15;
+            this.txtbConfirmNouveauPasse.UseSystemPasswordChar = true;
             // 
             // btValidNouveauPasse
             // 
             this.btValidNouveauPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btValidNouveauPasse.Location = new System.Drawing.Point(3, 107);
             this.btValidNouveauPasse.Name = "btValidNouveauPasse";
-            this.btValidNouveauPasse.Size = new System.Drawing.Size(311, 45);
+            this.btValidNouveauPasse.Size = new System.Drawing.Size(311, 43);
             this.btValidNouveauPasse.TabIndex = 16;
             this.btValidNouveauPasse.Text = "Cliquez ici pour valider ";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
@@ -1051,9 +1052,9 @@
             // 
             this.btnQuitterInscription.AutoSize = true;
             this.btnQuitterInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitterInscription.Location = new System.Drawing.Point(843, 69);
+            this.btnQuitterInscription.Location = new System.Drawing.Point(843, 50);
             this.btnQuitterInscription.Name = "btnQuitterInscription";
-            this.btnQuitterInscription.Size = new System.Drawing.Size(395, 26);
+            this.btnQuitterInscription.Size = new System.Drawing.Size(395, 43);
             this.btnQuitterInscription.TabIndex = 19;
             this.btnQuitterInscription.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitterInscription.UseVisualStyleBackColor = true;
@@ -1074,9 +1075,9 @@
             // 
             this.btnChangePass.AutoSize = true;
             this.btnChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePass.Location = new System.Drawing.Point(9, 50);
+            this.btnChangePass.Location = new System.Drawing.Point(0, 50);
             this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(328, 45);
+            this.btnChangePass.Size = new System.Drawing.Size(325, 43);
             this.btnChangePass.TabIndex = 11;
             this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
             this.btnChangePass.UseVisualStyleBackColor = true;
