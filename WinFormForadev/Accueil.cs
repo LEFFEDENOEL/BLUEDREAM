@@ -21,7 +21,11 @@ namespace WinFormForadev
         public AccueilForum()
         {
             InitializeComponent();
+
+            // Chargement du profil d'accès aux composants graphiques, par défaut utilisateur non connecté
             VisibiliteComposantsUtilisateurNonConnecte();
+
+            // Chargement depuis la BDD, d'un dictionnaire des valeurs de constantes erreur
             dictionnaireConstantes = BLL.GetConstantes();
 
             //Appel de la liste dans la classe BLL récupérée par la classe DAO
@@ -183,7 +187,16 @@ namespace WinFormForadev
 
             // Appel méthode statique d'authentification dans la classe BLL
             uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
-            //if (uConnect == null) TODO CONSTANTES ERREUR MODIFICATION
+
+            // Si rôle est null, utilisateur inconnu dans la base de données --> appel dictionnaire, msg erreur
+            if (uConnect == null)
+            {
+                Constante constante;
+                dictionnaireConstantes.TryGetValue("BDD_AUTHENTIFICATION", out constante);           
+                MessageBox.Show(constante.Valeur2, constante.Valeur1, MessageBoxButtons.OK);
+            }
+
+            // Suivant le rôle remonté de la BDD, accés aux composants graphiques différencié
             if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
             else
             {

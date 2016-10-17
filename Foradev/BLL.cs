@@ -86,7 +86,10 @@ namespace Foradev
             return DAOPrincipale.GetIdentificationUtilisateur(empreinteSha, login);
         }
 
-
+        /// <summary>
+        /// Méthode d'appel de construction du dictionnaire de constantes erreur depuis la base de données
+        /// </summary>
+        /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public Dictionary<string, Constante> GetConstantes()
         {
                 return DAOPrincipale.GetConstantes();
@@ -190,6 +193,5 @@ namespace Foradev
         {
             return DAOPrincipale.ModifierDescriptionSujet(idSujet, descSujet);
         }
-
     }
 }

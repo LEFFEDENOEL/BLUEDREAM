@@ -267,6 +267,47 @@ namespace Foradev
                 return listeReponses;
             }
         }
+
+        /// <summary>
+        /// Méthode de construction d'un dictionnaire de constantes depuis la base de données
+        /// </summary>
+        /// <returns>Renvoit un dictionnaire avec une clé string, et 2 valeurs</returns>
+        public static Dictionary<string, Constante> GetConstantes()
+        {
+            using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
+            {
+                Dictionary<string, Constante> dictionnaireConstantes = new Dictionary<string, Constante>();
+
+                foreach (DataRow dRow in dSet.Tables[0].Rows)
+                {
+                    Constante cte = new Constante(dRow["REFERENCE"].ToString(),
+                                                  dRow["VALEUR1"].ToString(),
+                                                  dRow["VALEUR2"].ToString());
+
+                    dictionnaireConstantes.Add(cte.Reference, cte);
+
+                }
+                return dictionnaireConstantes;
+            }
+        }
+
+        // Autre possibilité GETCONSTANTES avec liste typée
+
+        //public static List<Constante> GetConstantes()
+        //{
+        //    using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
+        //    {
+        //        List<Constante> listeConstantes = new List<Constante>();
+
+        //        foreach (DataRow dRow in dSet.Tables[0].Rows)
+        //        {
+        //            listeConstantes.Add(new Constante(Int32.Parse(dRow["ID_REFERENCE"].ToString()), 
+        //                                              dRow["REFERENCE"].ToString(), 
+        //                                              dRow["VALEUR"].ToString()));
+        //        }
+        //        return listeConstantes;
+        //    }
+        //}
         #endregion
 
         #region CRUD : CREATE
@@ -498,41 +539,6 @@ namespace Foradev
         #endregion
 
 
-        // Autre possibilité GETCONSTANTES avec liste typée
 
-        //public static List<Constante> GetConstantes()
-        //{
-        //    using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
-        //    {
-        //        List<Constante> listeConstantes = new List<Constante>();
-
-        //        foreach (DataRow dRow in dSet.Tables[0].Rows)
-        //        {
-        //            listeConstantes.Add(new Constante(Int32.Parse(dRow["ID_REFERENCE"].ToString()), 
-        //                                              dRow["REFERENCE"].ToString(), 
-        //                                              dRow["VALEUR"].ToString()));
-        //        }
-        //        return listeConstantes;
-        //    }
-        //}
-
-        public static Dictionary<string, Constante> GetConstantes()
-        {
-            using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
-            {
-                Dictionary<string, Constante> dictionnaireConstantes = new Dictionary<string, Constante>();
-
-                foreach (DataRow dRow in dSet.Tables[0].Rows)
-                {
-                    Constante cte = new Constante(dRow["REFERENCE"].ToString(),
-                                                  dRow["VALEUR1"].ToString(),
-                                                  dRow["VALEUR2"].ToString());
-
-                    dictionnaireConstantes.Add(cte.Reference, cte);
-                    
-                }
-                return dictionnaireConstantes;                
-            }
-        }
     }
 }
