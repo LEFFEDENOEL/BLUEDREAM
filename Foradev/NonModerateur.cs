@@ -16,9 +16,14 @@ namespace Foradev
 
         #region Constructeurs
 
+        // Constructeur par défaut null
+        public NonModerateur() { }
+
+        // Constructeur complet
         public NonModerateur(int id, string nom, string prenom, string mail, string login, bool role, string pseudo, DateTime dtinscription)
                              : base(id, nom, prenom, mail, login, role, pseudo, dtinscription) { }
 
+        // Constructeur remarquable
         public NonModerateur(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
                              : base(id, nom, prenom, pseudo, dtinscription) { }
         #endregion

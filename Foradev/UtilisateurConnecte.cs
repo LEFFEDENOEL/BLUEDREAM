@@ -15,11 +15,16 @@ namespace Foradev
         #endregion
 
         #region Constructeurs
-        //Constructeur par défaut : base
+
+        // Constructeur de base null
+        public UtilisateurConnecte() { }
+
+        // Constructeur complet
 
         public UtilisateurConnecte(int id, string nom, string prenom, string mail, string login, bool role, string pseudo, DateTime dtinscription)
                                    : base(id, nom, prenom, mail, login, role, pseudo, dtinscription) { }
 
+        // Constructeur remarquable
         public UtilisateurConnecte(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
                                    : base(id,nom, prenom, pseudo, dtinscription) { }
 

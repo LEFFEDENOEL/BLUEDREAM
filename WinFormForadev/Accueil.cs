@@ -121,6 +121,7 @@ namespace WinFormForadev
             btnSupprimerSujet.Visible = false;
             btnModifierTitreSujet.Visible = false;
             btnSupprimerReponse.Visible = false;
+            VisibiliteComposantsLoginInscription();
         }
 
         /// <summary>
@@ -146,6 +147,7 @@ namespace WinFormForadev
             flpReponses.Visible = true;
             flpModerateur.Visible = true;
             btnSupprimerReponse.Visible = true;
+            VisibiliteComposantsLoginInscription();
         }
         #endregion
 
@@ -187,28 +189,40 @@ namespace WinFormForadev
 
             // Appel méthode statique d'authentification dans la classe BLL
             uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
-
-            // Si rôle est null, utilisateur inconnu dans la base de données --> appel dictionnaire, msg erreur
+         
+            // Si rôle est null : connexion à la base a échoué --> appel dictionnaire constantes, msg erreur
             if (uConnect == null)
             {
-                Constante constante;
-                dictionnaireConstantes.TryGetValue("BDD_AUTHENTIFICATION", out constante);           
-                MessageBox.Show(constante.Valeur2, constante.Valeur1, MessageBoxButtons.OK);
+                Constante constanteEchecConnexion;
+                dictionnaireConstantes.TryGetValue("BDD_CONNEXION", out constanteEchecConnexion);
+                MessageBox.Show(constanteEchecConnexion.Valeur2, constanteEchecConnexion.Valeur1, 
+                                MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtbLogin.Clear();
+                txtbMdp.Clear();
             }
-
-            // Suivant le rôle remonté de la BDD, accés aux composants graphiques différencié
-            if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
+            // Si id_utilisateur = 0 : utilisateur inconnu dans la base de données --> appel dictionnaire constantes, msg erreur
+            else if (uConnect.Id == 0)
+            {
+                Constante constanteErreurAuthenticication;
+                dictionnaireConstantes.TryGetValue("BDD_AUTHENTIFICATION", out constanteErreurAuthenticication);
+                MessageBox.Show(constanteErreurAuthenticication.Valeur2, constanteErreurAuthenticication.Valeur1, 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtbLogin.Clear();
+                txtbMdp.Clear();
+            }
             else
             {
-                VisibiliteComposantsUtilisateurNonModerateurConnecte();
+                // Suivant le rôle remonté de la BDD, accés aux composants graphiques différencié
+                if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
+                else VisibiliteComposantsUtilisateurNonModerateurConnecte();
+                
+                Constante constanteValidLogin;
+                dictionnaireConstantes.TryGetValue("PASS_VALIDE", out constanteValidLogin);
+                MessageBox.Show(constanteValidLogin.Valeur2, constanteValidLogin.Valeur1 + login, 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            VisibiliteComposantsLoginInscription();
-          
-            lblConnecte.Visible = true;
-            lblConnecte2.Visible = true;
-            lblConnecte3.Visible = true;
-            lblConnecte.Text = lblConnecte.Text + login;
+            //TODO SWITCH CASE TRUE
         }
 
         /// <summary>
@@ -230,10 +244,22 @@ namespace WinFormForadev
             // Appel méthode statique dans classe statique BLL
             string login = BLL.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
 
+            if (login == null)
+            {
+                // Méthode remonte null donc erreur --> dictionnaire constantes, msg validation
+                Constante constanteErreur;
+                dictionnaireConstantes.TryGetValue("INSCRIPTION_ERROR", out constanteErreur);
+                MessageBox.Show(constanteErreur.Valeur2 + login, constanteErreur.Valeur1, 
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             VisibiliteComposantsLoginInscription();
 
-            lblInscriptionOk.Visible = true;
-            lblInscriptionOk.Text = lblInscriptionOk.Text + login;
+            // Confirmation inscription --> 
+            Constante constanteValidInscription;
+            dictionnaireConstantes.TryGetValue("INSCRIPTION_VALIDE", out constanteValidInscription);
+            MessageBox.Show(constanteValidInscription.Valeur2 + login, constanteValidInscription.Valeur1, 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -253,18 +279,25 @@ namespace WinFormForadev
                 // Appel méthode statique de changement de mot de passe dans la classe statique BLL
                 BLL.ChangePass(idUtilisateur, login, empreinteSha);
 
-            } else {
-                    // TODO CONSTANTES
-                   }
+                flpChangePass.Visible = false;
+                lblInfoNouveauPasse.Visible = false;
 
-            flpChangePass.Visible = false;
-            lblInfoNouveauPasse.Visible = false;
-
-            Constante constante;
-            if (dictionnaireConstantes.TryGetValue("PASS_CHANGE", out constante))
+                // Les mots de passe correspondent --> dictionnaire constantes, msg validation
+                Constante constanteValidNvoPass;
+                dictionnaireConstantes.TryGetValue("PASS_CHANGE", out constanteValidNvoPass);
+                MessageBox.Show(constanteValidNvoPass.Valeur2, constanteValidNvoPass.Valeur1, 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);           
+            }
+            // Les mots de passe ne correspondent pas --> dictionnaire constantes, msg erreur
+            else
             {
-                MessageBox.Show(constante.Valeur2, constante.Valeur1, MessageBoxButtons.OK);
-            }          
+                Constante constanteErreurPassMatch;
+                dictionnaireConstantes.TryGetValue("PASS_MATCH", out constanteErreurPassMatch);
+                MessageBox.Show(constanteErreurPassMatch.Valeur2, constanteErreurPassMatch.Valeur1, 
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbNouveauPasse.Clear();
+                txtbConfirmNouveauPasse.Clear();
+            }         
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
@@ -386,14 +419,16 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            lblRefreshDonnees.Text = "Dernier rafraîchissement : "; //TODO CONSTANTE
+            Constante constante;
+            dictionnaireConstantes.TryGetValue("REFRESH_VALIDE", out constante);
+            lblRefreshDonnees.Text = constante.Valeur1;
             DateTime dateHeureRefresh = DateTime.Now;
+            lblRefreshDonnees.Text = lblRefreshDonnees.Text + dateHeureRefresh;
             LoadSujet();
             LoadReponse();
-            lblRefreshDonnees.Text = lblRefreshDonnees.Text + dateHeureRefresh;           
+                     
         }
+ 
         #endregion
-
-
     }
 }

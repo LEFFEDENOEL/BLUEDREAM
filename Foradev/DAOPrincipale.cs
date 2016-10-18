@@ -26,8 +26,9 @@ namespace Foradev
         /// <returns></returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
-            //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
-            //{
+            // Alternative :
+            //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex)) {}
+            
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     try
@@ -51,12 +52,10 @@ namespace Foradev
                         }
                     }
                     catch (Exception)
-                    {
-                        //TODO
-                         throw;
-                        //return MessageBox.Show(ERRORCONNEXBASE, "Connexion base de données");
-                    }                   
-                //}
+                    {                 
+                    return null;
+                    // Remonte null en cascade dans toutes les sous méthodes qui appellent celle-ci                       
+                    }                                  
             }
         }
 
@@ -95,12 +94,15 @@ namespace Foradev
         public static UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
             listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
             listeSqlParam.Add(new SqlParameter("LOGIN", login));
 
             using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEUR", listeSqlParam))
             {
-                if (dSet.Tables[0].Rows.Count == 0) return null;
+                if (dSet == null) return null;
+
+                if (dSet.Tables[0].Rows.Count == 0) return new NonModerateur();
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
                 bool role = ((bool)dRow["EST_MODERATEUR"] == true);
@@ -125,7 +127,6 @@ namespace Foradev
             }
         }
 
-
         /// <summary>
         /// Renvoit la liste intégrale des rubriques
         /// </summary>
@@ -134,6 +135,8 @@ namespace Foradev
         {
             using (DataSet dSet = GetDataSet("GETRUBRIQUE", new List<SqlParameter>()))
             {
+                if (dSet == null) return null;
+
                 List<Rubrique> listeRubriques = new List<Rubrique>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
@@ -152,9 +155,13 @@ namespace Foradev
         public static Rubrique BuildRubriqueByNomRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
             listeSqlParam.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
+
             using (DataSet dSet = GetDataSet("BUILDRUBRIQUEBYNOMRUBRIQUE", listeSqlParam))
             {
+                if (dSet == null) return null;
+
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
@@ -171,9 +178,13 @@ namespace Foradev
         public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
             listeSqlParam.Add(new SqlParameter("NOMUTILISATEUR", nomUtilisateur));
+
             using (DataSet dSet = GetDataSet("BUILDUTILISATEURBYNOMUTILISATEUR", listeSqlParam))
             {
+                if (dSet == null) return null;
+
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
@@ -194,9 +205,13 @@ namespace Foradev
         public static Sujet BuildSujetByIdSujet(int idSujet)
         {            
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
             listeSqlParam.Add(new SqlParameter("IDSUJET", idSujet));
+
             using (DataSet dSet = GetDataSet("BUILDSUJETBYIDSUJET", listeSqlParam))
             {
+                if (dSet == null) return null;
+
                 if (dSet.Tables[0].Rows.Count == 0) return null;
 
                 DataRow dRow = dSet.Tables[0].Rows[0];
@@ -220,9 +235,13 @@ namespace Foradev
         public static List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+
             listeSqlParam.Add(new SqlParameter("NOMRUBRIQUE", nomRubrique));
+
             using (DataSet dSet = GetDataSet("GETSUJETSBYRUBRIQUE", listeSqlParam))
             {
+                if (dSet == null) return null;
+
                 List<Sujet> listeSujets = new List<Sujet>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
@@ -250,8 +269,11 @@ namespace Foradev
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
             listeSqlParam.Add(new SqlParameter("TITRESUJET", titreSujet));
+
             using (DataSet dSet = GetDataSet("GETREPONSESBYSUJET", listeSqlParam))
             {
+                if (dSet == null) return null;
+
                 List<Reponse> listeReponses = new List<Reponse>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
@@ -276,6 +298,8 @@ namespace Foradev
         {
             using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
             {
+                if (dSet == null) return null;
+
                 Dictionary<string, Constante> dictionnaireConstantes = new Dictionary<string, Constante>();
 
                 foreach (DataRow dRow in dSet.Tables[0].Rows)
@@ -323,23 +347,26 @@ namespace Foradev
         /// <param name="pseudo"></param>
         /// <param name="dateCreationCompte"></param>
         /// <returns></returns>
-        public static string AjoutUtilisateur (string nom, string prenom, bool estModerateur, 
-                                               string mail, string empreinteSha, string pseudo, 
+        public static string AjoutUtilisateur(string nom, string prenom, bool estModerateur,
+                                               string mail, string empreinteSha, string pseudo,
                                                DateTime dateCreationCompte)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
-            listeSqlParam.Add(new SqlParameter("NOM", nom));
-            listeSqlParam.Add(new SqlParameter("PRENOM", prenom));
-            listeSqlParam.Add(new SqlParameter("ESTMODERATEUR", estModerateur));
-            listeSqlParam.Add(new SqlParameter("MAIL", mail));
-            listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
-            listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
-            listeSqlParam.Add(new SqlParameter("DATECREATIONCOMPTE", dateCreationCompte));
+            using (DataSet dSet = GetDataSet("CREATEUTILISATEUR", listeSqlParam))
+            {
+                if (dSet == null) return null;
 
-            GetDataSet("CREATEUTILISATEUR", listeSqlParam);
-
-            return GetLogin(pseudo);        
+                listeSqlParam.Add(new SqlParameter("NOM", nom));
+                listeSqlParam.Add(new SqlParameter("PRENOM", prenom));
+                listeSqlParam.Add(new SqlParameter("ESTMODERATEUR", estModerateur));
+                listeSqlParam.Add(new SqlParameter("MAIL", mail));
+                listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
+                listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
+                listeSqlParam.Add(new SqlParameter("DATECREATIONCOMPTE", dateCreationCompte));
+                            
+                return GetLogin(pseudo);
+            }
         }
 
         /// <summary>
@@ -352,12 +379,16 @@ namespace Foradev
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
             listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
-            DataSet dSet = GetDataSet("GETLOGIN", listeSqlParam);
 
-            DataRow dRow = dSet.Tables[0].Rows[0];
-            string login = dRow["LOGIN_UTILISATEUR"].ToString();
+            using (DataSet dSet = GetDataSet("GETLOGIN", listeSqlParam))
+            {
+                if (dSet == null) return null;
 
-            return login;        
+                DataRow dRow = dSet.Tables[0].Rows[0];
+                string login = dRow["LOGIN_UTILISATEUR"].ToString();
+
+                return login;
+            }         
         }
 
         /// <summary>
@@ -407,7 +438,6 @@ namespace Foradev
             listeSqlParam.Add(new SqlParameter("DATEREPONSE", dateReponse));
 
             DataSet dSet = GetDataSet("CREATEREPONSE", listeSqlParam);
-
             if (dSet != null)
             {
                 DataRow dRow = dSet.Tables[0].Rows[0];
@@ -537,8 +567,5 @@ namespace Foradev
             return null;
         }
         #endregion
-
-
-
     }
 }

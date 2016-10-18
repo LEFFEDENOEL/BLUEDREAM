@@ -84,6 +84,7 @@ namespace Foradev
         static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             return DAOPrincipale.GetIdentificationUtilisateur(empreinteSha, login);
+
         }
 
         /// <summary>
