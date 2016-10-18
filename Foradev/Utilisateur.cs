@@ -112,9 +112,7 @@ namespace Foradev
         #region Methodes héritées et substituées
 
         public override string ToString()
-        {
-            //return "Nom : " + Nom + "Prénom : " + Prenom + "Adresse mail : " + Mail + "Role : " + Role
-            //      + "Pseudo : " + Pseudo + "Date d'inscription : " + DateInscription;
+        {            
             return Pseudo;
         }
         #endregion

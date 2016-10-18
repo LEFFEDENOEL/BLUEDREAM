@@ -149,6 +149,19 @@ namespace WinFormForadev
             btnSupprimerReponse.Visible = true;
             VisibiliteComposantsLoginInscription();
         }
+
+        public void MessageQuitter()
+        {
+            Constante constanteQuitter;
+            dictionnaireConstantes.TryGetValue("QUITTER_CONFIRM", out constanteQuitter);
+
+            if (MessageBox.Show(constanteQuitter.Valeur2, constanteQuitter.Valeur1,
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question,
+                                MessageBoxDefaultButton.Button3) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
         #endregion
 
         #region Evènements
@@ -165,14 +178,13 @@ namespace WinFormForadev
         }
 
         /// <summary>
-        /// Méthode qui charge le datagridview dgvReponses sur double click row dans datagridview dgvSujets
+        /// Méthode de chargement du datagridview "Réponses" en fonction de la ligne courante du datagrid "Sujets"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgvSujets_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvSujets_SelectionChanged(object sender, EventArgs e)
         {
-            // Appel méthode de chargement du datagridview "Réponses"
-            LoadReponse();          
+            LoadReponse();
         }
 
         /// <summary>
@@ -323,7 +335,10 @@ namespace WinFormForadev
             BLL.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
 
             // Rechargement-rafraîchissement du datagridview "Sujets"
-            LoadSujet();         
+            LoadSujet();
+
+            txtbTexteSujet.Clear();
+            txtbTitreSujet.Clear();      
         }
 
         /// <summary>
@@ -343,6 +358,8 @@ namespace WinFormForadev
 
             // Rechargement-rafraîchissement du datagridview "Réponses"
             LoadReponse();
+
+            txtbTexteReponse.Clear();
         }
 
         /// <summary>
@@ -393,6 +410,8 @@ namespace WinFormForadev
 
             // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();
+          
+            txtbTitreSujet.Clear();
         }
 
         /// <summary>
@@ -410,6 +429,8 @@ namespace WinFormForadev
 
             // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();
+
+            txtbTexteSujet.Clear();           
         }
 
         /// <summary>
@@ -428,7 +449,23 @@ namespace WinFormForadev
             LoadReponse();
                      
         }
- 
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            MessageQuitter();
+        }
+
+        private void btnQuitterInscription_Click(object sender, EventArgs e)
+        {
+            MessageQuitter();
+        }
+
+        private void btnQuitterConnection_Click(object sender, EventArgs e)
+        {
+            MessageQuitter();
+        }
         #endregion
+
+
     }
 }

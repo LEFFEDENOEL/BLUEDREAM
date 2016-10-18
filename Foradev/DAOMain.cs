@@ -12,11 +12,16 @@ namespace Foradev
     /// <summary>
     /// Classe d'accés aux données CRUD
     /// </summary>
-    public static class DAOPrincipale
+    public static class DAOMain
     {
         #region CRUD : RETRIEVE / CONNEXION BDD SQL
+      
+        //static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
 
-        static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
+        public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
+        {
+            return DAOTools.GetDataSet(nomProcedureStockee, listeSqlParam);
+        }
 
         /// <summary>
         /// Renvoit un dataset selon une procédure stockée en paramètre d'entrée
@@ -24,40 +29,40 @@ namespace Foradev
         /// <param name="nomProcedureStockee"></param>
         /// <param name="listeSqlParam"></param>
         /// <returns></returns>
-        public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
-        {
-            // Alternative :
-            //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex)) {}
+        //public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
+        //{
+        //    // Alternative :
+        //    //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex)) {}
             
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    try
-                    {
-                        sqlConnex.Open();
-                        cmd.Connection = sqlConnex;
-                        cmd.CommandText = nomProcedureStockee;
-                        cmd.CommandType = CommandType.StoredProcedure;
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            try
+        //            {
+        //                sqlConnex.Open();
+        //                cmd.Connection = sqlConnex;
+        //                cmd.CommandText = nomProcedureStockee;
+        //                cmd.CommandType = CommandType.StoredProcedure;
 
-                        foreach (SqlParameter sqlParam in listeSqlParam)
-                        {
-                            cmd.Parameters.Add(sqlParam);
-                        }
+        //                foreach (SqlParameter sqlParam in listeSqlParam)
+        //                {
+        //                    cmd.Parameters.Add(sqlParam);
+        //                }
 
-                        using (SqlDataAdapter dAdapter = new SqlDataAdapter(cmd))
-                        {
-                            DataSet dSet = new DataSet();
-                            dAdapter.Fill(dSet);
-                            sqlConnex.Close();
-                            return dSet;
-                        }
-                    }
-                    catch (Exception)
-                    {                 
-                    return null;
-                    // Remonte null en cascade dans toutes les sous méthodes qui appellent celle-ci                       
-                    }                                  
-            }
-        }
+        //                using (SqlDataAdapter dAdapter = new SqlDataAdapter(cmd))
+        //                {
+        //                    DataSet dSet = new DataSet();
+        //                    dAdapter.Fill(dSet);
+        //                    sqlConnex.Close();
+        //                    return dSet;
+        //                }
+        //            }
+        //            catch (Exception)
+        //            {                 
+        //            return null;
+        //            // Remonte null en cascade dans toutes les sous méthodes qui appellent celle-ci                       
+        //            }                                  
+        //    }
+        //}
 
         //static private T? RecupereScalaire<T>(string nomProcedureStockee, List<SqlParameter> lSP, string nomParametreEnSortie) where T : struct
         //{

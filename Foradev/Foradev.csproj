@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="BLL.cs" />
     <Compile Include="Constante.cs" />
-    <Compile Include="DAOPrincipale.cs" />
+    <Compile Include="DAOMain.cs" />
+    <Compile Include="DAOTools.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Moderateur.cs" />
     <Compile Include="NonModerateur.cs" />

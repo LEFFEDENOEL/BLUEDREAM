@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
@@ -78,9 +80,6 @@
             this.lblInfoMdp = new System.Windows.Forms.Label();
             this.pnlConnectionInf = new System.Windows.Forms.Panel();
             this.btnQuitterConnection = new System.Windows.Forms.Button();
-            this.lblConnecte = new System.Windows.Forms.Label();
-            this.lblConnecte2 = new System.Windows.Forms.Label();
-            this.lblConnecte3 = new System.Windows.Forms.Label();
             this.tpInscription = new System.Windows.Forms.TabPage();
             this.tlpInscription = new System.Windows.Forms.TableLayoutPanel();
             this.pnlInscriptionSup = new System.Windows.Forms.Panel();
@@ -107,7 +106,6 @@
             this.lblInfoNouveauPasse = new System.Windows.Forms.Label();
             this.pnlInscriptionInf = new System.Windows.Forms.Panel();
             this.btnQuitterInscription = new System.Windows.Forms.Button();
-            this.lblInscriptionOk = new System.Windows.Forms.Label();
             this.btnChangePass = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -316,21 +314,29 @@
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSujets.Location = new System.Drawing.Point(3, 22);
             this.dgvSujets.MultiSelect = false;
             this.dgvSujets.Name = "dgvSujets";
             this.dgvSujets.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSujets.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvSujets.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSujets.RowTemplate.ReadOnly = true;
@@ -339,7 +345,7 @@
             this.dgvSujets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSujets.Size = new System.Drawing.Size(835, 252);
             this.dgvSujets.TabIndex = 0;
-            this.dgvSujets.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSujets_RowHeaderMouseDoubleClick);
+            this.dgvSujets.SelectionChanged += new System.EventHandler(this.dgvSujets_SelectionChanged);
             // 
             // pnlRubriquesMessagesMiddle
             // 
@@ -414,6 +420,14 @@
             // dgvReponses
             // 
             this.dgvReponses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponses.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvReponses.Location = new System.Drawing.Point(3, 22);
@@ -483,6 +497,7 @@
             this.btnQuitter.TabIndex = 9;
             this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -714,9 +729,6 @@
             this.pnlConnectionInf.AutoScroll = true;
             this.pnlConnectionInf.AutoSize = true;
             this.pnlConnectionInf.Controls.Add(this.btnQuitterConnection);
-            this.pnlConnectionInf.Controls.Add(this.lblConnecte);
-            this.pnlConnectionInf.Controls.Add(this.lblConnecte2);
-            this.pnlConnectionInf.Controls.Add(this.lblConnecte3);
             this.pnlConnectionInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlConnectionInf.Location = new System.Drawing.Point(3, 477);
             this.pnlConnectionInf.Name = "pnlConnectionInf";
@@ -733,40 +745,7 @@
             this.btnQuitterConnection.TabIndex = 10;
             this.btnQuitterConnection.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitterConnection.UseVisualStyleBackColor = true;
-            // 
-            // lblConnecte
-            // 
-            this.lblConnecte.AutoSize = true;
-            this.lblConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecte.Location = new System.Drawing.Point(21, 24);
-            this.lblConnecte.Name = "lblConnecte";
-            this.lblConnecte.Size = new System.Drawing.Size(81, 20);
-            this.lblConnecte.TabIndex = 5;
-            this.lblConnecte.Text = "Bonjour, ";
-            this.lblConnecte.Visible = false;
-            // 
-            // lblConnecte2
-            // 
-            this.lblConnecte2.AutoSize = true;
-            this.lblConnecte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecte2.Location = new System.Drawing.Point(346, 24);
-            this.lblConnecte2.Name = "lblConnecte2";
-            this.lblConnecte2.Size = new System.Drawing.Size(224, 20);
-            this.lblConnecte2.TabIndex = 6;
-            this.lblConnecte2.Text = ", vous êtes bien connecté !";
-            this.lblConnecte2.Visible = false;
-            // 
-            // lblConnecte3
-            // 
-            this.lblConnecte3.AutoSize = true;
-            this.lblConnecte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecte3.Location = new System.Drawing.Point(21, 68);
-            this.lblConnecte3.Name = "lblConnecte3";
-            this.lblConnecte3.Size = new System.Drawing.Size(735, 20);
-            this.lblConnecte3.TabIndex = 7;
-            this.lblConnecte3.Text = "Vous pouvez commencer à naviguer, rendez-vous dans l\'onglet \"Rubriques et message" +
-    "s\"...";
-            this.lblConnecte3.Visible = false;
+            this.btnQuitterConnection.Click += new System.EventHandler(this.btnQuitterConnection_Click);
             // 
             // tpInscription
             // 
@@ -1040,7 +1019,6 @@
             this.pnlInscriptionInf.AutoScroll = true;
             this.pnlInscriptionInf.AutoSize = true;
             this.pnlInscriptionInf.Controls.Add(this.btnQuitterInscription);
-            this.pnlInscriptionInf.Controls.Add(this.lblInscriptionOk);
             this.pnlInscriptionInf.Controls.Add(this.btnChangePass);
             this.pnlInscriptionInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlInscriptionInf.Location = new System.Drawing.Point(3, 600);
@@ -1058,18 +1036,7 @@
             this.btnQuitterInscription.TabIndex = 19;
             this.btnQuitterInscription.Text = "Cliquez ici pour QUITTER l\'application";
             this.btnQuitterInscription.UseVisualStyleBackColor = true;
-            // 
-            // lblInscriptionOk
-            // 
-            this.lblInscriptionOk.AutoSize = true;
-            this.lblInscriptionOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInscriptionOk.Location = new System.Drawing.Point(5, 13);
-            this.lblInscriptionOk.Name = "lblInscriptionOk";
-            this.lblInscriptionOk.Size = new System.Drawing.Size(689, 20);
-            this.lblInscriptionOk.TabIndex = 18;
-            this.lblInscriptionOk.Text = "Votre inscription a bien été prise en compte, nous vous remercions ! Votre login " +
-    "est : ";
-            this.lblInscriptionOk.Visible = false;
+            this.btnQuitterInscription.Click += new System.EventHandler(this.btnQuitterInscription_Click);
             // 
             // btnChangePass
             // 
@@ -1194,7 +1161,6 @@
         private System.Windows.Forms.TextBox txtbConfirmNouveauPasse;
         private System.Windows.Forms.Button btValidNouveauPasse;
         private System.Windows.Forms.FlowLayoutPanel flpChangePass;
-        private System.Windows.Forms.Label lblInscriptionOk;
         private System.Windows.Forms.GroupBox gbxRubriquesMessagesSup;
         private System.Windows.Forms.FlowLayoutPanel flpSujets;
         private System.Windows.Forms.Label lblTitreSujetRubriquesMessages;
@@ -1216,7 +1182,6 @@
         private System.Windows.Forms.Button btnSupprimerReponse;
         private System.Windows.Forms.Button btnQuitter;
         private System.Windows.Forms.DataGridView dgvReponses;
-        private System.Windows.Forms.Label lblConnecte;
         private System.Windows.Forms.TableLayoutPanel tlpRubriquesMessages;
         private System.Windows.Forms.Panel pnlRubriquesMessageSup;
         private System.Windows.Forms.Panel pnlRubriquesMessagesMiddle;
@@ -1226,8 +1191,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpModerateur;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label lblConnecte3;
-        private System.Windows.Forms.Label lblConnecte2;
         private System.Windows.Forms.TableLayoutPanel tlpConnection;
         private System.Windows.Forms.Panel pnlConnectionSup;
         private System.Windows.Forms.Panel pnlConnectionInf;

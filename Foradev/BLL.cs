@@ -54,7 +54,7 @@ namespace Foradev
         /// <returns></returns>
         static public int? ChangePass(int idUtilisateur, string login, string empreinteSha)
         {
-            return DAOPrincipale.ChangePass(idUtilisateur, login, empreinteSha);
+            return DAOMain.ChangePass(idUtilisateur, login, empreinteSha);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Foradev
         static public string AjoutUtilisateur(string nom, string prenom, bool estModerateur, string mail, 
                                               string empreinteSha, string pseudo, DateTime dateInscription)
         {
-            return DAOPrincipale.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
+            return DAOMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
-            return DAOPrincipale.GetIdentificationUtilisateur(empreinteSha, login);
+            return DAOMain.GetIdentificationUtilisateur(empreinteSha, login);
 
         }
 
@@ -93,7 +93,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public Dictionary<string, Constante> GetConstantes()
         {
-                return DAOPrincipale.GetConstantes();
+                return DAOMain.GetConstantes();
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Rubrique> GetRubriques()
         {
-            return DAOPrincipale.GetRubriques();
+            return DAOMain.GetRubriques();
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
-            return DAOPrincipale.GetSujetsByRubrique(nomRubrique);
+            return DAOMain.GetSujetsByRubrique(nomRubrique);
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Reponse> GetReponsesBySujet(string titreSujet)
         {
-            return DAOPrincipale.GetReponsesBySujet(titreSujet);
+            return DAOMain.GetReponsesBySujet(titreSujet);
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace Foradev
         public static int? AjoutSujet(int idUtilisateur, int idRubrique, string titreSujet,
                                       string descriptionSujet, DateTime dateCreationSujet)
         {
-            return DAOPrincipale.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
+            return DAOMain.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Foradev
         /// <returns>Renvoit l'identifiant de la réponse en INT ou NULL</returns>
         public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
-            return DAOPrincipale.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
+            return DAOMain.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace Foradev
         /// <returns>La méthode présente dans la classe DAO</returns>
         public static int? SupprimerSujet (int idSujet)
         {
-            return DAOPrincipale.SupprimerSujet(idSujet);
+            return DAOMain.SupprimerSujet(idSujet);
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? SupprimerReponse(int idReponse)
         {
-            return DAOPrincipale.SupprimerReponse(idReponse);
+            return DAOMain.SupprimerReponse(idReponse);
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? ModifierTitreSujet(int idSujet, string titreSujet)
         {
-            return DAOPrincipale.ModifierTitreSujet(idSujet, titreSujet);
+            return DAOMain.ModifierTitreSujet(idSujet, titreSujet);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
         {
-            return DAOPrincipale.ModifierDescriptionSujet(idSujet, descSujet);
+            return DAOMain.ModifierDescriptionSujet(idSujet, descSujet);
         }
     }
 }
