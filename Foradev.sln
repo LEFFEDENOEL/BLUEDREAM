@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foradev", "Foradev\Foradev.csproj", "{9D3B5967-DA56-4381-A1A3-9A4D97CAD44B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLForadev", "Foradev\BLLForadev.csproj", "{9D3B5967-DA56-4381-A1A3-9A4D97CAD44B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormForadev", "WinFormForadev\WinFormForadev.csproj", "{839FB37B-0D99-42D8-A1B0-0071CE16606F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALForadev", "DALForadev\DALForadev.csproj", "{A990FE70-99F8-41C5-A479-2A13E6F8F6AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "METIERForadev", "METIERForadev\METIERForadev.csproj", "{D1943AE0-025F-45B9-8D07-29265D40571B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{839FB37B-0D99-42D8-A1B0-0071CE16606F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839FB37B-0D99-42D8-A1B0-0071CE16606F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839FB37B-0D99-42D8-A1B0-0071CE16606F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A990FE70-99F8-41C5-A479-2A13E6F8F6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A990FE70-99F8-41C5-A479-2A13E6F8F6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A990FE70-99F8-41C5-A479-2A13E6F8F6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A990FE70-99F8-41C5-A479-2A13E6F8F6AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1943AE0-025F-45B9-8D07-29265D40571B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1943AE0-025F-45B9-8D07-29265D40571B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1943AE0-025F-45B9-8D07-29265D40571B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1943AE0-025F-45B9-8D07-29265D40571B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

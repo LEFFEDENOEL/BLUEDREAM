@@ -4,13 +4,16 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using METIERForadev;
+using DALForadev;
 
-namespace Foradev
+
+namespace BLLForadev
 {
     /// <summary>
     /// Classe de type SERVICE ou CONTROLEUR pour appel des méthodes de la classe DAO
     /// </summary>
-    public static class BLL
+    public static class BLLMain
     {
         /// <summary>
         /// Fonction qui permet le haschage en SHA1 des mots de passe
@@ -54,7 +57,7 @@ namespace Foradev
         /// <returns></returns>
         static public int? ChangePass(int idUtilisateur, string login, string empreinteSha)
         {
-            return DAOMain.ChangePass(idUtilisateur, login, empreinteSha);
+            return DALMain.ChangePass(idUtilisateur, login, empreinteSha);
         }
 
         /// <summary>
@@ -72,7 +75,7 @@ namespace Foradev
         static public string AjoutUtilisateur(string nom, string prenom, bool estModerateur, string mail, 
                                               string empreinteSha, string pseudo, DateTime dateInscription)
         {
-            return DAOMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
+            return DALMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
         }
 
         /// <summary>
@@ -83,7 +86,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
-            return DAOMain.GetIdentificationUtilisateur(empreinteSha, login);
+            return DALMain.GetIdentificationUtilisateur(empreinteSha, login);
 
         }
 
@@ -93,7 +96,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public Dictionary<string, Constante> GetConstantes()
         {
-                return DAOMain.GetConstantes();
+                return DALMain.GetConstantes();
         }
         
         /// <summary>
@@ -102,7 +105,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Rubrique> GetRubriques()
         {
-            return DAOMain.GetRubriques();
+            return DALMain.GetRubriques();
         }
 
         /// <summary>
@@ -112,7 +115,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
-            return DAOMain.GetSujetsByRubrique(nomRubrique);
+            return DALMain.GetSujetsByRubrique(nomRubrique);
         }
 
         /// <summary>
@@ -122,7 +125,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode de la classe DAO</returns>
         static public List<Reponse> GetReponsesBySujet(string titreSujet)
         {
-            return DAOMain.GetReponsesBySujet(titreSujet);
+            return DALMain.GetReponsesBySujet(titreSujet);
         }
 
         /// <summary>
@@ -137,7 +140,7 @@ namespace Foradev
         public static int? AjoutSujet(int idUtilisateur, int idRubrique, string titreSujet,
                                       string descriptionSujet, DateTime dateCreationSujet)
         {
-            return DAOMain.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
+            return DALMain.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
         }
 
         /// <summary>
@@ -150,7 +153,7 @@ namespace Foradev
         /// <returns>Renvoit l'identifiant de la réponse en INT ou NULL</returns>
         public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
-            return DAOMain.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
+            return DALMain.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
         }
 
         /// <summary>
@@ -160,7 +163,7 @@ namespace Foradev
         /// <returns>La méthode présente dans la classe DAO</returns>
         public static int? SupprimerSujet (int idSujet)
         {
-            return DAOMain.SupprimerSujet(idSujet);
+            return DALMain.SupprimerSujet(idSujet);
         }
 
         /// <summary>
@@ -170,7 +173,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? SupprimerReponse(int idReponse)
         {
-            return DAOMain.SupprimerReponse(idReponse);
+            return DALMain.SupprimerReponse(idReponse);
         }
 
         /// <summary>
@@ -181,7 +184,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? ModifierTitreSujet(int idSujet, string titreSujet)
         {
-            return DAOMain.ModifierTitreSujet(idSujet, titreSujet);
+            return DALMain.ModifierTitreSujet(idSujet, titreSujet);
         }
 
         /// <summary>
@@ -192,7 +195,7 @@ namespace Foradev
         /// <returns>Renvoit la méthode présente dans la classe DAO</returns>
         public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
         {
-            return DAOMain.ModifierDescriptionSujet(idSujet, descSujet);
+            return DALMain.ModifierDescriptionSujet(idSujet, descSujet);
         }
     }
 }

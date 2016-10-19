@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Foradev
+namespace METIERForadev
 {
     /// <summary>
     /// Classe non dérivable qui hérite de la classe Message
@@ -46,6 +46,7 @@ namespace Foradev
         //Constructeur complet
         public Sujet (Utilisateur utilisateur, DateTime dateMessage, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
                      : base(utilisateur, dateMessage, texteMessage) {
+
             TitreSujet = titreSujet;
             _Rubrique = rubrique;
             IdSujet = idSujet;

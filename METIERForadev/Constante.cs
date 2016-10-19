@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Foradev
+namespace METIERForadev
 {
     /// <summary>
     /// Classe de traitement des constantes d'erreurs chargées depuis la base de données

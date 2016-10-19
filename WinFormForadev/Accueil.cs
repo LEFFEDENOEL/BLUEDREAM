@@ -1,5 +1,4 @@
-﻿using Foradev;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +9,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using METIERForadev;
+using BLLForadev;
 
 namespace WinFormForadev
 {
@@ -26,10 +27,10 @@ namespace WinFormForadev
             VisibiliteComposantsUtilisateurNonConnecte();
 
             // Chargement depuis la BDD, d'un dictionnaire des valeurs de constantes erreur
-            dictionnaireConstantes = BLL.GetConstantes();
+            dictionnaireConstantes = BLLMain.GetConstantes();
 
             //Appel de la liste dans la classe BLL récupérée par la classe DAO
-            List<Rubrique> listeRubriques = BLL.GetRubriques();
+            List<Rubrique> listeRubriques = BLLMain.GetRubriques();
            
             //Alimentation du bindingsource avec la liste créé par la méthode GetRubriques()
             BindingSource bsRubriques = new BindingSource();
@@ -50,7 +51,7 @@ namespace WinFormForadev
         private void LoadSujet()
         {
             //Appel de la liste dans la classe BLL récupérée par la classe DAO               
-            List<Sujet> listeSujets = BLL.GetSujetsByRubrique(cbxListeRubriques.SelectedItem.ToString());
+            List<Sujet> listeSujets = BLLMain.GetSujetsByRubrique(cbxListeRubriques.SelectedItem.ToString());
 
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsSujets = new BindingSource();
@@ -78,7 +79,7 @@ namespace WinFormForadev
             //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagridview dvgSujets
             string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
             //Appel de la liste dans la classe BLL récupérée par la classe DAO 
-            List<Reponse> listeReponses = BLL.GetReponsesBySujet(titreSujet);
+            List<Reponse> listeReponses = BLLMain.GetReponsesBySujet(titreSujet);
 
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsReponses = new BindingSource();
@@ -196,11 +197,11 @@ namespace WinFormForadev
         {
             string mdpFromClient = txtbMdp.Text;
             // Appel méthode statique de haschage dans la classe statique BLL
-            string empreinteSha = BLL.HashShaMdp(mdpFromClient);
+            string empreinteSha = BLLMain.HashShaMdp(mdpFromClient);
             string login = txtbLogin.Text;
 
             // Appel méthode statique d'authentification dans la classe BLL
-            uConnect = BLL.GetIdentificationUtilisateur(empreinteSha, login);
+            uConnect = BLLMain.GetIdentificationUtilisateur(empreinteSha, login);
          
             // Si rôle est null : connexion à la base a échoué --> appel dictionnaire constantes, msg erreur
             if (uConnect == null)
@@ -249,12 +250,12 @@ namespace WinFormForadev
             bool estModerateur = false;
             string mail = txtbMail.Text;
             // Appel méthode statique de haschage dans la classe statique BLL
-            string empreinteSha = BLL.HashShaMdp(txtbInscriptionPasse.Text);
+            string empreinteSha = BLLMain.HashShaMdp(txtbInscriptionPasse.Text);
             string pseudo = txtbPseudo.Text;
             DateTime dateInscription = System.DateTime.Now;
 
             // Appel méthode statique dans classe statique BLL
-            string login = BLL.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
+            string login = BLLMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
 
             if (login == null)
             {
@@ -284,12 +285,12 @@ namespace WinFormForadev
             if (txtbNouveauPasse.Text == txtbConfirmNouveauPasse.Text) { 
 
                 // Appel méthode statique de haschage dans la classe statique BLL
-                string empreinteSha = BLL.HashShaMdp(txtbConfirmNouveauPasse.Text);
+                string empreinteSha = BLLMain.HashShaMdp(txtbConfirmNouveauPasse.Text);
                 int idUtilisateur = uConnect.Id;
                 string login = uConnect.Login;
 
                 // Appel méthode statique de changement de mot de passe dans la classe statique BLL
-                BLL.ChangePass(idUtilisateur, login, empreinteSha);
+                BLLMain.ChangePass(idUtilisateur, login, empreinteSha);
 
                 flpChangePass.Visible = false;
                 lblInfoNouveauPasse.Visible = false;
@@ -332,7 +333,7 @@ namespace WinFormForadev
             DateTime dateCreationSujet = System.DateTime.Now;
 
             // Appel méthode statique dans classe statique BLL
-            BLL.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
+            BLLMain.AjoutSujet(idUtilisateur, idRubrique, titreSujet, descriptionSujet, dateCreationSujet);
 
             // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();
@@ -354,7 +355,7 @@ namespace WinFormForadev
             DateTime dateReponse = System.DateTime.Now;
 
             // Appel méthode statique dans classe statique BLL
-            BLL.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
+            BLLMain.AjoutReponse(idSujet, idUtilisateur, texteReponse, dateReponse);
 
             // Rechargement-rafraîchissement du datagridview "Réponses"
             LoadReponse();
@@ -372,7 +373,7 @@ namespace WinFormForadev
             int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
 
             // Appel méthode statique dans classe statique BLL
-            BLL.SupprimerSujet(idSujet);
+            BLLMain.SupprimerSujet(idSujet);
 
             // Rafraîchissement des datagridview "Sujets et Réponses"
             LoadSujet();
@@ -389,7 +390,7 @@ namespace WinFormForadev
             int idReponse = Int32.Parse(dgvReponses.CurrentRow.Cells[0].Value.ToString());
 
             // Appel méthode statique dans classe statique BLL
-            BLL.SupprimerReponse(idReponse);
+            BLLMain.SupprimerReponse(idReponse);
 
             // Rechargement-rafraîchissement du datagridview "Réponses"
             LoadReponse();
@@ -406,7 +407,7 @@ namespace WinFormForadev
             string titreSujet = txtbTitreSujet.Text;
 
             // Appel méthode statique dans classe statique BLL
-            BLL.ModifierTitreSujet(idSujet, titreSujet);
+            BLLMain.ModifierTitreSujet(idSujet, titreSujet);
 
             // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();
@@ -425,7 +426,7 @@ namespace WinFormForadev
             string descSujet = txtbTexteSujet.Text;
 
             // Appel méthode statique dans classe statique BLL
-            BLL.ModifierDescriptionSujet(idSujet, descSujet);
+            BLLMain.ModifierDescriptionSujet(idSujet, descSujet);
 
             // Rechargement-rafraîchissement du datagridview "Sujets"
             LoadSujet();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Foradev
+namespace METIERForadev
 {
     /// <summary>
     /// Classe Moderateur non dérivable, hérite de UtilisateurConnecte

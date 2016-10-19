@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Foradev
+
+namespace METIERForadev
 {
     /// <summary>
-    /// Classe Reponse non dérivable, hérite de Message
+    /// Classe Rubrique en association avec la classe Sujet
     /// </summary>
-    public sealed class Reponse : Message
+    public class Rubrique
     {
         #region Champs et Propriétés
 
@@ -21,38 +22,39 @@ namespace Foradev
             set { _Id = value; }
         }
 
-        private Sujet _Sujet;
+        private string _Nom;
 
-        public Sujet Sujet
+        public string Nom
         {
-            get { return _Sujet; }
-            set { _Sujet = value; }
+            get { return _Nom; }
+            set { _Nom = value; }
         }
-        //public string PseudoUtilisateur
-        //{
-        //    get { return Utilisateur.Pseudo; }
-        //}
         #endregion
 
         #region Constructeurs
 
         //Constructeur complet
-        public Reponse (Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
-                       : base(utilisateur, dateCreation, texteMessage)
+        public Rubrique(int idRubrique, string nom)
         {
-            Id = idReponse;
-            Sujet = sujet;
+            Id = idRubrique;
+            Nom = nom;
         }
         #endregion
 
         #region Methodes
+
+        //static public List<Rubrique> GetRubriques()
+        //{
+        //   return DAOPrincipale.GetRubriques();
+        //}
+
         #endregion
 
         #region Methodes héritées et substituées
 
         public override string ToString()
         {
-            return TexteMessage;
+            return Nom;
         }
         #endregion
 

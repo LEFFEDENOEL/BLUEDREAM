@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Foradev
+namespace DALForadev
 {
-    public static class DAOTools
+    public static class DALTools
     {
         static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
 

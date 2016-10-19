@@ -1,18 +1,19 @@
-﻿using Foradev;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using BLLForadev;
+using METIERForadev;
 
-namespace Foradev
+namespace DALForadev
 {
     /// <summary>
     /// Classe d'accés aux données CRUD
     /// </summary>
-    public static class DAOMain
+    public static class DALMain
     {
         #region CRUD : RETRIEVE / CONNEXION BDD SQL
       
@@ -20,7 +21,7 @@ namespace Foradev
 
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
-            return DAOTools.GetDataSet(nomProcedureStockee, listeSqlParam);
+            return DALTools.GetDataSet(nomProcedureStockee, listeSqlParam);
         }
 
         /// <summary>
