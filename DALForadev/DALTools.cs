@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace DALForadev
 {
+    /// <summary>
+    /// Classe statique qui initie la connexion et contient la méthode GetDataSet générique de récupération d'un dataSet.
+    /// Cette methode est appelée par les sous méthodes de la classe statique DALMain
+    /// </summary>
     public static class DALTools
     {
         static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
@@ -48,7 +52,7 @@ namespace DALForadev
                 catch (Exception)
                 {
                     return null;
-                    // Remonte null en cascade dans toutes les sous méthodes qui appellent celle-ci                       
+                    // Remonte null en cascade dans toutes les sous méthodes de DALMain qui appellent celle-ci                       
                 }
             }
         }

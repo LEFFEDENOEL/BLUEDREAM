@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -307,7 +306,7 @@
             this.btnAjoutSujet.Name = "btnAjoutSujet";
             this.btnAjoutSujet.Size = new System.Drawing.Size(395, 26);
             this.btnAjoutSujet.TabIndex = 1;
-            this.btnAjoutSujet.Text = "Cliquez ici pour AJOUTER votre sujet";
+            this.btnAjoutSujet.Text = "AJOUTER votre sujet";
             this.btnAjoutSujet.UseVisualStyleBackColor = true;
             this.btnAjoutSujet.Click += new System.EventHandler(this.btnAjoutSujet_Click);
             // 
@@ -413,29 +412,21 @@
             this.btnPosterReponse.Name = "btnPosterReponse";
             this.btnPosterReponse.Size = new System.Drawing.Size(395, 26);
             this.btnPosterReponse.TabIndex = 11;
-            this.btnPosterReponse.Text = "Cliquez ici pour ENVOYER votre réponse ";
+            this.btnPosterReponse.Text = "ENVOYER votre réponse ";
             this.btnPosterReponse.UseVisualStyleBackColor = true;
             this.btnPosterReponse.Click += new System.EventHandler(this.btnPosterReponse_Click);
             // 
             // dgvReponses
             // 
             this.dgvReponses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponses.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvReponses.Location = new System.Drawing.Point(3, 22);
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReponses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 252);
@@ -483,7 +474,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(395, 43);
             this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.Text = "Cliquez ici pour rafraîchir les données";
+            this.btnRefresh.Text = "RAFRAICHIR les données";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -495,7 +486,7 @@
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(395, 43);
             this.btnQuitter.TabIndex = 9;
-            this.btnQuitter.Text = "Cliquez ici pour QUITTER l\'application";
+            this.btnQuitter.Text = "QUITTER l\'application";
             this.btnQuitter.UseVisualStyleBackColor = true;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
@@ -551,7 +542,7 @@
             this.btnModifierTitreSujet.Name = "btnModifierTitreSujet";
             this.btnModifierTitreSujet.Size = new System.Drawing.Size(395, 26);
             this.btnModifierTitreSujet.TabIndex = 11;
-            this.btnModifierTitreSujet.Text = "Cliquez ici pour MODIFIER le titre du sujet selectionné";
+            this.btnModifierTitreSujet.Text = "MODIFIER le titre du sujet selectionné";
             this.btnModifierTitreSujet.UseVisualStyleBackColor = true;
             this.btnModifierTitreSujet.Click += new System.EventHandler(this.btnModifierTitreSujet_Click);
             // 
@@ -563,7 +554,7 @@
             this.btnModifierDescriptionSujet.Name = "btnModifierDescriptionSujet";
             this.btnModifierDescriptionSujet.Size = new System.Drawing.Size(395, 26);
             this.btnModifierDescriptionSujet.TabIndex = 10;
-            this.btnModifierDescriptionSujet.Text = "Cliquez ici pour MODIFIER la description du sujet selectionné";
+            this.btnModifierDescriptionSujet.Text = "MODIFIER la description du sujet selectionné";
             this.btnModifierDescriptionSujet.UseVisualStyleBackColor = true;
             this.btnModifierDescriptionSujet.Click += new System.EventHandler(this.btnModifierDescriptionSujet_Click);
             // 
@@ -575,7 +566,7 @@
             this.btnSupprimerSujet.Name = "btnSupprimerSujet";
             this.btnSupprimerSujet.Size = new System.Drawing.Size(395, 26);
             this.btnSupprimerSujet.TabIndex = 9;
-            this.btnSupprimerSujet.Text = "Cliquez ici pour SUPPRIMER le sujet sélectionné";
+            this.btnSupprimerSujet.Text = "SUPPRIMER le sujet sélectionné";
             this.btnSupprimerSujet.UseVisualStyleBackColor = true;
             this.btnSupprimerSujet.Click += new System.EventHandler(this.btnSupprimerSujet_Click);
             // 
@@ -587,7 +578,7 @@
             this.btnSupprimerReponse.Name = "btnSupprimerReponse";
             this.btnSupprimerReponse.Size = new System.Drawing.Size(395, 26);
             this.btnSupprimerReponse.TabIndex = 10;
-            this.btnSupprimerReponse.Text = "Cliquez ici pour SUPPRIMER la réponse sélectionnée";
+            this.btnSupprimerReponse.Text = "SUPPRIMER la réponse sélectionnée";
             this.btnSupprimerReponse.UseVisualStyleBackColor = true;
             this.btnSupprimerReponse.Click += new System.EventHandler(this.btnSupprimerReponse_Click);
             // 
@@ -743,7 +734,7 @@
             this.btnQuitterConnection.Name = "btnQuitterConnection";
             this.btnQuitterConnection.Size = new System.Drawing.Size(395, 43);
             this.btnQuitterConnection.TabIndex = 10;
-            this.btnQuitterConnection.Text = "Cliquez ici pour QUITTER l\'application";
+            this.btnQuitterConnection.Text = "QUITTER l\'application";
             this.btnQuitterConnection.UseVisualStyleBackColor = true;
             this.btnQuitterConnection.Click += new System.EventHandler(this.btnQuitterConnection_Click);
             // 
@@ -758,7 +749,7 @@
             this.tpInscription.Padding = new System.Windows.Forms.Padding(3);
             this.tpInscription.Size = new System.Drawing.Size(1264, 718);
             this.tpInscription.TabIndex = 7;
-            this.tpInscription.Text = "Inscription";
+            this.tpInscription.Text = "Compte et Inscription";
             // 
             // tlpInscription
             // 
@@ -922,7 +913,7 @@
             this.btnValidInscription.Name = "btnValidInscription";
             this.btnValidInscription.Size = new System.Drawing.Size(311, 43);
             this.btnValidInscription.TabIndex = 10;
-            this.btnValidInscription.Text = "Cliquez ici pour valider";
+            this.btnValidInscription.Text = "VALIDER Inscription";
             this.btnValidInscription.UseVisualStyleBackColor = true;
             this.btnValidInscription.Click += new System.EventHandler(this.btnValidInscription_Click);
             // 
@@ -998,7 +989,7 @@
             this.btValidNouveauPasse.Name = "btValidNouveauPasse";
             this.btValidNouveauPasse.Size = new System.Drawing.Size(311, 43);
             this.btValidNouveauPasse.TabIndex = 16;
-            this.btValidNouveauPasse.Text = "Cliquez ici pour valider ";
+            this.btValidNouveauPasse.Text = "VALIDER Mot de passe";
             this.btValidNouveauPasse.UseVisualStyleBackColor = true;
             this.btValidNouveauPasse.Click += new System.EventHandler(this.btValidNouveauPasse_Click);
             // 
@@ -1034,7 +1025,7 @@
             this.btnQuitterInscription.Name = "btnQuitterInscription";
             this.btnQuitterInscription.Size = new System.Drawing.Size(395, 43);
             this.btnQuitterInscription.TabIndex = 19;
-            this.btnQuitterInscription.Text = "Cliquez ici pour QUITTER l\'application";
+            this.btnQuitterInscription.Text = "QUITTER l\'application";
             this.btnQuitterInscription.UseVisualStyleBackColor = true;
             this.btnQuitterInscription.Click += new System.EventHandler(this.btnQuitterInscription_Click);
             // 
@@ -1046,7 +1037,7 @@
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(325, 43);
             this.btnChangePass.TabIndex = 11;
-            this.btnChangePass.Text = "Cliquez ici pour changer de mot de passe";
+            this.btnChangePass.Text = "CHANGER de mot de passe";
             this.btnChangePass.UseVisualStyleBackColor = true;
             this.btnChangePass.Visible = false;
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);

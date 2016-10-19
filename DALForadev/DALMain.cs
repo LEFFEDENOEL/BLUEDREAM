@@ -5,98 +5,36 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using BLLForadev;
 using METIERForadev;
 
 namespace DALForadev
 {
     /// <summary>
-    /// Classe d'accés aux données CRUD
+    /// Classe statique qui contient toutes les méthodes de constitution d'objet SQL 
+    /// qui appellent la méthode générique GetDataSet dans la classe statique DALTools
     /// </summary>
     public static class DALMain
     {
-        #region CRUD : RETRIEVE / CONNEXION BDD SQL
-      
-        //static SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex);
-
+        #region CRUD : RETRIEVE
+        
+        /// <summary>
+        /// Appel méthode générique GetDataSet dans la classe statique DALTools
+        /// </summary>
+        /// <param name="nomProcedureStockee"></param>
+        /// <param name="listeSqlParam"></param>
+        /// <returns>Renvoit GetDataSet vide ou peuplé ou NULL de la classe DALTools</returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
             return DALTools.GetDataSet(nomProcedureStockee, listeSqlParam);
         }
 
-        /// <summary>
-        /// Renvoit un dataset selon une procédure stockée en paramètre d'entrée
-        /// </summary>
-        /// <param name="nomProcedureStockee"></param>
-        /// <param name="listeSqlParam"></param>
-        /// <returns></returns>
-        //public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
-        //{
-        //    // Alternative :
-        //    //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex)) {}
-            
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            try
-        //            {
-        //                sqlConnex.Open();
-        //                cmd.Connection = sqlConnex;
-        //                cmd.CommandText = nomProcedureStockee;
-        //                cmd.CommandType = CommandType.StoredProcedure;
-
-        //                foreach (SqlParameter sqlParam in listeSqlParam)
-        //                {
-        //                    cmd.Parameters.Add(sqlParam);
-        //                }
-
-        //                using (SqlDataAdapter dAdapter = new SqlDataAdapter(cmd))
-        //                {
-        //                    DataSet dSet = new DataSet();
-        //                    dAdapter.Fill(dSet);
-        //                    sqlConnex.Close();
-        //                    return dSet;
-        //                }
-        //            }
-        //            catch (Exception)
-        //            {                 
-        //            return null;
-        //            // Remonte null en cascade dans toutes les sous méthodes qui appellent celle-ci                       
-        //            }                                  
-        //    }
-        //}
-
-        //static private T? RecupereScalaire<T>(string nomProcedureStockee, List<SqlParameter> lSP, string nomParametreEnSortie) where T : struct
-        //{
-        //    using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex))
-        //    {
-
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = sC;
-        //            cmd.CommandText = nomProcedureStockee;
-        //            cmd.CommandType = CommandType.StoredProcedure;
-        //            foreach (SqlParameter sP in lSP)
-        //            {
-        //                cmd.Parameters.Add(sP);
-        //            }
-
-        //            T? resultat;
-        //            sC.Open();
-        //            cmd.ExecuteNonQuery();
-        //            object o = cmd.Parameters[nomParametreEnSortie].Value;
-        //            resultat = (T?)o;
-        //            sC.Close();
-        //            return resultat;
-        //        }
-        //    }
-        //}
 
         /// <summary>
         /// Renvoit le rôle de l'utilisateur après son authentification ou null si echec de l'authentification
         /// <param name="empreinteSha"></param>
         /// <param name="login"></param>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Renvoit objet utilisateur ou objet utilisateur null ou NULL</returns>
         public static UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -136,7 +74,7 @@ namespace DALForadev
         /// <summary>
         /// Renvoit la liste intégrale des rubriques
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Liste Rubriques ou NULL</returns>
         public static List<Rubrique> GetRubriques()
         {
             using (DataSet dSet = GetDataSet("GETRUBRIQUE", new List<SqlParameter>()))
@@ -157,7 +95,7 @@ namespace DALForadev
         /// Renvoit le type complet "Rubrique"
         /// </summary>
         /// <param name="nomRubrique"></param>
-        /// <returns></returns>
+        /// <returns>Type objet Rubrique ou NULL</returns>
         public static Rubrique BuildRubriqueByNomRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -180,7 +118,7 @@ namespace DALForadev
         /// Renvoit le type complet "Utilisateur"
         /// </summary>
         /// <param name="nomUtilisateur"></param>
-        /// <returns></returns>
+        /// <returns>Type objet utilisateur ou NULL</returns>
         public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -207,7 +145,7 @@ namespace DALForadev
         /// Renvoit le type complet "Sujet"
         /// </summary>
         /// <param name="idSujet"></param>
-        /// <returns></returns>
+        /// <returns>Type objet sujet ou NULL</returns>
         public static Sujet BuildSujetByIdSujet(int idSujet)
         {            
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -237,7 +175,7 @@ namespace DALForadev
         /// Appel des sous méthodes de renvoi de types BuildRubriqueByNomRubrique et BuildUtilisateurByNomUtilisateur
         /// </summary>
         /// <param name="nomRubrique"></param>
-        /// <returns></returns>
+        /// <returns>Liste ou NULL</returns>
         public static List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -269,7 +207,7 @@ namespace DALForadev
         /// Appel des sous methodes de renvoi de types BuildUtilisateurByNom et BuildSujetByIdSujet
         /// </summary>
         /// <param name="titreSujet"></param>
-        /// <returns>Liste des réponses</returns>
+        /// <returns>Liste ou NULL</returns>
         public static List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -299,7 +237,7 @@ namespace DALForadev
         /// <summary>
         /// Méthode de construction d'un dictionnaire de constantes depuis la base de données
         /// </summary>
-        /// <returns>Renvoit un dictionnaire avec une clé string, et 2 valeurs</returns>
+        /// <returns>Renvoit un dictionnaire avec une clé STRING, et 2 valeurs STRING</returns>
         public static Dictionary<string, Constante> GetConstantes()
         {
             using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
@@ -352,10 +290,10 @@ namespace DALForadev
         /// <param name="empreinteSha"></param>
         /// <param name="pseudo"></param>
         /// <param name="dateCreationCompte"></param>
-        /// <returns></returns>
+        /// <returns>Login sur appel méthode GetLogin en fonction du pseudo, ou NULL</returns>
         public static string AjoutUtilisateur(string nom, string prenom, bool estModerateur,
-                                               string mail, string empreinteSha, string pseudo,
-                                               DateTime dateCreationCompte)
+                                              string mail, string empreinteSha, string pseudo,
+                                              DateTime dateCreationCompte)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
@@ -379,7 +317,7 @@ namespace DALForadev
         /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur
         /// </summary>
         /// <param name="pseudo"></param>
-        /// <returns>STRING Login</returns>
+        /// <returns>STRING Login ou NULL</returns>
         public static string GetLogin(string pseudo)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -461,7 +399,7 @@ namespace DALForadev
         /// <param name="idUtilisateur"></param>
         /// <param name="login"></param>
         /// <param name="empreinteSha"></param>
-        /// <returns>Renvoit l'id utilisateur si ok ou NULL</returns>
+        /// <returns>INT id utilisateur si ok ou NULL</returns>
         static public int? ChangePass(int idUtilisateur, string login, string empreinteSha)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -530,7 +468,7 @@ namespace DALForadev
         #region CRUD : DELETE
 
         /// <summary>
-        /// Méthode de suppression d'un sujet et réponses correspondantes en cascade
+        /// Méthode de suppression d'un sujet et réponses correspondantes en cascade. "on delete cascade" dans SQL.
         /// </summary>
         /// <param name="idSujet"></param>
         /// <returns>INT Identifiant Sujet supprimé ou NULL</returns>
