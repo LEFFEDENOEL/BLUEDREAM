@@ -79,11 +79,12 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode qui permet l'authentification d'un utilisateur et la récupération de son rôle depuis la classe DAO
+        /// Méthode d'appel de la méthode qui permet l'authentification d'un utilisateur et la récupération de son rôle depuis la classe DAO.
+        /// Renvoie la méthode de la classe DALMain
         /// </summary>
         /// <param name="empreinteSha"></param>
         /// <param name="login"></param>
-        /// <returns>Renvoit la méthode de la classe DALMain</returns>
+        /// <returns></returns>
         static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             return DALMain.GetIdentificationUtilisateur(empreinteSha, login);

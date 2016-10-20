@@ -42,7 +42,7 @@ namespace DALForadev
             listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
             listeSqlParam.Add(new SqlParameter("LOGIN", login));
 
-            using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEUR", listeSqlParam))
+            using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEU", listeSqlParam))
             {
                 if (dSet == null) return null;
 

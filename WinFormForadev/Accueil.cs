@@ -203,11 +203,11 @@ namespace WinFormForadev
             // Appel méthode statique d'authentification dans la classe BLL
             uConnect = BLLMain.GetIdentificationUtilisateur(empreinteSha, login);
          
-            // Si rôle est null : connexion à la base a échoué --> appel dictionnaire constantes, msg erreur
+            // Si objet uConnect est null : exception Sql--> appel dictionnaire constantes, msg erreur
             if (uConnect == null)
             {
                 Constante constanteEchecConnexion;
-                dictionnaireConstantes.TryGetValue("BDD_CONNEXION", out constanteEchecConnexion);
+                dictionnaireConstantes.TryGetValue("BDD_CONNEXION", out constanteEchecConnexion);//BDDSQLEXCEPTIONPBRECEPTIONDONNEES
                 MessageBox.Show(constanteEchecConnexion.Valeur2, constanteEchecConnexion.Valeur1, 
                                 MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtbLogin.Clear();
