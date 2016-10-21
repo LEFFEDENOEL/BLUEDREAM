@@ -29,9 +29,7 @@ namespace DALForadev
             //using (SqlConnection sqlConnex = new SqlConnection(Properties.Settings.Default.connex)) {}
 
             using (SqlCommand cmd = new SqlCommand())
-            {
-                //try
-                //{
+            {              
                     sqlConnex.Open();
                     cmd.Connection = sqlConnex;
                     cmd.CommandText = nomProcedureStockee;
@@ -48,68 +46,39 @@ namespace DALForadev
                         try
                         {
                             dAdapter.Fill(dSet);
-                        sqlConnex.Close();
-                        return dSet;
-
-                    }
-                    catch (SqlException sqlex)
-                    {
-                        StringBuilder errorMessages = new StringBuilder();
-
-                        for (int i = 0; i < sqlex.Errors.Count; i++)
-                        {
-                            errorMessages.Append("Index #" + i + "\n" +
-                                                 "Message : " + sqlex.Errors[i].Message + "\n" +
-                                                 "Méthode : " + sqlex.TargetSite + "\n" +
-                                                 "Numéro erreur : " + sqlex.Number + "\n" +
-                                                 "Nom ordinateur : " + sqlex.Server + "\n" +
-                                                 "Etat : " + sqlex.State + "\n" +
-                                                 "Stacktrace : " + sqlex.StackTrace + "\n" +
-                                                 "Class : " + sqlex.Class + "\n" +
-                                                 "Client Connexion ID : " + sqlex.ClientConnectionId + "\n" +
-                                                 "Errors : " + sqlex.Errors + "\n" +
-                                                 "Error : " + sqlex.ErrorCode + "\n" +
-                                                 "Data : " + sqlex.Data + "\n" +
-                                                 //"InnerException : " + sqlex.InnerException + "\n" +
-                                                 "Source : " + sqlex.Errors[i].Source + "\n");
+                            sqlConnex.Close();
+                            return dSet;
                         }
+                        catch (SqlException sqlex)
+                        {
+                            StringBuilder errorMessages = new StringBuilder();
 
-                        //inscription dans le fichier log
-                        Logger.WriteToFile(errorMessages.ToString(), "DALTools");
-                        //Console.WriteLine(errorMessages.ToString());
-                        return null;
-                        // Remonte null en cascade dans toutes les sous méthodes de DALMain qui appellent celle-ci                       
+                            for (int i = 0; i < sqlex.Errors.Count; i++)
+                            {
+                                errorMessages.Append("Index #" + i + "\n" +
+                                                     "Message : " + sqlex.Errors[i].Message + "\n" +
+                                                     "Méthode : " + sqlex.TargetSite + "\n" +
+                                                     "Numéro erreur : " + sqlex.Number + "\n" +
+                                                     "Nom ordinateur : " + sqlex.Server + "\n" +
+                                                     "Etat : " + sqlex.State + "\n" +
+                                                     "Stacktrace : " + sqlex.StackTrace + "\n" +
+                                                     "Class : " + sqlex.Class + "\n" +
+                                                     "Client Connexion ID : " + sqlex.ClientConnectionId + "\n" +
+                                                     "Errors : " + sqlex.Errors + "\n" +
+                                                     "Error : " + sqlex.ErrorCode + "\n" +
+                                                     "Data : " + sqlex.Data + "\n" +
+                                                     //"InnerException : " + sqlex.InnerException + "\n" +
+                                                     "Source : " + sqlex.Errors[i].Source + "\n");
+                            }
+
+                            //inscription dans le fichier log
+                             DALLogger.WriteToFile(errorMessages.ToString(), "DALTools");
+
+                            //Console.WriteLine(errorMessages.ToString());
+                            return null;
+                            // Remonte null en cascade dans toutes les sous méthodes de DALMain qui appellent celle-ci                       
                     }
                 }
-                //}
-                //catch (SqlException sqlex)
-                //{
-                //    StringBuilder errorMessages = new StringBuilder();
-
-                //    for (int i = 0; i < sqlex.Errors.Count; i++)
-                //    {
-                //        errorMessages.Append("Index #" + i + "\n" +
-                //                             "Message : " + sqlex.Errors[i].Message + "\n" +
-                //                             "Méthode : " + sqlex.TargetSite + "\n" +
-                //                             "Numéro erreur : " + sqlex.Number + "\n" +
-                //                             "Nom ordinateur : " + sqlex.Server + "\n" +
-                //                             "Etat : " + sqlex.State + "\n" +
-                //                             "Stacktrace : " + sqlex.StackTrace + "\n" +
-                //                             "Class : " + sqlex.Class + "\n" +
-                //                             "Client Connexion ID : " + sqlex.ClientConnectionId + "\n" +
-                //                             "Errors : " + sqlex.Errors + "\n" +
-                //                             "Error : " + sqlex.ErrorCode + "\n" +
-                //                             "Data : " + sqlex.Data + "\n" +
-                //                             //"InnerException : " + sqlex.InnerException + "\n" +
-                //                             "Source : " + sqlex.Errors[i].Source + "\n");
-                //    }
-
-                //    //inscription dans le fichier log
-                //    Logger.WriteToFile(errorMessages.ToString(), "DALTools");
-                //    //Console.WriteLine(errorMessages.ToString());
-                //    return null;
-                //    // Remonte null en cascade dans toutes les sous méthodes de DALMain qui appellent celle-ci                       
-                //}
             }
         }
     }

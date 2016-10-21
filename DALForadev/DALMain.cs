@@ -10,19 +10,20 @@ using METIERForadev;
 namespace DALForadev
 {
     /// <summary>
-    /// Classe statique qui contient toutes les méthodes de constitution d'objet SQL 
+    /// Classe statique qui contient toutes les méthodes de constitution d'objet SQL. 
     /// qui appellent la méthode générique GetDataSet dans la classe statique DALTools
     /// </summary>
     public static class DALMain
     {
         #region CRUD : RETRIEVE
-        
+
         /// <summary>
-        /// Appel méthode générique GetDataSet dans la classe statique DALTools
+        /// Appel méthode générique GetDataSet dans la classe statique DALTools.
+        /// Renvoie GetDataSet vide ou peuplé ou NULL si exception SQL
         /// </summary>
         /// <param name="nomProcedureStockee"></param>
         /// <param name="listeSqlParam"></param>
-        /// <returns>Renvoit GetDataSet vide ou peuplé ou NULL de la classe DALTools</returns>
+        /// <returns>Renvoie GetDataSet vide ou peuplé ou NULL si exception SQL</returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
             return DALTools.GetDataSet(nomProcedureStockee, listeSqlParam);
@@ -30,11 +31,11 @@ namespace DALForadev
 
 
         /// <summary>
-        /// Renvoit le rôle de l'utilisateur après son authentification ou null si echec de l'authentification
+        /// Renvoie objet utilisateurConnecte ou objet utilisateurConnecte NULL si utilisateur inconnu ou NULL si exception SQL
         /// <param name="empreinteSha"></param>
         /// <param name="login"></param>
         /// </summary>
-        /// <returns>Renvoit objet utilisateur ou objet utilisateur null ou NULL</returns>
+        /// <returns></returns>
         public static UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -42,7 +43,7 @@ namespace DALForadev
             listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
             listeSqlParam.Add(new SqlParameter("LOGIN", login));
 
-            using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEU", listeSqlParam))
+            using (DataSet dSet = GetDataSet("GETIDENTIFICATIONUTILISATEUR", listeSqlParam))
             {
                 if (dSet == null) return null;
 
@@ -72,7 +73,7 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoit la liste intégrale des rubriques
+        /// Renvoie la liste intégrale des rubriques
         /// </summary>
         /// <returns>Liste Rubriques ou NULL</returns>
         public static List<Rubrique> GetRubriques()
@@ -92,7 +93,7 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoit le type complet "Rubrique"
+        /// Renvoie le type complet "Rubrique"
         /// </summary>
         /// <param name="nomRubrique"></param>
         /// <returns>Type objet Rubrique ou NULL</returns>
@@ -115,7 +116,7 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoit le type complet "Utilisateur"
+        /// Renvoie le type complet "Utilisateur"
         /// </summary>
         /// <param name="nomUtilisateur"></param>
         /// <returns>Type objet utilisateur ou NULL</returns>
@@ -142,7 +143,7 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoit le type complet "Sujet"
+        /// Renvoie le type complet "Sujet"
         /// </summary>
         /// <param name="idSujet"></param>
         /// <returns>Type objet sujet ou NULL</returns>
@@ -171,11 +172,11 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoit une liste de tous les sujets postés par rubrique
+        /// Renvoie une liste de tous les sujets postés par rubrique.
         /// Appel des sous méthodes de renvoi de types BuildRubriqueByNomRubrique et BuildUtilisateurByNomUtilisateur
         /// </summary>
         /// <param name="nomRubrique"></param>
-        /// <returns>Liste ou NULL</returns>
+        /// <returns>Liste Sujets ou NULL</returns>
         public static List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -203,11 +204,11 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoit une liste de toutes les réponses postées par titre de sujet
+        /// Renvoie une liste de toutes les réponses postées par titre de sujet.
         /// Appel des sous methodes de renvoi de types BuildUtilisateurByNom et BuildSujetByIdSujet
         /// </summary>
         /// <param name="titreSujet"></param>
-        /// <returns>Liste ou NULL</returns>
+        /// <returns>Liste Réponse ou NULL</returns>
         public static List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -237,7 +238,7 @@ namespace DALForadev
         /// <summary>
         /// Méthode de construction d'un dictionnaire de constantes depuis la base de données
         /// </summary>
-        /// <returns>Renvoit un dictionnaire avec une clé STRING, et 2 valeurs STRING</returns>
+        /// <returns>Renvoie un dictionnaire avec une clé STRING, et 2 valeurs STRING</returns>
         public static Dictionary<string, Constante> GetConstantes()
         {
             using (DataSet dSet = GetDataSet("GETCONSTANTES", new List<SqlParameter>()))
@@ -281,7 +282,8 @@ namespace DALForadev
         #region CRUD : CREATE
 
         /// <summary>
-        /// Methode qui ajoute un utilisateur dans la BDD
+        /// Methode qui ajoute un utilisateur dans la BDD et renvoie son login,
+        /// renvoie null s'il y a une exception sql
         /// </summary>
         /// <param name="nom"></param>
         /// <param name="prenom"></param>
@@ -314,7 +316,9 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur
+        /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur,
+        /// renvoie null s'il y a une exception sql
+        /// le pseudo doit exister en base
         /// </summary>
         /// <param name="pseudo"></param>
         /// <returns>STRING Login ou NULL</returns>

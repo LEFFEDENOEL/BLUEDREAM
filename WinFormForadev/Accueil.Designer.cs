@@ -54,11 +54,11 @@
             this.btnPosterReponse = new System.Windows.Forms.Button();
             this.dgvReponses = new System.Windows.Forms.DataGridView();
             this.pnlRubriquesMessagesInf = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTools = new System.Windows.Forms.FlowLayoutPanel();
             this.lblRefreshDonnees = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpRubriques = new System.Windows.Forms.FlowLayoutPanel();
             this.lblListeRubriques = new System.Windows.Forms.Label();
             this.cbxListeRubriques = new System.Windows.Forms.ComboBox();
             this.flpModerateur = new System.Windows.Forms.FlowLayoutPanel();
@@ -121,8 +121,8 @@
             this.flpReponses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).BeginInit();
             this.pnlRubriquesMessagesInf.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flpTools.SuspendLayout();
+            this.flpRubriques.SuspendLayout();
             this.flpModerateur.SuspendLayout();
             this.tpConnexion.SuspendLayout();
             this.tlpConnection.SuspendLayout();
@@ -436,8 +436,8 @@
             // 
             this.pnlRubriquesMessagesInf.AutoScroll = true;
             this.pnlRubriquesMessagesInf.AutoSize = true;
-            this.pnlRubriquesMessagesInf.Controls.Add(this.flowLayoutPanel2);
-            this.pnlRubriquesMessagesInf.Controls.Add(this.flowLayoutPanel1);
+            this.pnlRubriquesMessagesInf.Controls.Add(this.flpTools);
+            this.pnlRubriquesMessagesInf.Controls.Add(this.flpRubriques);
             this.pnlRubriquesMessagesInf.Controls.Add(this.flpModerateur);
             this.pnlRubriquesMessagesInf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRubriquesMessagesInf.Location = new System.Drawing.Point(3, 569);
@@ -445,17 +445,17 @@
             this.pnlRubriquesMessagesInf.Size = new System.Drawing.Size(1252, 140);
             this.pnlRubriquesMessagesInf.TabIndex = 2;
             // 
-            // flowLayoutPanel2
+            // flpTools
             // 
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel2.Controls.Add(this.lblRefreshDonnees);
-            this.flowLayoutPanel2.Controls.Add(this.btnRefresh);
-            this.flowLayoutPanel2.Controls.Add(this.btnQuitter);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(849, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(403, 140);
-            this.flowLayoutPanel2.TabIndex = 16;
+            this.flpTools.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpTools.Controls.Add(this.lblRefreshDonnees);
+            this.flpTools.Controls.Add(this.btnRefresh);
+            this.flpTools.Controls.Add(this.btnQuitter);
+            this.flpTools.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flpTools.Location = new System.Drawing.Point(849, 0);
+            this.flpTools.Name = "flpTools";
+            this.flpTools.Size = new System.Drawing.Size(403, 140);
+            this.flpTools.TabIndex = 16;
             // 
             // lblRefreshDonnees
             // 
@@ -490,15 +490,15 @@
             this.btnQuitter.UseVisualStyleBackColor = true;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
-            // flowLayoutPanel1
+            // flpRubriques
             // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Controls.Add(this.lblListeRubriques);
-            this.flowLayoutPanel1.Controls.Add(this.cbxListeRubriques);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(423, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(415, 140);
-            this.flowLayoutPanel1.TabIndex = 15;
+            this.flpRubriques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpRubriques.Controls.Add(this.lblListeRubriques);
+            this.flpRubriques.Controls.Add(this.cbxListeRubriques);
+            this.flpRubriques.Location = new System.Drawing.Point(423, 0);
+            this.flpRubriques.Name = "flpRubriques";
+            this.flpRubriques.Size = new System.Drawing.Size(415, 140);
+            this.flpRubriques.TabIndex = 15;
             // 
             // lblListeRubriques
             // 
@@ -1079,10 +1079,10 @@
             this.flpReponses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).EndInit();
             this.pnlRubriquesMessagesInf.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.flpTools.ResumeLayout(false);
+            this.flpTools.PerformLayout();
+            this.flpRubriques.ResumeLayout(false);
+            this.flpRubriques.PerformLayout();
             this.flpModerateur.ResumeLayout(false);
             this.flpModerateur.PerformLayout();
             this.tpConnexion.ResumeLayout(false);
@@ -1180,8 +1180,8 @@
         private System.Windows.Forms.Button btnModifierTitreSujet;
         private System.Windows.Forms.Label lblRefreshDonnees;
         private System.Windows.Forms.FlowLayoutPanel flpModerateur;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpTools;
+        private System.Windows.Forms.FlowLayoutPanel flpRubriques;
         private System.Windows.Forms.TableLayoutPanel tlpConnection;
         private System.Windows.Forms.Panel pnlConnectionSup;
         private System.Windows.Forms.Panel pnlConnectionInf;

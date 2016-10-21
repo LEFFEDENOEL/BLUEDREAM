@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace DALForadev
 {
-    public static class Logger
+    /// <summary>
+    /// Classe statique Logger qui contient une méthode pour écrire les exceptions SQL dans un fichier
+    /// </summary>
+    public static class DALLogger
     {
+        /// <summary>
+        /// Méthode de création d'un répertoire et d'un fichier des logs exception SQL
+        /// </summary>
+        /// <param name="errorMessage"></param>
+        /// <param name="nomClasse"></param>
         public static void WriteToFile(string errorMessage, string nomClasse)
         {
             DateTime nowDate = DateTime.Now;

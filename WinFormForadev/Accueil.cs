@@ -207,7 +207,7 @@ namespace WinFormForadev
             if (uConnect == null)
             {
                 Constante constanteEchecConnexion;
-                dictionnaireConstantes.TryGetValue("BDD_CONNEXION", out constanteEchecConnexion);//BDDSQLEXCEPTIONPBRECEPTIONDONNEES
+                dictionnaireConstantes.TryGetValue("BDD_RETRIEVE", out constanteEchecConnexion);
                 MessageBox.Show(constanteEchecConnexion.Valeur2, constanteEchecConnexion.Valeur1, 
                                 MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtbLogin.Clear();
