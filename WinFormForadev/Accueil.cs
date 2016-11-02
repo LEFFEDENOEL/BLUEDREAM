@@ -219,7 +219,7 @@ namespace WinFormForadev
                 Constante constanteErreurAuthenticication;
                 dictionnaireConstantes.TryGetValue("BDD_AUTHENTIFICATION", out constanteErreurAuthenticication);
                 MessageBox.Show(constanteErreurAuthenticication.Valeur2, constanteErreurAuthenticication.Valeur1, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtbLogin.Clear();
                 txtbMdp.Clear();
             }
@@ -464,6 +464,12 @@ namespace WinFormForadev
         private void btnQuitterConnection_Click(object sender, EventArgs e)
         {
             MessageQuitter();
+        }
+
+        private void btnMdpOubli_Click(object sender, EventArgs e)
+        {
+            lblMdpOubliMail.Visible = true;
+            txtbMdpOubliMail.Visible = true;
         }
         #endregion
 

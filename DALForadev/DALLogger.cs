@@ -13,7 +13,7 @@ namespace DALForadev
     public static class DALLogger
     {
         /// <summary>
-        /// Méthode de création d'un répertoire et d'un fichier des logs exception SQL
+        /// Méthode de création d'un répertoire et d'un fichier des logs exceptions SQL
         /// </summary>
         /// <param name="errorMessage"></param>
         /// <param name="nomClasse"></param>

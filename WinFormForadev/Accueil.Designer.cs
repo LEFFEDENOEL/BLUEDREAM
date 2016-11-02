@@ -106,6 +106,9 @@
             this.pnlInscriptionInf = new System.Windows.Forms.Panel();
             this.btnQuitterInscription = new System.Windows.Forms.Button();
             this.btnChangePass = new System.Windows.Forms.Button();
+            this.btnMdpOubli = new System.Windows.Forms.Button();
+            this.txtbMdpOubliMail = new System.Windows.Forms.TextBox();
+            this.lblMdpOubliMail = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -635,6 +638,9 @@
             this.flpIdentification.Controls.Add(this.lblMdp);
             this.flpIdentification.Controls.Add(this.txtbMdp);
             this.flpIdentification.Controls.Add(this.btnConnexion);
+            this.flpIdentification.Controls.Add(this.btnMdpOubli);
+            this.flpIdentification.Controls.Add(this.lblMdpOubliMail);
+            this.flpIdentification.Controls.Add(this.txtbMdpOubliMail);
             this.flpIdentification.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpIdentification.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpIdentification.Location = new System.Drawing.Point(0, 0);
@@ -1042,6 +1048,41 @@
             this.btnChangePass.Visible = false;
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
+            // btnMdpOubli
+            // 
+            this.btnMdpOubli.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMdpOubli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMdpOubli.Location = new System.Drawing.Point(3, 148);
+            this.btnMdpOubli.Name = "btnMdpOubli";
+            this.btnMdpOubli.Size = new System.Drawing.Size(311, 43);
+            this.btnMdpOubli.TabIndex = 5;
+            this.btnMdpOubli.Text = "Mot de passe oublié ?";
+            this.btnMdpOubli.UseVisualStyleBackColor = true;
+            this.btnMdpOubli.Click += new System.EventHandler(this.btnMdpOubli_Click);
+            // 
+            // txtbMdpOubliMail
+            // 
+            this.txtbMdpOubliMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbMdpOubliMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbMdpOubliMail.Location = new System.Drawing.Point(3, 213);
+            this.txtbMdpOubliMail.Name = "txtbMdpOubliMail";
+            this.txtbMdpOubliMail.PasswordChar = '*';
+            this.txtbMdpOubliMail.Size = new System.Drawing.Size(311, 26);
+            this.txtbMdpOubliMail.TabIndex = 6;
+            this.txtbMdpOubliMail.UseSystemPasswordChar = true;
+            this.txtbMdpOubliMail.Visible = false;
+            // 
+            // lblMdpOubliMail
+            // 
+            this.lblMdpOubliMail.AutoSize = true;
+            this.lblMdpOubliMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMdpOubliMail.Location = new System.Drawing.Point(3, 194);
+            this.lblMdpOubliMail.Name = "lblMdpOubliMail";
+            this.lblMdpOubliMail.Size = new System.Drawing.Size(210, 16);
+            this.lblMdpOubliMail.TabIndex = 7;
+            this.lblMdpOubliMail.Text = "Veuillez saisir votre adresse mail :";
+            this.lblMdpOubliMail.Visible = false;
+            // 
             // AccueilForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1191,6 +1232,9 @@
         private System.Windows.Forms.Panel pnlInscriptionMiddle;
         private System.Windows.Forms.Panel pnlInscriptionInf;
         private System.Windows.Forms.Button btnQuitterInscription;
+        private System.Windows.Forms.Button btnMdpOubli;
+        private System.Windows.Forms.Label lblMdpOubliMail;
+        private System.Windows.Forms.TextBox txtbMdpOubliMail;
     }
 }
 
