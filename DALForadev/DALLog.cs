@@ -10,7 +10,7 @@ namespace DALForadev
     /// <summary>
     /// Classe statique Logger qui contient une méthode pour écrire les exceptions SQL dans un fichier
     /// </summary>
-    public static class DALLogger
+    public static class DALLog
     {
         /// <summary>
         /// Méthode de création d'un répertoire et d'un fichier des logs exceptions SQL

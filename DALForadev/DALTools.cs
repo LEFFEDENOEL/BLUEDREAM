@@ -72,7 +72,7 @@ namespace DALForadev
                             }
 
                             //inscription dans le fichier log
-                             DALLogger.WriteToFile(errorMessages.ToString(), "DALTools");
+                             DALLog.WriteToFile(errorMessages.ToString(), "DALTools");
 
                             //Console.WriteLine(errorMessages.ToString());
                             return null;
