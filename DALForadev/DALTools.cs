@@ -18,7 +18,7 @@ namespace DALForadev
 
         /// <summary>
         /// Renvoie un dataset selon une procédure stockée en paramètre d'entrée.
-        /// Renvoie un dataSet vide ou peuplé ou NULL
+        /// Renvoie un dataSet vide ou peuplé ou NULL si exception SQL
         /// </summary>
         /// <param name="nomProcedureStockee"></param>
         /// <param name="listeSqlParam"></param>
@@ -76,7 +76,7 @@ namespace DALForadev
 
                             //Console.WriteLine(errorMessages.ToString());
                             return null;
-                            // Remonte null en cascade dans toutes les sous méthodes de DALMain qui appellent celle-ci                       
+                            // Remonte NULL en cascade dans toutes les sous méthodes de DALMain qui appellent celle-ci                       
                     }
                 }
             }

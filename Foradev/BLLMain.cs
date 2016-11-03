@@ -50,7 +50,8 @@ namespace BLLForadev
         //}
 
         /// <summary>
-        /// Méthode d'appel de la méthode qui permet le changement de mot de passe depuis la classe DALMain
+        /// Méthode qui permet le changement du mot de passe.
+        /// Renvoie identifiant utilisateur si ok ou NULL si exception SQL
         /// </summary>
         /// <param name="idUtilisateur"></param>
         /// <param name="login"></param>
@@ -62,9 +63,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode qui permet la création d'un utilisateur,
-        /// renvoie le login de l'utilisateur
-        /// renvoie null s'il y a une exception sql
+        /// Méthode qui permet la création d'un utilisateur.
+        /// Renvoie le login de l'utilisateur ou NULL si exception SQL      
         /// </summary>
         /// <param name="nom"></param>
         /// <param name="prenom"></param>
@@ -82,8 +82,7 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode qui permet l'authentification d'un utilisateur et la récupération de son rôle depuis la classe DAO.
-        /// Renvoie la méthode de la classe DALMain
+        /// Renvoie objet utilisateurConnecte ou objet utilisateurConnecte NULL si utilisateur inconnu ou NULL si exception SQL
         /// </summary>
         /// <param name="empreinteSha"></param>
         /// <param name="login"></param>
@@ -95,16 +94,17 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de construction du dictionnaire de constantes erreur depuis la base de données
+        /// Méthode d'appel de construction du dictionnaire de constantes erreur depuis la base de données.
+        /// Renvoie les valeurs des constantes ou NULL si exception SQL
         /// </summary>
         /// <returns></returns>
         static public Dictionary<string, Constante> GetConstantes()
         {
                 return DALMain.GetConstantes();
         }
-        
+
         /// <summary>
-        /// Méthode d'appel de la liste récupérée par la méthode dans la classe DALMain
+        /// Renvoie un objet liste des rubriques ou NULL si exception SQL
         /// </summary>
         /// <returns></returns>
         static public List<Rubrique> GetRubriques()
@@ -113,7 +113,7 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la liste récupérée par la méthode dans la classe DALMain
+        /// Renvoie un objet liste de tous les sujets postés par rubrique ou NULL.
         /// </summary>
         /// <param name="nomRubrique"></param>
         /// <returns></returns>
@@ -123,7 +123,7 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la liste récupérée par la méthode dans la classe DALMain
+        /// Renvoie un objet liste de toutes les réponses postées par titre de sujet ou NULL si exception SQL.
         /// </summary>
         /// <param name="titreSujet"></param>
         /// <returns></returns>
@@ -133,7 +133,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode dans la classe DALMain qui permet d'ajouter un sujet
+        /// Méthode qui ajoute un sujet et renvoie l'identifiant sujet.
+        /// Renvoie NULL si exception SQL
         /// </summary>
         /// <param name="idUtilisateur"></param>
         /// <param name="idRubrique"></param>
@@ -148,7 +149,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode dans la classe DALMain qui permet d'ajouter une réponse
+        /// Méthode qui ajoute une réponse selon un sujet.
+        /// Renvoie identifiant réponse ou NULL si exception SQL
         /// </summary>
         /// <param name="idUtilisateur"></param>
         /// <param name="idSujet"></param>
@@ -161,7 +163,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode dans la classe DALMain qui permet à un modérateur de supprimer un sujet
+        /// Méthode de suppression d'un sujet et réponses correspondantes en cascade. "on delete cascade" dans SQL.
+        /// Renvoie identifiant sujet supprimé ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
         /// <returns></returns>
@@ -171,7 +174,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode dans la classe DALMain qui permet à un modérateur de supprimer une réponse
+        /// Méthode de suppression d'une réponse.
+        /// Renvoie identifiant réponse supprimée ou NULL si exception SQL
         /// </summary>
         /// <param name="idReponse"></param>
         /// <returns></returns>
@@ -181,7 +185,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode dans la classe DALMain qui permet à un modérateur de modifier le titre d'un sujet
+        /// Méthode de modification du titre d'un sujet.
+        /// Renvoie identifiant sujet modifié ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
         /// <param name="titreSujet"></param>
@@ -192,7 +197,8 @@ namespace BLLForadev
         }
 
         /// <summary>
-        /// Méthode d'appel de la méthode dans la classe DALMain qui permet à un modérateur de modifier la description d'un sujet
+        /// Méthode de modification de la description d'un sujet.
+        /// Renvoie identifiant du sujet modifié ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
         /// <param name="descSujet"></param>

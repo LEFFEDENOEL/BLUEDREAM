@@ -10,7 +10,7 @@ using METIERForadev;
 namespace DALForadev
 {
     /// <summary>
-    /// Classe statique qui contient toutes les méthodes de constitution d'objet SQL. 
+    /// Classe statique qui contient toutes les méthodes de constitution d'objets SQL. 
     /// qui appellent la méthode générique GetDataSet dans la classe statique DALTools
     /// </summary>
     public static class DALMain
@@ -23,7 +23,7 @@ namespace DALForadev
         /// </summary>
         /// <param name="nomProcedureStockee"></param>
         /// <param name="listeSqlParam"></param>
-        /// <returns>Renvoie GetDataSet vide ou peuplé ou NULL si exception SQL</returns>
+        /// <returns></returns>
         public static DataSet GetDataSet(string nomProcedureStockee, List<SqlParameter> listeSqlParam)
         {
             return DALTools.GetDataSet(nomProcedureStockee, listeSqlParam);
@@ -73,9 +73,9 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoie la liste intégrale des rubriques
+        /// Renvoie un objet liste des rubriques ou NULL si exception SQL
         /// </summary>
-        /// <returns>Liste Rubriques ou NULL</returns>
+        /// <returns></returns>
         public static List<Rubrique> GetRubriques()
         {
             using (DataSet dSet = GetDataSet("GETRUBRIQUE", new List<SqlParameter>()))
@@ -93,10 +93,10 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoie le type complet "Rubrique"
+        /// Renvoie le type complet "Rubrique" ou NULL
         /// </summary>
         /// <param name="nomRubrique"></param>
-        /// <returns>Type objet Rubrique ou NULL</returns>
+        /// <returns></returns>
         public static Rubrique BuildRubriqueByNomRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -116,10 +116,10 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoie le type complet "Utilisateur"
+        /// Renvoie le type complet "Utilisateur" ou NULL
         /// </summary>
         /// <param name="nomUtilisateur"></param>
-        /// <returns>Type objet utilisateur ou NULL</returns>
+        /// <returns></returns>
         public static Utilisateur BuildUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -143,10 +143,10 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoie le type complet "Sujet"
+        /// Renvoie le type complet "Sujet" ou NULL
         /// </summary>
         /// <param name="idSujet"></param>
-        /// <returns>Type objet sujet ou NULL</returns>
+        /// <returns></returns>
         public static Sujet BuildSujetByIdSujet(int idSujet)
         {            
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -172,11 +172,11 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoie une liste de tous les sujets postés par rubrique.
+        /// Renvoie un objet liste de tous les sujets postés par rubrique ou NULL si exception SQL.
         /// Appel des sous méthodes de renvoi de types BuildRubriqueByNomRubrique et BuildUtilisateurByNomUtilisateur
         /// </summary>
         /// <param name="nomRubrique"></param>
-        /// <returns>Liste Sujets ou NULL</returns>
+        /// <returns></returns>
         public static List<Sujet> GetSujetsByRubrique(string nomRubrique)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -204,11 +204,11 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Renvoie une liste de toutes les réponses postées par titre de sujet.
+        /// Renvoie un objet liste de toutes les réponses postées par titre de sujet ou NULL si exception SQL.
         /// Appel des sous methodes de renvoi de types BuildUtilisateurByNom et BuildSujetByIdSujet
         /// </summary>
         /// <param name="titreSujet"></param>
-        /// <returns>Liste Réponse ou NULL</returns>
+        /// <returns></returns>
         public static List<Reponse> GetReponsesBySujet(string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -236,7 +236,8 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Méthode de construction d'un dictionnaire de constantes depuis la base de données
+        /// Méthode de construction d'un dictionnaire de constantes depuis la base de données.
+        /// Renvoie les valeurs des constantes ou NULL si exception SQL
         /// </summary>
         /// <returns>Renvoie un dictionnaire avec une clé STRING, et 2 valeurs STRING</returns>
         public static Dictionary<string, Constante> GetConstantes()
@@ -282,8 +283,8 @@ namespace DALForadev
         #region CRUD : CREATE
 
         /// <summary>
-        /// Methode qui ajoute un utilisateur dans la BDD et renvoie son login,
-        /// renvoie null s'il y a une exception sql
+        /// Methode qui ajoute un utilisateur dans la BDD et renvoie son login.
+        /// Renvoie null s'il y a une exception sql
         /// </summary>
         /// <param name="nom"></param>
         /// <param name="prenom"></param>
@@ -292,7 +293,7 @@ namespace DALForadev
         /// <param name="empreinteSha"></param>
         /// <param name="pseudo"></param>
         /// <param name="dateCreationCompte"></param>
-        /// <returns>Login sur appel méthode GetLogin en fonction du pseudo, ou NULL</returns>
+        /// <returns></returns>
         public static string AjoutUtilisateur(string nom, string prenom, bool estModerateur,
                                               string mail, string empreinteSha, string pseudo,
                                               DateTime dateCreationCompte)
@@ -316,12 +317,12 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur,
-        /// renvoie null s'il y a une exception sql
-        /// le pseudo doit exister en base
+        /// Methode qui permet de récupérer le login calculé par la BDD pour affichage à l'utilisateur.
+        /// Renvoie NULL s'il y a une exception sql.
+        /// Le pseudo doit exister en base
         /// </summary>
         /// <param name="pseudo"></param>
-        /// <returns>STRING Login ou NULL</returns>
+        /// <returns></returns>
         public static string GetLogin(string pseudo)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -340,14 +341,15 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Méthode qui ajoute un sujet
+        /// Méthode qui ajoute un sujet et renvoie l'identifiant sujet.
+        /// Renvoie NULL si exception SQL
         /// </summary>
         /// <param name="idUtilisateur"></param>
         /// <param name="idRubrique"></param>
         /// <param name="titreSujet"></param>
         /// <param name="descriptionSujet"></param>
         /// <param name="dateCreationSujet"></param>
-        /// <returns>INT Identifiant Sujet ou NULL</returns>
+        /// <returns></returns>
         public static int? AjoutSujet (int idUtilisateur, int idRubrique, string titreSujet, 
                                        string descriptionSujet, DateTime dateCreationSujet)
         {
@@ -369,13 +371,14 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Méthode qui ajoute une réponse selon un sujet
+        /// Méthode qui ajoute une réponse selon un sujet.
+        /// Renvoie identifiant réponse ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
         /// <param name="idUtilisateur"></param>
         /// <param name="texteReponse"></param>
         /// <param name="dateReponse"></param>
-        /// <returns>INT Identifiant Réponse ou NULL</returns>
+        /// <returns></returns>
         public static int? AjoutReponse(int idSujet, int idUtilisateur, string texteReponse, DateTime dateReponse)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -398,12 +401,13 @@ namespace DALForadev
         #region CRUD : UPDATE
 
         /// <summary>
-        /// Méthode de changement du mot de passe pour n'importe quel utilisateur loggé
+        /// Méthode de changement du mot de passe pour n'importe quel utilisateur loggé.
+        /// Renvoie identifiant utilisateur si ok, NULL si exception SQL
         /// </summary>
         /// <param name="idUtilisateur"></param>
         /// <param name="login"></param>
         /// <param name="empreinteSha"></param>
-        /// <returns>INT id utilisateur si ok ou NULL</returns>
+        /// <returns></returns>
         static public int? ChangePass(int idUtilisateur, string login, string empreinteSha)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -423,11 +427,12 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Méthode de modification du titre d'un sujet
+        /// Méthode de modification du titre d'un sujet.
+        /// Renvoie identifiant sujet modifié ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
         /// <param name="titreSujet"></param>
-        /// <returns>INT Identifiant sujet modifié ou NULL</returns>
+        /// <returns></returns>
         public static int? ModifierTitreSujet(int idSujet, string titreSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -446,11 +451,12 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Méthode de modification de la description d'un sujet
+        /// Méthode de modification de la description d'un sujet.
+        /// Renvoie identifiant du sujet modifié ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
         /// <param name="descSujet"></param>
-        /// <returns>INT Identifiant sujet modifié ou NULL</returns>
+        /// <returns></returns>
         public static int? ModifierDescriptionSujet(int idSujet, string descSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -473,9 +479,10 @@ namespace DALForadev
 
         /// <summary>
         /// Méthode de suppression d'un sujet et réponses correspondantes en cascade. "on delete cascade" dans SQL.
+        /// Renvoie identifiant sujet supprimé ou NULL si exception SQL
         /// </summary>
         /// <param name="idSujet"></param>
-        /// <returns>INT Identifiant Sujet supprimé ou NULL</returns>
+        /// <returns></returns>
         public static int? SupprimerSujet (int idSujet)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
@@ -495,10 +502,11 @@ namespace DALForadev
         }
 
         /// <summary>
-        /// Méthode de suppression d'une réponse
+        /// Méthode de suppression d'une réponse.
+        /// Renvoie identifiant réponse supprimée ou NULL si exception SQL
         /// </summary>
         /// <param name="idReponse"></param>
-        /// <returns>INT Identifiant réponse supprimée ou NULL</returns>
+        /// <returns></returns>
         public static int? SupprimerReponse (int idReponse)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
