@@ -53,6 +53,14 @@ namespace WinFormForadev
             //Appel de la liste dans la classe BLL récupérée par la classe DAO               
             List<Sujet> listeSujets = BLLMain.GetSujetsByRubrique(cbxListeRubriques.SelectedItem.ToString());
 
+            if (listeSujets.Count == 0)
+            {
+                btnSupprimerSujet.Enabled = false;
+                btnModifierDescriptionSujet.Enabled = false;
+                btnModifierTitreSujet.Enabled = false;
+                btnPosterReponse.Enabled = false;
+            }
+
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsSujets = new BindingSource();
 
@@ -69,6 +77,14 @@ namespace WinFormForadev
             dgvSujets.Columns[4].HeaderText = "Date";
             dgvSujets.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSujets.Columns[5].HeaderText = "Texte";
+
+            // Alternative au listeSujets.Count == 0 -ligne 5
+            //if (listeSujets.Count == 0)
+            //{
+            //    btnSupprimerSujet.Enabled = false;
+            //    btnModifierDescriptionSujet.Enabled = false;
+            //    btnModifierTitreSujet.Enabled = false;
+            //}
         }
 
         /// <summary>
@@ -78,9 +94,13 @@ namespace WinFormForadev
         {
             //Récupération du contenu de la cellule "titreSujet" de la ligne courante du datagridview dvgSujets
             string titreSujet = dgvSujets.CurrentRow.Cells[2].Value.ToString();
+
             //Appel de la liste dans la classe BLL récupérée par la classe DAO 
             List<Reponse> listeReponses = BLLMain.GetReponsesBySujet(titreSujet);
 
+            if (listeReponses.Count == 0){
+                btnSupprimerReponse.Enabled = false;
+            }
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsReponses = new BindingSource();
 
@@ -96,6 +116,12 @@ namespace WinFormForadev
             dgvReponses.Columns[3].HeaderText = "Date";
             dgvReponses.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvReponses.Columns[4].HeaderText = "Texte réponse";
+
+            // Alternative au test listeReponse.Count == 0 -ligne 100
+            //if (bsReponses.Current == null)
+            //{
+            //    btnSupprimerReponse.Enabled = false;
+            //}
         }
 
         /// <summary>
@@ -379,6 +405,7 @@ namespace WinFormForadev
             LoadSujet();
             LoadReponse();
         }
+
 
         /// <summary>
         /// Méthode qui permet à un modérateur connecté de supprimer une réponse
