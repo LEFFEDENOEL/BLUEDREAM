@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using METIERForadev;
 using DALForadev;
-
+using System.Text.RegularExpressions;
 
 namespace BLLForadev
 {
@@ -15,6 +15,25 @@ namespace BLLForadev
     /// </summary>
     public static class BLLMain
     {
+        // Déclaration constante expression rationnelle si pas en base de données
+        //static private readonly string EXPRESSION_RATIONNELLE = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{12,})";
+                      
+        /// <summary>
+        /// Méthode REGEX qui vérifie les impératifs de sécurité du mot de passe.
+        /// Expression régulière chargée dans un dictionnaire depuis la base de données.
+        /// </summary>
+        /// <param name="mdpFromClient"></param>
+        /// <returns>TRUE si le mot de passe rempli les conditions, FALSE si conditions non remplie</returns>
+        static public bool validRegex(string mdpFromClient)
+        {
+            Constante EXPRESSION_RATIONNELLE;
+            Dictionary<string, Constante> dictionnaireConstantes;
+            dictionnaireConstantes = GetConstantes();
+            dictionnaireConstantes.TryGetValue("EXPRESSION_RATIONNELLE", out EXPRESSION_RATIONNELLE);
+            Regex rgx = new Regex(EXPRESSION_RATIONNELLE.Valeur1);
+            return rgx.IsMatch(mdpFromClient);
+        }
+
         /// <summary>
         /// Fonction qui permet le haschage en SHA1 des mots de passe.
         /// En entrée string mot de passe client en clair

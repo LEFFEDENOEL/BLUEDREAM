@@ -299,19 +299,18 @@ namespace DALForadev
                                               DateTime dateCreationCompte)
         {
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
+            listeSqlParam.Add(new SqlParameter("NOM", nom));
+            listeSqlParam.Add(new SqlParameter("PRENOM", prenom));
+            listeSqlParam.Add(new SqlParameter("ESTMODERATEUR", estModerateur));
+            listeSqlParam.Add(new SqlParameter("MAIL", mail));
+            listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
+            listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
+            listeSqlParam.Add(new SqlParameter("DATECREATIONCOMPTE", dateCreationCompte));
 
             using (DataSet dSet = GetDataSet("CREATEUTILISATEUR", listeSqlParam))
             {
                 if (dSet == null) return null;
-
-                listeSqlParam.Add(new SqlParameter("NOM", nom));
-                listeSqlParam.Add(new SqlParameter("PRENOM", prenom));
-                listeSqlParam.Add(new SqlParameter("ESTMODERATEUR", estModerateur));
-                listeSqlParam.Add(new SqlParameter("MAIL", mail));
-                listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));
-                listeSqlParam.Add(new SqlParameter("PSEUDO", pseudo));
-                listeSqlParam.Add(new SqlParameter("DATECREATIONCOMPTE", dateCreationCompte));
-                            
+                       
                 return GetLogin(pseudo);
             }
         }

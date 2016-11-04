@@ -84,6 +84,7 @@ namespace WinFormForadev
             //    btnSupprimerSujet.Enabled = false;
             //    btnModifierDescriptionSujet.Enabled = false;
             //    btnModifierTitreSujet.Enabled = false;
+            //    btnPosterReponse.Enabled = false;
             //}
         }
 
@@ -275,30 +276,49 @@ namespace WinFormForadev
             string prenom = txtbPrenom.Text;
             bool estModerateur = false;
             string mail = txtbMail.Text;
-            // Appel méthode statique de haschage dans la classe statique BLL
-            string empreinteSha = BLLMain.HashShaMdp(txtbInscriptionPasse.Text);
-            string pseudo = txtbPseudo.Text;
-            DateTime dateInscription = System.DateTime.Now;
 
-            // Appel méthode statique dans classe statique BLL
-            string login = BLLMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
+            // Appel methode de vérification sécurité mot de passe
+            bool validPass = BLLMain.validRegex(txtbInscriptionPasse.Text);
 
-            if (login == null)
+            if (validPass == true)
             {
-                // Méthode remonte null donc erreur --> dictionnaire constantes, msg validation
-                Constante constanteErreur;
-                dictionnaireConstantes.TryGetValue("INSCRIPTION_ERROR", out constanteErreur);
-                MessageBox.Show(constanteErreur.Valeur2 + login, constanteErreur.Valeur1, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                // Appel méthode statique de haschage dans la classe statique BLL
+                string empreinteSha = BLLMain.HashShaMdp(txtbInscriptionPasse.Text);
+                string pseudo = txtbPseudo.Text;
+                DateTime dateInscription = System.DateTime.Now;
+
+                // Appel méthode statique de récupération du login dans classe statique BLL
+                string login = BLLMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
+
+                if (login == null)
+                {
+                    // Méthode remonte null donc erreur --> dictionnaire constantes, msg validation
+                    Constante constanteErreur;
+                    dictionnaireConstantes.TryGetValue("INSCRIPTION_ERREUR", out constanteErreur);
+                    MessageBox.Show(constanteErreur.Valeur2 + login, constanteErreur.Valeur1,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    VisibiliteComposantsLoginInscription();
+
+                    // Confirmation inscription --> dictionnaire constantes, msg ok
+                    Constante constanteValidInscription;
+                    dictionnaireConstantes.TryGetValue("INSCRIPTION_VALIDE", out constanteValidInscription);
+                    MessageBox.Show(constanteValidInscription.Valeur2 + login, constanteValidInscription.Valeur1,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-
-            VisibiliteComposantsLoginInscription();
-
-            // Confirmation inscription --> 
-            Constante constanteValidInscription;
-            dictionnaireConstantes.TryGetValue("INSCRIPTION_VALIDE", out constanteValidInscription);
-            MessageBox.Show(constanteValidInscription.Valeur2 + login, constanteValidInscription.Valeur1, 
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                // Le mot de passe ne respecte pas les impératifs de sécurité --> dictionnaire constantes, msg erreur
+                Constante constanteErreurPassValid;
+                dictionnaireConstantes.TryGetValue("PASS_NOT_VALID", out constanteErreurPassValid);
+                MessageBox.Show(constanteErreurPassValid.Valeur2, constanteErreurPassValid.Valeur1,
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtbNouveauPasse.Clear();
+                txtbConfirmNouveauPasse.Clear();
+            }              
         }
 
         /// <summary>
@@ -308,28 +328,44 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btValidNouveauPasse_Click(object sender, EventArgs e)
         {
-            if (txtbNouveauPasse.Text == txtbConfirmNouveauPasse.Text) { 
+            if (txtbNouveauPasse.Text == txtbConfirmNouveauPasse.Text)
+            {
+                // Appel methode de vérification sécurité mot de passe
+                bool validPass = BLLMain.validRegex(txtbConfirmNouveauPasse.Text);
 
-                // Appel méthode statique de haschage dans la classe statique BLL
-                string empreinteSha = BLLMain.HashShaMdp(txtbConfirmNouveauPasse.Text);
-                int idUtilisateur = uConnect.Id;
-                string login = uConnect.Login;
+                if (validPass == true)
+                {
+                    // Appel méthode statique de haschage dans la classe statique BLL
+                    string empreinteSha = BLLMain.HashShaMdp(txtbConfirmNouveauPasse.Text);
+                    int idUtilisateur = uConnect.Id;
+                    string login = uConnect.Login;
 
-                // Appel méthode statique de changement de mot de passe dans la classe statique BLL
-                BLLMain.ChangePass(idUtilisateur, login, empreinteSha);
+                    // Appel méthode statique de changement de mot de passe dans la classe statique BLL
+                    BLLMain.ChangePass(idUtilisateur, login, empreinteSha);
 
-                flpChangePass.Visible = false;
-                lblInfoNouveauPasse.Visible = false;
+                    flpChangePass.Visible = false;
+                    lblInfoNouveauPasse.Visible = false;
 
-                // Les mots de passe correspondent --> dictionnaire constantes, msg validation
-                Constante constanteValidNvoPass;
-                dictionnaireConstantes.TryGetValue("PASS_CHANGE", out constanteValidNvoPass);
-                MessageBox.Show(constanteValidNvoPass.Valeur2, constanteValidNvoPass.Valeur1, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);           
-            }
-            // Les mots de passe ne correspondent pas --> dictionnaire constantes, msg erreur
+                    // Les mots de passe correspondent --> dictionnaire constantes, msg validation
+                    Constante constanteValidNvoPass;
+                    dictionnaireConstantes.TryGetValue("PASS_CHANGE", out constanteValidNvoPass);
+                    MessageBox.Show(constanteValidNvoPass.Valeur2, constanteValidNvoPass.Valeur1,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Le mot de passe ne respecte pas les impératifs de sécurité --> dictionnaire constantes, msg erreur
+                    Constante constanteErreurPassValid;
+                    dictionnaireConstantes.TryGetValue("PASS_NOT_VALID", out constanteErreurPassValid);
+                    MessageBox.Show(constanteErreurPassValid.Valeur2, constanteErreurPassValid.Valeur1,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtbNouveauPasse.Clear();
+                    txtbConfirmNouveauPasse.Clear();
+                }          
+            }        
             else
             {
+                // Les mots de passe ne correspondent pas --> dictionnaire constantes, msg erreur
                 Constante constanteErreurPassMatch;
                 dictionnaireConstantes.TryGetValue("PASS_MATCH", out constanteErreurPassMatch);
                 MessageBox.Show(constanteErreurPassMatch.Valeur2, constanteErreurPassMatch.Valeur1, 
@@ -499,7 +535,5 @@ namespace WinFormForadev
             txtbMdpOubliMail.Visible = true;
         }
         #endregion
-
-
     }
 }
