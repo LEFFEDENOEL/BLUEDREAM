@@ -18,12 +18,14 @@ namespace METIERForadev
         public UtilisateurNonConnecte(int id, string nom, string prenom, string mail, string login, bool role, string pseudo, DateTime dtinscription)
                                       : base(id, nom, prenom, mail, login, role, pseudo, dtinscription) { }
 
+        //Constructeur remarquable
         public UtilisateurNonConnecte(int id,string nom, string prenom, string pseudo, DateTime dtinscription)
                                       : base(id,nom, prenom, pseudo, dtinscription) { }
         #endregion
 
         #region Methodes
         #endregion
+
         #region Methodes héritées et substituées
 
         public override string ToString()
@@ -32,6 +34,7 @@ namespace METIERForadev
         }
 
         #endregion
+
         #region Methodes à implementer pour les interfaces
         #endregion
 

@@ -13,7 +13,7 @@ namespace DALForadev
     /// Classe statique qui contient toutes les méthodes de constitution d'objets SQL. 
     /// qui appellent la méthode générique GetDataSet dans la classe statique DALTools
     /// </summary>
-    public static class DALMain
+    public static class DALMain 
     {
         #region CRUD : RETRIEVE
 
@@ -38,6 +38,8 @@ namespace DALForadev
         /// <returns></returns>
         public static UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
         {
+            
+
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
             listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));

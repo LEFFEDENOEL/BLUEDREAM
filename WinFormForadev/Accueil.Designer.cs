@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.gbxMain = new System.Windows.Forms.GroupBox();
@@ -75,6 +77,9 @@
             this.lblMdp = new System.Windows.Forms.Label();
             this.txtbMdp = new System.Windows.Forms.TextBox();
             this.btnConnexion = new System.Windows.Forms.Button();
+            this.btnMdpOubli = new System.Windows.Forms.Button();
+            this.lblMdpOubliMail = new System.Windows.Forms.Label();
+            this.txtbMdpOubliMail = new System.Windows.Forms.TextBox();
             this.lblInfosLogin = new System.Windows.Forms.Label();
             this.lblInfoMdp = new System.Windows.Forms.Label();
             this.pnlConnectionInf = new System.Windows.Forms.Panel();
@@ -97,7 +102,7 @@
             this.btnValidInscription = new System.Windows.Forms.Button();
             this.pnlInscriptionMiddle = new System.Windows.Forms.Panel();
             this.flpChangePass = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNewpass = new System.Windows.Forms.Label();
             this.txtbNouveauPasse = new System.Windows.Forms.TextBox();
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.txtbConfirmNouveauPasse = new System.Windows.Forms.TextBox();
@@ -106,9 +111,7 @@
             this.pnlInscriptionInf = new System.Windows.Forms.Panel();
             this.btnQuitterInscription = new System.Windows.Forms.Button();
             this.btnChangePass = new System.Windows.Forms.Button();
-            this.btnMdpOubli = new System.Windows.Forms.Button();
-            this.txtbMdpOubliMail = new System.Windows.Forms.TextBox();
-            this.lblMdpOubliMail = new System.Windows.Forms.Label();
+            this.lblDgvReponseVide = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.gbxMain.SuspendLayout();
@@ -174,6 +177,7 @@
             this.gbxMain.Controls.Add(this.tbcMain);
             this.gbxMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxMain.ForeColor = System.Drawing.Color.Black;
             this.gbxMain.Location = new System.Drawing.Point(0, 0);
             this.gbxMain.Name = "gbxMain";
             this.gbxMain.Size = new System.Drawing.Size(1278, 798);
@@ -242,7 +246,7 @@
             this.gbxRubriquesMessagesSup.Controls.Add(this.flpSujets);
             this.gbxRubriquesMessagesSup.Controls.Add(this.dgvSujets);
             this.gbxRubriquesMessagesSup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxRubriquesMessagesSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxRubriquesMessagesSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesSup.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesSup.Name = "gbxRubriquesMessagesSup";
             this.gbxRubriquesMessagesSup.Size = new System.Drawing.Size(1252, 277);
@@ -271,13 +275,14 @@
             this.lblTitreSujetRubriquesMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreSujetRubriquesMessages.Location = new System.Drawing.Point(3, 0);
             this.lblTitreSujetRubriquesMessages.Name = "lblTitreSujetRubriquesMessages";
-            this.lblTitreSujetRubriquesMessages.Size = new System.Drawing.Size(227, 16);
+            this.lblTitreSujetRubriquesMessages.Size = new System.Drawing.Size(352, 16);
             this.lblTitreSujetRubriquesMessages.TabIndex = 3;
-            this.lblTitreSujetRubriquesMessages.Text = "Entrez ci-dessous votre titre de sujet :";
+            this.lblTitreSujetRubriquesMessages.Text = "Entrez ci-dessous votre titre de sujet, 256 caractères maxi :";
             // 
             // txtbTitreSujet
             // 
             this.txtbTitreSujet.Location = new System.Drawing.Point(3, 19);
+            this.txtbTitreSujet.MaxLength = 256;
             this.txtbTitreSujet.Name = "txtbTitreSujet";
             this.txtbTitreSujet.Size = new System.Drawing.Size(395, 26);
             this.txtbTitreSujet.TabIndex = 5;
@@ -288,13 +293,14 @@
             this.lblTexteSujet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTexteSujet.Location = new System.Drawing.Point(3, 48);
             this.lblTexteSujet.Name = "lblTexteSujet";
-            this.lblTexteSujet.Size = new System.Drawing.Size(248, 16);
+            this.lblTexteSujet.Size = new System.Drawing.Size(380, 16);
             this.lblTexteSujet.TabIndex = 6;
-            this.lblTexteSujet.Text = "Entrez ci-dessous le texte de votre sujet :";
+            this.lblTexteSujet.Text = "Entrez ci-dessous le texte de votre sujet, 1024 caractères maxi :";
             // 
             // txtbTexteSujet
             // 
             this.txtbTexteSujet.Location = new System.Drawing.Point(3, 67);
+            this.txtbTexteSujet.MaxLength = 1024;
             this.txtbTexteSujet.Multiline = true;
             this.txtbTexteSujet.Name = "txtbTexteSujet";
             this.txtbTexteSujet.Size = new System.Drawing.Size(395, 133);
@@ -316,29 +322,29 @@
             // dgvSujets
             // 
             this.dgvSujets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.NullValue = null;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvSujets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSujets.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSujets.Location = new System.Drawing.Point(3, 22);
             this.dgvSujets.MultiSelect = false;
             this.dgvSujets.Name = "dgvSujets";
             this.dgvSujets.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSujets.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSujets.RowHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvSujets.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvSujets.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSujets.RowTemplate.ReadOnly = true;
@@ -363,10 +369,11 @@
             // gbxRubriquesMessagesInf
             // 
             this.gbxRubriquesMessagesInf.AutoSize = true;
+            this.gbxRubriquesMessagesInf.Controls.Add(this.lblDgvReponseVide);
             this.gbxRubriquesMessagesInf.Controls.Add(this.flpReponses);
             this.gbxRubriquesMessagesInf.Controls.Add(this.dgvReponses);
             this.gbxRubriquesMessagesInf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxRubriquesMessagesInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxRubriquesMessagesInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRubriquesMessagesInf.Location = new System.Drawing.Point(0, 0);
             this.gbxRubriquesMessagesInf.Name = "gbxRubriquesMessagesInf";
             this.gbxRubriquesMessagesInf.Size = new System.Drawing.Size(1252, 277);
@@ -393,14 +400,15 @@
             this.lblTexteReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTexteReponse.Location = new System.Drawing.Point(3, 0);
             this.lblTexteReponse.Name = "lblTexteReponse";
-            this.lblTexteReponse.Size = new System.Drawing.Size(270, 16);
+            this.lblTexteReponse.Size = new System.Drawing.Size(387, 16);
             this.lblTexteReponse.TabIndex = 7;
-            this.lblTexteReponse.Text = "Entrez ci-dessous le texte de votre réponse :";
+            this.lblTexteReponse.Text = "Entrez ci-dessous le texte de votre réponse, 1024 carctère maxi :";
             // 
             // txtbTexteReponse
             // 
             this.txtbTexteReponse.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtbTexteReponse.Location = new System.Drawing.Point(3, 19);
+            this.txtbTexteReponse.MaxLength = 1024;
             this.txtbTexteReponse.Multiline = true;
             this.txtbTexteReponse.Name = "txtbTexteReponse";
             this.txtbTexteReponse.Size = new System.Drawing.Size(395, 133);
@@ -422,14 +430,30 @@
             // dgvReponses
             // 
             this.dgvReponses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dgvReponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponses.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvReponses.Location = new System.Drawing.Point(3, 22);
             this.dgvReponses.MultiSelect = false;
             this.dgvReponses.Name = "dgvReponses";
             this.dgvReponses.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponses.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReponses.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.dgvReponses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvReponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReponses.Size = new System.Drawing.Size(835, 252);
@@ -463,7 +487,8 @@
             // lblRefreshDonnees
             // 
             this.lblRefreshDonnees.AutoSize = true;
-            this.lblRefreshDonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRefreshDonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRefreshDonnees.ForeColor = System.Drawing.Color.Green;
             this.lblRefreshDonnees.Location = new System.Drawing.Point(3, 0);
             this.lblRefreshDonnees.Name = "lblRefreshDonnees";
             this.lblRefreshDonnees.Size = new System.Drawing.Size(0, 15);
@@ -651,17 +676,17 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(3, 0);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(47, 16);
+            this.lblLogin.Size = new System.Drawing.Size(56, 20);
             this.lblLogin.TabIndex = 1;
             this.lblLogin.Text = "Login :";
             // 
             // txtbLogin
             // 
             this.txtbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbLogin.Location = new System.Drawing.Point(3, 19);
+            this.txtbLogin.Location = new System.Drawing.Point(3, 23);
             this.txtbLogin.Name = "txtbLogin";
             this.txtbLogin.Size = new System.Drawing.Size(311, 26);
             this.txtbLogin.TabIndex = 0;
@@ -669,10 +694,10 @@
             // lblMdp
             // 
             this.lblMdp.AutoSize = true;
-            this.lblMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMdp.Location = new System.Drawing.Point(3, 48);
+            this.lblMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMdp.Location = new System.Drawing.Point(3, 52);
             this.lblMdp.Name = "lblMdp";
-            this.lblMdp.Size = new System.Drawing.Size(97, 16);
+            this.lblMdp.Size = new System.Drawing.Size(114, 20);
             this.lblMdp.TabIndex = 3;
             this.lblMdp.Text = "Mot de Passe :";
             // 
@@ -680,7 +705,7 @@
             // 
             this.txtbMdp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbMdp.Location = new System.Drawing.Point(3, 67);
+            this.txtbMdp.Location = new System.Drawing.Point(3, 75);
             this.txtbMdp.Name = "txtbMdp";
             this.txtbMdp.PasswordChar = '*';
             this.txtbMdp.Size = new System.Drawing.Size(311, 26);
@@ -691,13 +716,48 @@
             // 
             this.btnConnexion.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnexion.Location = new System.Drawing.Point(3, 99);
+            this.btnConnexion.Location = new System.Drawing.Point(3, 107);
             this.btnConnexion.Name = "btnConnexion";
             this.btnConnexion.Size = new System.Drawing.Size(311, 43);
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "GO !";
             this.btnConnexion.UseVisualStyleBackColor = true;
             this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
+            // 
+            // btnMdpOubli
+            // 
+            this.btnMdpOubli.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMdpOubli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMdpOubli.Location = new System.Drawing.Point(3, 156);
+            this.btnMdpOubli.Name = "btnMdpOubli";
+            this.btnMdpOubli.Size = new System.Drawing.Size(311, 43);
+            this.btnMdpOubli.TabIndex = 5;
+            this.btnMdpOubli.Text = "Mot de passe oublié ?";
+            this.btnMdpOubli.UseVisualStyleBackColor = true;
+            this.btnMdpOubli.Click += new System.EventHandler(this.btnMdpOubli_Click);
+            // 
+            // lblMdpOubliMail
+            // 
+            this.lblMdpOubliMail.AutoSize = true;
+            this.lblMdpOubliMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMdpOubliMail.Location = new System.Drawing.Point(3, 202);
+            this.lblMdpOubliMail.Name = "lblMdpOubliMail";
+            this.lblMdpOubliMail.Size = new System.Drawing.Size(244, 20);
+            this.lblMdpOubliMail.TabIndex = 7;
+            this.lblMdpOubliMail.Text = "Veuillez saisir votre adresse mail :";
+            this.lblMdpOubliMail.Visible = false;
+            // 
+            // txtbMdpOubliMail
+            // 
+            this.txtbMdpOubliMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbMdpOubliMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbMdpOubliMail.Location = new System.Drawing.Point(3, 225);
+            this.txtbMdpOubliMail.Name = "txtbMdpOubliMail";
+            this.txtbMdpOubliMail.PasswordChar = '*';
+            this.txtbMdpOubliMail.Size = new System.Drawing.Size(311, 26);
+            this.txtbMdpOubliMail.TabIndex = 6;
+            this.txtbMdpOubliMail.UseSystemPasswordChar = true;
+            this.txtbMdpOubliMail.Visible = false;
             // 
             // lblInfosLogin
             // 
@@ -910,6 +970,7 @@
             this.txtbInscriptionPasse.Name = "txtbInscriptionPasse";
             this.txtbInscriptionPasse.Size = new System.Drawing.Size(311, 26);
             this.txtbInscriptionPasse.TabIndex = 9;
+            this.txtbInscriptionPasse.UseSystemPasswordChar = true;
             // 
             // btnValidInscription
             // 
@@ -939,7 +1000,7 @@
             // 
             this.flpChangePass.BackColor = System.Drawing.Color.DarkGray;
             this.flpChangePass.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpChangePass.Controls.Add(this.label1);
+            this.flpChangePass.Controls.Add(this.lblNewpass);
             this.flpChangePass.Controls.Add(this.txtbNouveauPasse);
             this.flpChangePass.Controls.Add(this.lblConfirmPass);
             this.flpChangePass.Controls.Add(this.txtbConfirmNouveauPasse);
@@ -950,15 +1011,15 @@
             this.flpChangePass.Size = new System.Drawing.Size(325, 264);
             this.flpChangePass.TabIndex = 17;
             // 
-            // label1
+            // lblNewpass
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 20);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Veuillez entrer le nouveau mot de passe :";
+            this.lblNewpass.AutoSize = true;
+            this.lblNewpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewpass.Location = new System.Drawing.Point(3, 0);
+            this.lblNewpass.Name = "lblNewpass";
+            this.lblNewpass.Size = new System.Drawing.Size(299, 20);
+            this.lblNewpass.TabIndex = 12;
+            this.lblNewpass.Text = "Veuillez entrer le nouveau mot de passe :";
             // 
             // txtbNouveauPasse
             // 
@@ -1048,40 +1109,17 @@
             this.btnChangePass.Visible = false;
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
-            // btnMdpOubli
+            // lblDgvReponseVide
             // 
-            this.btnMdpOubli.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMdpOubli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMdpOubli.Location = new System.Drawing.Point(3, 148);
-            this.btnMdpOubli.Name = "btnMdpOubli";
-            this.btnMdpOubli.Size = new System.Drawing.Size(311, 43);
-            this.btnMdpOubli.TabIndex = 5;
-            this.btnMdpOubli.Text = "Mot de passe oublié ?";
-            this.btnMdpOubli.UseVisualStyleBackColor = true;
-            this.btnMdpOubli.Click += new System.EventHandler(this.btnMdpOubli_Click);
-            // 
-            // txtbMdpOubliMail
-            // 
-            this.txtbMdpOubliMail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbMdpOubliMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbMdpOubliMail.Location = new System.Drawing.Point(3, 213);
-            this.txtbMdpOubliMail.Name = "txtbMdpOubliMail";
-            this.txtbMdpOubliMail.PasswordChar = '*';
-            this.txtbMdpOubliMail.Size = new System.Drawing.Size(311, 26);
-            this.txtbMdpOubliMail.TabIndex = 6;
-            this.txtbMdpOubliMail.UseSystemPasswordChar = true;
-            this.txtbMdpOubliMail.Visible = false;
-            // 
-            // lblMdpOubliMail
-            // 
-            this.lblMdpOubliMail.AutoSize = true;
-            this.lblMdpOubliMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMdpOubliMail.Location = new System.Drawing.Point(3, 194);
-            this.lblMdpOubliMail.Name = "lblMdpOubliMail";
-            this.lblMdpOubliMail.Size = new System.Drawing.Size(210, 16);
-            this.lblMdpOubliMail.TabIndex = 7;
-            this.lblMdpOubliMail.Text = "Veuillez saisir votre adresse mail :";
-            this.lblMdpOubliMail.Visible = false;
+            this.lblDgvReponseVide.AutoSize = true;
+            this.lblDgvReponseVide.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblDgvReponseVide.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDgvReponseVide.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDgvReponseVide.Location = new System.Drawing.Point(146, 143);
+            this.lblDgvReponseVide.Name = "lblDgvReponseVide";
+            this.lblDgvReponseVide.Size = new System.Drawing.Size(0, 16);
+            this.lblDgvReponseVide.TabIndex = 14;
+            this.lblDgvReponseVide.Visible = false;
             // 
             // AccueilForum
             // 
@@ -1116,6 +1154,7 @@
             this.pnlRubriquesMessagesMiddle.ResumeLayout(false);
             this.pnlRubriquesMessagesMiddle.PerformLayout();
             this.gbxRubriquesMessagesInf.ResumeLayout(false);
+            this.gbxRubriquesMessagesInf.PerformLayout();
             this.flpReponses.ResumeLayout(false);
             this.flpReponses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponses)).EndInit();
@@ -1187,7 +1226,7 @@
         private System.Windows.Forms.Button btnValidInscription;
         private System.Windows.Forms.Label lblInfoNouveauPasse;
         private System.Windows.Forms.Button btnChangePass;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNewpass;
         private System.Windows.Forms.TextBox txtbNouveauPasse;
         private System.Windows.Forms.Label lblConfirmPass;
         private System.Windows.Forms.TextBox txtbConfirmNouveauPasse;
@@ -1235,6 +1274,7 @@
         private System.Windows.Forms.Button btnMdpOubli;
         private System.Windows.Forms.Label lblMdpOubliMail;
         private System.Windows.Forms.TextBox txtbMdpOubliMail;
+        private System.Windows.Forms.Label lblDgvReponseVide;
     }
 }
 

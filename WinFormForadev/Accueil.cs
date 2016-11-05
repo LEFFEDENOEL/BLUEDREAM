@@ -100,8 +100,19 @@ namespace WinFormForadev
             List<Reponse> listeReponses = BLLMain.GetReponsesBySujet(titreSujet);
 
             if (listeReponses.Count == 0){
+
                 btnSupprimerReponse.Enabled = false;
+                lblDgvReponseVide.Visible = true;
+                Constante constanteNoReponse;
+                dictionnaireConstantes.TryGetValue("NO_REPONSE", out constanteNoReponse);
+                lblDgvReponseVide.Text = constanteNoReponse.Valeur1;
             }
+            else
+            {
+                btnSupprimerReponse.Enabled = true;
+                lblDgvReponseVide.Visible = false;
+            }
+
             //Alimentation du bindingsource avec la liste créé
             BindingSource bsReponses = new BindingSource();
 
@@ -223,10 +234,12 @@ namespace WinFormForadev
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             string mdpFromClient = txtbMdp.Text;
+
             // Appel méthode statique de haschage dans la classe statique BLL
             string empreinteSha = BLLMain.HashShaMdp(mdpFromClient);
-            string login = txtbLogin.Text;
 
+            string login = txtbLogin.Text;                  
+                 
             // Appel méthode statique d'authentification dans la classe BLL
             uConnect = BLLMain.GetIdentificationUtilisateur(empreinteSha, login);
          
@@ -316,8 +329,7 @@ namespace WinFormForadev
                 dictionnaireConstantes.TryGetValue("PASS_NOT_VALID", out constanteErreurPassValid);
                 MessageBox.Show(constanteErreurPassValid.Valeur2, constanteErreurPassValid.Valeur1,
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtbNouveauPasse.Clear();
-                txtbConfirmNouveauPasse.Clear();
+                txtbInscriptionPasse.Clear();             
             }              
         }
 

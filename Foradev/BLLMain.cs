@@ -15,9 +15,11 @@ namespace BLLForadev
     /// </summary>
     public static class BLLMain
     {
+        #region Gestion de la sécurité - mot de passe-
+
         // Déclaration constante expression rationnelle si pas en base de données
         //static private readonly string EXPRESSION_RATIONNELLE = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{12,})";
-                      
+
         /// <summary>
         /// Méthode REGEX qui vérifie les impératifs de sécurité du mot de passe.
         /// Expression régulière chargée dans un dictionnaire depuis la base de données.
@@ -82,6 +84,20 @@ namespace BLLForadev
         }
 
         /// <summary>
+        /// Renvoie objet utilisateurConnecte ou objet utilisateurConnecte NULL si utilisateur inconnu ou NULL si exception SQL
+        /// </summary>
+        /// <param name="empreinteSha"></param>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
+        {
+            return DALMain.GetIdentificationUtilisateur(empreinteSha, login);
+        }
+        #endregion
+
+        #region Autres méthodes
+
+        /// <summary>
         /// Méthode qui permet la création d'un utilisateur.
         /// Renvoie le login de l'utilisateur ou NULL si exception SQL      
         /// </summary>
@@ -98,18 +114,6 @@ namespace BLLForadev
                                               string empreinteSha, string pseudo, DateTime dateInscription)
         {
             return DALMain.AjoutUtilisateur(nom, prenom, estModerateur, mail, empreinteSha, pseudo, dateInscription);
-        }
-
-        /// <summary>
-        /// Renvoie objet utilisateurConnecte ou objet utilisateurConnecte NULL si utilisateur inconnu ou NULL si exception SQL
-        /// </summary>
-        /// <param name="empreinteSha"></param>
-        /// <param name="login"></param>
-        /// <returns></returns>
-        static public UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
-        {
-            return DALMain.GetIdentificationUtilisateur(empreinteSha, login);
-
         }
 
         /// <summary>
@@ -226,5 +230,6 @@ namespace BLLForadev
         {
             return DALMain.ModifierDescriptionSujet(idSujet, descSujet);
         }
+        #endregion
     }
 }
