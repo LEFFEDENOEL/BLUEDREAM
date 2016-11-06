@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALForadev", "DALForadev\DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "METIERForadev", "METIERForadev\METIERForadev.csproj", "{D1943AE0-025F-45B9-8D07-29265D40571B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsUnitairesForadev", "TestsUnitairesForadev\TestsUnitairesForadev.csproj", "{989B1B1F-097D-42BC-BAF2-3306E71DFD75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D1943AE0-025F-45B9-8D07-29265D40571B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1943AE0-025F-45B9-8D07-29265D40571B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1943AE0-025F-45B9-8D07-29265D40571B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{989B1B1F-097D-42BC-BAF2-3306E71DFD75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989B1B1F-097D-42BC-BAF2-3306E71DFD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989B1B1F-097D-42BC-BAF2-3306E71DFD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989B1B1F-097D-42BC-BAF2-3306E71DFD75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

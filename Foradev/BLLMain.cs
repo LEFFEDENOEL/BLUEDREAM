@@ -26,7 +26,7 @@ namespace BLLForadev
         /// </summary>
         /// <param name="mdpFromClient"></param>
         /// <returns>TRUE si le mot de passe rempli les conditions, FALSE si conditions non remplie</returns>
-        static public bool validRegex(string mdpFromClient)
+        static public bool ValidRegex(string mdpFromClient)
         {
             Constante EXPRESSION_RATIONNELLE;
             Dictionary<string, Constante> dictionnaireConstantes;

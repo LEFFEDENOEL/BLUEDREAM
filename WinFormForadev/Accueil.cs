@@ -233,48 +233,54 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            string mdpFromClient = txtbMdp.Text;
-
-            // Appel méthode statique de haschage dans la classe statique BLL
-            string empreinteSha = BLLMain.HashShaMdp(mdpFromClient);
-
-            string login = txtbLogin.Text;                  
-                 
-            // Appel méthode statique d'authentification dans la classe BLL
-            uConnect = BLLMain.GetIdentificationUtilisateur(empreinteSha, login);
-         
-            // Si objet uConnect est null : exception Sql--> appel dictionnaire constantes, msg erreur
-            if (uConnect == null)
+            if (txtbMdp.Text != null && txtbLogin != null)
             {
-                Constante constanteEchecConnexion;
-                dictionnaireConstantes.TryGetValue("BDD_RETRIEVE", out constanteEchecConnexion);
-                MessageBox.Show(constanteEchecConnexion.Valeur2, constanteEchecConnexion.Valeur1, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                txtbLogin.Clear();
-                txtbMdp.Clear();
-            }
-            // Si id_utilisateur = 0 : utilisateur inconnu dans la base de données --> appel dictionnaire constantes, msg erreur
-            else if (uConnect.Id == 0)
-            {
-                Constante constanteErreurAuthenticication;
-                dictionnaireConstantes.TryGetValue("BDD_AUTHENTIFICATION", out constanteErreurAuthenticication);
-                MessageBox.Show(constanteErreurAuthenticication.Valeur2, constanteErreurAuthenticication.Valeur1, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtbLogin.Clear();
-                txtbMdp.Clear();
+                string mdpFromClient = txtbMdp.Text;
+
+                // Appel méthode statique de haschage dans la classe statique BLL
+                string empreinteSha = BLLMain.HashShaMdp(mdpFromClient);
+
+                string login = txtbLogin.Text;
+
+                // Appel méthode statique d'authentification dans la classe BLL
+                uConnect = BLLMain.GetIdentificationUtilisateur(empreinteSha, login);
+
+                // Si objet uConnect est null : exception Sql--> appel dictionnaire constantes, msg erreur
+                if (uConnect == null)
+                {
+                    Constante constanteEchecConnexion;
+                    dictionnaireConstantes.TryGetValue("BDD_RETRIEVE", out constanteEchecConnexion);
+                    MessageBox.Show(constanteEchecConnexion.Valeur2, constanteEchecConnexion.Valeur1,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtbLogin.Clear();
+                    txtbMdp.Clear();
+                }
+                // Si id_utilisateur = 0 : utilisateur inconnu dans la base de données --> appel dictionnaire constantes, msg erreur
+                else if (uConnect.Id == 0)
+                {
+                    Constante constanteErreurAuthenticication;
+                    dictionnaireConstantes.TryGetValue("BDD_AUTHENTIFICATION", out constanteErreurAuthenticication);
+                    MessageBox.Show(constanteErreurAuthenticication.Valeur2, constanteErreurAuthenticication.Valeur1,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtbLogin.Clear();
+                    txtbMdp.Clear();
+                }
+                else
+                {
+                    // Suivant le rôle remonté de la BDD, accés aux composants graphiques différencié
+                    if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
+                    else VisibiliteComposantsUtilisateurNonModerateurConnecte();
+
+                    Constante constanteValidLogin;
+                    dictionnaireConstantes.TryGetValue("PASS_VALIDE", out constanteValidLogin);
+                    MessageBox.Show(constanteValidLogin.Valeur2, constanteValidLogin.Valeur1 + login,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                // Suivant le rôle remonté de la BDD, accés aux composants graphiques différencié
-                if (uConnect.Role) VisibiliteComposantsUtilisateurModerateurConnecte();
-                else VisibiliteComposantsUtilisateurNonModerateurConnecte();
-                
-                Constante constanteValidLogin;
-                dictionnaireConstantes.TryGetValue("PASS_VALIDE", out constanteValidLogin);
-                MessageBox.Show(constanteValidLogin.Valeur2, constanteValidLogin.Valeur1 + login, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //TODO ERROR MESSAGE
             }
-
             //TODO SWITCH CASE TRUE
         }
 
@@ -291,7 +297,7 @@ namespace WinFormForadev
             string mail = txtbMail.Text;
 
             // Appel methode de vérification sécurité mot de passe
-            bool validPass = BLLMain.validRegex(txtbInscriptionPasse.Text);
+            bool validPass = BLLMain.ValidRegex(txtbInscriptionPasse.Text);
 
             if (validPass == true)
             {
@@ -343,7 +349,7 @@ namespace WinFormForadev
             if (txtbNouveauPasse.Text == txtbConfirmNouveauPasse.Text)
             {
                 // Appel methode de vérification sécurité mot de passe
-                bool validPass = BLLMain.validRegex(txtbConfirmNouveauPasse.Text);
+                bool validPass = BLLMain.ValidRegex(txtbConfirmNouveauPasse.Text);
 
                 if (validPass == true)
                 {
@@ -453,7 +459,6 @@ namespace WinFormForadev
             LoadSujet();
             LoadReponse();
         }
-
 
         /// <summary>
         /// Méthode qui permet à un modérateur connecté de supprimer une réponse
