@@ -318,8 +318,10 @@ namespace WinFormForadev
                                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
-                {
-                    VisibiliteComposantsLoginInscription();
+                {                   
+                    flpIdentification.Visible = true;
+                    flpInscription.Visible = false;
+                    lblInfoPasseInscription.Visible = false;
 
                     // Confirmation inscription --> dictionnaire constantes, msg ok
                     Constante constanteValidInscription;
@@ -405,7 +407,7 @@ namespace WinFormForadev
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAjoutSujet_Click(object sender, EventArgs e)
-        {           
+        {
             int idUtilisateur = uConnect.Id;
             int idRubrique = Int32.Parse(cbxListeRubriques.SelectedValue.ToString());           
             string titreSujet = txtbTitreSujet.Text;
@@ -483,16 +485,15 @@ namespace WinFormForadev
         /// <param name="e"></param>
         private void btnModifierTitreSujet_Click(object sender, EventArgs e)
         {
-            int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
-            string titreSujet = txtbTitreSujet.Text;
+                int idSujet = Int32.Parse(dgvSujets.CurrentRow.Cells[1].Value.ToString());
+                string titreSujet = txtbTitreSujet.Text;
 
-            // Appel méthode statique dans classe statique BLL
-            BLLMain.ModifierTitreSujet(idSujet, titreSujet);
+                // Appel méthode statique dans classe statique BLL
+                BLLMain.ModifierTitreSujet(idSujet, titreSujet);
 
-            // Rechargement-rafraîchissement du datagridview "Sujets"
-            LoadSujet();
-          
-            txtbTitreSujet.Clear();
+                // Rechargement-rafraîchissement du datagridview "Sujets"
+                LoadSujet();
+                txtbTitreSujet.Clear();
         }
 
         /// <summary>
@@ -550,6 +551,29 @@ namespace WinFormForadev
         {
             lblMdpOubliMail.Visible = true;
             txtbMdpOubliMail.Visible = true;
+        }
+
+        private void txtbTitreSujet_TextChanged(object sender, EventArgs e)
+        {
+            btnAjoutSujet.Enabled = !(String.IsNullOrWhiteSpace(txtbTitreSujet.Text)
+                                      || String.IsNullOrWhiteSpace(txtbTexteSujet.Text));
+
+            btnModifierTitreSujet.Enabled = !(String.IsNullOrWhiteSpace(txtbTitreSujet.Text));
+                                     
+        }
+
+        private void txtbTexteSujet_TextChanged(object sender, EventArgs e)
+        {
+            btnAjoutSujet.Enabled = !(String.IsNullOrWhiteSpace(txtbTitreSujet.Text)
+                                      || String.IsNullOrWhiteSpace(txtbTexteSujet.Text));
+
+            btnModifierDescriptionSujet.Enabled = !(String.IsNullOrWhiteSpace(txtbTexteSujet.Text));
+                          
+        }
+
+        private void txtbTexteReponse_TextChanged(object sender, EventArgs e)
+        {
+            btnPosterReponse.Enabled = !(String.IsNullOrWhiteSpace(txtbTexteReponse.Text));           
         }
         #endregion
     }

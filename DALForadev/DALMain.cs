@@ -311,8 +311,7 @@ namespace DALForadev
 
             using (DataSet dSet = GetDataSet("CREATEUTILISATEUR", listeSqlParam))
             {
-                if (dSet == null) return null;
-                       
+                if (dSet == null) return null;                     
                 return GetLogin(pseudo);
             }
         }
