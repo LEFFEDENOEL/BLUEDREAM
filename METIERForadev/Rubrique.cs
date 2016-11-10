@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,12 +11,14 @@ namespace METIERForadev
     /// <summary>
     /// Classe Rubrique en association avec la classe Sujet
     /// </summary>
+    [DataContract]
     public class Rubrique
     {
         #region Champs et Propriétés
 
         private int _Id;
 
+        [DataMember]
         public int Id
         {
             get { return _Id; }
@@ -24,6 +27,7 @@ namespace METIERForadev
 
         private string _Nom;
 
+        [DataMember]
         public string Nom
         {
             get { return _Nom; }
@@ -42,12 +46,6 @@ namespace METIERForadev
         #endregion
 
         #region Methodes
-
-        //static public List<Rubrique> GetRubriques()
-        //{
-        //   return DAOPrincipale.GetRubriques();
-        //}
-
         #endregion
 
         #region Methodes héritées et substituées
