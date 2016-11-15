@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace METIERForadev
     /// <summary>
     /// Classe NonModerateur non dérivable, hérite de UtilisateurConnecte
     /// </summary>
+    [DataContract]
     public sealed class NonModerateur : UtilisateurConnecte
     {
         #region Champs et Propriétés
@@ -16,7 +18,7 @@ namespace METIERForadev
 
         #region Constructeurs
 
-        // Constructeur par défaut null
+        // Constructeur par défaut
         public NonModerateur() { }
 
         // Constructeur complet

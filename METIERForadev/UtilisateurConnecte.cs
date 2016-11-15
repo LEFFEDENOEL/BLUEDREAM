@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,10 @@ namespace METIERForadev
     /// <summary>
     /// Classe abstraite UtilisateurConnecte dérivée en classes filles NonModerateur et Moderateur, hérite de Utilisateur
     /// </summary>
+
+    [DataContract]
+    [KnownType(typeof(NonModerateur))]
+    [KnownType(typeof(Moderateur))]
     public abstract class UtilisateurConnecte : Utilisateur
     {
         #region Champs et Propriétés

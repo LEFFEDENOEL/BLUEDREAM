@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,12 +10,14 @@ namespace METIERForadev
     /// <summary>
     /// Classe Reponse non dérivable, hérite de Message
     /// </summary>
+    [DataContract]
     public sealed class Reponse : Message
     {
         #region Champs et Propriétés
 
         private int _Id;
 
+        [DataMember]
         public int Id
         {
             get { return _Id; }
@@ -23,20 +26,21 @@ namespace METIERForadev
 
         private Sujet _Sujet;
 
+        [DataMember]
         public Sujet Sujet
         {
             get { return _Sujet; }
             set { _Sujet = value; }
         }
-        //public string PseudoUtilisateur
-        //{
-        //    get { return Utilisateur.Pseudo; }
-        //}
+
         #endregion
 
         #region Constructeurs
 
-        //Constructeur complet
+        // Constructeur par défaut
+        public Reponse() { }
+
+        // Constructeur complet
         public Reponse (Utilisateur utilisateur, DateTime dateCreation, string texteMessage, int idReponse, Sujet sujet) 
                        : base(utilisateur, dateCreation, texteMessage)
         {

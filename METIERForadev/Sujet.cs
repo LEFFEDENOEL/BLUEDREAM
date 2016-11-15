@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,49 +11,53 @@ namespace METIERForadev
     /// <summary>
     /// Classe non dérivable qui hérite de la classe Message
     /// </summary>
+    [DataContract]
     public sealed class Sujet : Message
     {
         #region Champs et Propriétés
 
         //Association à la classe Rubrique
-        public Rubrique _Rubrique { get; set; }
+        [DataMember]
+        public Rubrique Rubrique { get; set; }
 
         //Association à la classe Reponse
+        [DataMember]
         private List<Reponse> _Reponse { get; set; }
 
         private int _IdSujet;
+
+        [DataMember]
         public int IdSujet
         {
             get { return _IdSujet; }
             set { _IdSujet = value; }
         }
-
-        //public string PseudoUtilisateur
-        //{
-        //    get { return Utilisateur.Pseudo; }
-        //}
-
+      
         private string _TitreSujet;
+
+        [DataMember]
         public string TitreSujet
         {
             get { return _TitreSujet; }
             set { _TitreSujet = value; }
         }
-
         #endregion
 
         #region Constructeurs
 
-        //Constructeur complet
+        // Constructeur par défaut
+        public Sujet() { }
+
+        // Constructeur complet
         public Sujet (Utilisateur utilisateur, DateTime dateMessage, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage)
                      : base(utilisateur, dateMessage, texteMessage) {
 
             TitreSujet = titreSujet;
-            _Rubrique = rubrique;
+            Rubrique = rubrique;
             IdSujet = idSujet;
         }
 
-        //Constructeurs remarquables
+        // Constructeurs remarquables
         public Sujet(Utilisateur utilisateur, Rubrique rubrique, int idSujet, string titreSujet, string texteMessage) { }
 
         public Sujet(int idSujet, string titreSujet, string texteMessage) { }

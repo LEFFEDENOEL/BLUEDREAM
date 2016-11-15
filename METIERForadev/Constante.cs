@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,12 +10,14 @@ namespace METIERForadev
     /// <summary>
     /// Classe de traitement des constantes d'erreurs chargées depuis la base de données
     /// </summary>
+    [DataContract]
     public class Constante
     {
         #region Champs et Propriétés
 
         private int _Id;
 
+        [DataMember]
         public int Id
         {
             get { return _Id; }
@@ -23,6 +26,7 @@ namespace METIERForadev
 
         private string _Reference;
 
+        [DataMember]
         public string Reference
         {
             get { return _Reference; }
@@ -31,6 +35,7 @@ namespace METIERForadev
 
         private string _Valeur1;
 
+        [DataMember]
         public string Valeur1
         {
             get { return _Valeur1; }
@@ -39,6 +44,7 @@ namespace METIERForadev
 
         private string _Valeur2;
 
+        [DataMember]
         public string Valeur2
         {
             get { return _Valeur2; }
@@ -48,7 +54,7 @@ namespace METIERForadev
 
         #region Constructeurs
 
-        //Constructeur complet
+        // Constructeur complet
         public Constante(int id, string reference, string valeur1, string valeur2)
         {
             Id = id;
@@ -58,7 +64,6 @@ namespace METIERForadev
         }
 
         // Constructeur remarquable 
-
         public Constante(string reference, string valeur1, string valeur2)
         {           
             Reference = reference;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,19 +10,23 @@ namespace METIERForadev
     /// <summary>
     /// Classe abstraite Message dérivée en classes filles Sujet et Reponse
     /// </summary>
+    [DataContract]
     public abstract class Message
     {
         #region Champs et Propriétés
 
         //Association vers classe Utilisateur
+        [DataMember]
         protected Utilisateur Utilisateur { get; set; }
 
         public string PseudoUtilisateur
         {
             get { return Utilisateur.Pseudo; }
         }
-
+    
         private DateTime _DateMessage;
+
+        [DataMember]
         public DateTime DateMessage
         {
             get { return _DateMessage; }
@@ -29,6 +34,8 @@ namespace METIERForadev
         }
 
         private string _TexteMessage;
+
+        [DataMember]
         public string TexteMessage
         {
             get { return _TexteMessage; }

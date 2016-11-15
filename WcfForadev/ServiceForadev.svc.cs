@@ -17,5 +17,20 @@ namespace WcfForadev
         {
             return DALMain.GetRubriques();
         }
+
+        public Dictionary<string, Constante> GetConstantes()
+        {
+            return DALMain.GetConstantes();
+        }
+
+        public List<Sujet> GetSujetsByRubrique(string nomRubrique)
+        {
+            return DALMain.GetSujetsByRubrique(nomRubrique);
+        }
+
+        public List<Reponse> GetReponsesBySujet(string titreSujet)
+        {
+            return DALMain.GetReponsesBySujet(titreSujet);
+        }
     }
 }

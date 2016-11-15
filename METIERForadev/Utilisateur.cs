@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,11 +10,16 @@ namespace METIERForadev
     /// <summary>
     /// Classe abstraite Utilisateur dérivée en classes filles UtilisateurNonConnecte et UtilisateurConnecte
     /// </summary>
+    [DataContract]
+    [KnownType(typeof(UtilisateurConnecte))]
+    [KnownType(typeof(UtilisateurNonConnecte))]
     public abstract class Utilisateur
     {
         #region Champs et Propriétés
 
         protected int _Id;
+
+        [DataMember]
         public int Id
         {
             get { return _Id; }
@@ -21,6 +27,8 @@ namespace METIERForadev
         }
 
         protected string _Nom;
+
+        [DataMember]
         public string Nom
         {
             get { return _Nom; }
@@ -28,6 +36,8 @@ namespace METIERForadev
         }
 
         protected string _Prenom;
+
+        [DataMember]
         public string Prenom
         {
             get { return _Prenom; }
@@ -36,6 +46,8 @@ namespace METIERForadev
         }
 
         protected string _Mail;
+
+        [DataMember]
         public string Mail
         {
             get { return _Mail; }
@@ -44,12 +56,16 @@ namespace METIERForadev
         }
 
         protected string _Login;
+
+        [DataMember]
         public string Login
         {
             get { return _Login; }
             set { _Login = value; }
         }
         protected bool _Role;
+
+        [DataMember]
         public bool Role
         {
             get { return _Role; }
@@ -58,6 +74,8 @@ namespace METIERForadev
         }
 
         protected string _Pseudo;
+
+        [DataMember]
         public string Pseudo
         {
             get { return _Pseudo; }
@@ -66,6 +84,8 @@ namespace METIERForadev
         }
 
         protected DateTime _DateInscription;
+
+        [DataMember]
         public DateTime DateInscription
         {
             get { return _DateInscription; }
