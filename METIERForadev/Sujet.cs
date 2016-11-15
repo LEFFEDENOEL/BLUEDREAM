@@ -63,21 +63,9 @@ namespace METIERForadev
         public Sujet(int idSujet, string titreSujet, string texteMessage) { }
 
         public Sujet(string titreSujet, string texteMessage) { }
-
         #endregion
 
         #region Methodes
-
-        public void PosterMessage()
-        {
-
-        }
-
-        public void GetSujetsByRubrique()
-        {
-            //List<Sujet> listeSujets = DAOPrincipale.GetSujetsByRubrique(cbxListeRubriques.SelectedValue.ToString());
-        }
-
         #endregion
 
         #region Methodes héritées et substituées

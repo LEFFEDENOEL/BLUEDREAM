@@ -37,7 +37,10 @@ namespace METIERForadev
 
         #region Constructeurs
 
-        //Constructeur complet
+        // Constructeur par défaut
+        public Rubrique() { }
+
+        // Constructeur complet
         public Rubrique(int idRubrique, string nom)
         {
             Id = idRubrique;

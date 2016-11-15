@@ -39,7 +39,6 @@ namespace METIERForadev
         {
             return base.ToString();// TODO par rapport a ToString de Utilisateur mais pas obligé
         }
-
         #endregion
 
         #region Methodes à implementer pour les interfaces

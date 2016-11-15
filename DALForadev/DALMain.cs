@@ -29,7 +29,6 @@ namespace DALForadev
             return DALTools.GetDataSet(nomProcedureStockee, listeSqlParam);
         }
 
-
         /// <summary>
         /// Renvoie objet utilisateurConnecte ou objet utilisateurConnecte NULL si utilisateur inconnu ou NULL si exception SQL
         /// <param name="empreinteSha"></param>
@@ -37,9 +36,7 @@ namespace DALForadev
         /// </summary>
         /// <returns></returns>
         public static UtilisateurConnecte GetIdentificationUtilisateur(string empreinteSha, string login)
-        {
-            
-
+        {           
             List<SqlParameter> listeSqlParam = new List<SqlParameter>();
 
             listeSqlParam.Add(new SqlParameter("EMPREINTESHA", empreinteSha));

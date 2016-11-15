@@ -32,13 +32,9 @@ namespace METIERForadev
         // Constructeur remarquable
         public UtilisateurConnecte(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
                                    : base(id,nom, prenom, pseudo, dtinscription) { }
-
         #endregion
 
         #region Methodes
-
-        abstract public bool PosterMessage(Message message);
-
         #endregion
 
         #region Methodes héritées et substituées

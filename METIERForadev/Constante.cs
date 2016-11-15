@@ -54,6 +54,9 @@ namespace METIERForadev
 
         #region Constructeurs
 
+        // Constructeur par défaut
+        public Constante() { }
+
         // Constructeur complet
         public Constante(int id, string reference, string valeur1, string valeur2)
         {
@@ -85,7 +88,6 @@ namespace METIERForadev
 
         #region Methodes à implementer pour les interfaces
         #endregion
-
 
     }
 }

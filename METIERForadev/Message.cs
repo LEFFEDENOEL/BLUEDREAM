@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace METIERForadev
 {
     /// <summary>
-    /// Classe abstraite Message dérivée en classes filles Sujet et Reponse
+    /// Classe abstraite Message dérivée en classes filles scellées Sujet et Reponse
     /// </summary>
     [DataContract]
     public abstract class Message
     {
         #region Champs et Propriétés
 
-        //Association vers classe Utilisateur
+        // Association vers classe Utilisateur
         [DataMember]
         protected Utilisateur Utilisateur { get; set; }
 
@@ -45,10 +45,10 @@ namespace METIERForadev
 
         #region Constructeurs
 
-        //Constructeur par défaut
+        // Constructeur par défaut
         public Message() { }
         
-        //Constructeur complet 
+        // Constructeur complet 
         protected Message(Utilisateur utilisateur, DateTime dateMessage, string texteMessage)
         {
             DateMessage = dateMessage;
@@ -58,23 +58,13 @@ namespace METIERForadev
         #endregion
 
         #region Methodes
-
-
         #endregion
 
         #region Methodes héritées et substituées
-
-        // A ENLEVER ??
-        //public override string ToString()
-        //{
-        //    return DateMessage + TexteMessage;
-        //}
-
         #endregion
 
         #region Methodes à implementer pour les interfaces
         #endregion
-
 
     }
 }

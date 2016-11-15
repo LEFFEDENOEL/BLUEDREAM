@@ -97,17 +97,17 @@ namespace METIERForadev
 
         #region Constructeurs
 
-        //Constructeur par défaut
+        // Constructeur par défaut
         protected Utilisateur (){ }
 
-        //Constructeur complet
+        // Constructeur complet
 
         protected Utilisateur(int id, string nom, string prenom, string mail, string login, bool role, string pseudo, DateTime dtinscription)
         {
             Id = id;  Nom = nom; Prenom = prenom; Mail = mail; Login = login; Role = role; Pseudo = pseudo; DateInscription = dtinscription;
         }
 
-        //Constructeur remarquable
+        // Constructeur remarquable
         protected Utilisateur(int id, string nom, string prenom, string pseudo, DateTime dtinscription)
         {
             Id = id; Nom = nom; Prenom = prenom; Pseudo = pseudo; DateInscription = dtinscription;
@@ -115,18 +115,6 @@ namespace METIERForadev
         #endregion
 
         #region Methodes
-
-        public static bool Identification(string login, string motdepasse)
-        {
-            //TODO
-            return true;
-        }
-        public static bool ChangePass(string motdepasse, string newmotdepasse)
-        {
-            //TODO
-            return true;
-        }
-
         #endregion
 
         #region Methodes héritées et substituées
