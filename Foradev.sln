@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsUnitairesForadev", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfForadev", "WcfForadev\WcfForadev.csproj", "{EAA4865A-4752-4658-916F-F5A7FD3777CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestWebServiceRestSharp", "ConsoleTestWebServiceRestSharp\ConsoleTestWebServiceRestSharp.csproj", "{2C1F9702-B491-4368-B7BC-CA87003013D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{EAA4865A-4752-4658-916F-F5A7FD3777CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAA4865A-4752-4658-916F-F5A7FD3777CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAA4865A-4752-4658-916F-F5A7FD3777CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1F9702-B491-4368-B7BC-CA87003013D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1F9702-B491-4368-B7BC-CA87003013D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1F9702-B491-4368-B7BC-CA87003013D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1F9702-B491-4368-B7BC-CA87003013D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
