@@ -11,6 +11,8 @@ namespace ConsoleTestWebServiceRestSharp
     {
         static void Main(string[] args)
         {
+            string urlService = "http://user04.2isa.org/ServiceForadev.svc/";
+
             // Test du Get sans paramètre du WebServiceREST en local ok !
 
             //var client = new RestClient("http://localhost:5000");
