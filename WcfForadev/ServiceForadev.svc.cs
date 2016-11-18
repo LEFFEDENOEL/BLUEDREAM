@@ -15,6 +15,15 @@ namespace WcfForadev
     {
         #region CREATE
 
+        /// <summary>
+        /// Méthode ajout réponse / Parse des string en entrée dans les types souhaités.
+        /// Renvoie NULL si echec
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="texteReponse"></param>
+        /// <param name="dateReponse"></param>
+        /// <returns></returns>
         public int? AjoutReponse(string idSujet, string idUtilisateur, string texteReponse, string dateReponse)
         {
             int idSujetInt;
@@ -26,6 +35,27 @@ namespace WcfForadev
             return null;
         }
 
+
+        /// <summary>
+        /// Méthode ajout sujet / Parse des string en entrée dans les types souhaites.
+        /// Revoie NULL si echec
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="idRubrique"></param>
+        /// <param name="titreSujet"></param>
+        /// <param name="descriptionSujet"></param>
+        /// <param name="dateCreationSujet"></param>
+        /// <returns></returns>
+        public int? AjoutSujet(string idUtilisateur, string idRubrique, string titreSujet, string descriptionSujet, string dateCreationSujet)
+        {
+            int idUtilisateurInt;
+            int idRubriqueInt;
+            DateTime dateCreationSujetDate;
+            if (int.TryParse(idUtilisateur, out idUtilisateurInt) & int.TryParse(idRubrique, out idRubriqueInt)
+                                                      & DateTime.TryParse(dateCreationSujet, out dateCreationSujetDate))
+                return DALMain.AjoutSujet(idUtilisateurInt, idRubriqueInt, titreSujet, descriptionSujet, dateCreationSujetDate);
+            return null;
+        }
         #endregion
 
         #region RETRIEVE
@@ -55,6 +85,13 @@ namespace WcfForadev
 
         #region UPDATE
 
+        /// <summary>
+        /// Méthode de mise à jour d'un titre sujet / Parse string en entrée de idSujet dans le type int souhaité.
+        /// Renvoie NULL si echec
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="titreSujet"></param>
+        /// <returns></returns>
         public int? ModifierTitreSujet(string idSujet, string titreSujet)
         {
             int idSujetInt;
@@ -62,7 +99,12 @@ namespace WcfForadev
             return null;
         }
 
-      
+        /// <summary>
+        /// Méthode de mise à jour d'une description sujet / Parse string en entrée de idSujet dans le type int souhaité
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="descSujet"></param>
+        /// <returns></returns>
         public int? ModifierDescriptionSujet(string idSujet, string descSujet)
         {
             int idSujetInt;
@@ -73,6 +115,12 @@ namespace WcfForadev
 
         #region DELETE
 
+        /// <summary>
+        /// Méthode de suppression d'une réponse / Parse string en entrée de idReponse dans le type int souhaité.
+        /// Renvoie NULL si echec
+        /// </summary>
+        /// <param name="idReponse"></param>
+        /// <returns></returns>
         public int? SupprimerReponse(string idReponse)
         {
             int idReponseInt;
@@ -80,6 +128,11 @@ namespace WcfForadev
             return null;
         }
 
+        /// <summary>
+        /// Méthode de suppression d'un sujet / Parse string en entrée de idSujet dans le type int souhaité
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <returns></returns>
         public int? SupprimerSujet(string idSujet)
         {
             int idSujetInt;

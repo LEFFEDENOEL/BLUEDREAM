@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using METIERForadev;
+
 
 namespace ConsoleTestWebServiceRestSharp
 {
@@ -63,10 +65,83 @@ namespace ConsoleTestWebServiceRestSharp
 
             // Test du Post avec paramètres passé dans le corps de la requête
 
+            //var client = new RestClient(urlService);
+            //var request = new RestRequest("MAJSujet", Method.POST);
+            //request.RequestFormat = DataFormat.Json;
+            //request.AddBody(new { idSujet = "1", nouveauTitreSujet = "ttt ?", nouvelleDescriptionSujet = "ddd ?" });
+
+            //var reponse = client.Execute(request);
+
+            //bool? b;
+
+            //if (reponse.StatusCode != System.Net.HttpStatusCode.OK) b = null;
+            //else b = Newtonsoft.Json.JsonConvert.DeserializeObject<bool?>(reponse.Content);
+            //if (b == null) Console.WriteLine("Renvoi de Null");
+            //else Console.WriteLine(b);
+
+            //Console.ReadKey();
+
+            // TEST DU PUT avec paramétre TitreSujet passé dans le corps OK
+
+            //var client = new RestClient(urlService);
+            //var request = new RestRequest("ModifierTitreSujet", Method.PUT);
+            //request.RequestFormat = DataFormat.Json;
+            //request.AddBody(new { idSujet = "1", titreSujet = "SUPER AMIO FRITES ??" });
+
+            //var reponse = client.Execute(request);
+
+            //bool? b;
+
+            //if (reponse.StatusCode != System.Net.HttpStatusCode.OK) b = null;
+            //else b = Newtonsoft.Json.JsonConvert.DeserializeObject<bool?>(reponse.Content);
+            //if (b == null) Console.WriteLine("Renvoi de Null");
+            //else Console.WriteLine(b);
+
+            //Console.ReadKey();
+
+            // TEST DU DELETE avec paramètre identifiant réponse passé dans le corps OK
+
+            //var client = new RestClient(urlService);
+            //var request = new RestRequest("SupprimerReponse", Method.DELETE);
+            //request.RequestFormat = DataFormat.Json;
+            //request.AddBody(new { idReponse = "39" });
+
+            //var reponse = client.Execute(request);
+
+            //bool? b;
+
+            //if (reponse.StatusCode != System.Net.HttpStatusCode.OK) b = null;
+            //else b = Newtonsoft.Json.JsonConvert.DeserializeObject<bool?>(reponse.Content);
+            //if (b == null) Console.WriteLine("Renvoi de Null");
+            //else Console.WriteLine(b);
+
+            //Console.ReadKey();
+
+            // TEST DU POST sur ajout réponse OK
+
+            //var client = new RestClient(urlService);
+            //var request = new RestRequest("AjoutReponse", Method.POST);
+            //request.RequestFormat = DataFormat.Json;
+            //request.AddBody(new { idSujet = "4", idUtilisateur = "8", texteReponse = "Restons calme +++", dateReponse = DateTime.Now });
+
+            //var reponse = client.Execute(request);
+
+            //bool? b;
+
+            //if (reponse.StatusCode != System.Net.HttpStatusCode.OK) b = null;
+            //else b = Newtonsoft.Json.JsonConvert.DeserializeObject<bool?>(reponse.Content);
+            //if (b == null) Console.WriteLine("Renvoi de Null");
+            //else Console.WriteLine(b);
+
+            //Console.ReadKey();
+
+            // TEST DU POST sur ajout sujet
+
             var client = new RestClient(urlService);
-            var request = new RestRequest("MAJSujet", Method.POST);
+            var request = new RestRequest("AjoutSujet", Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddBody(new { idSujet = "1", nouveauTitreSujet = "ttt ?", nouvelleDescriptionSujet = "ddd ?" });
+            request.AddBody(new { idUtilisateur = "7", idRubrique = "6", titreSujet = "Visite à Toulouse",
+                                  descriptionSujet = "ohhh la la : la 5ème B dans le bus !!", dateCreationSujet = DateTime.Now });
 
             var reponse = client.Execute(request);
 
@@ -78,7 +153,6 @@ namespace ConsoleTestWebServiceRestSharp
             else Console.WriteLine(b);
 
             Console.ReadKey();
-
 
             // Test de url.encode
 

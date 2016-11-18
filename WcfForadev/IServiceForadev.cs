@@ -10,18 +10,41 @@ using METIERForadev;
 
 namespace WcfForadev
 {
-   
     [ServiceContract]
     public interface IServiceForadev
     {
         #region CREATE
 
+        /// <summary>
+        /// Ajout réponse en POST
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="texteReponse"></param>
+        /// <param name="dateReponse"></param>
+        /// <returns></returns>
         [OperationContract]
         [WebInvoke(Method = "POST",
                    UriTemplate = "/AjoutReponse",
                    BodyStyle = WebMessageBodyStyle.WrappedRequest,
                    ResponseFormat = WebMessageFormat.Json)]
         int? AjoutReponse(string idSujet, string idUtilisateur, string texteReponse, string dateReponse);
+
+
+        /// <summary>
+        /// Ajout sujet en POST
+        /// </summary>
+        /// <param name="idSujet"></param>
+        /// <param name="idUtilisateur"></param>
+        /// <param name="texteReponse"></param>
+        /// <param name="dateReponse"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+                   UriTemplate = "/AjoutSujet",
+                   BodyStyle = WebMessageBodyStyle.WrappedRequest,
+                   ResponseFormat = WebMessageFormat.Json)]
+        int? AjoutSujet(string idUtilisateur, string idRubrique, string titreSujet, string descriptionSujet, string dateCreationSujet);
 
         #endregion
 
@@ -67,7 +90,7 @@ namespace WcfForadev
         #endregion
 
         #region UPDATE
-
+    
         /// <summary>
         /// Modifie un titre de sujet
         /// </summary>
@@ -75,9 +98,12 @@ namespace WcfForadev
         /// <param name="TitreSujet"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebGet(UriTemplate = "/ModifierTitreSujet/{idSujet}/{titreSujet}",
-                ResponseFormat = WebMessageFormat.Json)]
-        int? ModifierTitreSujet(string idSujet, string TitreSujet);
+        [WebInvoke(Method = "PUT",
+                   UriTemplate = "/ModifierTitreSujet",
+                   BodyStyle = WebMessageBodyStyle.WrappedRequest,
+                   ResponseFormat = WebMessageFormat.Json)]
+        int? ModifierTitreSujet(string idSujet, string titreSujet);
+
 
         /// <summary>
         /// Modifie une description sujet
@@ -86,8 +112,10 @@ namespace WcfForadev
         /// <param name="descSujet"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebGet(UriTemplate = "/ModifierDescriptionSujet/{idSujet}/{descSujet}",
-                ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "PUT",
+                   UriTemplate = "/ModifierDescriptionSujet",
+                   BodyStyle = WebMessageBodyStyle.WrappedRequest,
+                   ResponseFormat = WebMessageFormat.Json)]
         int? ModifierDescriptionSujet(string idSujet, string descSujet);
         #endregion
 
@@ -99,9 +127,12 @@ namespace WcfForadev
         /// <param name="idReponse"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebGet(UriTemplate = "/SupprimerReponse/{idReponse}",
-                ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "DELETE",
+                   UriTemplate = "/SupprimerReponse",
+                   BodyStyle = WebMessageBodyStyle.WrappedRequest,
+                   ResponseFormat = WebMessageFormat.Json)]
         int? SupprimerReponse(string idReponse);
+
 
         /// <summary>
         /// Supprime un sujet et les réponses en cascade
@@ -109,8 +140,10 @@ namespace WcfForadev
         /// <param name="idReponse"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebGet(UriTemplate = "/SupprimerSujet/{idSujet}",
-                ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "DELETE",
+                   UriTemplate = "/SupprimerSujet",
+                   BodyStyle = WebMessageBodyStyle.WrappedRequest,
+                   ResponseFormat = WebMessageFormat.Json)]
         int? SupprimerSujet(string idSujet);
         #endregion
     }
