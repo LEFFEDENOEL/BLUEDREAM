@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Foradev.Properties {
+namespace BLLForadev.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

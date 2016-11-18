@@ -238,12 +238,12 @@ namespace WinFormForadev
                 string mdpFromClient = txtbMdp.Text;
 
                 // Appel méthode statique de haschage dans la classe statique BLL
-                string empreinteSha = BLLMain.HashShaMdp(mdpFromClient);
+                string empreinteSha = BLLTools.HashShaMdp(mdpFromClient);
 
                 string login = txtbLogin.Text;
 
                 // Appel méthode statique d'authentification dans la classe BLL
-                uConnect = BLLMain.GetIdentificationUtilisateur(empreinteSha, login);
+                uConnect = BLLTools.GetIdentificationUtilisateur(empreinteSha, login);
 
                 // Si objet uConnect est null : exception Sql--> appel dictionnaire constantes, msg erreur
                 if (uConnect == null)
@@ -297,12 +297,12 @@ namespace WinFormForadev
             string mail = txtbMail.Text;
 
             // Appel methode de vérification sécurité mot de passe
-            bool validPass = BLLMain.ValidRegex(txtbInscriptionPasse.Text);
+            bool validPass = BLLTools.ValidRegex(txtbInscriptionPasse.Text);
 
             if (validPass == true)
             {
                 // Appel méthode statique de haschage dans la classe statique BLL
-                string empreinteSha = BLLMain.HashShaMdp(txtbInscriptionPasse.Text);
+                string empreinteSha = BLLTools.HashShaMdp(txtbInscriptionPasse.Text);
                 string pseudo = txtbPseudo.Text;
                 DateTime dateInscription = System.DateTime.Now;
 
@@ -351,17 +351,17 @@ namespace WinFormForadev
             if (txtbNouveauPasse.Text == txtbConfirmNouveauPasse.Text)
             {
                 // Appel methode de vérification sécurité mot de passe
-                bool validPass = BLLMain.ValidRegex(txtbConfirmNouveauPasse.Text);
+                bool validPass = BLLTools.ValidRegex(txtbConfirmNouveauPasse.Text);
 
                 if (validPass == true)
                 {
                     // Appel méthode statique de haschage dans la classe statique BLL
-                    string empreinteSha = BLLMain.HashShaMdp(txtbConfirmNouveauPasse.Text);
+                    string empreinteSha = BLLTools.HashShaMdp(txtbConfirmNouveauPasse.Text);
                     int idUtilisateur = uConnect.Id;
                     string login = uConnect.Login;
 
                     // Appel méthode statique de changement de mot de passe dans la classe statique BLL
-                    BLLMain.ChangePass(idUtilisateur, login, empreinteSha);
+                    BLLTools.ChangePass(idUtilisateur, login, empreinteSha);
 
                     flpChangePass.Visible = false;
                     lblInfoNouveauPasse.Visible = false;
